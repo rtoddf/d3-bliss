@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+		<title>D3 Bliss</title>
+		<link href="../css/bootstrap.css" rel="stylesheet">
+		<link href="../css/overwrites.css" rel="stylesheet">
+		<link href="css/projection03_equirectangular.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				  <a class="navbar-brand" href="#">D3 Bliss</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="../projects/index.html">Projects</a></li>
+						<li><a href="../charts/index.html">Charts</a></li>
+						<li><a href="index.html">Maps</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 display">
+					<h3>Projection - Equirectangular</h3>
+					<p>The equirectangular, or plate carree projection, is the simplest possible geographic projection: the identity function. It is neither equal-area nor conformal, but is sometimes used for raster data.</p>
+					<div id="example"></div>
+					<pre>var container_parent = $('.display') ,
+	chart_container = $('#example'),
+	margins = {top: 20, right: 20, bottom: 20, left: 20},
+	width = container_parent.width() - margins.left - margins.right,
+	height = (width * 0.7) - margins.top - margins.bottom,
+	vis, vis_group, aspect
+
+var projection = d3.geo.equirectangular()
+	.scale(153)
+	.translate([ width / 2, height / 2 ])
+	.precision(.1)
+
+var path = d3.geo.path()
+	.projection(projection)
+
+var graticule = d3.geo.graticule()
+
+vis = d3.select('#example').append('svg')
+	.attr({
+		'width': width + margins.left + margins.right,
+		'height': height + margins.top + margins.bottom,
+		'preserveAspectRatio': 'xMinYMid',
+		'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
+	})
+
+vis_group = vis.append('g')
+
+aspect = chart_container.width() / chart_container.height()
+
+d3.json('../../../data/world-50m.json', function(error, topology){
+	console.log(topology)
+
+	vis_group.append('path')
+		.datum(topojson.feature(topology, topology.objects.land))
+		.attr({
+			'class': 'land',
+			'd': path
+		})
+
+	vis_group.append('path')
+		.datum(topojson.mesh(topology, topology.objects.countries))
+		.attr({
+			'class': 'boundary',
+			'd': path
+		})
+})
+
+$(window).on('resize', function() {
+	var targetWidth = container_parent.width()
+	vis.attr({
+		'width': targetWidth,
+		'height': Math.round(targetWidth / aspect)
+	})
+})</pre>
+				</div>
+				<div class="col-md-4">
+					<h3>Projections</h3>
+					<ul class="list-unstyled">
+						<li><a href="projection01_albers.html">Albers USA</a></li>
+						<li><a href="projection02_lambert.html">Lambert Azimuthal Equal-Area</a></li>
+						<li><a href="projection03_equirectangular.html">Equirectangular</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="../scripts/lib/jquery.min.js"></script>
+		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
+		<script src="../scripts/lib/d3.v3.min.js"></script>
+		<script src="../scripts/lib/topojson.v1.min.js"></script>
+		<script src="scripts/projection03_equirectangular.js"></script>
+	</body>
+</html>
