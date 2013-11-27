@@ -7,7 +7,6 @@ var container_parent = $('.display') ,
 	scale_amount = '.85',
 	rateById = d3.map()
 
-// look up d3.scale.quantize()
 var quantize = d3.scale.quantize()
 		.domain([0, .15])
 		.range(d3.range(9).map(function(i){
@@ -31,7 +30,6 @@ vis_group = vis.append('g')
 
 aspect = chart_container.width() / chart_container.height()
 
-// look up queue and all its methods
 queue()
 	.defer(d3.json, '../data/us.json')
 	.defer(d3.tsv, '../data/unemployment.tsv', function(d){ 

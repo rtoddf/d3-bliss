@@ -142,7 +142,6 @@ function ready(error, topology, cities){
 		.text(function(d){
 			return d.code
 		})
-
 }
 
 $(window).on('resize', function() {

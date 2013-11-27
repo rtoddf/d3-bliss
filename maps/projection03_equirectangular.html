@@ -28,9 +28,9 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="../projects/index.html">Projects</a></li>
+						<li><a href="../projects/index.html">Projects</a></li>
 						<li><a href="../charts/index.html">Charts</a></li>
-						<li><a href="index.html">Maps</a></li>
+						<li class="active"><a href="index.html">Maps</a></li>
 					</ul>
 				</div>
 			</div>
@@ -72,8 +72,6 @@ vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 
 d3.json('../../../data/world-50m.json', function(error, topology){
-	console.log(topology)
-
 	vis_group.append('path')
 		.datum(topojson.feature(topology, topology.objects.land))
 		.attr({
@@ -118,6 +116,7 @@ $(window).on('resize', function() {
 						<li><a href="map06_worldmapcities.html">World Map with Cities</a></li>
 						<li><a href="map05_worldmaproute.html">World Map with Route</a></li>
 						<li><a href="map07_usairports.html">US Airports</a></li>
+						<li><a href="map08_mergingstates.html">Merging States</a></li>
 					</ul>
 					<h3>Interactives</h3>
 					<ul class="list-unstyled">

@@ -37,8 +37,6 @@ vis_group.append('path')
 	})
 
 d3.json('../data/world-50m.json', function(error, topology){
-	console.log(topology)
-
 	vis_group.append('path')
 		.datum(topojson.feature(topology, topology.objects.land))
 		.attr({

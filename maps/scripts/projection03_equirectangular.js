@@ -28,8 +28,6 @@ vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 
 d3.json('../../../data/world-50m.json', function(error, topology){
-	console.log(topology)
-
 	vis_group.append('path')
 		.datum(topojson.feature(topology, topology.objects.land))
 		.attr({
