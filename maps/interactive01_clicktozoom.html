@@ -11,7 +11,7 @@
 		<title>D3 Bliss</title>
 		<link href="../css/bootstrap.css" rel="stylesheet">
 		<link href="../css/overwrites.css" rel="stylesheet">
-		<link href="css/projection02_lambert.css" rel="stylesheet">
+		<link href="css/interactive01_clicktozoom.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -39,97 +39,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 display">
-					<h3>Projection - Lambert Azimuthal Equal-Area</h3>
-					<p>The azimuthal equal-area projection is also suitable for choropleths. A polar aspect of this projection is used for the United Nations logo.</p>
+					<h3>Click-to-zoom Via Transform</h3>
+					<p>Click on a state below to zoom in and see race data for that state. You can also click from state to state to see new information. Click in the white area to zoom back out. Republican states are in red, and Democratic states are in blue.</p>
 					<div id="example"></div>
-					<pre>// https://github.com/mbostock/d3/wiki/Geo-Projections
-
-var container_parent = $('.display') ,
-	chart_container = $('#example'),
-	margins = {top: 20, right: 20, bottom: 20, left: 20},
-	width = container_parent.width() - margins.left - margins.right,
-	height = width - margins.top - margins.bottom,
-	vis, vis_group, aspect
-
-var projection = d3.geo.azimuthalEqualArea()
-	.clipAngle(180 - 1e-3)
-	.scale(125)
-	.translate([ width / 2, height / 2 ])
-	.precision(.1)
-
-var path = d3.geo.path()
-	.projection(projection)
-
-var graticule = d3.geo.graticule()
-
-vis = d3.select('#example').append('svg')
-	.attr({
-		'width': width + margins.left + margins.right,
-		'height': height + margins.top + margins.bottom,
-		'preserveAspectRatio': 'xMinYMid',
-		'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
-	})
-
-vis_group = vis.append('g')
-
-aspect = chart_container.width() / chart_container.height()
-
-vis_group.append('defs')
-	.append('path')
-		.datum({
-			type: 'Sphere'
-		})
-		.attr({
-			'id': 'sphere',
-			'd': path
-		})
-
-vis_group.append('use')
-	.attr({
-		'class': 'stroke',
-		'xlink:href': '#sphere'
-	})
-
-vis_group.append('use')
-	.attr({
-		'class': 'fill',
-		'xlink:href': '#sphere'
-	})
-
-vis_group.append('path')
-	.datum(graticule)
-	.attr({
-		'class': 'graticule',
-		'd': path
-	})
-
-d3.json('../data/world-50m.json', function(error, topology){
-	console.log('topology: ', topology)
-
-	vis_group.append('path')
-		.datum(topojson.feature(topology, topology.objects.land))
-		.attr({
-			'class': 'land',
-			'd': path
-		})
-
-	vis_group.append('path')
-		.datum(topojson.mesh(topology, topology.objects.countries), function(a, b){
-			return a !== b
-		})
-		.attr({
-			'class': 'boundary',
-			'd': path
-		})
-})
-
-$(window).on('resize', function() {
-	var targetWidth = container_parent.width()
-	vis.attr({
-		'width': targetWidth,
-		'height': Math.round(targetWidth / aspect)
-	})
-})</pre>
+					<pre></pre>
 				</div>
 				<div class="col-md-4">
 					<h3>Projections</h3>
@@ -163,8 +76,9 @@ $(window).on('resize', function() {
 
 		<script src="../scripts/lib/jquery.min.js"></script>
 		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
+		<script src="../scripts/lib/underscore-min.js"></script>
 		<script src="../scripts/lib/d3.v3.min.js"></script>
 		<script src="../scripts/lib/topojson.v1.min.js"></script>
-		<script src="scripts/projection02_lambert.js"></script>
+		<script src="scripts/interactive01_clicktozoom.js"></script>
 	</body>
 </html>
