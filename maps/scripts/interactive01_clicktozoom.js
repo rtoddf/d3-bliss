@@ -34,7 +34,6 @@ vis = d3.select('#example').append('svg')
 	})
 
 vis_group = vis.append('g')
-
 aspect = chart_container.width() / chart_container.height()
 
 vis.append('rect')
