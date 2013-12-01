@@ -5,7 +5,7 @@ var container_parent = $('.display') ,
 	vis, vis_group, aspect
 
 var rotate = [ 10, -10 ],
-	velocity = [ .003, -.001 ],
+	velocity = [ .003, -.003 ],
 	time = Date.now(),
 	coordinates = [ [-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0] ]
 
