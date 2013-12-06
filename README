@@ -1,0 +1,7 @@
+I have been working with D3.js for the past year and have really enjoyed creating visualizations and maps with this amazing javascript library. This project is for me to pull all the working examples from my site and put them into one project
+
+Currently, I have only moved over a few of the map examples, but intend on adding my charts and projects in the near future.
+
+This project utilizes Bootstrap 3.0, jQuery, D3.js, Topojson.js, Queue.js, and Underscore.js. The maps are drawn from topojson files and merged with data from other apis and sources.
+
+This map projection and working maps can be viewed at http://rtodd.net/d3-bliss/maps/index.html.
