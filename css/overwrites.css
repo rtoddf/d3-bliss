@@ -9,3 +9,18 @@ body {
 pre {
 	font-size: 11px;
 }
+
+.source {
+	font-size: 12px;
+	font-style: italic;
+}
+
+.note {
+	font-size: 12px;
+	font-style: italic;
+}
+
+.submenu {
+	margin-top: 20px;
+	border-left: 1px solid rgba(0,0,0,.25)
+}
