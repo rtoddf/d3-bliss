@@ -37,118 +37,12 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 display">
+				<div class="col-md-10 display">
 					<h3>World Map with Route</h3>
 					<div id="example"></div>
-					<pre>var container_parent = $('.display') ,
-	chart_container = $('#example'),
-	margins = {top: 20, right: 20, bottom: 20, left: 20},
-	width = container_parent.width(),
-	height = (width * .6) - margins.top - margins.bottom,
-	vis, vis_group, aspect
-
-var defaults = {
-	countries: {
-		fill: 'rgba(0,0,0,.2)',
-		stroke: 'rgba(255,255,255,1)',
-		strokeWidth: .5
-	},
-	cities: {
-		fill: 'orange',
-		stroke: 'rgba(0,0,0,1)',
-		strokeWidth: 1,
-		dx: '.7em',
-		dy: '.35em',
-		fontSize: '14px',
-		fontWeight: 'bold'
-	}
-}
-
-var projection = d3.geo.mercator()
-	.scale((width + 1) / 2 / Math.PI)
-	.translate([ width / 2, height / 2 ])
-	.precision(.1)
-
-var path = d3.geo.path()
-	.projection(projection)
-
-vis = d3.select('#example').append('svg')
-	.attr({
-		'width': width + margins.left + margins.right,
-		'height': height + margins.top + margins.bottom,
-		'preserveAspectRatio': 'xMinYMid',
-		'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
-	})
-
-vis_group = vis.append('g')
-aspect = chart_container.width() / chart_container.height()
-
-queue()
-	.defer(d3.json, '../data/world-110m.json')
-	.defer(d3.csv, '../data/cities.csv')
-	.await(ready)
-
-function ready(error, topology, cities){
-	vis_group.append('path')
-		.datum(topojson.feature(topology, topology.objects.countries))
-		.attr({
-			'd': path,
-			'fill': defaults.countries.fill,
-			'stroke': defaults.countries.stroke,
-			'stroke-width': defaults.countries.strokeWidth
-		})
-
-		vis_group.selectAll('circle')
-			.data(cities)
-				.enter().append('circle')
-			.attr({
-				'cx': function(d){
-					return projection([ d.lon, d.lat ])[0]
-				},
-				'cy': function(d){
-					return projection([ d.lon, d.lat ])[1]
-				},
-				'r': 5,
-				'fill': defaults.cities.fill,
-				'stroke': defaults.cities.stroke,
-				'stroke-width': defaults.cities.strokeWidth
-			})
-
-		vis_group.selectAll('text')
-			.data(cities)
-				.enter().append('text')
-			.attr({
-				'x': function(d){
-					return projection([ d.lon, d.lat ])[0]
-				},
-				'y': function(d){
-					return projection([ d.lon, d.lat ])[1]
-				},
-				'dx': function(d){
-					if(projection([ d.lon, d.lat ])[0] > 690){
-						return '-.8em'
-					} else {
-						return defaults.cities.dx
-					}
-				},
-				'dy': defaults.cities.dy
-			})
-			.style({
-				'font-size': defaults.cities.fontSize,
-				'font-weight': defaults.cities.fontWeight,
-				'text-anchor': function(d){
-					if(projection([ d.lon, d.lat ])[0] > 690){
-						return 'end'
-					}
-				}
-			})
-			.text(function(d){
-				return d.city
-			})
-}</pre>
 				</div>
-				<div class="col-md-4">
-					<h3>Projections</h3>
+				<div class="col-md-2 submenu">
+					<h4>Projections</h4>
 					<ul class="list-unstyled">
 						<li><a href="projection01_albers.html">Albers USA</a></li>
 						<li><a href="projection02_lambert.html">Lambert Azimuthal Equal-Area</a></li>
@@ -158,8 +52,9 @@ function ready(error, topology, cities){
 						<li><a href="projection05a_orthographic.html">Orthographic w/ Neighbors</a></li>
 						<li><a href="projection06_stereographic.html">Stereographic</a></li>
 						<li><a href="projection07_gnomonic.html">Gnomonic</a></li>
+						<li><a href="projection08_eckert1.html">Eckert 1</a></li>
 					</ul>
-					<h3>Maps</h3>
+					<h4>Maps</h4>
 					<ul class="list-unstyled">
 						<li><a href="map01_choloropleth.html">Choloropleth</a></li>
 						<li><a href="map02_rhodeisland.html">Rhode Island with Counties and Hover Effect</a></li>
@@ -170,9 +65,13 @@ function ready(error, topology, cities){
 						<li><a href="map07_usairports.html">US Airports</a></li>
 						<li><a href="map08_mergingstates.html">Merging States</a></li>
 					</ul>
-					<h3>Interactives</h3>
+					<h4>Interactives</h4>
 					<ul class="list-unstyled">
 						<li><a href="interactive01_clicktozoom.html">Click-to-zoom Via Transform</a></li>
+					</ul>
+					<h4>Tests</h4>
+					<ul class="list-unstyled">
+						<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a></li>
 					</ul>
 				</div>
 			</div>

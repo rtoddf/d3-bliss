@@ -38,174 +38,12 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 display">
+				<div class="col-md-10 display">
 					<h3>World Map with Route</h3>
 					<div id="example"></div>
-					<pre>var container_parent = $('.display') ,
-	chart_container = $('#example'),
-	margins = {top: 20, right: 20, bottom: 20, left: 20},
-	width = container_parent.width() - margins.left - margins.right,
-	height = (width * .6) - margins.top - margins.bottom,
-	vis, vis_group, aspect
-
-var defaults = {
-	city: {
-		radius: 5,
-		fill: 'rgba(255,255,255,1)',
-		stroke: 'rgba(0,0,0,1)',
-		strokeWidth: 2,
-		fontSize: '12px',
-		fontY: 10,
-		fontOffset: '.71em',
-		textAnchor: 'middle'
-	},
-	countries: {
-		fill: 'rgba(102,102,102,.5)',
-		stroke: 'rgba(255,255,255,1)',
-		strokeWidth: .5
-	},
-	route: {
-		fill: 'none',
-		stroke: 'rgba(0,0,0,1)',
-		strokeWidth: 3
-	},
-	graticule: {
-		fill: 'none',
-		stroke: 'rgba(119,119,119,1)',
-		strokeWidth: .5,
-		opacity: .5
-	}
-}
-
-var projection = d3.geo.mercator()
-	.scale((width + 1) / 2 / Math.PI)
-	.translate([ width / 2, height / 2 ])
-	.precision(.1)
-
-var path = d3.geo.path()
-	.projection(projection)
-
-var graticule = d3.geo.graticule()
-
-vis = d3.select('#example').append('svg')
-	.attr({
-		'width': width + margins.left + margins.right,
-		'height': height + margins.top + margins.bottom,
-		'preserveAspectRatio': 'xMinYMid',
-		'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
-	})
-
-vis_group = vis.append('g')
-aspect = chart_container.width() / chart_container.height()
-
-vis_group.append('path')
-	.datum(graticule)
-	.attr({
-		'd': path,
-		'fill': defaults.graticule.fill,
-		'stroke': defaults.graticule.stroke,
-		'stroke-width': defaults.graticule.strokeWidth,
-		'opacity': defaults.graticule.opacity
-	})
-
-queue()
-	.defer(d3.json, '../data/world-110m.json')
-	.defer(d3.csv, '../data/cities03.csv')
-	.await(ready)
-
-function ready(error, topology, cities){
-	var route = function(){
-		var coordinates = cities.map(function(c){
-			return [parseInt(c.lon), parseInt(c.lat)]
-		})
-		return {
-			type: 'LineString',
-			coordinates: coordinates
-		}
-	}
-
-	vis_group.append('path')
-		.datum(topojson.feature(topology, topology.objects.land))
-		.attr({
-			'd': path,
-			'fill': defaults.countries.fill,
-			'stroke': defaults.countries.stroke,
-			'stroke-width': defaults.countries.strokeWidth
-		})
-
-	vis_group.append('path')
-		.datum(topojson.mesh(topology, topology.objects.countries, function(a, b) { 
-			return a !== b
-		}))
-		.attr({
-			'd': path,
-			'fill': 'none',
-			'stroke': defaults.countries.stroke,
-			'stroke-width': defaults.countries.strokeWidth
-		})
-
-	vis_group.append('path')
-		.datum(route)
-		.attr({
-			'd': path,
-			'fill': defaults.route.fill,
-			'stroke': defaults.route.stroke,
-			'stroke-width': defaults.route.strokeWidth
-		})
-
-
-	var point = vis_group.append('g')
-		.attr({
-			'class': 'points'
-		})
-		.selectAll('g')
-			.data(cities)
-				.enter().append('g')
-			.attr({
-				'transform': function(d){
-					return 'translate(' + projection([ d.lon, d.lat ])[0] + ', ' + projection([ d.lon, d.lat ])[1] + ')'
-				}
-			})
-
-	point.append('circle')
-		.attr({
-			'r': defaults.city.radius,
-			'fill': defaults.city.fill,
-			'stroke': defaults.city.stroke,
-			'stroke-width': defaults.city.strokeWidth
-		})
-
-	point.append('text')
-		.attr({
-			'y': defaults.city.fontY,
-			'dy': defaults.city.fontOffset,
-			'font-size': defaults.city.fontSize,
-			'text-anchor': defaults.city.textAnchor
-		})
-		.text(function(d){
-			return d.code
-		})
-}
-
-$(window).on('resize', function() {
-	var targetWidth = container_parent.width()
-	vis.attr({
-		'width': targetWidth,
-		'height': Math.round(targetWidth / aspect)
-	})
-})</pre>
-					<h4>cities03.csv</h4>
-					<pre>code,city,country,lat,lon
-QSF,San Francisco,USA,37.774929,-122.419416
-ATL,Atlanta,USA,33.748995,-84.387982
-LGA,New York,USA,40.714353,-74.005973
-LHR,London,UK,51.511214,-0.119824
-ATH,Athens,Greece,37.983716,23.72931
-SVO,Moscow,Russia,55.755826,37.6173
-DXB,Dubai,United Arab Emirates,25.271139,55.307485</pre>
 				</div>
-				<div class="col-md-4">
-					<h3>Projections</h3>
+				<div class="col-md-2 submenu">
+					<h4>Projections</h4>
 					<ul class="list-unstyled">
 						<li><a href="projection01_albers.html">Albers USA</a></li>
 						<li><a href="projection02_lambert.html">Lambert Azimuthal Equal-Area</a></li>
@@ -215,8 +53,9 @@ DXB,Dubai,United Arab Emirates,25.271139,55.307485</pre>
 						<li><a href="projection05a_orthographic.html">Orthographic w/ Neighbors</a></li>
 						<li><a href="projection06_stereographic.html">Stereographic</a></li>
 						<li><a href="projection07_gnomonic.html">Gnomonic</a></li>
+						<li><a href="projection08_eckert1.html">Eckert 1</a></li>
 					</ul>
-					<h3>Maps</h3>
+					<h4>Maps</h4>
 					<ul class="list-unstyled">
 						<li><a href="map01_choloropleth.html">Choloropleth</a></li>
 						<li><a href="map02_rhodeisland.html">Rhode Island with Counties and Hover Effect</a></li>
@@ -227,9 +66,13 @@ DXB,Dubai,United Arab Emirates,25.271139,55.307485</pre>
 						<li><a href="map07_usairports.html">US Airports</a></li>
 						<li><a href="map08_mergingstates.html">Merging States</a></li>
 					</ul>
-					<h3>Interactives</h3>
+					<h4>Interactives</h4>
 					<ul class="list-unstyled">
 						<li><a href="interactive01_clicktozoom.html">Click-to-zoom Via Transform</a></li>
+					</ul>
+					<h4>Tests</h4>
+					<ul class="list-unstyled">
+						<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a></li>
 					</ul>
 				</div>
 			</div>

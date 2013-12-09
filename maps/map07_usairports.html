@@ -37,79 +37,12 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 display">
+				<div class="col-md-10 display">
 					<h3>World Map with Route</h3>
 					<div id="example"></div>
-					<pre>var container_parent = $('.display') ,
-	chart_container = $('#example'),
-	margins = {top: 20, right: 20, bottom: 20, left: 70},
-	width = container_parent.width(),
-	height = (width * .6) - margins.top - margins.bottom,
-	vis, vis_group, aspect,
-	scale_amount = '.90'
-
-var projection = d3.geo.albers()
-
-var path = d3.geo.path()
-	.projection(projection)
-	.pointRadius(1.5)
-
-vis = d3.select('#example').append('svg')
-	.attr({
-		'width': width,
-		'height': height + margins.top + margins.bottom,
-		'preserveAspectRatio': 'xMinYMid',
-		'viewBox': '0 0 ' + width + ' ' + height
-	})
-
-vis_group = vis.append('g')
-	.attr({
-        'transform': 'translate(' + -(margins.left) + ', ' + -(margins.top) + ') scale(' + scale_amount + ')'
-    })
-
-aspect = chart_container.width() / chart_container.height()
-
-queue()
-	.defer(d3.json, '../data/us.json')
-	.defer(d3.json, '../data/airports.json')
-	.await(ready)
-
-function ready(error, us, airports){
-	vis_group.append('path')
-		.datum(topojson.feature(us, us.objects.land))
-		.attr({
-			'd': path,
-			'fill': '#ccc'
-		})
-
-	vis_group.append('path')
-		.datum(topojson.mesh(us, us.objects.states, function(a, b){
-			return a !== b
-		}))
-		.attr({
-			'd': path,
-			'fill': 'none',
-			'stroke': 'rgba(255,255,255,1)',
-			'stroke-width': 2
-		})
-
-	vis_group.append('path')
-		.datum(topojson.feature(airports, airports.objects.airports))
-		.attr({
-			'd': path
-		})
-}
-
-$(window).on('resize', function() {
-	var targetWidth = container_parent.width()
-	vis.attr({
-		'width': targetWidth,
-		'height': Math.round(targetWidth / aspect)
-	})
-})</pre>
 				</div>
-				<div class="col-md-4">
-					<h3>Projections</h3>
+				<div class="col-md-2 submenu">
+					<h4>Projections</h4>
 					<ul class="list-unstyled">
 						<li><a href="projection01_albers.html">Albers USA</a></li>
 						<li><a href="projection02_lambert.html">Lambert Azimuthal Equal-Area</a></li>
@@ -119,8 +52,9 @@ $(window).on('resize', function() {
 						<li><a href="projection05a_orthographic.html">Orthographic w/ Neighbors</a></li>
 						<li><a href="projection06_stereographic.html">Stereographic</a></li>
 						<li><a href="projection07_gnomonic.html">Gnomonic</a></li>
+						<li><a href="projection08_eckert1.html">Eckert 1</a></li>
 					</ul>
-					<h3>Maps</h3>
+					<h4>Maps</h4>
 					<ul class="list-unstyled">
 						<li><a href="map01_choloropleth.html">Choloropleth</a></li>
 						<li><a href="map02_rhodeisland.html">Rhode Island with Counties and Hover Effect</a></li>
@@ -131,9 +65,13 @@ $(window).on('resize', function() {
 						<li><a href="map07_usairports.html">US Airports</a></li>
 						<li><a href="map08_mergingstates.html">Merging States</a></li>
 					</ul>
-					<h3>Interactives</h3>
+					<h4>Interactives</h4>
 					<ul class="list-unstyled">
 						<li><a href="interactive01_clicktozoom.html">Click-to-zoom Via Transform</a></li>
+					</ul>
+					<h4>Tests</h4>
+					<ul class="list-unstyled">
+						<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a></li>
 					</ul>
 				</div>
 			</div>
