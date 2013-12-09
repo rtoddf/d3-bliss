@@ -33,7 +33,7 @@ vis = d3.select('#example').append('svg')
 vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 
-d3.json('../data/states/ri-counties.json', function(error, topology){
+d3.json('../data/states/de-counties.json', function(error, topology){
 	console.log('topology: ', topology)
 	var counties = topojson.feature(topology, topology.objects.counties)
 
