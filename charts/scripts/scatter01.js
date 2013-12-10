@@ -1,6 +1,6 @@
 var container_parent = $('.display') ,
 	chart_container = $('#example'),
-	margins = {top: 20, right: 20, bottom: 40, left: 60},
+	margins = {top: 20, right: 20, bottom: 40, left: 50},
 	width = container_parent.width() - margins.left - margins.right,
 	height = (width * 0.5) - margins.top - margins.bottom,
 	vis, vis_group, aspect
@@ -20,7 +20,12 @@ vis_group = vis.append('g')
 
 aspect = chart_container.width() / chart_container.height()
 
-var color = d3.scale.category20c()
+vis_group.append('rect')
+	.attr({
+		'width': width,
+		'height': height,
+		'fill': 'rgba(13,19,45,1)'
+	})
 
 var tooltip = d3.select('body').append('div')
 	.attr('class', 'tooltip')
@@ -35,15 +40,95 @@ var y = d3.scale.linear()
 var xAxis = d3.svg.axis()
 	.scale(x)
 	.orient('bottom')
-	.tickFormat(function(d){
-		return Math.round(d / 1e6) + 'M'
-	})
+	.tickFormat(d3.format('.3s'))
 	
-
 var yAxis = d3.svg.axis()
 	.scale(y)
 	.orient('left')
 	.tickSize(-width)
+	.tickFormat(d3.format('.2s'))
+
+var defaults = {
+	planet: {
+		colors: [
+			{
+				'stop': 0,
+				'color': 'rgba(253,173,0,1)'
+			},
+			{
+				'stop': .75,
+				'color': 'rgba(153,73,0,1)'
+			}
+		],
+		gradientId: 'radial',
+		fx: '5%',
+		fy: '5%',
+		r: '65%',
+		spreadMethod: 'pad',
+	},
+	tool_tip: {
+		stroke: 'rgba(0,0,0,1)',
+		strokeWidth: 4,
+		strokeOpacity: .5
+	}
+}
+
+var defs = vis_group.append('defs')
+
+var radialGradient = defs.append('radialGradient')
+	.attr({
+		'id': defaults.planet.gradientId,
+		'fx': defaults.planet.fx,
+		'fy': defaults.planet.fy,
+		'r': defaults.planet.r,
+		'spreadMethod': defaults.planet.spreadMethod
+	})
+
+radialGradient.selectAll('stop')
+	.data(defaults.planet.colors)
+		.enter().append('stop')
+	.attr({
+		'offset': function(d){
+			return d.stop
+		}
+	})
+	.style({
+		'stop-color': function(d){
+			return d.color
+		}
+	})
+
+var filter = defs.append('filter')
+		.attr({
+			'id': 'dropshadow'
+		})
+
+filter.append('feGaussianBlur')
+	.attr({
+		'in': 'SourceAlpha',
+		'stdDeviation': 5,
+		'result': 'blur'
+	})
+
+filter.append('feOffset')
+	.attr({
+		'in': 'blur',
+		'dx': 4,
+		'dy': 4,
+		'result': 'offsetblur'
+	})
+
+var feMerge = filter.append('feMerge')
+
+feMerge.append('feMergeNode')
+	.attr({
+		'in': 'offsetblur'
+	})
+
+feMerge.append('feMergeNode')
+	.attr({
+		'in': 'SourceGraphic'
+	})
 
 d3.csv('../data/planets01.csv', function(error, data){
 	data.forEach(function(d) {
@@ -61,6 +146,38 @@ d3.csv('../data/planets01.csv', function(error, data){
 		return d.density
 	})).nice()
 
+	vis_group.append('g')
+		.attr({
+			'class': 'x axis',
+			'transform': 'translate(0,' + height + ')'
+		})
+		.call(xAxis)
+			.append('text')
+				.attr({
+					'x': width,
+					'dy': 30
+				})
+				.style({
+					'text-anchor': 'end'
+				})
+				.text('Distance from the Sun (miles)')
+
+	vis_group.append('g')
+		.attr({
+			'class': 'y axis'
+		})
+		.call(yAxis)
+			.append('text')
+				.attr({
+					'transform': 'rotate(-90)',
+					'x': '.17em',
+					'y': -40
+				})
+				.style({
+					'text-anchor': 'end'
+				})
+				.text('Density (kg pr. cubic meter)')
+
 	planet = vis_group.selectAll('circle')
 		.data(data)
 			.enter().append('circle')
@@ -73,14 +190,19 @@ d3.csv('../data/planets01.csv', function(error, data){
 				return y(d.density)
 			},
 			'r': function(d){
-				return d.diameter / 1500
+				if(d.diameter < 3000){
+					return d.diameter / 350
+				} else {
+					return d.diameter / 1500
+				}
 			},
-			'fill': function(d){
-				return color(d.number)
-			},
-			'stroke': '#000',
-			'stoke-width': 1,
-			'stroke-opacity': .5
+			'fill': 'url(#radial)',
+			'stroke': defaults.tool_tip.stroke,
+			'stoke-width': defaults.tool_tip.strokeWidth,
+			'stroke-opacity': defaults.tool_tip.strokeOpacity
+		})
+		.style({
+			'filter': 'url(#dropshadow)'
 		})
 
 	planet.on('mouseover', function(d) {
@@ -100,39 +222,6 @@ d3.csv('../data/planets01.csv', function(error, data){
 			.duration(200)
 			.style('opacity', 0)
 	})
-
-	vis_group.append('g')
-		.attr({
-			'class': 'x axis',
-			'transform': 'translate(0,' + height + ')'
-		})
-		.call(xAxis)
-			.append('text')
-				.attr({
-					// 'transform': 'rotate(-90)',
-					'x': width,
-					'dy': 30
-				})
-				.style({
-					'text-anchor': 'end'
-				})
-				.text('Distance from the Sun (miles)')
-
-	vis_group.append('g')
-		.attr({
-			'class': 'y axis'
-		})
-		.call(yAxis)
-			.append('text')
-				.attr({
-					'transform': 'rotate(-90)',
-					'x': '.17em',
-					'y': -50
-				})
-				.style({
-					'text-anchor': 'end'
-				})
-				.text('Density (kg pr. cubic meter)')
 })
 
 $(window).on('resize', function() {
