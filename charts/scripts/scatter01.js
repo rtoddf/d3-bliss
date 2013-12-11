@@ -106,7 +106,7 @@ var filter = defs.append('filter')
 filter.append('feGaussianBlur')
 	.attr({
 		'in': 'SourceAlpha',
-		'stdDeviation': 5,
+		'stdDeviation': 2,
 		'result': 'blur'
 	})
 
@@ -130,9 +130,10 @@ feMerge.append('feMergeNode')
 		'in': 'SourceGraphic'
 	})
 
-d3.csv('../data/planets01.csv', function(error, data){
+d3.json('../data/planets01.json', function(error, data){
+	data = data.planets
+
 	data.forEach(function(d) {
-		d.number = +d.number
 		d.distance = +d.distance
 		d.diameter = +d.diameter
 		d.density = +d.density
