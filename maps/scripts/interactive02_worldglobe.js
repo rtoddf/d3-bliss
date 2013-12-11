@@ -1,3 +1,5 @@
+// http://bl.ocks.org/KoGor/5994804
+
 var container_parent = $('.display') ,
 	chart_container = $('#example'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
@@ -64,19 +66,6 @@ function ready(error, world, countryData){
 		var option_user_selection = select.options[select.selectedIndex].text
 		var option_user_value = select.options[select.selectedIndex].value
 
-		for(var i = 0, l = countries.length; i < l; i++){
-			if(countries[i].id == option_user_value){
-				console.log('countries[i]: ', countries[i])
-				return countries[i]
-			}
-		}
-	}
-
-	function country2(){
-		var select = countryList[0][0]
-		var option_user_selection = select.options[select.selectedIndex].text
-		var option_user_value = select.options[select.selectedIndex].value
-
 		var filtered = _(countries).find(function(s){
 			if(s.id == option_user_value){
 				return s
@@ -124,7 +113,7 @@ function ready(error, world, countryData){
 				})
 		}))
 	.on('mouseover', function(d){
-		focusedCountry = country2(countries, countryById[d.id])
+		// focusedCountry = country(countries, countryById[d.id])
 		// console.log(countryById[d.id])
 		tooltip.text(function(){
 			return countryById[d.id]
@@ -149,16 +138,19 @@ function ready(error, world, countryData){
 				'top': (d3.event.pageY -15) + 'px'
 			})
 	})
+	.on('click', function(d){
+		// tooltip
+		// 	.style({
+		// 		'left': (d3.event.pageX + 7) + 'px',
+		// 		'top': (d3.event.pageY -15) + 'px'
+		// 	})
+	})
 
 	d3.select('select')
 		.on('change', function(){
 			var rotate = projection.rotate(),
-			// focusedCountry = country(),
-			focusedCountry2 = country2(),
+			focusedCountry = country(),
 			p = d3.geo.centroid(focusedCountry)
-
-			// console.log('focusedCountry: ', focusedCountry)
-			console.log('focusedCountry2: ', focusedCountry2)
 
 			vis_group.selectAll('.focused')
 				.classed({
@@ -177,7 +169,7 @@ function ready(error, world, countryData){
 									'd': path
 								})
 								.classed('focused', function(d, i){
-									return d.id == focusedCountry2.id ? focused = d : false
+									return d.id == focusedCountry.id ? focused = d : false
 								})
 						}
 					})
