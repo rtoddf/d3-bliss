@@ -52,61 +52,40 @@ countryList = d3.select('#countries').append('select')
 		'name': 'countries'
 	})
 
+function country(){
+	var select = countryList[0][0]
+	var option_user_selection = select.options[select.selectedIndex].text
+	var option_user_value = select.options[select.selectedIndex].value
+
+	var filtered = _(countries).find(function(s){
+		if(s.id == option_user_value){
+			return s
+		}
+	})
+	return filtered
+}
+
 queue()
 	.defer(d3.json, '../data/world-110m.json')
 	.defer(d3.tsv, '../data/world-110m-country-names.tsv')
 	.await(ready)
 
 function ready(error, world, countryData){
-
-
-
-
 	var countryById = {}
 	countries = topojson.feature(world, world.objects.countries).features
 
-	console.log('countries: ', countries)
-	console.log('countryData: ', countryData)
-
-	var even = _.find(countries, function(num){
-		return num.id === countryData.id
-	})
-
-	console.log(even)
-
-	console.log('countries: ', countries)
-
-	// data.forEach(function(d){
-	// 	d.ages = ageNames.map(function(name){
-	// 		return {
-	// 			name: name,
-	// 			value: +d[name]
-	// 		}
-	// 	})
-	// })
-
-	function country(){
-		var select = countryList[0][0]
-		var option_user_selection = select.options[select.selectedIndex].text
-		var option_user_value = select.options[select.selectedIndex].value
-
-		var filtered = _(countries).find(function(s){
-			if(s.id == option_user_value){
-				return s
-			}
-		})
-
-		return filtered
-	}
-
 	countryData.forEach(function(d){
 		countryById[d.id] = d.name
-
 		option = countryList.append('option')
 		option.text(d.name)
 		option.property('value', d.id)
 	})
 
+	countries.map(function(d){
+		d.name = countryById[d.id]
+	})
+
+	console.log('countries: ', countries)
 
 	var world = vis_group.selectAll('path.land')
 		.data(countries)
@@ -140,7 +119,7 @@ function ready(error, world, countryData){
 		// focusedCountry = country(countries, countryById[d.id])
 		// console.log(countryById[d.id])
 		tooltip.text(function(){
-			return countryById[d.id]
+			return d.name
 		})
 		.style({
 			'left': (d3.event.pageX + 7) + 'px',
@@ -163,6 +142,7 @@ function ready(error, world, countryData){
 			})
 	})
 	.on('click', function(d){
+		console.log('d: ', d)
 		// tooltip
 		// 	.style({
 		// 		'left': (d3.event.pageX + 7) + 'px',
