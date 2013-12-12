@@ -58,32 +58,8 @@ queue()
 	.await(ready)
 
 function ready(error, world, countryData){
-
-
-
-
 	var countryById = {}
 	countries = topojson.feature(world, world.objects.countries).features
-
-	console.log('countries: ', countries)
-	console.log('countryData: ', countryData)
-
-	var even = _.find(countries, function(num){
-		return num.id === countryData.id
-	})
-
-	console.log(even)
-
-	console.log('countries: ', countries)
-
-	// data.forEach(function(d){
-	// 	d.ages = ageNames.map(function(name){
-	// 		return {
-	// 			name: name,
-	// 			value: +d[name]
-	// 		}
-	// 	})
-	// })
 
 	function country(){
 		var select = countryList[0][0]
