@@ -4,14 +4,16 @@ var container_parent = $('.display') ,
 	chart_container = $('#example'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
 	width = container_parent.width() - margins.left - margins.right,
-	height = (width * 0.7) - margins.top - margins.bottom,
-	vis, vis_group, aspect
+	height = (width * 0.6) - margins.top - margins.bottom	
 
-var sens = 0.25, focused
+var vis, vis_group, aspect, focused, sens = 0.25
 
 var defaults = {
 	water: {
-		fill: 'rgba(0,32,64,.25)'
+		fill: 'rgba(0,32,64,.15)'
+	},
+	globe: {
+		animation_duration: 2000
 	}
 }
 
@@ -52,19 +54,6 @@ countryList = d3.select('#countries').append('select')
 		'name': 'countries'
 	})
 
-function country(){
-	var select = countryList[0][0]
-	var option_user_selection = select.options[select.selectedIndex].text
-	var option_user_value = select.options[select.selectedIndex].value
-
-	var filtered = _(countries).find(function(s){
-		if(s.id == option_user_value){
-			return s
-		}
-	})
-	return filtered
-}
-
 queue()
 	.defer(d3.json, '../data/world-110m.json')
 	.defer(d3.tsv, '../data/world-110m-country-names.tsv')
@@ -85,8 +74,6 @@ function ready(error, world, countryData){
 		d.name = countryById[d.id]
 	})
 
-	console.log('countries: ', countries)
-
 	var world = vis_group.selectAll('path.land')
 		.data(countries)
 			.enter().append('path')
@@ -103,21 +90,9 @@ function ready(error, world, countryData){
 				y: -r[1]/sens
 			}
 		})
-		.on('drag', function(){
-			var rotate = projection.rotate()
-			projection.rotate([ d3.event.x * sens, -d3.event.y * sens, rotate[2] ])
-			vis_group.selectAll('path.land')
-				.attr({
-					'd': path
-				})
-			vis_group.selectAll('.focused')
-				.classed({
-					'focused': focused = false
-				})
-		}))
+		.on('drag', drag)
+	)
 	.on('mouseover', function(d){
-		// focusedCountry = country(countries, countryById[d.id])
-		// console.log(countryById[d.id])
 		tooltip.text(function(){
 			return d.name
 		})
@@ -128,56 +103,112 @@ function ready(error, world, countryData){
 			'opacity': 1
 		})
 	})
-	.on('mouseout', function(d){
-		tooltip.style({
-			'display': 'none',
-			'opacity': 0
-		})
-	})
-	.on('mousemove', function(d){
-		tooltip
-			.style({
-				'left': (d3.event.pageX + 7) + 'px',
-				'top': (d3.event.pageY -15) + 'px'
-			})
-	})
+	.on('mouseout', out)
+	.on('mousemove', move)
 	.on('click', function(d){
-		console.log('d: ', d)
-		// tooltip
-		// 	.style({
-		// 		'left': (d3.event.pageX + 7) + 'px',
-		// 		'top': (d3.event.pageY -15) + 'px'
-		// 	})
+		thiscountry = d.name
 	})
 
 	d3.select('select')
-		.on('change', function(){
-			var rotate = projection.rotate(),
-			focusedCountry = country(),
-			p = d3.geo.centroid(focusedCountry)
+		.on('change', rotateGlobe)
 
-			vis_group.selectAll('.focused')
-				.classed({
-					'focused': focused = false
-				});
+	// var point = vis_group.append('g')
+	// 	.attr({
+	// 		'transform': function(){
+	// 			return 'translate(' + projection([ 7.483333, 9.066667 ])[0] + ', ' + projection([ 7.483333, 9.066667 ])[1] + ')'
+	// 		}
+	// 	})
 
-			(function transition(){
-				d3.transition()
-					.duration(2500)
-					.tween('rotate', function(){
-						var r = d3.interpolate(projection.rotate(), [ -p[0], -p[1] ])
-						return function(t){
-							projection.rotate(r(t))
-							vis_group.selectAll('path')
-								.attr({
-									'd': path
-								})
-								.classed('focused', function(d, i){
-									return d.id == focusedCountry.id ? focused = d : false
-								})
-						}
-					})
-			})()
+	// point.append('circle')
+	// 	.attr({
+	// 		'r': 5,
+	// 		'fill': 'red',
+	// 		'stroke': 'black',
+	// 		'stroke-width': 1
+	// 	})
+}
 
+function country(text){
+	var filtered = _(countries).find(function(s){
+		if(s.name == text){
+			return s
+		}
+	})
+	return filtered
+}
+
+function drag(){
+	var rotate = projection.rotate()
+	projection.rotate([ d3.event.x * sens, -d3.event.y * sens, rotate[2] ])
+	vis_group.selectAll('path.land')
+		.attr({
+			'd': path
+		})
+	vis_group.selectAll('.focused')
+		.classed({
+			'focused': focused = false
 		})
 }
+
+function move(){
+	tooltip
+		.style({
+			'left': (d3.event.pageX + 7) + 'px',
+			'top': (d3.event.pageY -15) + 'px'
+		})
+}
+
+function out(){
+	tooltip.style({
+		'display': 'none',
+		'opacity': 0
+	})
+}
+
+function rotateGlobe(){
+	var rotate = projection.rotate(),
+	focusedCountry = country(this.options[this.selectedIndex].text),
+	p = d3.geo.centroid(focusedCountry)
+
+	vis_group.selectAll('.focused')
+		.classed({
+			'focused': focused = false
+		});
+
+	(function transition(){
+		d3.transition()
+			.duration(defaults.globe.animation_duration)
+			.tween('rotate', function(){
+				var r = d3.interpolate(projection.rotate(), [ -p[0], -p[1] ])
+				return function(t){
+
+					projection.rotate(r(t))
+					vis_group.selectAll('path')
+						.attr({
+							'd': path
+						})
+						.classed('focused', function(d, i){
+							return d.id == focusedCountry.id ? focused = d : false
+						})
+				}
+			})
+	})()
+
+	// tooltip.text(function(){
+	// 	return focusedCountry.name
+	// })
+	// .style({
+	// 	'left': (width / 2) + 'px',
+	// 	'top': (height / 2) + 'px',
+	// 	'display': 'block',
+	// 	'opacity': 1
+	// })
+}
+
+$(window).on('resize', function() {
+	var targetWidth = container_parent.width()
+	vis.attr({
+		'width': targetWidth,
+		'height': Math.round(targetWidth / aspect)
+	})
+})
