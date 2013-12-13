@@ -13,11 +13,14 @@ var defaults = {
 		height: (height - margins.top - margins.bottom) / 17,
 		stroke: 'rgba(0,0,0,1)'
 	},
+	colors: ['rgba(102,153,255,1)', 'rgba(255,204,0,1)', 'rgba(255,153,153,1)', 'rgba(0,204,51,1)'],
 	symbol: {
 		fill: 'rgba(0,0,0,1)',
 		anchor: 'middle'
 	}
 }
+
+var 
 
 vis = d3.select('#example').append('svg')
 	.attr({
@@ -53,7 +56,7 @@ d3.json('../data/periodic_table.json', function(error, data){
 				return defaults.box.height * d.position[1] + 1
 			},
 			'fill': function(d){
-				return d.color
+				return defaults.colors[d.color]
 			},
 			'stroke': defaults.box.stroke
 		})
