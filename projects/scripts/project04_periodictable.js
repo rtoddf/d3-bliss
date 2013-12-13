@@ -74,28 +74,28 @@ d3.json('../data/periodic_table.json', function(error, data){
 			return d.symbol
 		})
 
-	var thisBoxWidth = rect.attr('width'),
-		thisBoxHeight = rect.attr('height')
+	// var thisBoxWidth = rect.attr('width'),
+	// 	thisBoxHeight = rect.attr('height')
 
-	rect
-		.on('mouseover', function(){
-			d3.select(this)
-				.transition()
-					.duration(200)
-					.ease('back')
-					.attr({
-						'width': thisBoxWidth * 1.5,
-						'height': thisBoxHeight * 1.5
-					})
-		})
-		.on('mouseout', function(){
-			d3.select(this)
-				.transition()
-					.duration(200)
-					.attr({
-						'width': thisBoxWidth,
-						'height': thisBoxHeight
-					})
-		})
+	// rect
+	// 	.on('mouseover', function(){
+	// 		d3.select(this)
+	// 			.transition()
+	// 				.duration(200)
+	// 				.ease('back')
+	// 				.attr({
+	// 					'width': thisBoxWidth * 1.5,
+	// 					'height': thisBoxHeight * 1.5
+	// 				})
+	// 	})
+	// 	.on('mouseout', function(){
+	// 		d3.select(this)
+	// 			.transition()
+	// 				.duration(200)
+	// 				.attr({
+	// 					'width': thisBoxWidth,
+	// 					'height': thisBoxHeight
+	// 				})
+	// 	})
 
 })
