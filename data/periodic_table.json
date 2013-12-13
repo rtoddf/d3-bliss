@@ -1,0 +1,94 @@
+{
+	"elements": [
+		{
+			"name": "hydrogen",
+			"symbol": "H",
+			"atomic number": 1,
+			"atomic weight": 1.00794,
+			"standard state": "gas",
+			"color": "rgba(102,153,255,1)",
+			"position": [ 0, 0 ]
+		},
+		{
+			"name": "helium",
+			"symbol": "He",
+			"atomic number": 2,
+			"atomic weight": 4.002602,
+			"standard state": "gas",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 18, 0 ]
+		},
+		{
+			"name": "lithium",
+			"symbol": "Li",
+			"atomic number": 3,
+			"atomic weight": 6.941,
+			"standard state": "solid",
+			"color": "rgba(102,153,255,1)",
+			"position": [ 0, 1 ]
+		},
+		{
+			"name": "beryllium",
+			"symbol": "Be",
+			"atomic number": 4,
+			"atomic weight": 9.012182,
+			"standard state": "solid",
+			"color": "rgba(102,153,255,1)",
+			"position": [ 1, 1 ]
+		},
+		{
+			"name": "boron",
+			"symbol": "B",
+			"atomic number": 5,
+			"atomic weight": 10.811,
+			"standard state": "solid",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 13, 1 ]
+		},
+		{
+			"name": "carbon",
+			"symbol": "C",
+			"atomic number": 6,
+			"atomic weight": 12.0107,
+			"standard state": "solid",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 14, 1 ]
+		},
+		{
+			"name": "nitrogen",
+			"symbol": "N",
+			"atomic number": 7,
+			"atomic weight": 14.0067,
+			"standard state": "gas",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 15, 1 ]
+		},
+		{
+			"name": "oxygen",
+			"symbol": "O",
+			"atomic number": 8,
+			"atomic weight": 15.9994,
+			"standard state": "gas",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 16, 1 ]
+		},
+		{
+			"name": "fluorine",
+			"symbol": "F",
+			"atomic number": 9,
+			"atomic weight": 18.9984032,
+			"standard state": "gas",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 17, 1 ]
+		},
+		{
+			"name": "neon",
+			"symbol": "N",
+			"atomic number": 10,
+			"atomic weight": 20.1797,
+			"standard state": "gas",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 18, 1 ]
+		}
+	]
+}
