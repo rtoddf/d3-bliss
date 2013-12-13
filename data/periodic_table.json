@@ -89,6 +89,42 @@
 			"standard state": "gas",
 			"color": "rgba(255,204,0,1)",
 			"position": [ 18, 1 ]
+		},
+		{
+			"name": "sodium",
+			"symbol": "Na",
+			"atomic number": 11,
+			"atomic weight": 22.98976928,
+			"standard state": "solid",
+			"color": "rgba(102,153,255,1)",
+			"position": [ 0, 2 ]
+		},
+		{
+			"name": "magnesium",
+			"symbol": "Mg",
+			"atomic number": 12,
+			"atomic weight": 24.3050,
+			"standard state": "solid",
+			"color": "rgba(102,153,255,1)",
+			"position": [ 1, 2 ]
+		},
+		{
+			"name": "Aluminium",
+			"symbol": "Al",
+			"atomic number": 13,
+			"atomic weight": 26.9815386,
+			"standard state": "solid",
+			"color": "rgba(255,204,0,1)",
+			"position": [ 13, 2 ]
+		},
+		{
+			"name": "Scandium",
+			"symbol": "Sc",
+			"atomic number": 21,
+			"atomic weight": 44.955912,
+			"standard state": "solid",
+			"color": "rgba(255,153,153,1)",
+			"position": [ 2, 3 ]
 		}
 	]
 }

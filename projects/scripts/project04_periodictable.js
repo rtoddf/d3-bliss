@@ -1,3 +1,5 @@
+// http://www.webelements.com/
+
 var container_parent = $('.display'),
 	chart_container = $('#example'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
@@ -12,7 +14,7 @@ var defaults = {
 		stroke: 'rgba(0,0,0,1)'
 	},
 	symbol: {
-		fill: 'rgba(255,255,255,1)',
+		fill: 'rgba(0,0,0,1)',
 		anchor: 'middle'
 	}
 }
@@ -70,6 +72,30 @@ d3.json('../data/periodic_table.json', function(error, data){
 		})
 		.text(function(d){
 			return d.symbol
+		})
+
+	var thisBoxWidth = rect.attr('width'),
+		thisBoxHeight = rect.attr('height')
+
+	rect
+		.on('mouseover', function(){
+			d3.select(this)
+				.transition()
+					.duration(200)
+					.ease('back')
+					.attr({
+						'width': thisBoxWidth * 1.5,
+						'height': thisBoxHeight * 1.5
+					})
+		})
+		.on('mouseout', function(){
+			d3.select(this)
+				.transition()
+					.duration(200)
+					.attr({
+						'width': thisBoxWidth,
+						'height': thisBoxHeight
+					})
 		})
 
 })
