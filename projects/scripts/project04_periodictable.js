@@ -9,8 +9,8 @@ var container_parent = $('.display'),
 
 var defaults = {
 	box: {
-		width: (width - margins.left - margins.right) / 18,
-		height: (height - margins.top - margins.bottom) / 18,
+		width: (width - margins.left - margins.right) / 17,
+		height: (height - margins.top - margins.bottom) / 17,
 		stroke: 'rgba(0,0,0,1)'
 	},
 	symbol: {
