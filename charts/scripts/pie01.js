@@ -127,7 +127,6 @@ d3.json('../data/pie01.json', function(error, data){
 			tooltip.transition().duration(200).style('opacity', 0)
 		} else {
 			tooltip.html(function(d) {
-				// console.log(d)
 				var tooltip_data = ''
 				tooltip_data += '<span>This is the race for this pie wedge</span>'
 				return tooltip_data
