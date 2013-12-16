@@ -211,7 +211,7 @@ d3.json('../data/planets01.json', function(error, data){
 			.duration(200)
 			.style('opacity', 1)
 
-		tooltip.html(d.planet)
+		tooltip.html(d.name)
 			.style({
 				'left': (d3.event.pageX + 10) + 'px',
 				'top': (d3.event.pageY) + 'px'
