@@ -11,6 +11,7 @@
 		<title>D3 Bliss</title>
 		<link href="../css/bootstrap.css" rel="stylesheet">
 		<link href="../css/overwrites.css" rel="stylesheet">
+		<link href="css/test02_random_points.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -37,30 +38,12 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10">
-					<h3>D3 Geo</h3>
-					<p>D3 is a fantastic JavaScript-based data visualization library that allows you to bind data to the DOM, and then make transformations to the document. To learn more, refer to D3′s GitHub repository for a massive gallery of examples for visualizing various data sets.</p>
-					<h4>TopoJSON</h4>
-					<p>TopoJSON is an extension of GeoJSON that encodes topology. Rather than representing geometries discretely, geometries in TopoJSON files are stitched together from shared line segments called arcs. TopoJSON eliminates redundancy, allowing related geometries to be stored efficiently in the same file.</p>
-					
-					<div class="row">
-						<div class="col-md-4">
-							<img src="../images/projections.jpg" class="treatment" />
-							<h4>Projections</h4>
-							<p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
-							<p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
-						</div>
-						<div class="col-md-4">
-							<img src="../images/maps.jpg" class="treatment" />
-							<h4>Maps</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
-						</div>
-						<div class="col-md-4">
-							<img src="../images/interactives.jpg" class="treatment" />
-							<h4>Interactives</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
-						</div>
-					</div>
+				<div class="col-md-10 display">
+					<h3>Rotating Orthographic</h3>
+					<div class="sphere"></div>
+					<div class="sphere"></div>
+					<div class="sphere"></div>
+					<div class="clearAll"></div>
 				</div>
 				<div class="col-md-2 submenu">
 					<h4>Projections</h4>
@@ -79,7 +62,6 @@
 					<ul class="list-unstyled">
 						<li><a href="map01_choloropleth.html">Choloropleth</a></li>
 						<li><a href="map02_rhodeisland.html">Rhode Island with Counties and Hover Effect</a></li>
-						<li><a href="map02_deleware.html">Deleware with Counties and Hover Effect</a></li>
 						<li><a href="map03_unitedkingdom.html">United Kingdom</a></li>
 						<li><a href="map04_puertorico.html">Puerto Rico</a></li>
 						<li><a href="map06_worldmapcities.html">World Map with Cities</a></li>
@@ -90,11 +72,10 @@
 					<h4>Interactives</h4>
 					<ul class="list-unstyled">
 						<li><a href="interactive01_clicktozoom.html">Click-to-zoom Via Transform</a></li>
-						<li><a href="interactive02_worldglobe.html">World Globe</a></li>
 					</ul>
 					<h4>Tests</h4>
 					<ul class="list-unstyled">
-						<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a>
+						<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a></li>
 						</li>
 						<li><a href="test02_random_points.html">Random Points on a Sphere</a></li>
 					</ul>
@@ -104,5 +85,8 @@
 
 		<script src="../scripts/lib/jquery.min.js"></script>
 		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
+		<script src="../scripts/lib/d3.v3.min.js"></script>
+		<script src="../scripts/lib/topojson.v1.min.js"></script>
+		<script src="scripts/test02_random_points.js"></script>
 	</body>
 </html>

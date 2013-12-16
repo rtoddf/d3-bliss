@@ -2,6 +2,10 @@ body {
 	padding-top: 50px;
 }
 
+.clearAll {
+	clear: both;
+}
+
 img.treatment {
 	width: 100%;
 /*	border: 1px solid rgba(0,0,0,.3);*/

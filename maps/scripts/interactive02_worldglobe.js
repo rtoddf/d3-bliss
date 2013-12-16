@@ -6,7 +6,8 @@ var container_parent = $('.display') ,
 	width = container_parent.width() - margins.left - margins.right,
 	height = (width * 0.6) - margins.top - margins.bottom	
 
-var vis, vis_group, aspect, focused, sens = 0.25
+var vis, vis_group, aspect, focused, sens = 0.25,
+	coordinates = [ [-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0] ]
 
 var defaults = {
 	water: {
@@ -14,6 +15,16 @@ var defaults = {
 	},
 	globe: {
 		animation_duration: 2000
+	},
+	path: {
+		fill: 'none',
+		stroke: '#666',
+		strokeWidth: 2,
+		strokeLinejoin: 'round'
+	},
+	equator: {
+		stroke: 'rgba(0,50,100,1)',
+		strokeWidth: 1,
 	}
 }
 
