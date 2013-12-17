@@ -4,32 +4,6 @@ var container_parent = $('.display') ,
 	height = (width * .8),
 	vis, vis_group, aspect, centered, response
 
-var defaults = {
-	graticule: {
-		fill: 'none',
-		stroke: '#333',
-		strokeWidth: .25
-	},
-	antimeridia: {
-		fill: 'none',
-		stroke: '#333',
-		strokeWidth: 1.5,
-		strokeDasharray: '5 5'
-	},
-	land: {
-		fill: 'rgba(0,0,0,1)',
-		opacity: .5,
-		stroke: 'rgba(0,0,0,1)',
-		strokeWidth: .75
-	},
-	bounds: {
-		fill: 'rgba(0,50,100,1)',
-		fillOpacity: .25,
-		stroke: '#000',
-		strokeWidth: 1
-	}
-}
-
 var projection = d3.geo.orthographic()
 	.translate([ width / 2, height / 2 ])
 	.scale(250)
@@ -58,10 +32,10 @@ vis = d3.select('#example').append('svg')
 			}
 		})
 		.on('drag', function(){
+			console.log('huh: ', d3.event.x / 2)
 			projection.rotate([
-				d3.event.x / 2,
-				-d3.event.y / 2,
-				projection.rotate()[2]
+				0,
+				-d3.event.y / 2
 			])
 			vis_group.selectAll('path')
 				.attr({
@@ -77,9 +51,7 @@ vis_group.append('path')
 	.datum(graticule)
 	.attr({
 		'd': path,
-		'fill': defaults.graticule.fill,
-		'stroke': defaults.graticule.stroke,
-		'stroke-width': defaults.graticule.strokeWidth
+		'class': 'graticule'
 	})
 
 vis_group.append('path')
@@ -89,10 +61,7 @@ vis_group.append('path')
 	})
 	.attr({
 		'd': path,
-		'fill': defaults.antimeridia.fill,
-		'stroke': defaults.antimeridia.stroke,
-		'stroke-width': defaults.antimeridia.strokeWidth,
-		'stroke-dasharray': defaults.antimeridia.strokeDasharray
+		'class': 'antimeridian'
 	})
 
 vis_group.append('path')
@@ -101,7 +70,7 @@ vis_group.append('path')
 	})
 	.attr({
 		'd': path,
-		'fill': defaults.graticule.fill
+		'class': 'graticule'
 	})
 
 d3.json('../data/world-110m.json', function(error, world){
@@ -109,16 +78,12 @@ d3.json('../data/world-110m.json', function(error, world){
 		.data(topojson.feature(world, world.objects.countries).features)
 			.enter().append('g')
 		.attr({
-
+			'class': 'country'
 		})
 
 	country.append('path')
 		.attr({
 			'd': path,
-			'fill': defaults.land.fill,
-			'opacity': defaults.land.opacity,
-			'stroke': defaults.land.stroke,
-			'stroke-width': defaults.land.strokeWidth,
 			'class': 'land'
 		})
 
@@ -126,18 +91,12 @@ d3.json('../data/world-110m.json', function(error, world){
 		.datum(boundsPolygon(d3.geo.bounds))
 		.attr({
 			'd': path,
-			'fill': defaults.bounds.fill,
-			'fill-opacity': defaults.bounds.fillOpacity,
-			'stroke': defaults.bounds.stroke,
-			'stroke-width': defaults.bounds.strokeWidth,
 			'class': 'bounds'
 		})
 })
 
 function boundsPolygon(b){
-
 	return function(geometry){
-		console.log('geometry: ', geometry)
 		var bounds = b(geometry)
 		if(bounds[0][0] === -180 && bounds[0][1] === -90 && bounds[1][0] === 180 && bounds[1][1] === 90){
 			return {
@@ -159,14 +118,13 @@ function boundsPolygon(b){
 	}
 }
 
-function parallel(Φ, λ0, λ1){
-	// console.log('Φ: ', Φ)
+function parallel(φ, λ0, λ1){
 	if (λ0 > λ1) λ1 += 360
 	var dλ = λ1 - λ0,
 		step = dλ / Math.ceil(dλ)
 	return d3.range(λ0, λ1 + .5 * step, step)
 		.map(function(λ){
-			return [ normalise(λ), Φ ]
+			return [ normalise(λ), φ ]
 		})
 }
 
