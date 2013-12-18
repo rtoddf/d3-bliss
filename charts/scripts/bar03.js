@@ -1,13 +1,14 @@
 var container_parent = $('.display') ,
 	chart_container = $('#example'),
-	margins = {top: 20, right: 20, bottom: 20, left: 200},
+	margins = {top: 20, right: 20, bottom: 20, left: 20},
 	width = container_parent.width() - margins.left - margins.right,
 	height = (width * .6) - margins.top - margins.bottom,
-	color = d3.scale.category20c(),
-	vis, vis_group, aspect
+	color = d3.scale.category20b(),
+	vis, vis_group, aspect,
+	chart_width = width * .85
 
 var x = d3.scale.ordinal()
-	.rangeRoundBands([ 0, width - margins.right - margins.left ])
+	.rangeRoundBands([ 0, chart_width - margins.right - margins.left ])
 
 var y = d3.scale.linear()
 	.range([ 0, height - margins.top - margins.bottom ])
@@ -54,8 +55,6 @@ d3.csv('../data/languages01.csv', function(data){
 		})
 	}))
 
-	console.log('languages: ', languages)
-
 	x.domain(languages[0].map(function(d){
 		return d.x
 	}))
@@ -63,7 +62,12 @@ d3.csv('../data/languages01.csv', function(data){
 		return d.y0 + d.y
 	})])
 
-	var language = vis_group.selectAll('g.cause')
+	var chart = vis_group.append('g')
+		.attr({
+			'transform': 'translate(' + (width * .15) + ', 0)'
+		})
+
+	var language = chart.selectAll('g.cause')
 		.data(languages)
 			.enter().append('g')
 		.attr({
@@ -94,7 +98,7 @@ d3.csv('../data/languages01.csv', function(data){
 			}
 		})
 
-	var label = vis_group.selectAll('text')
+	var label = chart.selectAll('text')
 		.data(x.domain())
 			.enter().append('text')
 		.attr({
@@ -109,7 +113,7 @@ d3.csv('../data/languages01.csv', function(data){
 			return d
 		})
 
-	var rule = vis_group.selectAll('g.rule')
+	var rule = chart.selectAll('g.rule')
 		.data(y.ticks(5))
 			.enter().append('g')
 		.attr({
@@ -121,7 +125,7 @@ d3.csv('../data/languages01.csv', function(data){
 
 	rule.append('line')
 		.attr({
-			'x2': width - margins.left - margins.right,
+			'x2': chart_width - margins.left - margins.right,
 			'stroke': function(d){
 				return d ? '#fff' : '#000'
 			},
@@ -132,17 +136,17 @@ d3.csv('../data/languages01.csv', function(data){
 
 	rule.append('text')
 		.attr({
-			'x': width - margins.left - margins.right + 6,
+			'x': chart_width - margins.left - margins.right + 6,
 			'dy': '.35em'			
 		})
 		.text(d3.format('.2s'))
 
-	vis_group.append('g')
-		.attr({
-			'class': 'x axis',
-			'transform': 'translate(0, ' + height + ')'
-		})
-		.call(xAxis)
+	// vis_group.append('g')
+	// 	.attr({
+	// 		'class': 'x axis',
+	// 		'transform': 'translate(0, ' + height + ')'
+	// 	})
+	// 	.call(xAxis)
 
 	// vis_group.append('g')
 	// 	.attr({
@@ -164,7 +168,7 @@ d3.csv('../data/languages01.csv', function(data){
 	var theLegend = vis_group.append('g')
 		.attr({
 			'transform': function(d, i){
-				return 'translate(' + -(width - margins.right) + ', ' + -(height - margins.top) + ')'
+				return 'translate(' + -(width - 100) + ', ' + -(height - margins.top) + ')'
 			}
 		})
 
