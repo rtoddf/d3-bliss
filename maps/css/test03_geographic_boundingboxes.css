@@ -1,0 +1,12 @@
+#example svg {
+	cursor: move;
+}
+
+.land, .bounds {
+	pointer-events: all;
+}
+
+/*.background {
+	stroke: none;
+	fill: #eef;
+}*/

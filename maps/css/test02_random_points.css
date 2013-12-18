@@ -1,0 +1,35 @@
+path.graticule {
+  fill: none;
+  stroke: #999;
+  stroke-width: .5px;
+}
+
+circle.mouse {
+  cursor: move;
+  pointer-events: all;
+}
+
+/*div.sphere {
+  clear: left;
+  position: relative;
+  text-align: justify;
+}*/
+
+/*div.wrap {
+  float: left;
+  clear: left;
+  height: 20px;
+}*/
+
+/*svg {
+  position: absolute;
+  left: 0;
+}*/
+
+/*div.clear {
+  clear: left;
+}
+*/
+/*.wrapper {
+  width: 800px;
+}*/

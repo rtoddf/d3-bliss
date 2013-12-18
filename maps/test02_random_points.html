@@ -11,7 +11,7 @@
 		<title>D3 Bliss</title>
 		<link href="../css/bootstrap.css" rel="stylesheet">
 		<link href="../css/overwrites.css" rel="stylesheet">
-		<link href="css/projection08_eckert1.css" rel="stylesheet">
+		<link href="css/test02_random_points.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -39,8 +39,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 display">
-					<h3>Projection - Eckert I</h3>
-					<div id="example"></div>
+					<h3>Random Points on a Sphere</h3>
+					<p>I'm trying to learn how to put markers and points on a rotating globe and did this example to see if I could get the concept. This example places points randomly on a sphere and allows the user to rotate, while the points remain in place. You can grab the sphere with your mouse and drag to rotate.</p>
+					<div class="sphere"></div>
+					<!--
+					<div class="sphere"></div>
+					<div class="sphere"></div>
+				-->
+					<div class="clearAll"></div>
 				</div>
 				<div class="col-md-2 submenu">
 					<h4>Projections</h4>
@@ -75,6 +81,7 @@
 						<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a>
 						</li>
 						<li><a href="test02_random_points.html">Random Points on a Sphere</a></li>
+						<li><a href="test03_geographic_boundingboxes.html">Geographic Bounding Boxes</a></li>
 					</ul>
 				</div>
 			</div>
@@ -83,8 +90,7 @@
 		<script src="../scripts/lib/jquery.min.js"></script>
 		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
 		<script src="../scripts/lib/d3.v3.min.js"></script>
-		<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 		<script src="../scripts/lib/topojson.v1.min.js"></script>
-		<script src="scripts/projection08_eckert1.js"></script>
+		<script src="scripts/test02_random_points.js"></script>
 	</body>
 </html>
