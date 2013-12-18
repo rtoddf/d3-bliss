@@ -1,0 +1,50 @@
+[
+	{
+		"date": "5/1854",
+		"wounds": 0,
+		"other": 95,
+		"disease": 105
+	},
+	{
+		"date": "6/1854",
+		"wounds": 0,
+		"other": 40,
+		"disease": 95
+	},
+	{
+		"date": "7/1854",
+		"wounds": 0,
+		"other": 140,
+		"disease": 520
+	},
+	{
+		"date": "8/1854",
+		"wounds": 20,
+		"other": 150,
+		"disease": 800
+	},
+	{
+		"date": "9/1854",
+		"wounds": 220,
+		"other": 230,
+		"disease": 740
+	},
+	{
+		"date": "10/1854",
+		"wounds": 305,
+		"other": 310,
+		"disease": 600
+	},
+	{
+		"date": "11/1854",
+		"wounds": 480,
+		"other": 290,
+		"disease": 820
+	},
+	{
+		"date": "12/1854",
+		"wounds": 295,
+		"other": 310,
+		"disease": 1100
+	}
+]

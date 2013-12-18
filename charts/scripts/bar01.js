@@ -4,7 +4,6 @@ var container_parent = $('.display') ,
 	width = container_parent.width() - margins.left - margins.right,
 	height = (width * 1.5) - margins.top - margins.bottom,
 	rect_color = '#fd8d3c',
-	color = d3.scale.category20c(),
 	vis, vis_group, aspect
 
 // The comma (",") option enables the use of a comma for a thousands separator.
