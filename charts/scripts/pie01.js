@@ -50,8 +50,6 @@ var pie = d3.layout.pie()
 d3.json('../data/pie01.json', function(error, data){
 	var datum = data.datum
 
-	console.log(datum)
-
 	datum.forEach(function(d){
 		d.percentage = +d.percentage
 	})
@@ -71,70 +69,76 @@ d3.json('../data/pie01.json', function(error, data){
 		.attr({
 			'd': arc,
 			'fill': function(d){
+				
 				return color(d.data.race)
 			}
 		})
 		.style({
 			'opacity': opacity
 		})
+		.on('mouseover', function(d) {
+			tooltip.transition()
+				.duration(200)
+				.style('opacity', 1)
 
-	g.on('mouseover', function(d) {
-		tooltip.transition()
-			.duration(200)
-			.style('opacity', 1)
+			console.log('d: ', d.data.race)
+			var race = d.data.race
 
-	d3.select(this)
-		.transition()
-		.duration(duration + 300)
-		.ease(easeType)
-		.attr({
-			'transform': function(d) {
-				var c = arc.centroid(d),
-				x = c[0],
-				y = c[1],
-				// pythagorean theorem for hypotenuse
-				h = Math.sqrt(x*x + y*y)
-				return 'translate(' + (x/h * diffFromCenter) +  ',' + (y/h * diffFromCenter) +  ') scale(' + scaleAmount + ')'
-			}
-		})
-		.style({
-			'opacity': opacityOver	
-		})
-
-	vis_group.append('text')
-		.attr({
-			'class': 'percentage',
-			'x': radius / 20,
-			'y': radius / 20 + 10,
-			'text-anchor': 'middle',
-			'font-size': radius / 3
-		})
-		.text(function(t){
-			return ((d.data.percentage/total) * 100).toFixed(0) + '%'
-		})
-		.style({
-			'opacity': 0
-		})
-		.transition()
-			.duration(duration)
-				.style({
-					'opacity': opacity
+			if (d3.mouse(this)[0] < 0) {
+				tooltip.transition()
+					.duration(200)
+					.style('opacity', 0)
+			} else {
+				tooltip.html(function(d) {
+					var tooltip_data = ''
+					tooltip_data += '<span>' + race + '</span>'
+					return tooltip_data
 				})
-	})
+				.style('left', (d3.event.pageX + 10) + 'px')
+				.style('top', (d3.event.pageY) + 'px')
+			}
 
-	g.on('mousemove', function(d, i) {
-		if (d3.mouse(this)[0] < 0) {
-			tooltip.transition().duration(200).style('opacity', 0)
-		} else {
-			tooltip.html(function(d) {
-				var tooltip_data = ''
-				tooltip_data += '<span>This is the race for this pie wedge</span>'
-				return tooltip_data
-			})
-			.style('left', (d3.event.pageX + 10) + 'px')
-			.style('top', (d3.event.pageY) + 'px')
-		}
-	})
+			d3.select(this)
+				.transition()
+				.duration(duration + 300)
+				.ease(easeType)
+				.attr({
+					'transform': function(d) {
+						var c = arc.centroid(d),
+						x = c[0],
+						y = c[1],
+						// pythagorean theorem for hypotenuse
+						h = Math.sqrt(x*x + y*y)
+						return 'translate(' + (x/h * diffFromCenter) +  ',' + (y/h * diffFromCenter) +  ') scale(' + scaleAmount + ')'
+					}
+				})
+				.style({
+					'opacity': opacityOver	
+				})
+
+			vis_group.append('text')
+				.attr({
+					'class': 'percentage',
+					'x': radius / 20,
+					'y': radius / 20 + 10,
+					'text-anchor': 'middle',
+					'font-size': radius / 3
+				})
+				.text(function(t){
+					return ((d.data.percentage/total) * 100).toFixed(0) + '%'
+				})
+				.style({
+					'opacity': 0
+				})
+				.transition()
+					.duration(duration)
+						.style({
+							'opacity': opacity
+						})
+		})
+		.on('mousemove', function(d, i) {
+
+		})
 
 	g.on('mouseout', out)
 
