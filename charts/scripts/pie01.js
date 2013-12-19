@@ -2,25 +2,29 @@ var container_parent = $('.display') ,
 	chart_container = $('#example'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
 	width = container_parent.width() - margins.left - margins.right,
-	height = (width * 0.8) - margins.top - margins.bottom,
+	height = (width * 0.75) - margins.top - margins.bottom,
 	vis, vis_group, aspect,
 	radius = Math.min(width, height) / 2.5
+	
+var color = d3.scale.category20c()
 
-var color = d3.scale.ordinal()
-	.range(['#b024e4', '#6420c1', '#c78721', '#003264', '#8a0600', '#baba71', '#666666'])
-
-var duration = 300,
-	easeType = 'back'
-	scale = 1,
-	opacity = 1,
-	opacityOut = 0,
-	opacityOver = .5,
-	scaleAmount = 1.3,
-	diffFromCenter = radius / 20
+var defaults = {
+	radius: radius,
+	diffFromCenter:  radius / 20,
+	transitions: {
+		duration: 300,
+		easeType: 'back',
+		scale: 1,
+		scaleAmount: 1.3,
+		opacity: 1,
+		opacityOver: .5,
+		opacityOut: 0
+	}
+}
 
 var arc = d3.svg.arc()
-	.outerRadius(radius)
-	.innerRadius(radius - 125)
+	.outerRadius(defaults.radius)
+	.innerRadius(defaults.radius - 125)
 
 var tooltip = d3.select('body').append('div')
 	.attr('class', 'tooltip')
@@ -47,7 +51,7 @@ var pie = d3.layout.pie()
 		return d.percentage
 	})
 
-d3.json('../data/pie01.json', function(error, data){
+d3.json('../data/census_pop_hi.json', function(error, data){
 	var datum = data.datum
 
 	datum.forEach(function(d){
@@ -69,19 +73,17 @@ d3.json('../data/pie01.json', function(error, data){
 		.attr({
 			'd': arc,
 			'fill': function(d){
-				
 				return color(d.data.race)
 			}
 		})
 		.style({
-			'opacity': opacity
+			'opacity': defaults.transitions.opacity
 		})
 		.on('mouseover', function(d) {
 			tooltip.transition()
 				.duration(200)
 				.style('opacity', 1)
 
-			console.log('d: ', d.data.race)
 			var race = d.data.race
 
 			if (d3.mouse(this)[0] < 0) {
@@ -94,14 +96,16 @@ d3.json('../data/pie01.json', function(error, data){
 					tooltip_data += '<span>' + race + '</span>'
 					return tooltip_data
 				})
-				.style('left', (d3.event.pageX + 10) + 'px')
-				.style('top', (d3.event.pageY) + 'px')
+				.style({
+					'left': (d3.event.pageX + 10) + 'px',
+					'top': (d3.event.pageY) + 'px'
+				})
 			}
 
 			d3.select(this)
 				.transition()
-				.duration(duration + 300)
-				.ease(easeType)
+				.duration(defaults.transitions.duration + 300)
+				.ease(defaults.transitions.easeType)
 				.attr({
 					'transform': function(d) {
 						var c = arc.centroid(d),
@@ -109,20 +113,20 @@ d3.json('../data/pie01.json', function(error, data){
 						y = c[1],
 						// pythagorean theorem for hypotenuse
 						h = Math.sqrt(x*x + y*y)
-						return 'translate(' + (x/h * diffFromCenter) +  ',' + (y/h * diffFromCenter) +  ') scale(' + scaleAmount + ')'
+						return 'translate(' + (x/h * defaults.diffFromCenter) +  ',' + (y/h * defaults.diffFromCenter) +  ') scale(' + defaults.transitions.scaleAmount + ')'
 					}
 				})
 				.style({
-					'opacity': opacityOver	
+					'opacity': defaults.transitions.opacityOver	
 				})
 
 			vis_group.append('text')
 				.attr({
 					'class': 'percentage',
-					'x': radius / 20,
-					'y': radius / 20 + 10,
+					'x': defaults.radius / 20,
+					'y': defaults.radius / 20 + 10,
 					'text-anchor': 'middle',
-					'font-size': radius / 3
+					'font-size': defaults.radius / 3
 				})
 				.text(function(t){
 					return ((d.data.percentage/total) * 100).toFixed(0) + '%'
@@ -131,45 +135,46 @@ d3.json('../data/pie01.json', function(error, data){
 					'opacity': 0
 				})
 				.transition()
-					.duration(duration)
+					.duration(defaults.transitions.duration)
 						.style({
-							'opacity': opacity
+							'opacity': defaults.transitions.opacity
 						})
 		})
-		.on('mousemove', function(d, i) {
 
-		})
-
-	g.on('mouseout', out)
+	.on('mouseout', out)
 
 })
 
 var out = function(){
-	tooltip.transition().duration(200).style('opacity', 0)
+	tooltip.transition()
+		.duration(250)
+		.style('opacity', 0)
 
-	d3.selectAll('.arc')
+	d3.select(this)
 		.transition()
-			.duration(duration)
-			.ease(easeType)
+			.duration(defaults.transitions.duration)
+			.ease(defaults.transitions.easeType)
 			.attr({
-				'transform': 'translate(0, 0) scale(' + scale + ')'
+				'transform': 'translate(0, 0) scale(' + defaults.transitions.scale + ')'
 			})
 			.style({
-				'opacity': opacity
+				'opacity': function(d){
+					return defaults.transitions.opacity
+				}
 			})
 
 	d3.select('.percentage')
 		.transition()
-			.duration(duration)
+			.duration(defaults.transitions.duration)
 				.style({
-					'opacity': opacityOut
+					'opacity': defaults.transitions.opacityOut
 				})
 
 	d3.selectAll('text')
 		.transition()
 		.duration(200)
 		.style({
-			'opacity': opacityOut
+			'opacity': defaults.transitions.opacityOut
 		})
 }
 
