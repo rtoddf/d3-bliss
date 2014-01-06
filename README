@@ -4,4 +4,4 @@ Currently, I have only moved over a few examples, but intend on adding more in t
 
 These projects utilize Bootstrap 3.0, jQuery, D3.js, Topojson.js, Queue.js, and Underscore.js. The maps, charts, and projects are drawn from topojson files and merged with data from other apis and sources.
 
-These projects can be viewed at http://rtodd.net/d3-bliss/maps/index.html.
+These projects can be viewed at http://rtodd.net/d3-bliss/.
