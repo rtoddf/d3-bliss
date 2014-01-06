@@ -11,7 +11,7 @@
 		<title>D3 Bliss</title>
 		<link href="../css/bootstrap.css" rel="stylesheet">
 		<link href="../css/overwrites.css" rel="stylesheet">
-		<link href="css/interactive01_clicktozoom.css" rel="stylesheet">
+		<link href="css/interactive02_worldglobe.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -39,9 +39,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 display">
-					<h3>Click-to-zoom Via Transform</h3>
-					<p>Click on a state below to zoom in and see race data for that state. You can also click from state to state to see new information. Click in the white area to zoom back out. Republican states are in red, and Democratic states are in blue.</p>
+					<h3>World Globe</h3>
+					<p>Hover over a country to get its name. You can choose a country from the dropdown, and the globe will rotate to that country and highlight. If you want, you can also drag the land areas of the globe to rotate.</p>
 					<div id="example"></div>
+					<div id="countries"></div>
 				</div>
 				<div class="col-md-2 submenu">
 					<h4>Projections</h4>
@@ -84,7 +85,8 @@
 		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
 		<script src="../scripts/lib/underscore-min.js"></script>
 		<script src="../scripts/lib/d3.v3.min.js"></script>
+		<script src="../scripts/lib/queue.v1.min.js"></script>
 		<script src="../scripts/lib/topojson.v1.min.js"></script>
-		<script src="scripts/interactive01_clicktozoom.js"></script>
+		<script src="scripts/interactive02_worldglobe.js"></script>
 	</body>
 </html>

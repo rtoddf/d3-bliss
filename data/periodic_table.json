@@ -1,0 +1,1066 @@
+{
+	"elements": [
+		{
+			"name": "hydrogen",
+			"symbol": "H",
+			"atomic number": 1,
+			"atomic weight": 1.00794,
+			"standard state": "gas",
+			"color": 0,
+			"position": [ 0, 0 ]
+		},
+		{
+			"name": "helium",
+			"symbol": "He",
+			"atomic number": 2,
+			"atomic weight": 4.002602,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 17, 0 ]
+		},
+		{
+			"name": "lithium",
+			"symbol": "Li",
+			"atomic number": 3,
+			"atomic weight": 6.941,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 0, 1 ]
+		},
+		{
+			"name": "beryllium",
+			"symbol": "Be",
+			"atomic number": 4,
+			"atomic weight": 9.012182,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 1, 1 ]
+		},
+		{
+			"name": "boron",
+			"symbol": "B",
+			"atomic number": 5,
+			"atomic weight": 10.811,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 12, 1 ]
+		},
+		{
+			"name": "carbon",
+			"symbol": "C",
+			"atomic number": 6,
+			"atomic weight": 12.0107,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 13, 1 ]
+		},
+		{
+			"name": "nitrogen",
+			"symbol": "N",
+			"atomic number": 7,
+			"atomic weight": 14.0067,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 14, 1 ]
+		},
+		{
+			"name": "oxygen",
+			"symbol": "O",
+			"atomic number": 8,
+			"atomic weight": 15.9994,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 15, 1 ]
+		},
+		{
+			"name": "fluorine",
+			"symbol": "F",
+			"atomic number": 9,
+			"atomic weight": 18.9984032,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 16, 1 ]
+		},
+		{
+			"name": "neon",
+			"symbol": "N",
+			"atomic number": 10,
+			"atomic weight": 20.1797,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 17, 1 ]
+		},
+		{
+			"name": "sodium",
+			"symbol": "Na",
+			"atomic number": 11,
+			"atomic weight": 22.98976928,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 0, 2 ]
+		},
+		{
+			"name": "magnesium",
+			"symbol": "Mg",
+			"atomic number": 12,
+			"atomic weight": 24.3050,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 1, 2 ]
+		},
+		{
+			"name": "Aluminium",
+			"symbol": "Al",
+			"atomic number": 13,
+			"atomic weight": 26.9815386,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 12, 2 ]
+		},
+		{
+			"name": "Silicon",
+			"symbol": "Si",
+			"atomic number": 14,
+			"atomic weight": 28.0855,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 13, 2 ]
+		},
+		{
+			"name": "Phosphorus",
+			"symbol": "P",
+			"atomic number": 15,
+			"atomic weight": 30.973762,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 14, 2 ]
+		},
+		{
+			"name": "Sulfur",
+			"symbol": "S",
+			"atomic number": 16,
+			"atomic weight": 32.065,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 15, 2 ]
+		},
+		{
+			"name": "Chlorine",
+			"symbol": "Cl",
+			"atomic number": 17,
+			"atomic weight": 35.453,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 16, 2 ]
+		},
+		{
+			"name": "Argon",
+			"symbol": "Ar",
+			"atomic number": 18,
+			"atomic weight": 39.948,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 17, 2 ]
+		},
+		{
+			"name": "Potassium",
+			"symbol": "K",
+			"atomic number": 19,
+			"atomic weight": 39.0983,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 0, 3 ]
+		},
+		{
+			"name": "Calcium",
+			"symbol": "Ca",
+			"atomic number": 20,
+			"atomic weight": 40.078,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 1, 3 ]
+		},
+		{
+			"name": "Scandium",
+			"symbol": "Sc",
+			"atomic number": 21,
+			"atomic weight": 44.955912,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 2, 3 ]
+		},
+		{
+			"name": "Titanium",
+			"symbol": "Ti",
+			"atomic number": 22,
+			"atomic weight": 47.867,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 3, 3 ]
+		},
+		{
+			"name": "Vanadium",
+			"symbol": "V",
+			"atomic number": 23,
+			"atomic weight": 50.9415,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 4, 3 ]
+		},
+		{
+			"name": "Chromium",
+			"symbol": "Cr",
+			"atomic number": 24,
+			"atomic weight": 51.9961,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 5, 3 ]
+		},
+		{
+			"name": "Manganese",
+			"symbol": "Mn",
+			"atomic number": 25,
+			"atomic weight": 54.938045,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 6, 3 ]
+		},
+		{
+			"name": "Iron",
+			"symbol": "Fe",
+			"atomic number": 26,
+			"atomic weight": 55.845,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 7, 3 ]
+		},
+		{
+			"name": "Cobalt",
+			"symbol": "Co",
+			"atomic number": 27,
+			"atomic weight": 58.933195 ,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 8, 3 ]
+		},
+		{
+			"name": "Nickel",
+			"symbol": "Ni",
+			"atomic number": 28,
+			"atomic weight": 58.6934,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 9, 3 ]
+		},
+		{
+			"name": "Copper",
+			"symbol": "Cu",
+			"atomic number": 29,
+			"atomic weight": 63.546,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 10, 3 ]
+		},
+		{
+			"name": "Zinc",
+			"symbol": "Zn",
+			"atomic number": 30,
+			"atomic weight": 65.38,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 11, 3 ]
+		},
+		{
+			"name": "gallium",
+			"symbol": "Ga",
+			"atomic number": 31,
+			"atomic weight": 69.723,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 12, 3 ]
+		},
+		{
+			"name": "Germanium",
+			"symbol": "Ge",
+			"atomic number": 32,
+			"atomic weight": 72.64,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 13, 3 ]
+		},
+		{
+			"name": "Arsenic",
+			"symbol": "As",
+			"atomic number": 33,
+			"atomic weight": 74.92160,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 14, 3 ]
+		},
+		{
+			"name": "Selenium",
+			"symbol": "Se",
+			"atomic number": 34,
+			"atomic weight": 78.96,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 15, 3 ]
+		},
+		{
+			"name": "Bromine",
+			"symbol": "Br",
+			"atomic number": 35,
+			"atomic weight": 79.904,
+			"standard state": "liquid",
+			"color": 1,
+			"position": [ 16, 3 ]
+		},
+		{
+			"name": "Krypton",
+			"symbol": "Kr",
+			"atomic number": 36,
+			"atomic weight": 83.798,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 17, 3 ]
+		},
+		{
+			"name": "Rubidium",
+			"symbol": "Rb",
+			"atomic number": 37,
+			"atomic weight": 85.4678,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 0, 4 ]
+		},
+		{
+			"name": "Strontium",
+			"symbol": "Sr",
+			"atomic number": 38,
+			"atomic weight": 87.62,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 1, 4 ]
+		},
+		{
+			"name": "Yttrium",
+			"symbol": "Y",
+			"atomic number": 39,
+			"atomic weight": 88.90585,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 2, 4 ]
+		},
+		{
+			"name": "Zirconium",
+			"symbol": "Zr",
+			"atomic number": 40,
+			"atomic weight": 91.224,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 3, 4 ]
+		},
+		{
+			"name": "Niobium",
+			"symbol": "Nb",
+			"atomic number": 41,
+			"atomic weight": 92.90638,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 4, 4 ]
+		},
+		{
+			"name": "Molybdenum",
+			"symbol": "Mo",
+			"atomic number": 42,
+			"atomic weight": 95.96,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 5, 4 ]
+		},
+		{
+			"name": "Technetium",
+			"symbol": "Tc",
+			"atomic number": 43,
+			"atomic weight": 98,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 6, 4 ]
+		},
+		{
+			"name": "Ruthenium",
+			"symbol": "Ru",
+			"atomic number": 44,
+			"atomic weight": 101.07,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 7, 4 ]
+		},
+		{
+			"name": "Rhodium",
+			"symbol": "Rh",
+			"atomic number": 45,
+			"atomic weight": 102.90550,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 8, 4 ]
+		},
+		{
+			"name": "Palladium",
+			"symbol": "Pd",
+			"atomic number": 46,
+			"atomic weight": 106.42,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 9, 4 ]
+		},
+		{
+			"name": "Silver",
+			"symbol": "Ag",
+			"atomic number": 47,
+			"atomic weight": 107.8682,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 10, 4 ]
+		},
+		{
+			"name": "Cadmium",
+			"symbol": "Cd",
+			"atomic number": 48,
+			"atomic weight": 112.411,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 11, 4 ]
+		},
+		{
+			"name": "Indium",
+			"symbol": "In",
+			"atomic number": 49,
+			"atomic weight": 114.818,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 12, 4 ]
+		},
+		{
+			"name": "Tin",
+			"symbol": "Sn",
+			"atomic number": 50,
+			"atomic weight": 118.710,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 13, 4 ]
+		},
+		{
+			"name": "Antimony",
+			"symbol": "Sb",
+			"atomic number": 51,
+			"atomic weight": 121.760,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 14, 4 ]
+		},
+		{
+			"name": "Tellurium",
+			"symbol": "Te",
+			"atomic number": 52,
+			"atomic weight": 127.60,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 15, 4 ]
+		},
+		{
+			"name": "Iodine",
+			"symbol": "I",
+			"atomic number": 53,
+			"atomic weight": 126.90447,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 16, 4 ]
+		},
+		{
+			"name": "Xenon",
+			"symbol": "Xe",
+			"atomic number": 54,
+			"atomic weight": 131.293,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 17, 4 ]
+		},
+		{
+			"name": "Caesium",
+			"symbol": "Cs",
+			"atomic number": 55,
+			"atomic weight": 132.9054519,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 0, 5 ]
+		},
+		{
+			"name": "Barium",
+			"symbol": "Ba",
+			"atomic number": 56,
+			"atomic weight": 137.327,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 1, 5 ]
+		},
+		{
+			"name": "Lutetium",
+			"symbol": "Lu",
+			"atomic number": 71,
+			"atomic weight": 174.9668,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 2, 5 ]
+		},
+		{
+			"name": "Hafnium",
+			"symbol": "Hf",
+			"atomic number": 72,
+			"atomic weight": 178.49,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 3, 5 ]
+		},
+		{
+			"name": "Tantalum",
+			"symbol": "Ta",
+			"atomic number": 73,
+			"atomic weight": 180.94788,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 4, 5 ]
+		},
+		{
+			"name": "Tungsten",
+			"symbol": "W",
+			"atomic number": 74,
+			"atomic weight": 183.84,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 5, 5 ]
+		},
+		{
+			"name": "Rhenium",
+			"symbol": "Re",
+			"atomic number": 75,
+			"atomic weight": 186.207,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 6, 5 ]
+		},
+		{
+			"name": "Osmium",
+			"symbol": "Os",
+			"atomic number": 76,
+			"atomic weight": 190.23,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 7, 5 ]
+		},
+		{
+			"name": "Iridium",
+			"symbol": "Ir",
+			"atomic number": 77,
+			"atomic weight": 192.217 ,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 8, 5 ]
+		},
+		{
+			"name": "Platinum",
+			"symbol": "Pt",
+			"atomic number": 78,
+			"atomic weight": 195.084,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 9, 5 ]
+		},
+		{
+			"name": "Gold",
+			"symbol": "Au",
+			"atomic number": 79,
+			"atomic weight": 196.966569,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 10, 5 ]
+		},
+		{
+			"name": "Mercury",
+			"symbol": "Hg",
+			"atomic number": 80,
+			"atomic weight": 200.59,
+			"standard state": "liquid",
+			"color": 2,
+			"position": [ 11, 5 ]
+		},
+		{
+			"name": "Thallium",
+			"symbol": "Tl",
+			"atomic number": 81,
+			"atomic weight": 204.3833,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 12, 5 ]
+		},
+		{
+			"name": "Lead",
+			"symbol": "Pb",
+			"atomic number": 82,
+			"atomic weight": 207.2,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 13, 5 ]
+		},
+		{
+			"name": "Bismuth",
+			"symbol": "Bi",
+			"atomic number": 83,
+			"atomic weight": 208.98040,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 14, 5 ]
+		},
+		{
+			"name": "Polonium",
+			"symbol": "Po",
+			"atomic number": 84,
+			"atomic weight": 209,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 15, 5 ]
+		},
+		{
+			"name": "Astatine",
+			"symbol": "At",
+			"atomic number": 85,
+			"atomic weight": 210,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 16, 5 ]
+		},
+		{
+			"name": "Radon",
+			"symbol": "Rn",
+			"atomic number": 86,
+			"atomic weight": 222,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 17, 5 ]
+		},
+		{
+			"name": "Francium",
+			"symbol": "Fr",
+			"atomic number": 87,
+			"atomic weight": 223,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 0, 6 ]
+		},
+		{
+			"name": "Radium",
+			"symbol": "Ra",
+			"atomic number": 88,
+			"atomic weight": 226,
+			"standard state": "solid",
+			"color": 0,
+			"position": [ 1, 6 ]
+		},
+		{
+			"name": "Lawrencium",
+			"symbol": "Lr",
+			"atomic number": 103,
+			"atomic weight": 262,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 2, 6 ]
+		},
+		{
+			"name": "Rutherfordium",
+			"symbol": "Rf",
+			"atomic number": 104,
+			"atomic weight": 265,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 3, 6 ]
+		},
+		{
+			"name": "Dubnium",
+			"symbol": "Db",
+			"atomic number": 105,
+			"atomic weight": 268,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 4, 6 ]
+		},
+		{
+			"name": "Seaborgium",
+			"symbol": "Sg",
+			"atomic number": 106,
+			"atomic weight": 271,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 5, 6 ]
+		},
+		{
+			"name": "Bohrium",
+			"symbol": "Bh",
+			"atomic number": 107,
+			"atomic weight": 272,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 6, 6 ]
+		},
+		{
+			"name": "Hassium",
+			"symbol": "Hs",
+			"atomic number": 108,
+			"atomic weight": 277,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 7, 6 ]
+		},
+		{
+			"name": "Meitnerium",
+			"symbol": "Mt",
+			"atomic number": 109,
+			"atomic weight": 276,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 8, 6 ]
+		},
+		{
+			"name": "Darmstadtium",
+			"symbol": "Ds",
+			"atomic number": 110,
+			"atomic weight": 281,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 9, 6 ]
+		},
+		{
+			"name": "Roentgenium",
+			"symbol": "Rg",
+			"atomic number": 111,
+			"atomic weight": 280,
+			"standard state": "solid",
+			"color": 2,
+			"position": [ 10, 6 ]
+		},
+		{
+			"name": "Copernicium",
+			"symbol": "Cn",
+			"atomic number": 112,
+			"atomic weight": 285,
+			"standard state": "liquid",
+			"color": 2,
+			"position": [ 11, 6 ]
+		},
+		{
+			"name": "Ununtrium",
+			"symbol": "Uut",
+			"atomic number": 113,
+			"atomic weight": 284,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 12, 6 ]
+		},
+		{
+			"name": "Flerovium",
+			"symbol": "Fl",
+			"atomic number": 114,
+			"atomic weight": 289,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 13, 6 ]
+		},
+		{
+			"name": "Ununpentium",
+			"symbol": "Uup",
+			"atomic number": 115,
+			"atomic weight": 288,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 14, 6 ]
+		},
+		{
+			"name": "Livermorium",
+			"symbol": "Lv",
+			"atomic number": 116,
+			"atomic weight": 293,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 15, 6 ]
+		},
+		{
+			"name": "Ununseptium",
+			"symbol": "Uus",
+			"atomic number": 117,
+			"atomic weight": 294,
+			"standard state": "solid",
+			"color": 1,
+			"position": [ 16, 6 ]
+		},
+		{
+			"name": "Ununoctium",
+			"symbol": "Uuo",
+			"atomic number": 118,
+			"atomic weight": 294,
+			"standard state": "gas",
+			"color": 1,
+			"position": [ 17, 6 ]
+		},
+		{
+			"name": "Lanthanum",
+			"symbol": "La",
+			"atomic number": 57,
+			"atomic weight": 138.90547,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 2, 7 ]
+		},
+		{
+			"name": "Cerium",
+			"symbol": "Ce",
+			"atomic number": 58,
+			"atomic weight": 140.116,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 3, 7 ]
+		},
+		{
+			"name": "Praseodymium",
+			"symbol": "Pr",
+			"atomic number": 59,
+			"atomic weight": 140.90765,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 4, 7 ]
+		},
+		{
+			"name": "Neodymium",
+			"symbol": "Nd",
+			"atomic number": 60,
+			"atomic weight": 144.242,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 5, 7 ]
+		},
+		{
+			"name": "Promethium",
+			"symbol": "Pm",
+			"atomic number": 61,
+			"atomic weight": 145,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 6, 7 ]
+		},
+		{
+			"name": "Samarium",
+			"symbol": "Sm",
+			"atomic number": 62,
+			"atomic weight": 150.36,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 7, 7 ]
+		},
+		{
+			"name": "Europium",
+			"symbol": "Eu",
+			"atomic number": 63,
+			"atomic weight": 151.964,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 8, 7 ]
+		},
+		{
+			"name": "Gadolinium",
+			"symbol": "Gd",
+			"atomic number": 64,
+			"atomic weight": 157.25,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 9, 7 ]
+		},
+		{
+			"name": "Terbium",
+			"symbol": "Tb",
+			"atomic number": 65,
+			"atomic weight": 158.92535,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 10, 7 ]
+		},
+		{
+			"name": "Dysprosium",
+			"symbol": "Dy",
+			"atomic number": 66,
+			"atomic weight": 162.500,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 11, 7 ]
+		},
+		{
+			"name": "Holmium",
+			"symbol": "Ho",
+			"atomic number": 67,
+			"atomic weight": 164.93032,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 12, 7 ]
+		},
+		{
+			"name": "Erbium",
+			"symbol": "Er",
+			"atomic number": 68,
+			"atomic weight": 167.259,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 13, 7 ]
+		},
+		{
+			"name": "Thulium",
+			"symbol": "Tm",
+			"atomic number": 69,
+			"atomic weight": 168.93421,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 14, 7 ]
+		},
+		{
+			"name": "Ytterbium",
+			"symbol": "Yb",
+			"atomic number": 70,
+			"atomic weight": 173.054,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 15, 7 ]
+		},
+		{
+			"name": "Actinium",
+			"symbol": "Ac",
+			"atomic number": 89,
+			"atomic weight": 227,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 2, 8 ]
+		},
+		{
+			"name": "Thorium",
+			"symbol": "Th",
+			"atomic number": 90,
+			"atomic weight": 232.03806,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 3, 8 ]
+		},
+		{
+			"name": "Protactinium",
+			"symbol": "Pa",
+			"atomic number": 91,
+			"atomic weight": 231.03588,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 4, 8 ]
+		},
+		{
+			"name": "Uranium",
+			"symbol": "U",
+			"atomic number": 92,
+			"atomic weight": 238.02891,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 5, 8 ]
+		},
+		{
+			"name": "Neptunium",
+			"symbol": "Np",
+			"atomic number": 93,
+			"atomic weight": 237,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 6, 8 ]
+		},
+		{
+			"name": "Plutonium",
+			"symbol": "Pu",
+			"atomic number": 94,
+			"atomic weight": 244,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 7, 8 ]
+		},
+		{
+			"name": "Americium",
+			"symbol": "Am",
+			"atomic number": 95,
+			"atomic weight": 243,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 8, 8 ]
+		},
+		{
+			"name": "Curium",
+			"symbol": "Cm",
+			"atomic number": 96,
+			"atomic weight": 247,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 9, 8 ]
+		},
+		{
+			"name": "Berkelium",
+			"symbol": "Bk",
+			"atomic number": 97,
+			"atomic weight": 247,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 10, 8 ]
+		},
+		{
+			"name": "Californium",
+			"symbol": "Cf",
+			"atomic number": 98,
+			"atomic weight": 251,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 11, 8 ]
+		},
+		{
+			"name": "Einsteinium",
+			"symbol": "Es",
+			"atomic number": 99,
+			"atomic weight": 252,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 12, 8 ]
+		},
+		{
+			"name": "Fermium",
+			"symbol": "Fm",
+			"atomic number": 100,
+			"atomic weight": 257,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 13, 8 ]
+		},
+		{
+			"name": "Mendelevium",
+			"symbol": "Fm",
+			"atomic number": 101,
+			"atomic weight": 258,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 14, 8 ]
+		},
+		{
+			"name": "Nobelium",
+			"symbol": "No",
+			"atomic number": 102,
+			"atomic weight": 259,
+			"standard state": "solid",
+			"color": 3,
+			"position": [ 15, 8 ]
+		}
+	]
+}

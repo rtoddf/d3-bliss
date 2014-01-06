@@ -110,7 +110,6 @@ function ready(error, topology, cities){
 			'stroke-width': defaults.route.strokeWidth
 		})
 
-
 	var point = vis_group.append('g')
 		.attr({
 			'class': 'points'

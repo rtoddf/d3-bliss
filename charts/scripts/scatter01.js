@@ -1,11 +1,9 @@
 var container_parent = $('.display') ,
 	chart_container = $('#example'),
-	margins = {top: 20, right: 20, bottom: 20, left: 20},
+	margins = {top: 20, right: 20, bottom: 40, left: 50},
 	width = container_parent.width() - margins.left - margins.right,
-	height = (width * 0.66) - margins.top - margins.bottom,
+	height = (width * 0.5) - margins.top - margins.bottom,
 	vis, vis_group, aspect
-
-var dataset = [ [5, 20], [480, 90], [250, 50], [100, 33], [330, 95], [410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ]
 
 vis = d3.select('#example').append('svg')
 	.attr({
@@ -17,24 +15,215 @@ vis = d3.select('#example').append('svg')
 
 vis_group = vis.append('g')
 	.attr({
-        'transform': 'translate(' + margins.left + ', ' + margins.top + ')'
-    })
+		'transform': 'translate(' + margins.left + ', ' + margins.top + ')'
+	})
 
 aspect = chart_container.width() / chart_container.height()
 
-vis.selectAll('circle')
-	.data(dataset)
-	.enter()
-	.append('circle')
+vis_group.append('rect')
 	.attr({
-		'cx': function(d){
-			return d[0]
-		},
-		'cy': function(d){
-			return d[1]
-		},
-		'r': 5
+		'width': width,
+		'height': height,
+		'fill': 'rgba(13,19,45,1)'
 	})
+
+var tooltip = d3.select('body').append('div')
+	.attr('class', 'tooltip')
+	.style('opacity', 1e-6)
+
+var x = d3.scale.linear()
+	.range([ 0, width ])
+
+var y = d3.scale.linear()
+	.range([ height, 0 ])
+
+var xAxis = d3.svg.axis()
+	.scale(x)
+	.orient('bottom')
+	.tickFormat(d3.format('.3s'))
+	
+var yAxis = d3.svg.axis()
+	.scale(y)
+	.orient('left')
+	.tickSize(-width)
+	.tickFormat(d3.format('.2s'))
+
+var defaults = {
+	planet: {
+		colors: [
+			{
+				'stop': 0,
+				'color': 'rgba(253,173,0,1)'
+			},
+			{
+				'stop': .75,
+				'color': 'rgba(153,73,0,1)'
+			}
+		],
+		gradientId: 'radial',
+		fx: '5%',
+		fy: '5%',
+		r: '65%',
+		spreadMethod: 'pad',
+	},
+	tool_tip: {
+		stroke: 'rgba(0,0,0,1)',
+		strokeWidth: 4,
+		strokeOpacity: .5
+	}
+}
+
+var defs = vis_group.append('defs')
+
+var radialGradient = defs.append('radialGradient')
+	.attr({
+		'id': defaults.planet.gradientId,
+		'fx': defaults.planet.fx,
+		'fy': defaults.planet.fy,
+		'r': defaults.planet.r,
+		'spreadMethod': defaults.planet.spreadMethod
+	})
+
+radialGradient.selectAll('stop')
+	.data(defaults.planet.colors)
+		.enter().append('stop')
+	.attr({
+		'offset': function(d){
+			return d.stop
+		}
+	})
+	.style({
+		'stop-color': function(d){
+			return d.color
+		}
+	})
+
+var filter = defs.append('filter')
+		.attr({
+			'id': 'dropshadow'
+		})
+
+filter.append('feGaussianBlur')
+	.attr({
+		'in': 'SourceAlpha',
+		'stdDeviation': 2,
+		'result': 'blur'
+	})
+
+filter.append('feOffset')
+	.attr({
+		'in': 'blur',
+		'dx': 4,
+		'dy': 4,
+		'result': 'offsetblur'
+	})
+
+var feMerge = filter.append('feMerge')
+
+feMerge.append('feMergeNode')
+	.attr({
+		'in': 'offsetblur'
+	})
+
+feMerge.append('feMergeNode')
+	.attr({
+		'in': 'SourceGraphic'
+	})
+
+d3.json('../data/planets01.json', function(error, data){
+	data = data.planets
+
+	data.forEach(function(d) {
+		d.distance = +d.distance
+		d.diameter = +d.diameter
+		d.density = +d.density
+	})
+
+	x.domain(d3.extent(data, function(d){
+		return d.distance
+	})).nice()
+
+	y.domain(d3.extent(data, function(d){
+		return d.density
+	})).nice()
+
+	vis_group.append('g')
+		.attr({
+			'class': 'x axis',
+			'transform': 'translate(0,' + height + ')'
+		})
+		.call(xAxis)
+			.append('text')
+				.attr({
+					'x': width,
+					'dy': 30
+				})
+				.style({
+					'text-anchor': 'end'
+				})
+				.text('Distance from the Sun (miles)')
+
+	vis_group.append('g')
+		.attr({
+			'class': 'y axis'
+		})
+		.call(yAxis)
+			.append('text')
+				.attr({
+					'transform': 'rotate(-90)',
+					'x': '.17em',
+					'y': -40
+				})
+				.style({
+					'text-anchor': 'end'
+				})
+				.text('Density (kg pr. cubic meter)')
+
+	planet = vis_group.selectAll('circle')
+		.data(data)
+			.enter().append('circle')
+		.attr({
+			'class': 'planet',
+			'cx': function(d){
+				return x(d.distance)
+			},
+			'cy': function(d){
+				return y(d.density)
+			},
+			'r': function(d){
+				if(d.diameter < 3000){
+					return d.diameter / 350
+				} else {
+					return d.diameter / 1500
+				}
+			},
+			'fill': 'url(#radial)',
+			'stroke': defaults.tool_tip.stroke,
+			'stoke-width': defaults.tool_tip.strokeWidth,
+			'stroke-opacity': defaults.tool_tip.strokeOpacity
+		})
+		.style({
+			'filter': 'url(#dropshadow)'
+		})
+
+	planet.on('mouseover', function(d) {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 1)
+
+		tooltip.html(d.planet)
+			.style({
+				'left': (d3.event.pageX + 10) + 'px',
+				'top': (d3.event.pageY) + 'px'
+			})
+	})
+
+	planet.on('mouseout', function(d) {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 0)
+	})
+})
 
 $(window).on('resize', function() {
 	var targetWidth = container_parent.width()

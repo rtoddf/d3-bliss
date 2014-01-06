@@ -1,0 +1,38 @@
+.land {
+	fill: #a98b6f;
+	stroke: #fff;
+	stroke-width: 0.7px;
+}
+
+.land:hover {
+	fill: rgba(255,255,255,.7);
+	stroke-width: 1px;
+}
+
+.focused {
+	fill: rgba(255,255,255,.7);
+}
+
+#countries {
+	text-align: center;
+}
+
+select {
+	border: solid #ccc 1px;
+	padding: 3px;
+	box-shadow: inset 1px 1px 2px #ddd;
+}
+
+.tooltip {
+	position: absolute;
+	display: none;
+	pointer-events: none;
+	background: rgba(0,0,0,.5);
+	padding: 5px;
+	text-align: left;
+	border: solid #ccc 1px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 14px;
+	font-family: sans-serif;
+}
