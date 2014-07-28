@@ -1,0 +1,11 @@
+.x.axis path {
+	fill: none;
+	stroke: #000;
+	stroke-width: 1;
+}
+
+.x.axis line {
+	fill: none;
+	stroke: #000;
+	stroke-width: 1;
+}

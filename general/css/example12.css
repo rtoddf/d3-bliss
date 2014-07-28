@@ -1,0 +1,32 @@
+body {
+	font: 10px sans-serif;
+}
+
+path.line {
+	fill: none;
+	stroke: #666;
+	stroke-width: 1.5px;
+}
+
+path.area {
+	fill: #e7e7e7;
+}
+
+.axis {
+	shape-rendering: crispEdges;
+}
+
+.x.axis line {
+	stroke: #999;
+}
+
+/* this is important when getting a black box */
+.x.axis path {
+	display: none;
+}
+
+.y.axis line, .y.axis path {
+	fill: none;
+	stroke: #000;
+}
+
