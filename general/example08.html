@@ -1,204 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta charset="utf-8">
-	<title>rtodd.net</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-	<link href="../../../css/bootstrap.css" rel="stylesheet">
-	<link href="../../../css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="../../../css/docs.css" rel="stylesheet">
-	<link href="../../../css/overwrites.css" rel="stylesheet">
-
-	<!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
-	<!--link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"-->
+		<title>D3 Bliss</title>
+		<link href="../css/bootstrap.css" rel="stylesheet">
+		<link href="../css/overwrites.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<div class="container section_javascipt">
-
-			<div class="branding row">
-				<div class="span12"></div>
-			</div>
-
-			<div class="navbar navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
-
-						<div class="nav-collapse collapse">
-							<ul class="nav">
-								<li><a href="../../../index.html">Home</a></li>
-								<li class="dropdown">
-									<a href="../../../projects/index.html" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../projects/index.html">Projects Home Page</a></li>
-										<li><a href="../../../projects/radio/index.html">Radio Web Apps</a></li>
-										<li><a href="../../../projects/data_viz/index.html">Data Visualizations</a></li>
-										<li><a href="../../../projects/geolocation/index.html">Geolocation</a></li>
-										<li><a href="../../../projects/svg/index.html">Drawing SVGs with D3</a></li>
-										<li><a href="../../../projects/drag_and_drop/index.html">Drag and Drop</a></li>
-										<li><a href="../../../projects/photography/index.html">Photography</a></li>
-										<li><a href="../../../projects/illustrations/index.html">Illustrations</a></li>
-									</ul>
-								</li>
-								<li class="dropdown active">
-									<a href="../../index.html" class="dropdown-toggle" data-toggle="dropdown">Javascript <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../index.html">Javascript Home Page</a></li>
-										<li class="divider"></li>
-										<li class="nav-header"><a href="../index.html">D3</a></li>
-										<li><a href="index.html">D3 General Concepts</a></li>
-										<li><a href="../projects/index.html">D3 Projects</a></li>
-										<li><a href="../d3_charts/index.html">D3 Charts</a></li>
-										<li><a href="../d3_transition/index.html">D3 Transitions</a></li>
-										<li><a href="../d3_geo/index.html">D3 Geo</a></li>
-										<li class="divider"></li>
-										<li class="nav-header"><a href="../../libraries.html">Libraries</a></li>
-										<li><a href="../../angular/index.html">Angular</a></li>
-										<li><a href="../../underscore/index.html">Underscore</a></li>
-										<li><a href="../../three/index.html">Three</a></li>
-										<li class="divider"></li>
-										<li class="nav-header"><a href="../../grunt/index.html">Grunt</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="../../../html5/index.html" class="dropdown-toggle" data-toggle="dropdown">HTML5 <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../html5/index.html">HTML5 Home Page</a></li>
-										<li><a href="../../../html5/graphics/index.html">Graphics &amp; Typography</a></li>
-										<li><a href="../../../html5/platform/index.html">Platform Interaction</a></li>
-										<li><a href="../../../html5/css/index.html">CSS Features</a></li>
-										<li><a href="../../../html5/bonus_features/index.html">HTML Bonus Features</a></li>
-										<li><a href="../../../html5/media/index.html">Media</a></li>
-										<li><a href="../../../html5/storage_and_files/index.html">Storage &amp; Files</a></li>
-										<li><a href="../../../html5/performance/index.html">Performance Optimization</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="../../../apis/index.html" class="dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../apis/index.html">APIs Home Page</a></li>
-										<li><a href="../../../apis/itunes/index.html">iTunes</a></li>
-										<li><a href="../../../apis/usatoday/index.html">USA Today</a></li>
-										<li><a href="../../../apis/weather/index.html">Weather</a></li>
-										<li><a href="../../../apis/chartbeat/index.html">Chartbeat</a></li>
-										<li><a href="../../../apis/rotten/index.html">Rotten Tomatoes</a></li>
-										<li><a href="../../../apis/foursquare/index.html">Foursquare</a></li>
-										<li><a href="../../../apis/nytimes/index.html">NY Times</a></li>
-										<li><a href="../../../apis/facebook/index.html">Facebook</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="../../../geo/index.html" class="dropdown-toggle" data-toggle="dropdown">Geolocation <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../geo/index.html">Geolocation Home Page</a></li>
-										<li><a href="../../../geo/projects/index.html">Geolocation Projects</a></li>
-										<li><a href="../../../geo/google/basics/index.html">Google Basics</a></li>
-										<li><a href="../../../geo/google/overlays/index.html">Google Overlays</a></li>
-										<li><a href="../../../geo/google/layers/index.html">Google Layers</a></li>
-										<li><a href="../../../geo/google/services/index.html">Google Services</a></li>
-										<li><a href="../../../geo/google/libraries/index.html">Google Libraries</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../index.html">D3 Bliss</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.html">Projects</a></li>
+						<li><a href="../charts/index.html">Charts</a></li>
+						<li><a href="../maps/index.html">Maps</a></li>
+					</ul>
 				</div>
 			</div>
-
-	  <div class="row">
-		<div class="span8">
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
 					<h3>Grid Using Range</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna nisi, mollis commodo semper eu, convallis non nunc. Nunc elementum odio eu risus euismod non vestibulum orci tristique. Suspendisse potenti. Phasellus nulla eros, blandit id aliquam ac, sagittis at arcu. Fusce justo dui, semper at adipiscing quis, gravida sit amet diam. Phasellus vitae eros velit. Pellentesque mi sapien, pulvinar at feugiat at, bibendum quis arcu. Aliquam neque lacus, varius ac tempor tempus, semper quis leo. Fusce facilisis malesuada malesuada.</p>
-		  <div id="example"></div>
-
-		  <div id="example01"></div>
-		</div>
-
-				<div class="span4">
-					<h4>Resources</h4>
-					<ul class="unstyled">
-						<li><a href="https://github.com/mbostock/d3" target="_blank">D3 on GitHub</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/API-Reference" target="_blank">API Reference</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/Gallery" target="_blank">D3 Gallery</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/Tutorials" target="_blank">D3 Tutorials</a></li>
-						<li><a href="http://vimeo.com/35005701" target="_blank">D3 Meetup Video</a></li>
-						<li><a href="http://alignedleft.com/tutorials/d3/" target="_blank">Scot Murray Tutorials</a></li>
-						<li><a href="http://www.youtube.com/watch?v=TT11gTQAbcU" target="_blank">D3 for Beginners Part I</a></li>
-						<li><a href="http://www.recursion.org/d3-for-mere-mortals/" target="_blank">D3 for Mere Mortals</a></li>
-						<li><a href="http://drawingbynumbers.org/" target="_blank">Drawing by Numbers</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/Time-Formatting" target="_blank">D3 Time Formatting Docs</a></li>
-					</ul>
-					<h4>Reference</h4>
-					<ul class="unstyled">
-						<li><a href="formatting.html">Formatting</a></li>
-						<li><a href="formatting_numbers.html">Formatting Numbers</a></li>
-						<li><a href="formatting_time.html">Formatting Time</a></li>
-						<li><a href="scales.html">Scales</a></li>
-						<li><a href="scales_ordinal.html">Ordinal Scales</a></li>
-						<li><a href="scales_time.html">Time Scales</a></li>
-					</ul>
-					<h4>Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example02.html">Example - Domain and Range</a></li>
-						<li><a href="example03.html">Example - Grid Using Range</a></li>
-						<li><a href="example04.html">Example - SVG Circles</a></li>
-						<li><a href="example05.html">Example - Simple Path</a></li>
-						<li><a href="example06.html">Example - Image in SVG Tag</a></li>
-						<li><a href="example07.html">Example - Rects</a></li>
-						<li><a href="example10.html">Example - Boxes</a></li>
-						<li><a href="example21.html">Example - Circle-Polygon Intersection</a></li>
-						<li><a href="example01.html">Example - Rotated Axis - Time</a></li>
-						<li><a href="example22.html">Example - Tooltip</a></li>
-					</ul>
-					<h4>Force Layout</h4>
-					<ul class="unstyled">
-						<li><a href="example40.html">Example - Force Layout</a></li>
-						<li><a href="example41.html">Force Layout - Patent Suits</a></li>
-						<li><a href="example42.html">Force Layout - Categorical Foci</a></li>
-					</ul>
-					<h4>Text and Data Mapping Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example30.html">Example - iTunes Data</a></li>
-						<li><a href="example31.html">Example - Speaker Data</a></li>
-						<li><a href="example32.html">Example - Members of Congress Data</a></li>
-					</ul>
-					<h4>Scales Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example11.html">Scales</a></li>
-					</ul>
-					<h4>Formating Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example12.html">Time Example</a></li>
-						<li><a href="example20.html">Time Example</a></li>
-					</ul>
+					<div id="example"></div>
+					<div id="example01"></div>
 				</div>
 			</div>
-
-			<hr />
-
-			<footer>
-				<p></p>
-			</footer>
-
 		</div>
-		<script src="../../../scripts/lib/jquery.min.js"></script>
-		<script src="../../../scripts/bootstrap.min.js"></script>
-		<script src="../../../scripts/bootstrap-collapse.js"></script>
-		<script src="../../../scripts/lib/d3.v3.min.js"></script>
+		<script src="../scripts/lib/jquery.min.js"></script>
+		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
+		<script src="../scripts/lib/d3.v3.min.js"></script>
 		<script src="scripts/example08.js"></script>
 	</body>
 </html>
