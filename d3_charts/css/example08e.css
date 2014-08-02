@@ -1,0 +1,13 @@
+.chord path {
+	fill-opacity: .67;
+	stroke: #000;
+	stroke-width: .5px;
+}
+
+.chart {
+	float: left;
+	font: 10px sans-serif;
+	padding: 20px;
+	text-align: center;
+	width: 340px;
+}

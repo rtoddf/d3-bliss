@@ -1,0 +1,12 @@
+.pie_label {
+  font: 20px sans-serif;
+  font-weight: bold
+}
+
+svg {
+  padding: 10px 0 0 10px;
+}
+
+.arc {
+  stroke: #fff;
+}

@@ -1,0 +1,67 @@
+#example {
+/*	width: 500px;
+	height: 500px;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;*/
+}
+
+/*#sun {
+	background: #ae0000;
+	width: 130px;
+	height: 130px;
+	position: absolute;
+	border-radius: 70px;
+	z-index: 2;
+	top: 0;
+	left: -130px;
+}*/
+
+#sun.animate {
+	-webkit-animation-name: sunrise;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;	
+	-webkit-animation-direction: normal;
+	-webkit-animation-delay: 0;
+	-webkit-animation-play-state: running;
+	-webkit-animation-fill-mode: forwards;
+
+/*	-moz-animation-name: sunrise;
+	-moz-animation-duration: 10s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-iteration-count: 1;	
+	-moz-animation-direction: normal;
+	-moz-animation-delay: 0;
+	-moz-animation-play-state: running;
+	-moz-animation-fill-mode: forwards;
+	
+	-ms-animation-name: sunrise;
+	-ms-animation-duration: 10s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-iteration-count: 1;	
+	-ms-animation-direction: normal;
+	-ms-animation-delay: 0;
+	-ms-animation-play-state: running;
+	-ms-animation-fill-mode: forwards;
+	
+	animation-name: sunrise;
+	animation-duration: 10s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;	
+	animation-direction: normal;
+	animation-delay: 0;
+	animation-play-state: running;
+	animation-fill-mode: forwards;*/
+}
+
+@-webkit-keyframes sunrise {
+	0% {
+		top: 0;
+		left: -130px;
+	}
+	100% {
+		top: 0;
+		left: 500px;
+	}
+}

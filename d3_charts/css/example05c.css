@@ -1,0 +1,20 @@
+text{
+	font-size: 14px;
+	text-transform: capitalize
+}
+
+.rule {
+	display: block;
+}
+
+.rank {
+	margin-right: 20px;
+}
+
+.title {
+	margin-right: 40px;
+}
+
+.instances {
+	margin-right: 40px;
+}

@@ -1,0 +1,11 @@
+.axis path{
+	fill: none;
+	stroke: black;
+}
+.axis {
+	font-size: 10px;
+}
+.tick {
+	fill: none;
+	stroke: black;
+}

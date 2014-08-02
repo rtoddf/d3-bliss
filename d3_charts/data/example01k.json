@@ -1,0 +1,32 @@
+[
+	{
+		"race": "Whites",
+		"percent": 0.68526700,
+		"assholes": 0.68526700
+	},
+	{
+		"race": "Blacks",
+		"percent": 0.26179500,
+		"assholes": 0.68526700
+	},
+	{
+		"race": "PctAmInd",
+		"percent": 0.00590400,
+		"assholes": 0.68526700
+	},
+	{
+		"race": "PctAsian",
+		"percent": 0.01121300,
+		"assholes": 0.68526700
+	},
+	{
+		"race": "Other",
+		"percent": 0.00064000,
+		"assholes": 0.68526700
+	},
+	{
+		"race": "Two/More",
+		"percent": 0.01490700,
+		"assholes": 0.68526700
+	}
+]

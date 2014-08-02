@@ -1,0 +1,89 @@
+{
+	"name": "AJC",
+	"children": [
+		{
+			"name": "atlanta news, sports, atlanta weather, business news",
+			"value": 7981603,
+			"rank": 1,
+			"percentage": "32.1%"
+		},
+		{
+			"name": "atlanta sports, braves, falcons, hawks, tech, uga news",
+			"value": 710992,
+			"rank": 2,
+			"percentage": "2.9%"
+		},
+		{
+			"name": "nick saban's ga. lake house for sale",
+			"value": 421763,
+			"rank": 3,
+			"percentage": "1.7%"
+		},
+		{
+			"name": "ajc legacy section",
+			"value": 308324,
+			"rank": 4,
+			"percentage": "1.2%"
+		},
+		{
+			"name": "private quarters: a fairy-tale garden come true",
+			"value": 264266,
+			"rank": 5,
+			"percentage": "1.1%"
+		},
+		{
+			"name": "3 missing women found",
+			"value": 245010,
+			"rank": 6,
+			"percentage": "1.0%"
+		},
+		{
+			"name": "atlanta braves news",
+			"value": 236555,
+			"rank": 7,
+			"percentage": "1.0%"
+		},
+		{
+			"name": "kris kross rapper chris kelly dies at 34",
+			"value": 217129,
+			"rank": 8,
+			"percentage": "0.9%"
+		},
+		{
+			"name": "sports stats",
+			"value": 193651,
+			"rank": 9,
+			"percentage": "0.8%"
+		},
+		{
+			"name": "landing page",
+			"value": 180940,
+			"rank": 10,
+			"percentage": "0.7%"
+		},
+		{
+			"name": "top 10 sec prospects for 2014 nfl draft",
+			"value": 154695,
+			"rank": 11,
+			"percentage": "0.6%"
+		},
+		{
+			"name": "falcons rookies work out",
+			"value": 136786,
+			"rank": 12,
+			"percentage": "0.5%"
+		},
+		{
+			"name": "‘kris kross’ rapper chris kelly dies at 34",
+			"value": 135192,
+			"rank": 13,
+			"percentage": "0.5%"
+		},
+		{
+			"name": "university of georgia football and sports news",
+			"value": 119596,
+			"rank": 14,
+			"percentage": "0.5%"
+		}
+	]
+}
