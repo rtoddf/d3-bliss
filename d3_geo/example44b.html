@@ -11,7 +11,6 @@
 		<title>D3 Bliss</title>
 		<link href="../css/bootstrap.css" rel="stylesheet">
 		<link href="../css/overwrites.css" rel="stylesheet">
-		<link href="css/project01_polarclock.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -28,27 +27,28 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Projects</a></li>
+						<li><a href="../projects/index.html">Projects</a></li>
 						<li><a href="../charts/index.html">Charts</a></li>
-						<li><a href="../maps/index.html">Maps</a></li>
+						<li class="active"><a href="index.html">Maps</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 display">
-					<h3>Polar Clock</h3>
-					<p>Etiam ut orci tincidunt, facilisis orci eget, luctus urna. Aliquam eleifend, enim sollicitudin eleifend accumsan, nisi purus ultrices magna, vel malesuada lectus nulla sed purus.</p>
+					<h3>Projection - Orthographic w/ Neighbors</h3>
+					<p>The orthographic projection is an azimuthal projection suitable for displaying a single hemisphere; the point of perspective is at infinity.</p>
+					<h4>topojson.neighbors(objects)</h4>
+					<p>Returns an array representing the set of neighboring objects for each object in the specified objects array. The returned array has the same number of elements as the input array; each element i in the returned array is the array of indexes for neighbors of object i in the input array. For example, if the specified objects array contains the features foo and bar, and these features are neighbors, the returned array will be [​[1], [0]​], indicating that foo is a neighbor of bar and vice versa. Each array of neighbor indexes for each object is guaranteed to be sorted in ascending order.</p>
 					<div id="example"></div>
 				</div>
 			</div>
 		</div>
-
 		<script src="../scripts/lib/jquery.min.js"></script>
 		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
 		<script src="../scripts/lib/d3.v3.min.js"></script>
-		<script src="scripts/project01_polarclock.js"></script>
+		<script src="../scripts/lib/topojson.v1.min.js"></script>
+		<script src="scripts/example44b.js"></script>
 	</body>
 </html>

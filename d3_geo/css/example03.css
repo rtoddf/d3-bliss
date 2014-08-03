@@ -1,0 +1,15 @@
+path {
+	fill: none;
+	stroke: #666;
+	stroke-width: .5px;
+}
+
+.land-boundary {
+	stroke: #666;
+	stroke-width: .5px;
+}
+
+.county-boundary {
+	stroke: #aaa;
+	stroke-width: .5px;
+}
