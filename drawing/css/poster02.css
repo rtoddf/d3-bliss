@@ -1,0 +1,11 @@
+#poster {
+	text-align: center;
+}
+
+.quote {
+	font-family:'BebasNeueRegular',Arial,sans-serif;
+	letter-spacing: 2px;
+	font-size: 50px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
