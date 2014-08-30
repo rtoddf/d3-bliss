@@ -6,14 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
 		<title>D3 Bliss</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/overwrites.css" rel="stylesheet">
+		<link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/overwrites.less" rel="stylesheet/less">
+        <script src="scripts/less-1.7.4.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
+		<!--
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -35,67 +37,192 @@
 				</div>
 			</div>
 		</div>
+		-->
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3>D3 Bliss</h3>
-					<p>I have been working with D3.js for the past year and have really enjoyed creating visualizations and maps with this amazing javascript library. This project is for me to pull all the working examples from my site and put them into one project.</p>
-					<p>Currently, I have only moved over a few examples, but intend on adding more in the near future.</p>
-					<p>These projects utilize Bootstrap 3.0, jQuery, D3.js, Topojson.js, Queue.js, and Underscore.js. The maps, charts, and projects are drawn from topojson files and merged with data from other apis and sources.</p>
-					<div class="row">
-						<div class="col-md-4">
-							<h4><a href="projects/project04_periodictable.html">Periodic Table</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="projects/project02_trig.html">Animated Trig</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="maps/index.html">Maps</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="projects/project01_polarclock.html">Polar Clock</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="charts/scatter01.html">Planetary Scatter Plot</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="drawing/index.html">Drawing</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="comic_universe/index.html">Comic Universe</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
+		<div class="module">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="masthead">
+							<h3>D3</h3>
+							<p>I have been working with D3.js for the past year and have really enjoyed creating visualizations and maps with this amazing javascript library. This project is for me to pull all the working examples from my site and put them into one project.</p>
+							<p>Currently, I have only moved over a few examples, but intend on adding more in the near future.</p>
+							<p>These projects utilize Bootstrap 3.0, jQuery, D3.js, Topojson.js, Queue.js, and Underscore.js. The maps, charts, and projects are drawn from topojson files and merged with data from other apis and sources.</p>
 						</div>
 					</div>
-					<div class="row">
-						<h4>Reference and Examples</h4>
-						<div class="col-md-4">
-							<h4><a href="general/index.html">General Reference</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="transitions/index.html">Transitions</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="chart_examples/index.html">Chart Examples</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="geo/index.html">D3 Geo Examples</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
-						</div>
-						<div class="col-md-4">
-							<h4><a href="plugin/index.html">Responsive Plugin</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="module">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projects/project04_periodictable.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projects/project04_periodictable.html">Periodic Table</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
 						</div>
 					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projects/project02_trig.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projects/project02_trig.html">Animated Trig</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="maps/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="maps/index.html">Maps</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projects/project01_polarclock.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projects/project01_polarclock.html">Polar Clock</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="charts/scatter01.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="charts/scatter01.html">Planetary Scatter Plot</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="drawing/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="drawing/index.html">Drawing</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="comic_universe/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="comic_universe/index.html">Comic Universe</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<h4>Reference and Examples</h4>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="general/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="general/index.html">General Reference</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="transitions/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="transitions/index.html">Transitions</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="chart_examples/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="chart_examples/index.html">Chart Examples</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="geo/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="geo/index.html">D3 Geo Examples</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="plugin/index.html"><img src="images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="plugin/index.html">Responsive Plugin</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
