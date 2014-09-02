@@ -3,101 +3,113 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>D3 Bliss</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-		<title>D3 Bliss</title>
 		<link href="../css/bootstrap.css" rel="stylesheet">
-		<link href="../css/overwrites.css" rel="stylesheet">
+		<link href="../css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../css/overwrites.less" rel="stylesheet/less">
+		<script src="../scripts/less-1.7.4.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="module">
 			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../index.html">D3 Bliss</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="../projects/index.html">Projects</a></li>
-						<li><a href="../charts/index.html">Charts</a></li>
-						<li class="active"><a href="index.html">Maps</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>D3 Geo</h3>
+						<p>D3 is a fantastic JavaScript-based data visualization library that allows you to bind data to the DOM, and then make transformations to the document. To learn more, refer to D3′s GitHub repository for a massive gallery of examples for visualizing various data sets.</p>
+						<h4>TopoJSON</h4>
+						<p>TopoJSON is an extension of GeoJSON that encodes topology. Rather than representing geometries discretely, geometries in TopoJSON files are stitched together from shared line segments called arcs. TopoJSON eliminates redundancy, allowing related geometries to be stored efficiently in the same file.</p>
+					</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<h3>D3 Geo</h3>
-					<p>D3 is a fantastic JavaScript-based data visualization library that allows you to bind data to the DOM, and then make transformations to the document. To learn more, refer to D3′s GitHub repository for a massive gallery of examples for visualizing various data sets.</p>
-					<h4>TopoJSON</h4>
-					<p>TopoJSON is an extension of GeoJSON that encodes topology. Rather than representing geometries discretely, geometries in TopoJSON files are stitched together from shared line segments called arcs. TopoJSON eliminates redundancy, allowing related geometries to be stored efficiently in the same file.</p>
-					
-					<div class="row">
-						<div class="col-md-6">
-							<img src="../images/projections.jpg" class="treatment" />
-							<h4>Projections</h4>
-							<p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
-							<p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
-						</div>
-						<div class="col-md-6">
-							<img src="../images/maps.jpg" class="treatment" />
-							<h4>Maps</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<img src="../images/interactives.jpg" class="treatment" />
-							<h4>Interactives</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/projections.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Projections</a>
+							</div>
+							<div class="info">
+								<p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
+								<p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
+								<ul class="list-unstyled">
+									<li><a href="projection01_albers.html">Albers USA</a></li>
+									<li><a href="projection02_lambert.html">Lambert Azimuthal Equal-Area</a></li>
+									<li><a href="projection03_equirectangular.html">Equirectangular</a></li>
+									<li><a href="projection04_mercator.html">Spherical Mercator</a></li>
+									<li><a href="projection05_orthographic.html">Orthographic</a></li>
+									<li><a href="projection05a_orthographic.html">Orthographic w/ Neighbors</a></li>
+									<li><a href="projection06_stereographic.html">Stereographic</a></li>
+									<li><a href="projection07_gnomonic.html">Gnomonic</a></li>
+									<li><a href="projection08_eckert1.html">Eckert 1</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4 submenu">
-					<h4>Projections</h4>
-					<ul class="list-unstyled">
-						<li><a href="projection01_albers.html">Albers USA</a></li>
-						<li><a href="projection02_lambert.html">Lambert Azimuthal Equal-Area</a></li>
-						<li><a href="projection03_equirectangular.html">Equirectangular</a></li>
-						<li><a href="projection04_mercator.html">Spherical Mercator</a></li>
-						<li><a href="projection05_orthographic.html">Orthographic</a></li>
-						<li><a href="projection05a_orthographic.html">Orthographic w/ Neighbors</a></li>
-						<li><a href="projection06_stereographic.html">Stereographic</a></li>
-						<li><a href="projection07_gnomonic.html">Gnomonic</a></li>
-						<li><a href="projection08_eckert1.html">Eckert 1</a></li>
-					</ul>
-					<h4>Maps</h4>
-					<ul class="list-unstyled">
-						<li><a href="map01_choloropleth.html">Choloropleth</a></li>
-						<li><a href="map02_rhodeisland.html">Rhode Island with Counties and Hover Effect</a></li>
-						<li><a href="map02_deleware.html">Deleware with Counties and Hover Effect</a></li>
-						<li><a href="map03_unitedkingdom.html">United Kingdom</a></li>
-						<li><a href="map04_puertorico.html">Puerto Rico</a></li>
-						<li><a href="map06_worldmapcities.html">World Map with Cities</a></li>
-						<li><a href="map05_worldmaproute.html">World Map with Route</a></li>
-						<li><a href="map07_usairports.html">US Airports</a></li>
-						<li><a href="map08_mergingstates.html">Merging States</a></li>
-					</ul>
-					<h4>Interactives</h4>
-					<ul class="list-unstyled">
-						<li><a href="interactive01_clicktozoom.html">Click-to-zoom Via Transform</a></li>
-						<li><a href="interactive02_worldglobe.html">World Globe</a></li>
-					</ul>
-					<h4>Tests</h4>
-					<ul class="list-unstyled">
-						<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a></li>
-					</ul>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/maps.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Maps</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
+								<ul class="list-unstyled">
+									<li><a href="map01_choloropleth.html">Choloropleth</a></li>
+									<li><a href="map02_rhodeisland.html">Rhode Island with Counties and Hover Effect</a></li>
+									<li><a href="map02_deleware.html">Deleware with Counties and Hover Effect</a></li>
+									<li><a href="map03_unitedkingdom.html">United Kingdom</a></li>
+									<li><a href="map04_puertorico.html">Puerto Rico</a></li>
+									<li><a href="map06_worldmapcities.html">World Map with Cities</a></li>
+									<li><a href="map05_worldmaproute.html">World Map with Route</a></li>
+									<li><a href="map07_usairports.html">US Airports</a></li>
+									<li><a href="map08_mergingstates.html">Merging States</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/interactives.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Interactives</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
+								<ul class="list-unstyled">
+									<li><a href="interactive01_clicktozoom.html">Click-to-zoom Via Transform</a></li>
+									<li><a href="interactive02_worldglobe.html">World Globe</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Tests</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
+								<ul class="list-unstyled">
+									<li><a href="test01_rotating_orthographic.html">Rotating Orthographic</a><</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>

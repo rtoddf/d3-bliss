@@ -1,11 +1,11 @@
 var container_parent = $('.display') ,
-	chart_container = $('#example'),
+	chart_container = $('#planetary_scatterplot'),
 	margins = {top: 20, right: 20, bottom: 40, left: 50},
 	width = container_parent.width() - margins.left - margins.right,
 	height = (width * 0.5) - margins.top - margins.bottom,
 	vis, vis_group, aspect
 
-vis = d3.select('#example').append('svg')
+vis = d3.select('#planetary_scatterplot').append('svg')
 	.attr({
 		'width': width + margins.left + margins.right,
 		'height': height + margins.top + margins.bottom,

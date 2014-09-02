@@ -1,7 +1,7 @@
 // http://www.webelements.com/
 
 var container_parent = $('.display'),
-	chart_container = $('#example'),
+	chart_container = $('#periodic_table'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
 	width = container_parent.width() - margins.left - margins.right,
 	height = width - margins.top - margins.bottom,
@@ -22,7 +22,7 @@ var defaults = {
 
 var 
 
-vis = d3.select('#example').append('svg')
+vis = d3.select('#periodic_table').append('svg')
 	.attr({
 		'width': width + margins.left + margins.right,
 		'height': height + margins.top + margins.bottom,

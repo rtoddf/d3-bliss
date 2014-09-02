@@ -3,7 +3,7 @@
 // http://mbostock.github.io/protovis/ex/clock.html
 
 var container_parent = $('.display'),
-	chart_container = $('#example'),
+	chart_container = $('#polar_clock'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
 	width = container_parent.width() - margins.left - margins.right,
 	height = width - margins.top - margins.bottom,
@@ -34,7 +34,7 @@ var arc = d3.svg.arc()
 		return (d.index + s) * radius
 	})
 
-vis = d3.select('#example').append('svg')
+vis = d3.select('#polar_clock').append('svg')
 	.attr({
 		'width': width,
 		'height': height,

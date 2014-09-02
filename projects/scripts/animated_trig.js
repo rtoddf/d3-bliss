@@ -2,7 +2,7 @@
 // http://www.jasondavies.com/animated-trig/animated-trig.js
 
 var container_parent = $('.display') ,
-		chart_container = $('#example'),
+		chart_container = $('#animated_trig'),
 		width = container_parent.width(),
 		height = (width * 0.66),
 		vis, vis_group, aspect
@@ -18,7 +18,7 @@ var d = d3.range(0, Math.OI / 2 + interval, interval),
 tanWave.pop()
 
 // append the svg and group, as well as set the aspect for responsiveness
-vis = d3.select('#example').append('svg')
+vis = d3.select('#animated_trig').append('svg')
 		.attr({
 			'width': width,
 			'height': height,
