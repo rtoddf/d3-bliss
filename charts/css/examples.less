@@ -1,0 +1,146 @@
+.piechart01 {
+	.arc path, .arc text {
+		cursor: pointer;
+		stroke: #000
+	}
+
+	.tooltip {
+		position: absolute;
+		padding: 8px;
+		font: 10px sans-serif;
+		background: rgba(0, 0, 0, 0.75);
+		color: white;
+		text-shadow: 0 -1px 0px black;
+		padding: 8px 10px;
+		font-size: 12px;
+		line-height: 12px;
+		white-space: nowrap;
+		box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+		border-radius: 4px;
+		pointer-events: none;
+	}
+
+	.tooltip span { display: block}
+
+	/*.pie_label {
+		font-size: 16px;
+		font-weight: bold;
+	}*/
+
+	/*#legend .legend_box {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		margin-top: 3px;
+		border: 1px solid rgba(0,0,0,1);
+	}
+
+	#legend span {
+		margin-right: 10px;
+	}*/
+}
+
+.piechart01 {
+	
+}
+
+.barchart01 {
+	.axis path,
+	.axis line {
+		fill: none;
+		stroke: #000;
+		shape-rendering: crispEdges;
+	}
+
+	.x.axis path {
+		display: none;
+	}
+}
+
+.barchart02 {
+	#example {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+		fill: none;
+		stroke: #000;
+		shape-rendering: crispEdges;
+	}
+
+	.bar {
+		fill: steelblue;
+	}
+
+	.x.axis path {
+		display: none;
+	}
+}
+
+.barchart05 {
+	#example svg {
+		font: 10px sans-serif;
+	}
+
+	.axis {
+		shape-rendering: crispEdges;
+	}
+
+	.axis path {
+		fill: none;
+	}
+
+	.x.axis line {
+		stroke: #fff;
+		stroke-opacity: .8;
+	}
+
+	.y.axis path {
+		stroke: black;
+	}
+}
+
+.barchart06 {
+	svg {
+	  font: 10px sans-serif;
+	}
+
+	.y.axis path {
+	  display: none;
+	}
+
+	.y.axis line {
+	  stroke: #fff;
+	  stroke-opacity: .2;
+	  shape-rendering: crispEdges;
+	}
+
+	.y.axis .zero line {
+	  stroke: #000;
+	  stroke-opacity: 1;
+	}
+
+	.title {
+	  font: 300 78px Helvetica Neue;
+	  fill: #666;
+	}
+
+	.birthyear,
+	.age {
+	  text-anchor: middle;
+	}
+
+	.birthyear {
+	  fill: #fff;
+	}
+
+	rect {
+	  fill-opacity: .6;
+	  fill: #e377c2;
+	}
+
+	rect:first-child {
+	  fill: #1f77b4;
+	}
+}

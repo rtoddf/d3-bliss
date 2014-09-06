@@ -6,72 +6,153 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
 		<title>D3 Bliss</title>
 		<link href="../css/bootstrap.css" rel="stylesheet">
-		<link href="../css/overwrites.css" rel="stylesheet">
+		<link href="../css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../css/overwrites.less" rel="stylesheet/less">
+		<script src="../scripts/less-1.7.4.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="module">
 			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../index.html">D3 Bliss</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="../projects/index.html">Projects</a></li>
-						<li class="active"><a href="index.html">Charts</a></li>
-						<li><a href="../maps/index.html">Maps</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>D3 Charts</h3>
+					</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10">
-					<h3>Title</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus.</p>
-					<div class="row">
-						<div class="col-md-4">
-							<img src="../images/scatterplot.jpg" class="treatment" />
-							<h4>Scatter Plots</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
-						</div>
-						<div class="col-md-4">
-							<img src="../images/placeholder.jpg" class="treatment" />
-							<h4>Pie Charts</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
-						</div>
-						<div class="col-md-4">
-							<img src="../images/barchart.jpg" class="treatment" title="bar chart" alt="bar chart" />
-							<h4>Bar Charts</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem mauris. Pellentesque luctus risus eu rhoncus posuere. Vestibulum ultricies ipsum nec porta scelerisque. Sed fringilla euismod nulla in viverra. Curabitur et iaculis tellus. Aliquam viverra urna eu orci fermentum viverra. Integer ornare diam nec magna tincidunt cursus. Aenean nec egestas lacus.</p>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Simple Charts</a>
+							</div>
+							<div class="info">
+								<ul class="list-unstyled">
+									<li><a href="example02a.html">Simple Scatter Plot</a></li>
+									<li><a href="example01c.html">Bar Chart - Simple</a></li>
+									<li><a href="example03a.html">Simple Line Graph</a></li>
+									<li><a href="example03b.html">Simple Line Graph</a></li>
+									<li><a href="example06a.html">Simple Tree Chart</a></li>
+									<!--li><a href="example06b.html">Example - Collapsible Tree Menu</a></li-->
+									<li><a href="example07a.html">Simple Pack Chart</a></li>
+									<li><a href="example07b.html">Simple Pack Chart</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-2 submenu">
-					<h4>Scatter Plots</h4>
-					<ul class="list-unstyled">
-						<li><a href="scatter01.html">Planetary Scatter Plot</a></li>
-					</ul>
-					<h4>Bar Charts</h4>
-					<ul class="list-unstyled">
-						<li><a href="bar02.html">Second Languages</a></li>
-					</ul>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Bar Charts</a>
+							</div>
+							<div class="info">
+								<ul class="list-unstyled">
+									<li><a href="barchart01.html">Bar Chart - Letter Frequency</a></li>
+									<li><a href="barchart02.html">Grouped Bar Chart - Age by State</a></li>
+									<li><a href="barchart03.html">Grouped Bar Chart - Monday by Year</a></li>
+									<li><a href="barchart04.html">Stacked Bar Chart</a></li>
+									<li><a href="barchart05.html">Vertical Bar Chart</a></li>
+									<li><a href="barchart06.html">Bar Chart - Population Pyramid</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Pie Charts</a>
+							</div>
+							<div class="info">
+								<ul class="list-unstyled">
+									<li><a href="piechart01.html">Pie Chart with Hover</a></li>
+									<li><a href="piechart02.html">Population Pie Chart</a></li>
+									<li><a href="example05c.html">Pie Chart w/ Views</a></li>
+									<li><a href="example05d.html">Multiple Pie Charts</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Chord Charts</a>
+							</div>
+							<div class="info">
+								<ul class="list-unstyled">
+									<li><a href="example08a.html">Example - Chord Chart</a></li>
+									<li><a href="example08b.html">Example - Chord Chart</a></li>
+									<li><a href="example08c.html">Example - Chord Chart</a></li>
+									<li><a href="example08d.html">Example - Chord Chart</a></li>
+									<!--li><a href="example08e.html">Example - Chord Chart</a></li-->
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Chart Animations</a>
+							</div>
+							<div class="info">
+								<ul class="list-unstyled">
+									<li><a href="example09a.html">Line Example</a></li>
+									<li><a href="example09b.html">Line Example</a></li>
+									<li><a href="example09c.html">Bar Chart Example</a></li>
+									<li><a href="example09d.html">Pie Chart Example</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="javascript:void(0)"><img src="../images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="javascript:void(0)">Resources</a>
+							</div>
+							<div class="info">
+								<ul class="list-unstyled">
+									<li><a href="https://github.com/mbostock/d3" target="_blank">D3 on GitHub</a></li>
+									<li><a href="https://github.com/mbostock/d3/wiki/API-Reference" target="_blank">API Reference</a></li>
+									<li><a href="https://github.com/mbostock/d3/wiki/Gallery" target="_blank">D3 Gallery</a></li>
+									<li><a href="https://github.com/mbostock/d3/wiki/Tutorials" target="_blank">D3 Tutorials</a></li>
+									<li><a href="http://bl.ocks.org/4063269" target="_blank">Bubble Chart</a></li>
+									<li><a href="http://soundsuggest.wordpress.com/2012/12/26/d3-js-javascript-library-chord-diagram-example/" target="_blank">Library Chord Diagram</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+						<!--
+						<h4>Line Charts</h4>
+						<ul class="list-unstyled">
+							<li><a href="example04a.html">Multi-Series Line Chart</a></li>
+							<li><a href="example04b.html">Real Data - Apple Stock Chart</a></li>
+						</ul>
+						-->
 				</div>
 			</div>
 		</div>
-
 		<script src="../scripts/lib/jquery.min.js"></script>
 		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
-	</body>
+  </body>
 </html>
