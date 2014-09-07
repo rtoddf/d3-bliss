@@ -1,3 +1,35 @@
+.chordchart03 {
+	svg {
+		font: 10px sans-serif;
+	}
+
+	#circle circle {
+	  fill: none;
+	  pointer-events: all;
+	}
+
+	.group path {
+	  fill-opacity: .5;
+	}
+
+	path.chord {
+	  stroke: #000;
+	  stroke-width: .25px;
+	}
+
+	#circle:hover path.fade {
+	  display: none;
+	}
+}
+
+.chordchart01 {
+	.chord path {
+	  fill-opacity: .67;
+	  stroke: #000;
+	  stroke-width: .5px;
+	}
+}
+
 .piechart01 {
 	.arc path, .arc text {
 		cursor: pointer;
@@ -40,8 +72,42 @@
 	}*/
 }
 
-.piechart01 {
-	
+.piechart03 {
+	text{
+		font-size: 14px;
+		text-transform: capitalize
+	}
+
+	.rule {
+		display: block;
+	}
+
+	.rank {
+		margin-right: 20px;
+	}
+
+	.title {
+		margin-right: 40px;
+	}
+
+	.instances {
+		margin-right: 40px;
+	}
+}
+
+.piechart04 {
+	.pie_label {
+	  font: 20px sans-serif;
+	  font-weight: bold
+	}
+
+	svg {
+	  padding: 10px 0 0 10px;
+	}
+
+	.arc {
+	  stroke: #fff;
+	}
 }
 
 .barchart01 {
