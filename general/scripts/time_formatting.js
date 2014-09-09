@@ -64,7 +64,7 @@
 
 	aspect = chart_container.width() / chart_container.height()
 
-	d3.csv('../../../data/stocks.csv', function(data){
+	d3.csv('../data/stocks.csv', function(data){
 		// filter to one symbol; the S&P 500
 		var values = data.filter(function(d){
 			return d.symbol == 'S&P 500'

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>D3 Bliss</title>
+		<link href="../css/bootstrap.css" rel="stylesheet">
+		<link href="../css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../css/overwrites.less" rel="stylesheet/less">
+		<script src="../scripts/less-1.7.4.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div class="module">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Time Formatting Snippets</h3>
+						<p>If get the typeof of pubdate, we get "string".</p>
+						<pre>typeof(d.pub_date)</pre>
+
+						<p>So we can run it through a helper function that will return a date object if pub_date isn't one already:</p>
+						<pre>// FUNCTION
+var isDateObject = function(date){
+    return typeof(date) === 'object' && date === null ? date : new Date(date)
+}
+
+// CALL
+isDateObject(d.pub_date)</pre>
+						<p>This return the date object rather than a string:</p>
+						<pre>Tue Jun 04 2013 17:12:00 GMT-0400 (EDT)</pre>
+
+						<p>We can now run it through the time formatting methods in D3. Setting up a var called format:</p>
+						<pre>var format = d3.time.format('%Y-%B-%d')
+	format(isDateObject(d.pub_date))</pre>
+						<p>Gives us: <strong>2013-June-04</strong></p>
+
+						<pre>var format = d3.time.format('%Y')
+	format(isDateObject(d.pub_date))</pre>
+						<p>Gives us: <strong>2013</strong></p>
+
+						<pre>var format = d3.time.format('%y')
+	format(isDateObject(d.pub_date))</pre>
+						<p>Gives us: <strong>13</strong></p>
+
+						<pre>format = d3.time.format('%A, %B %d, %Y')
+	format(isDateObject(d.pub_date))</pre>
+						<p>Gives us: <strong>Tuesday, June 04, 2013</strong></p>
+						<p>Feel free to play with different combinations. You can find the <a href="formatting_time.html">directives here</a>, or in the Time Formatting section the D3 documentation.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../scripts/lib/jquery.min.js"></script>
+		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
+		<script src="../scripts/lib/d3.min.js"></script>
+		<script src="scripts/time_formatting_snippets.js"></script>
+	</body>
+</html>
