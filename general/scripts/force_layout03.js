@@ -4,7 +4,7 @@ var container_parent = $('.display') ,
 		chart_container = $('#example'),
 		margins = {top: 20, right: 20, bottom: 20, left: 20},
 		width = container_parent.width() - margins.left - margins.right,
-		height = width - margins.top - margins.bottom,
+		height = (width *.5) - margins.top - margins.bottom,
 		vis, vis_group, aspect
 
 	vis = d3.select('#example').append('svg')
@@ -22,7 +22,7 @@ var container_parent = $('.display') ,
 
 	aspect = chart_container.width() / chart_container.height()
 
-d3.csv('../../../data/example40.csv', function(error, links) {
+d3.csv('../data/example40.csv', function(error, links) {
 	var nodes = {}
 
 	// This block of code looks through all of out data from our csv file and
