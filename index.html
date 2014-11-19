@@ -15,29 +15,58 @@
 	</head>
 
 	<body>
-		<!--
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-				  <a class="navbar-brand" href="index.html">D3 Bliss</a>
+					<a class="navbar-brand" href="index.html">D3</a>
 				</div>
-				<div class="collapse navbar-collapse">
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="projects/index.html">Projects</a></li>
-						<li><a href="charts/index.html">Charts</a></li>
-						<li><a href="maps/index.html">Maps</a></li>
-						<li><a href="drawing/index.html">Drawing</a></li>
+						<li class="dropdown">
+							<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="projects/index.html">Projects</a></li>
+								<li><a href="projects/periodic_table.html">Periodic Table</a></li>
+								<li><a href="comic_universe/index.html">Comic Universe</a></li>
+								<li><a href="projects/planetary_scatterplot.html">Planetary Scatterplot</a></li>
+
+								<li><a href="projects/polar_clock.html">Polar Clock</a></li>
+								<li><a href="projects/analog_clock.html">Analog Clock</a></li>
+								<li><a href="projects/animated_trig.html">Animated Trig</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="maps/index.html" class="dropdown-toggle" data-toggle="dropdown">D3 Geo <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="maps/index.html">D3 Geo</a></li>
+								<li><a href="maps/projections.html">Projections</a></li>
+								<li><a href="maps/maps.html">Maps</a></li>
+								<li><a href="maps/interactives.html">Interactives</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="charts/index.html" class="dropdown-toggle" data-toggle="dropdown">Charts <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="charts/index.html">Charts</a></li>
+								<li><a href="charts/simple_charts.html">Simple Charts</a></li>
+								<li><a href="charts/bar_charts.html">Bar Charts</a></li>
+								<li><a href="charts/pie_charts.html">Pie Charts</a></li>
+								<li><a href="charts/chord_charts.html">Chord Charts</a></li>
+								<li><a href="charts/animations.html">Animations</a></li>
+								<li><a href="charts/tests.html">Tests</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
-		</div>
-		-->
+		</nav>
 
 		<div class="module">
 			<div class="container">
@@ -51,55 +80,19 @@
 						</div>
 					</div>
 
-					<div class="col-md-12">
-						<h4>Projects</h4>
-					</div>
-
 					<div class="col-md-4">
 						<div class="tile">
 							<div class="art">
-								<a href="projects/periodic_table.html"><img src="images/placeholder.jpg" /></a>
+								<a href="projects/index.html"><img src="images/placeholder.jpg" /></a>
 							</div>
 							<div class="cap">
-								<a href="projects/periodic_table.html">Periodic Table</a>
+								<a href="projects/index.html">Projects</a>
 							</div>
 							<div class="info">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="tile">
-							<div class="art">
-								<a href="comic_universe/index.html"><img src="images/placeholder.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="comic_universe/index.html">Comic Universe</a>
-							</div>
-							<div class="info">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="tile">
-							<div class="art">
-								<a href="projects/planetary_scatterplot.html"><img src="images/placeholder.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="projects/planetary_scatterplot.html">Planetary Scatter Plot</a>
-							</div>
-							<div class="info">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-
-					<div class="col-md-12">
-						<h4>Extensive Examples</h4>
-					</div>
-
 					<div class="col-md-4">
 						<div class="tile">
 							<div class="art">
@@ -116,10 +109,10 @@
 					<div class="col-md-4">
 						<div class="tile">
 							<div class="art">
-								<a href="drawing/index.html"><img src="images/placeholder.jpg" /></a>
+								<a href="charts/index.html"><img src="images/placeholder.jpg" /></a>
 							</div>
 							<div class="cap">
-								<a href="drawing/index.html">Drawing</a>
+								<a href="charts/index.html">Charts</a>
 							</div>
 							<div class="info">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
@@ -127,55 +120,6 @@
 						</div>
 					</div>
 					<div class="clearfix"></div>
-
-					<div class="col-md-12">
-						<h4>Simple Example Trials</h4>
-					</div>
-
-					<div class="col-md-4">
-						<div class="tile">
-							<div class="art">
-								<a href="projects/polar_clock.html"><img src="images/placeholder.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="projects/polar_clock.html">Polar Clock</a>
-							</div>
-							<div class="info">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="tile">
-							<div class="art">
-								<a href="projects/analog_clock.html"><img src="images/placeholder.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="projects/analog_clock.html">Analog Clock</a>
-							</div>
-							<div class="info">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="tile">
-							<div class="art">
-								<a href="projects/animated_trig.html"><img src="images/placeholder.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="projects/animated_trig.html">Animated Trig</a>
-							</div>
-							<div class="info">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-
-					<div class="col-md-12">
-						<h4>Reference and Examples</h4>
-					</div>
 
 					<div class="col-md-4">
 						<div class="tile">
@@ -206,10 +150,10 @@
 					<div class="col-md-4">
 						<div class="tile">
 							<div class="art">
-								<a href="charts/index.html"><img src="images/placeholder.jpg" /></a>
+								<a href="drawing/index.html"><img src="images/placeholder.jpg" /></a>
 							</div>
 							<div class="cap">
-								<a href="charts/index.html">Chart</a>
+								<a href="drawing/index.html">Drawing</a>
 							</div>
 							<div class="info">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
