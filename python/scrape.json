@@ -1,0 +1,502 @@
+{
+    "0": {
+        "singer": "Kim Carnes", 
+        "rank": "1", 
+        "song": "Bette Davis Eyes"
+    }, 
+    "1": {
+        "singer": "Diana Ross and Lionel Richie", 
+        "rank": "2", 
+        "song": "Endless Love"
+    }, 
+    "2": {
+        "singer": "Kenny Rogers", 
+        "rank": "3", 
+        "song": "Lady"
+    }, 
+    "3": {
+        "singer": "John Lennon", 
+        "rank": "4", 
+        "song": "(Just Like) Starting Over"
+    }, 
+    "4": {
+        "singer": "Rick Springfield", 
+        "rank": "5", 
+        "song": "Jessie's Girl"
+    }, 
+    "5": {
+        "singer": "Kool and The Gang", 
+        "rank": "6", 
+        "song": "Celebration"
+    }, 
+    "6": {
+        "singer": "Daryl Hall and John Oates", 
+        "rank": "7", 
+        "song": "Kiss On My List"
+    }, 
+    "7": {
+        "singer": "Eddie Rabbitt", 
+        "rank": "8", 
+        "song": "I Love A Rainy Night"
+    }, 
+    "8": {
+        "singer": "Dolly Parton", 
+        "rank": "9", 
+        "song": "9 To 5"
+    }, 
+    "9": {
+        "singer": "REO Speedwagon", 
+        "rank": "10", 
+        "song": "Keep On Loving You"
+    }, 
+    "10": {
+        "singer": "Joey Scarbury", 
+        "rank": "11", 
+        "song": "Theme From \"Greatest American Hero\" (Believe It Or Not)"
+    }, 
+    "11": {
+        "singer": "Sheena Easton", 
+        "rank": "12", 
+        "song": "Morning Train (Nine To Five)"
+    }, 
+    "12": {
+        "singer": "Smokey Robinson", 
+        "rank": "13", 
+        "song": "Being With You"
+    }, 
+    "13": {
+        "singer": "Juice Newton", 
+        "rank": "14", 
+        "song": "Queen Of Hearts"
+    }, 
+    "14": {
+        "singer": "Blondie", 
+        "rank": "15", 
+        "song": "Rapture"
+    }, 
+    "15": {
+        "singer": "Ray Parker Jr. and Raydio", 
+        "rank": "16", 
+        "song": "A Woman Needs Love"
+    }, 
+    "16": {
+        "singer": "Blondie", 
+        "rank": "17", 
+        "song": "The Tide Is High"
+    }, 
+    "17": {
+        "singer": "Grover Washington Jr.", 
+        "rank": "18", 
+        "song": "Just The Two Of Us"
+    }, 
+    "18": {
+        "singer": "Pointer Sisters", 
+        "rank": "19", 
+        "song": "Slow Hand"
+    }, 
+    "19": {
+        "singer": "Climax Blues Band", 
+        "rank": "20", 
+        "song": "I Love You"
+    }, 
+    "20": {
+        "singer": "John Lennon", 
+        "rank": "21", 
+        "song": "Woman"
+    }, 
+    "21": {
+        "singer": "A Taste Of Honey", 
+        "rank": "22", 
+        "song": "Sukiyaki"
+    }, 
+    "22": {
+        "singer": "ABBA", 
+        "rank": "23", 
+        "song": "The Winner Takes It All"
+    }, 
+    "23": {
+        "singer": "Stars On 45", 
+        "rank": "24", 
+        "song": "Medley"
+    }, 
+    "24": {
+        "singer": "Juice Newton", 
+        "rank": "25", 
+        "song": "Angel Of The Morning"
+    }, 
+    "25": {
+        "singer": "Neil Diamond", 
+        "rank": "26", 
+        "song": "Love On The Rocks"
+    }, 
+    "26": {
+        "singer": "Air Supply", 
+        "rank": "27", 
+        "song": "Every Woman In The World"
+    }, 
+    "27": {
+        "singer": "Air Supply", 
+        "rank": "28", 
+        "song": "The One That You Love"
+    }, 
+    "28": {
+        "singer": "Barbra Streisand and Barry Gibb", 
+        "rank": "29", 
+        "song": "Guilty"
+    }, 
+    "29": {
+        "singer": "Styx", 
+        "rank": "30", 
+        "song": "The Best Of Times"
+    }, 
+    "30": {
+        "singer": "Oak Ridge Boys", 
+        "rank": "31", 
+        "song": "Elvira"
+    }, 
+    "31": {
+        "singer": "REO Speedwagon", 
+        "rank": "32", 
+        "song": "Take It On The Run"
+    }, 
+    "32": {
+        "singer": "Ronnie Milsap", 
+        "rank": "33", 
+        "song": "No Gettin' Over Me"
+    }, 
+    "33": {
+        "singer": "Gino Vannelli", 
+        "rank": "34", 
+        "song": "Living Inside Myself"
+    }, 
+    "34": {
+        "singer": "Barbra Streisand", 
+        "rank": "35", 
+        "song": "Woman In Love"
+    }, 
+    "35": {
+        "singer": "Manhattan Transfer", 
+        "rank": "36", 
+        "song": "Boy From New York City"
+    }, 
+    "36": {
+        "singer": "Foreigner", 
+        "rank": "37", 
+        "song": "Urgent"
+    }, 
+    "37": {
+        "singer": "Rod Stewart", 
+        "rank": "38", 
+        "song": "Passion"
+    }, 
+    "38": {
+        "singer": "Commodores", 
+        "rank": "39", 
+        "song": "Lady (You Bring Me Up)"
+    }, 
+    "39": {
+        "singer": "Don Mclean", 
+        "rank": "40", 
+        "song": "Crying"
+    }, 
+    "40": {
+        "singer": "Marty Balin", 
+        "rank": "41", 
+        "song": "Hearts"
+    }, 
+    "41": {
+        "singer": "Diana Ross", 
+        "rank": "42", 
+        "song": "It's My Turn"
+    }, 
+    "42": {
+        "singer": "Daryl Hall and John Oates", 
+        "rank": "43", 
+        "song": "You Make My Dreams"
+    }, 
+    "43": {
+        "singer": "Kenny Rogers", 
+        "rank": "44", 
+        "song": "I Don't Need You"
+    }, 
+    "44": {
+        "singer": "Champaign", 
+        "rank": "45", 
+        "song": "How 'Bout Us"
+    }, 
+    "45": {
+        "singer": "Pat Benatar", 
+        "rank": "46", 
+        "song": "Hit Me With Your Best Shot"
+    }, 
+    "46": {
+        "singer": "Greg Kihn Band", 
+        "rank": "47", 
+        "song": "The Breakup Song"
+    }, 
+    "47": {
+        "singer": "Alan Parsons Project", 
+        "rank": "48", 
+        "song": "Time"
+    }, 
+    "48": {
+        "singer": "Bruce Springsteen", 
+        "rank": "49", 
+        "song": "Hungry Heart"
+    }, 
+    "49": {
+        "singer": "Franke and The Knockouts", 
+        "rank": "50", 
+        "song": "Sweetheart"
+    }, 
+    "50": {
+        "singer": "Terri Gibbs", 
+        "rank": "51", 
+        "song": "Someone's Knockin'"
+    }, 
+    "51": {
+        "singer": "Leo Sayer", 
+        "rank": "52", 
+        "song": "More Than I Can Say"
+    }, 
+    "52": {
+        "singer": "Tierra", 
+        "rank": "53", 
+        "song": "Together"
+    }, 
+    "53": {
+        "singer": "Styx", 
+        "rank": "54", 
+        "song": "Too Much Time On My Hands"
+    }, 
+    "54": {
+        "singer": "Dottie West", 
+        "rank": "55", 
+        "song": "What Are We Doin' In Love"
+    }, 
+    "55": {
+        "singer": "Journey", 
+        "rank": "56", 
+        "song": "Who's Crying Now"
+    }, 
+    "56": {
+        "singer": "Police", 
+        "rank": "57", 
+        "song": "De Do Do Do, De Da Da"
+    }, 
+    "57": {
+        "singer": "Gary U.S. Bonds", 
+        "rank": "58", 
+        "song": "This Little Girl"
+    }, 
+    "58": {
+        "singer": "Stevie Nicks With Tom Petty and The Heartbreakers", 
+        "rank": "59", 
+        "song": "Stop Draggin' My Heart Around"
+    }, 
+    "59": {
+        "singer": "Delbert McClinton", 
+        "rank": "60", 
+        "song": "Giving It Up For Your Love"
+    }, 
+    "60": {
+        "singer": "Cliff Richard", 
+        "rank": "61", 
+        "song": "A Little In Love"
+    }, 
+    "61": {
+        "singer": "Neil Diamond", 
+        "rank": "62", 
+        "song": "America"
+    }, 
+    "62": {
+        "singer": "John Cougar", 
+        "rank": "63", 
+        "song": "Ain't Even Done With The Night"
+    }, 
+    "63": {
+        "singer": "Christopher Cross", 
+        "rank": "64", 
+        "song": "Arthur's Theme"
+    }, 
+    "64": {
+        "singer": "Queen", 
+        "rank": "65", 
+        "song": "Another One Bites The Dust"
+    }, 
+    "65": {
+        "singer": "Alan Parsons Project", 
+        "rank": "66", 
+        "song": "Games People Play"
+    }, 
+    "66": {
+        "singer": "Eric Clapton", 
+        "rank": "67", 
+        "song": "I Can't Stand It"
+    }, 
+    "67": {
+        "singer": "Steve Winwood", 
+        "rank": "68", 
+        "song": "While You See A Chance"
+    }, 
+    "68": {
+        "singer": "Stevie Wonder", 
+        "rank": "69", 
+        "song": "Master Blaster"
+    }, 
+    "69": {
+        "singer": "Neil Diamond", 
+        "rank": "70", 
+        "song": "Hello Again"
+    }, 
+    "70": {
+        "singer": "Police", 
+        "rank": "71", 
+        "song": "Don't Stand So Close To Me"
+    }, 
+    "71": {
+        "singer": "Steely Dan", 
+        "rank": "72", 
+        "song": "Hey Nineteen"
+    }, 
+    "72": {
+        "singer": "Stevie Wonder", 
+        "rank": "73", 
+        "song": "I Ain't Gonna Stand For It"
+    }, 
+    "73": {
+        "singer": "George Harrison", 
+        "rank": "74", 
+        "song": "All Those Years Ago"
+    }, 
+    "74": {
+        "singer": "Eddie Rabbitt", 
+        "rank": "75", 
+        "song": "Step By Step"
+    }, 
+    "75": {
+        "singer": "Billy Squier", 
+        "rank": "76", 
+        "song": "The Stroke"
+    }, 
+    "76": {
+        "singer": "Alabama", 
+        "rank": "77", 
+        "song": "Feels So Right"
+    }, 
+    "77": {
+        "singer": "Stanley Clarke and George Duke", 
+        "rank": "78", 
+        "song": "Sweet Baby"
+    }, 
+    "78": {
+        "singer": "Dan Fogelberg", 
+        "rank": "79", 
+        "song": "Same Old Lang Syne"
+    }, 
+    "79": {
+        "singer": "Pablo Cruise", 
+        "rank": "80", 
+        "song": "Cool Love"
+    }, 
+    "80": {
+        "singer": "ELO", 
+        "rank": "81", 
+        "song": "Hold On Tight"
+    }, 
+    "81": {
+        "singer": "John Schneider", 
+        "rank": "82", 
+        "song": "It's Now Or Never"
+    }, 
+    "82": {
+        "singer": "Pat Benatar", 
+        "rank": "83", 
+        "song": "Treat Me Right"
+    }, 
+    "83": {
+        "singer": "Santana", 
+        "rank": "84", 
+        "song": "Winning"
+    }, 
+    "84": {
+        "singer": "Barbra Streisand and Barry Gibb", 
+        "rank": "85", 
+        "song": "What Kind Of Fool"
+    }, 
+    "85": {
+        "singer": "John Lennon", 
+        "rank": "86", 
+        "song": "Watching The Wheels"
+    }, 
+    "86": {
+        "singer": "Heart", 
+        "rank": "87", 
+        "song": "Tell It Like It Is"
+    }, 
+    "87": {
+        "singer": "Ronnie Milsap", 
+        "rank": "88", 
+        "song": "Smoky Mountain Rain"
+    }, 
+    "88": {
+        "singer": "Barry Manilow", 
+        "rank": "89", 
+        "song": "I Made It Through The Rain"
+    }, 
+    "89": {
+        "singer": "Daryl Hall and John Oates", 
+        "rank": "90", 
+        "song": "You've Lost That Lovin' Feelin'"
+    }, 
+    "90": {
+        "singer": "Olivia Newton-John and Cliff Richard", 
+        "rank": "91", 
+        "song": "Suddenly"
+    }, 
+    "91": {
+        "singer": "Sheena Easton", 
+        "rank": "92", 
+        "song": "For Your Eyes Only"
+    }, 
+    "92": {
+        "singer": "Beach Boys", 
+        "rank": "93", 
+        "song": "The Beach Boys Medley"
+    }, 
+    "93": {
+        "singer": "Devo", 
+        "rank": "94", 
+        "song": "Whip It"
+    }, 
+    "94": {
+        "singer": "Sheena Easton", 
+        "rank": "95", 
+        "song": "Modern Girl"
+    }, 
+    "95": {
+        "singer": "Gary Wright", 
+        "rank": "96", 
+        "song": "Really Wanna Know You"
+    }, 
+    "96": {
+        "singer": "Rosanne Cash", 
+        "rank": "97", 
+        "song": "Seven Year Ache"
+    }, 
+    "97": {
+        "singer": "Diana Ross", 
+        "rank": "98", 
+        "song": "I'm Coming Out"
+    }, 
+    "98": {
+        "singer": "Boz Scaggs", 
+        "rank": "99", 
+        "song": "Miss Sun"
+    }, 
+    "99": {
+        "singer": "Andy Gibb", 
+        "rank": "100", 
+        "song": "Time Is Time"
+    }
+}
