@@ -7,8 +7,10 @@ var container_parent = $('.display'),
 
 (function () {
     queue()
-        .defer(d3.json, 'data/example09a.json')
-        .defer(d3.json, 'data/example09b.json')
+        .defer(d3.json, 'data/browse.json')
+        .defer(d3.json, 'data/search.json')
+        .defer(d3.json, 'data/add.json')
+        .defer(d3.json, 'data/watch.json')
         .await(ready)
 
     vis = d3.select('#example').append('svg')
@@ -27,22 +29,32 @@ var container_parent = $('.display'),
     aspect = chart_container.width() / chart_container.height()
 })()
 
-function ready(error, data1, data2){
+function ready(error, browse, search, add, watch){
     // Parse the date / time
     var parseDate = d3.time.format('%d-%b-%y').parse
 
-    data1.forEach(function(d) {
+    browse.forEach(function(d) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     })
 
-    data2.forEach(function(d) {
+    search.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.close = +d.close;
+    });
+
+    add.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.close = +d.close;
+    });
+
+    watch.forEach(function(d) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     });
 
     var xScale = d3.time.scale()
-        .domain(d3.extent(data1, function(d) {
+        .domain(d3.extent(browse, function(d) {
             return d.date;
             
         }))
@@ -51,9 +63,9 @@ function ready(error, data1, data2){
     var yScale = d3.scale.linear()
         .domain([ 0, 
             d3.max([ 
-                d3.max(data1, function(d){
+                d3.max(browse, function(d){
                     return d.amount
-                }), d3.max(data2, function(d){ 
+                }), d3.max(search, function(d){ 
                     return d.amount
                 })
             ])
@@ -71,7 +83,7 @@ function ready(error, data1, data2){
     var linePath = vis_group.append('path')
         .attr({
             'class': 'line',
-            'd': lineFunction(data1),
+            'd': lineFunction(browse),
         })
 
     var xAxis = d3.svg.axis()
@@ -118,14 +130,20 @@ function ready(error, data1, data2){
         var newData
 
         switch (dataType) {
-            case 'data1':
-                newData = data1
+            case 'browse':
+                newData = browse
                 break;
-            case 'data2':
-                newData = data2
+            case 'search':
+                newData = search
+                break;
+            case 'add':
+                newData = add
+                break;
+            case 'watch':
+                newData = watch
                 break;
             default:
-                newData = data2
+                newData = browse
         }
 
         animate(newData)

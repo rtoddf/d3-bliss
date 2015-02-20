@@ -16,5 +16,14 @@
 	{ "date": "23-Jan-15", "amount": 18},
 	{ "date": "19-Jan-15", "amount": 22},
 	{ "date": "18-Jan-15", "amount": 2},
-	{ "date": "17-Jan-15", "amount": 0} 
+	{ "date": "17-Jan-15", "amount": 0} ,
+    { "date": "30-Dec-14", "amount": 130},
+    { "date": "27-Dec-14", "amount": 120},
+    { "date": "26-Dec-14", "amount": 78},
+    { "date": "25-Dec-14", "amount": 50},
+    { "date": "24-Dec-14", "amount": 46},
+    { "date": "23-Dec-14", "amount": 44},
+    { "date": "19-Dec-14", "amount": 18},
+    { "date": "18-Dec-14", "amount": 10},
+    { "date": "17-Dec-14", "amount": 0} 
 ]
