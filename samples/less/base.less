@@ -1,8 +1,7 @@
 @black: #000;
-@grey1: #333;
-@grey2: #666;
-@grey3: #999;
-@grey4: #ccc;
+@darkgray: #464646;
+@middlegray: #999;
+@lightgray: #dedede;
 @white: #fff;
 
 @branding: #003264;
@@ -20,6 +19,60 @@
 
 .navbar {
     margin-bottom: 0;
-    box-shadow: 1px 0 2px #000;
+    box-shadow: 1px 0 2px @black;
     border-radius: 0;
+}
+
+/*-----------------------------------------------------------------------------------*\
+    #Button groups
+\*-----------------------------------------------------------------------------------*/
+.btn-group {
+    margin-bottom: 20px;
+}
+
+.btn {
+    border-radius: 0;
+    border-color: @lightgray;
+    background-image: linear-gradient(#5c5c5c, @darkgray);
+
+    &:hover {
+        background-image: none;
+        background: @darkgray;
+
+        span,i {
+            color: @white;
+        }
+    }
+
+    span {
+        color: @middlegray;
+        transition: color .2s ease;
+    }
+
+    i {
+        color: @middlegray;
+        font-size: 22px;
+        text-shadow: 2px 2px 1px @black;
+        transition: color .2s ease;
+    }
+}
+
+/*-----------------------------------------------------------------------------------*\
+    #Line Chart Animation
+\*-----------------------------------------------------------------------------------*/
+#example {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: @black;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: @middlegray;
+    stroke-width: 2.5px;
 }
