@@ -114,6 +114,7 @@ function ready(error, browse, search, add, watch){
         .call(yAxis)
 
     function animate(type){
+        console.log('type: ', type)
         var duration = 750
 
         d3.selectAll('.line').transition()

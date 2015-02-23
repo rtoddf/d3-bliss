@@ -1,5 +1,5 @@
 var container_parent = $('.display'),
-    chart_container = $('#example'),
+    chart_container = $('#chart'),
     margins = {top: 20, right: 20, bottom: 20, left: 30},
     width = container_parent.width() - margins.left - margins.right,
     height = (width * 0.3) - margins.top - margins.bottom,
@@ -8,12 +8,9 @@ var container_parent = $('.display'),
 (function () {
     queue()
         .defer(d3.json, 'data/combined.json')
-        // .defer(d3.json, 'data/search.json')
-        // .defer(d3.json, 'data/add.json')
-        // .defer(d3.json, 'data/watch.json')
         .await(ready)
 
-    vis = d3.select('#example').append('svg')
+    vis = d3.select('#chart').append('svg')
         .attr({
             'width': width + margins.left + margins.right,
             'height': height + margins.top + margins.bottom,
@@ -30,24 +27,32 @@ var container_parent = $('.display'),
 })()
 
 function ready(error, data){
+    var browse = data[0].browse
+    var search = data[0].search
+    var add = data[0].add
+    var watch = data[0].watch
+
     // Parse the date / time
     var parseDate = d3.time.format('%d-%b-%y').parse
 
-    var browse = data[0].browse
-
     browse.forEach(function(d) {
-        console.log('d: ', d)
         d.date = parseDate(d.date);
         d.count = +d.count;
+    })
 
-        // d.search_date = parseDate(d.search[0].date)
-        // d.search_count = +d.search[0].count
+    search.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.count = +d.count;
+    })
 
-        // d.add_date = parseDate(d.add[0].date)
-        // d.add_count = +d.add[0].count
+    add.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.count = +d.count;
+    })
 
-        // d.watch_date = parseDate(d.watch[0].date)
-        // d.watch_count = +d.watch[0].count
+    watch.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.count = +d.count;
     })
 
     var xScale = d3.time.scale()
@@ -108,41 +113,51 @@ function ready(error, data){
             'transform': 'translate(0, 0)'
         })
         .call(yAxis)
+        .append('text')
+            .attr({
+                'transform': 'rotate(-90)',
+                'y': 6,
+                'dy': '.71em',
+                'fill': '#ccc'
+            })
+            .style({
+                'text-anchor': 'end'
+            })
+            .text('Number of adds')
 
-    // function animate(type){
-    //     var duration = 750
+    function animate(type){
+        var duration = 750
 
-    //     d3.selectAll('.line').transition()
-    //         .duration(duration)
-    //         .attr({
-    //             'd': function(d){
-    //                 return lineFunction(type)
-    //             }
-    //         })
-    // }
+        d3.selectAll('.line').transition()
+            .duration(duration)
+            .attr({
+                'd': function(d){
+                    return lineFunction(type)
+                }
+            })
+    }
 
     $('body').on('click', '[rel="program-share-modal"]', function( e ) {
         e.preventDefault()
         var dataType = $(this).data('type')
-        var newData
 
         switch (dataType) {
             case 'browse':
-                newData = browse
+                the_data = browse
                 break;
             case 'search':
-                newData = search
+                the_data = search
                 break;
             case 'add':
-                newData = add
+                the_data = add
                 break;
             case 'watch':
-                newData = watch
+                the_data = watch
                 break;
             default:
-                newData = browse
+                the_data = browse
         }
 
-        animate(newData)
+        animate(the_data)
     })
 }

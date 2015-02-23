@@ -60,9 +60,7 @@
 /*-----------------------------------------------------------------------------------*\
     #Line Chart Animation
 \*-----------------------------------------------------------------------------------*/
-#example {
-    font: 10px sans-serif;
-}
+
 
 .axis path,
 .axis line {
@@ -75,4 +73,35 @@
     fill: none;
     stroke: @middlegray;
     stroke-width: 2.5px;
+}
+
+.display {
+    position: relative;
+    padding: 10px 20px;
+    background: #222;
+    color: @white;
+
+    .axis path,
+    .axis line {
+        stroke: @white;
+    }
+
+    .line {
+        stroke: @middlegray;
+    }
+
+    .tick {
+        fill: @white;
+    }
+
+    #chart {
+        position: absolute;
+        top: 0;
+        background: rgba(0,0,0,.6);
+        font: 10px sans-serif;
+    }
+
+    img {
+        width: 100%;
+    }
 }
