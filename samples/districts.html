@@ -12,8 +12,29 @@
         <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <link href="less/base.less" rel="stylesheet/less" />
-        <link href="less/rtodd/rtodd.css" rel="stylesheet">
         <script src="scripts/lib/less-1.7.4.min.js"></script>
+
+        <style>
+        path {
+          stroke-linejoin: round;
+          stroke-linecap: round;
+        }
+
+        .land {
+          fill: #ddd;
+        }
+
+        .border {
+          fill: none;
+          stroke: #fff;
+        }
+
+        .graph {
+          fill: none;
+          stroke: #000;
+        }
+
+        </style>
     </head>
 
     <body>
@@ -35,28 +56,6 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Samples</h3>
-                        <div class="btn-group btn-group-justified" role="group">
-                            <a class="btn" rel="program-share-modal" data-type="browse" role="button">
-                                <i class="icon-tech-graph"></i> <span>Browse</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="search" role="button">
-                                <i class="icon-tech-graph"></i> <span>Search</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="add" role="button">
-                                <i class="icon-tech-graph"></i> <span>Add</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="watch" role="button">
-                                <i class="icon-tech-graph"></i> <span>Watch</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 display">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-6 display">
-                                <img src="images/suits.jpg">
-                            </div>
-                        </div>
-                        
                         <div id="chart"></div>
                     </div>
                 </div>
@@ -66,9 +65,8 @@
         <script src="scripts/lib/jquery-1.10.2.min.js"></script>
         <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
         <script src="scripts/lib/d3.min.js"></script>
+        <script src="scripts/lib/topojson.js"></script>
         <script src="scripts/lib/queue.v1.min.js"></script>
-        <script src="scripts/lib/underscore-min.js"></script>
-        <script src="scripts/animated_line.js"></script>
-
+        <script src="scripts/districts.js"></script>
     </body>
 </html>

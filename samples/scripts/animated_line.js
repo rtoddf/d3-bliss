@@ -1,9 +1,11 @@
+// http://bl.ocks.org/Matthew-Weber/5645518
+
 var container_parent = $('.display'),
     chart_container = $('#chart'),
     margins = {top: 20, right: 20, bottom: 20, left: 30},
     width = container_parent.width() - margins.left - margins.right,
     height = (width * 0.3) - margins.top - margins.bottom,
-    vis, vis_group, aspect
+    vis, vis_group, aspect, tooltip, template_raw
 
 (function () {
     queue()
@@ -24,6 +26,12 @@ var container_parent = $('.display'),
         })
 
     aspect = chart_container.width() / chart_container.height()
+
+    tooltip = d3.select('body').append('div')
+        .attr('class', 'tooltip')
+        .style('opacity', 1e-6)
+
+    
 })()
 
 function ready(error, data){
@@ -57,7 +65,6 @@ function ready(error, data){
 
     var xScale = d3.time.scale()
         .domain(d3.extent(browse, function(d) {
-            console.log('d: ', d)
             return d.date;
             
         }))
@@ -75,25 +82,11 @@ function ready(error, data){
         ])
         .range([ height, 0 ])
 
-    var lineFunction = d3.svg.line()
-        .x(function(d){ 
-            return xScale(d.date)
-        })
-        .y(function(d){
-            return yScale(d.count)
-        })
-
-    var linePath = vis_group.append('path')
-        .attr({
-            'class': 'line',
-            'd': lineFunction(browse),
-        })
-
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient('bottom')
-        .ticks(10)
-        .tickFormat(d3.time.format("%m/%d"))
+        .ticks(5)
+        .tickFormat(d3.time.format('%m/%d'))
         .tickSize(-height, 0, 0)
 
     var yAxis = d3.svg.axis()
@@ -125,6 +118,57 @@ function ready(error, data){
             })
             .text('Number of adds')
 
+    var lineFunction = d3.svg.line()
+        .x(function(d){ 
+            return xScale(d.date)
+        })
+        .y(function(d){
+            return yScale(d.count)
+        })
+
+    
+
+    var linePath = vis_group.append('path')
+        .attr({
+            'class': 'line',
+            'd': lineFunction(browse),
+        })
+
+    var someDots = vis_group.append('g')
+
+    someDots.selectAll('dot')
+            .data(browse)
+        .enter().append('circle')
+            .attr({
+                'class': 'dot',
+                'r': 5,
+                'fill': 'white',
+                'cx': function(d) {
+                    return xScale(d.date)
+                },
+                'cy': function(d) {
+                    return yScale(d.count)
+                }
+            })
+            .style('cursor', 'pointer')
+            .on('mouseover', function(d) {
+                tooltip
+                    .html( '<span>' + d.count + ' browsed</span>' )
+                    .style({
+                        'left': (d3.event.pageX) + 'px',
+                        'top': (d3.event.pageY - 28) + 'px'
+                    })
+                    .transition()
+                        .duration(500)
+                        .style('opacity', 1) 
+            })
+                
+            .on('mouseout', function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style('opacity', 0)
+            })
+
     function animate(type){
         var duration = 750
 
@@ -133,6 +177,17 @@ function ready(error, data){
             .attr({
                 'd': function(d){
                     return lineFunction(type)
+                }
+            })
+
+        d3.selectAll('.dot').transition()
+            .duration(duration)
+            .attr({
+                'cx': function(d) {
+                    return xScale(d.date)
+                },
+                'cy': function(d) {
+                    return yScale(d.count)
                 }
             })
     }
