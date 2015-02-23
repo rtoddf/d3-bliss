@@ -12,6 +12,7 @@
         <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <link href="less/base.less" rel="stylesheet/less" />
+        <link href="less/rtodd/rtodd.css" rel="stylesheet">
         <script src="scripts/lib/less-1.7.4.min.js"></script>
     </head>
 
@@ -32,13 +33,9 @@
         <div class="module">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h3>Samples</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec bibendum mauris, id interdum lorem. Maecenas pretium lacus ac viverra porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus tempus mi et justo sodales lacinia. Cras semper neque ut orci fermentum gravida.</p>
-
-                        <ul>
-                            <li><a href="chloropleth_unemployment.html">unemployment</a></li>
-                        </ul>
+                    <div class="col-md-12 chloropleth">
+                        <h3>Unemployment Chloropleth</h3>
+                        <div id="chart"></div>
                     </div>
                 </div>
             </div>
@@ -46,5 +43,10 @@
 
         <script src="scripts/lib/jquery-1.10.2.min.js"></script>
         <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="scripts/lib/d3.min.js"></script>
+        <script src="scripts/lib/topojson.js"></script>
+        <script src="scripts/lib/queue.v1.min.js"></script>
+        <script src="scripts/chloropleth_unemployment.js"></script>
+
     </body>
 </html>
