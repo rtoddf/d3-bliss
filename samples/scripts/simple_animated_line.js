@@ -123,9 +123,8 @@ function ready(error, browse, search, add, watch){
             })
     }
 
-
-    $('body').on('click', '[rel="program-share-modal"]', function( elem ) {
-        elem.preventDefault()
+    $('body').on('click', '[rel="program-share-modal"]', function( e ) {
+        e.preventDefault()
         var dataType = $(this).data('type')
         var newData
 
