@@ -1,24 +1,27 @@
-{
-    "date": "20-Feb-15",
-    "shows": [
-        {
-            "name": "Suits",
-            "network": "TNT",
-            "browse": 120,
-            "search": 20,
-            "add": 30,
-            "watch": 45
-        }
-    ],
-    "date": "21-Feb-15",
-    "shows": [
-        {
-            "name": "Suits",
-            "network": "TNT",
-            "browse": 125,
-            "search": 20,
-            "add": 30,
-            "watch": 47
-        }
-    ]
-}
+[
+    {
+        "program": "Suits",
+        "browse": [
+            {"date": "20-Feb-15", "count": 12},
+            {"date": "19-Feb-15", "count": 8},
+            {"date": "18-Feb-15", "count": 8},
+            {"date": "17-Feb-15", "count": 4},
+            {"date": "16-Feb-15", "count": 2}
+        ],
+        "search": [
+            {
+                "date": "20-Feb-2015", "count": 2
+            }
+        ],
+        "add": [
+            {
+                "date": "20-Feb-2015", "count": 2
+            }
+        ],
+        "watch": [
+            {
+                "date": "20-Feb-2015", "count": 2
+            }
+        ]
+    }
+]

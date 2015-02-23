@@ -7,10 +7,10 @@ var container_parent = $('.display'),
 
 (function () {
     queue()
-        .defer(d3.json, 'data/browse.json')
-        .defer(d3.json, 'data/search.json')
-        .defer(d3.json, 'data/add.json')
-        .defer(d3.json, 'data/watch.json')
+        .defer(d3.json, 'data/combined.json')
+        // .defer(d3.json, 'data/search.json')
+        // .defer(d3.json, 'data/add.json')
+        // .defer(d3.json, 'data/watch.json')
         .await(ready)
 
     vis = d3.select('#example').append('svg')
@@ -29,34 +29,30 @@ var container_parent = $('.display'),
     aspect = chart_container.width() / chart_container.height()
 })()
 
-function ready(error, browse, search, add, watch){
+function ready(error, data){
     // Parse the date / time
     var parseDate = d3.time.format('%d-%b-%y').parse
+
+    var browse = data[0].browse
 
     browse.forEach(function(d) {
         console.log('d: ', d)
         d.date = parseDate(d.date);
-        d.amount = +d.amount;
+        d.count = +d.count;
+
+        // d.search_date = parseDate(d.search[0].date)
+        // d.search_count = +d.search[0].count
+
+        // d.add_date = parseDate(d.add[0].date)
+        // d.add_count = +d.add[0].count
+
+        // d.watch_date = parseDate(d.watch[0].date)
+        // d.watch_count = +d.watch[0].count
     })
-
-    search.forEach(function(d) {
-        d.date = parseDate(d.date);
-        d.close = +d.amount;
-    });
-
-    add.forEach(function(d) {
-        d.date = parseDate(d.date);
-        d.close = +d.amount;
-    });
-
-    watch.forEach(function(d) {
-        d.date = parseDate(d.date);
-        d.close = +d.amount;
-    });
 
     var xScale = d3.time.scale()
         .domain(d3.extent(browse, function(d) {
-            console.log('d: ', d.date)
+            console.log('d: ', d)
             return d.date;
             
         }))
@@ -66,9 +62,9 @@ function ready(error, browse, search, add, watch){
         .domain([ 0, 
             d3.max([ 
                 d3.max(browse, function(d){
-                    return d.amount
-                }), d3.max(search, function(d){ 
-                    return d.amount
+                    return d.count
+                }), d3.max(browse, function(d){ 
+                    return d.count
                 })
             ])
         ])
@@ -79,7 +75,7 @@ function ready(error, browse, search, add, watch){
             return xScale(d.date)
         })
         .y(function(d){
-            return yScale(d.amount)
+            return yScale(d.count)
         })
 
     var linePath = vis_group.append('path')
@@ -113,17 +109,17 @@ function ready(error, browse, search, add, watch){
         })
         .call(yAxis)
 
-    function animate(type){
-        var duration = 750
+    // function animate(type){
+    //     var duration = 750
 
-        d3.selectAll('.line').transition()
-            .duration(duration)
-            .attr({
-                'd': function(d){
-                    return lineFunction(type)
-                }
-            })
-    }
+    //     d3.selectAll('.line').transition()
+    //         .duration(duration)
+    //         .attr({
+    //             'd': function(d){
+    //                 return lineFunction(type)
+    //             }
+    //         })
+    // }
 
     $('body').on('click', '[rel="program-share-modal"]', function( e ) {
         e.preventDefault()
