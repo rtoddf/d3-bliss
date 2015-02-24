@@ -38,11 +38,8 @@ function ready(error, us) {
 			.data(topojson.feature(us, us.objects.counties).features)
 		.enter().append("path")
 			.attr("class", function(d) {
-				console.log(d.id)
-				console.log(rateById.get(d.id))
-				return "bob"
-				// return quantize(rateById.get(d.id));
-
+				// console.log('quantize(rateById.get(d.id): ', quantize(rateById.get(d.id)))
+				return quantize(rateById.get(d.id));
 			})
 			.attr("d", path);
 
