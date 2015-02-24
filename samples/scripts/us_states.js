@@ -33,7 +33,6 @@ d3.json('data/us.json', function(error, topology){
     //         'stroke': defaults.land.stroke
     //     })
 
-    
     // draws the state shapes
     vis_group.selectAll('path')
             .data(topojson.feature(topology, topology.objects.states).features)
@@ -46,7 +45,7 @@ d3.json('data/us.json', function(error, topology){
         })
         .style('cursor', 'pointer')
         .on('mouseover', function(d) {
-            tooltip
+            d3.select(".tooltip")
                 .html( '<span>' + names[d.id]['code'] + ': ' + names[d.id]['name'] + '</span>' )
                 .style({
                     'left': (d3.event.pageX) + 'px',
@@ -55,12 +54,29 @@ d3.json('data/us.json', function(error, topology){
                 .transition()
                     .duration(500)
                     .style('opacity', 1) 
+
+            d3.select(this)
+                .transition()
+                    .duration(500)
+                    .attr({
+                        'fill': '#61613b',
+                        'stroke': '#fff',
+                        'strokeWidth': 2
+                    })
         })
         .on('mouseout', function(d) {
-            tooltip
+            d3.select(".tooltip")
                 .transition()
                     .duration(200)
-                    .style('opacity', 0) 
+                    .style('opacity', 0)
+            d3.select(this)
+                .transition()
+                    .duration(200)
+                    .attr({
+                        'fill': defaults.states.fill,
+                        'stroke': defaults.states.stroke,
+                        'strokeWidth': defaults.states.strokeWidth
+                    })
         })
 
     // draws just the state borders - doesn't double up
