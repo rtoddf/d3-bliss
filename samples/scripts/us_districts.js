@@ -14,7 +14,7 @@ queue()
     .defer(d3.json, 'data/us-congress-113.json')
     .await(ready);
 
-function ready(error, us, congress) {
+function ready(error, topology, congress) {
     if (error) return console.error(error);
 
     var geometryCollection = congress.objects.districts,
@@ -36,21 +36,35 @@ function ready(error, us, congress) {
 
     // draw the US boundaries
     vis_group.append('path')
-        .datum(topojson.feature(us, us.objects.land))
+        .datum(topojson.feature(topology, topology.objects.land))
         .attr({
             'd': path,
             'fill': defaults.land.fill,
-            
+            'stroke': defaults.land.stroke,
+            'stroke-width': defaults.land.strokeWidth
         })
 
+    // draws the state outlines
+    // vis_group.append('path')
+    //     .datum(topojson.mesh(topology, topology.objects.states, function(a, b){
+    //         return a !== b
+    //     }))
+    //     .attr({
+    //         'd': path,
+    //         'fill': 'none',
+    //         'stroke': defaults.states.stroke
+    //     })
+
+    // draw the district boundaries
     vis_group.append('path')
         .datum(topojson.mesh(congress, geometryCollection, function(a, b) {
             return a !== b
         }))
         .attr({
             'd': path,
-            'fill': defaults.districts.fill,
+            'fill': 'none',
             'stroke': defaults.districts.stroke,
+            'stroke-width': defaults.districts.strokeWidth
         })
 }
 

@@ -8,19 +8,20 @@ var container_parent = $('.display') ,
 var defaults = {
     land: {
         fill: '#baba71',
-        stroke: '#000'
-    },
-    districts: {
-        fill: 'none',
-        stroke: '#61613b',
-        strokeWidth: .5
-    },
-    counties: {
-        fill: '#baba71',
         stroke: '#61613b',
         strokeWidth: .5
     },
     states: {
+        fill: '#baba71',
+        stroke: '#61613b',
+        strokeWidth: .5
+    },
+    districts: {
+        fill: 'none',
+        stroke: '#fff',
+        strokeWidth: .5
+    },
+    counties: {
         fill: '#baba71',
         stroke: '#fff',
         strokeWidth: .5

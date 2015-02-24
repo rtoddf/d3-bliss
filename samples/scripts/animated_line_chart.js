@@ -5,7 +5,7 @@ var container_parent = $('.display'),
     margins = {top: 20, right: 20, bottom: 20, left: 30},
     width = container_parent.width() - margins.left - margins.right,
     height = (width * 0.3) - margins.top - margins.bottom,
-    vis, vis_group, aspect, tooltip, template_raw
+    vis, vis_group, aspect, tooltip
 
 (function () {
     queue()
@@ -22,16 +22,15 @@ var container_parent = $('.display'),
 
     vis_group = vis.append('g')
         .attr({
-            'transform': 'translate(' + margins.left + ', ' + margins.top + ')'
+            'transform': 'translate(' + margins.left + ', ' + margins.top + ')',
+            'class': 'bob'
         })
 
     aspect = chart_container.width() / chart_container.height()
 
     tooltip = d3.select('body').append('div')
         .attr('class', 'tooltip')
-        .style('opacity', 1e-6)
-
-    
+        .style('opacity', 1e-6)    
 })()
 
 function ready(error, data){
@@ -85,7 +84,7 @@ function ready(error, data){
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient('bottom')
-        .ticks(5)
+        .ticks(browse.length)
         .tickFormat(d3.time.format('%m/%d'))
         .tickSize(-height, 0, 0)
 
@@ -126,19 +125,17 @@ function ready(error, data){
             return yScale(d.count)
         })
 
-    
-
-    var linePath = vis_group.append('path')
+    // append the line to the group
+    vis_group.append('path')
         .attr({
             'class': 'line',
             'd': lineFunction(browse),
         })
 
-    var someDots = vis_group.append('g')
-
-    someDots.selectAll('dot')
+    // append the circles to the group
+    vis_group.selectAll('circle')
             .data(browse)
-        .enter().append('circle')
+        .enter().append("circle")
             .attr({
                 'class': 'dot',
                 'r': 5,
@@ -161,8 +158,7 @@ function ready(error, data){
                     .transition()
                         .duration(500)
                         .style('opacity', 1) 
-            })
-                
+            })                
             .on('mouseout', function(d) {
                 tooltip.transition()
                     .duration(500)
@@ -180,7 +176,9 @@ function ready(error, data){
                 }
             })
 
-        d3.selectAll('.dot').transition()
+        vis_group.selectAll('.dot')
+            .data(type)
+            .transition()
             .duration(duration)
             .attr({
                 'cx': function(d) {
