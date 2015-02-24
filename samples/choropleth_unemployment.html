@@ -34,29 +34,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Samples</h3>
-                        <div class="btn-group btn-group-justified" role="group">
-                            <a class="btn" rel="program-share-modal" data-type="browse" role="button">
-                                <i class="icon-tech-graph"></i> <span>Browse</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="search" role="button">
-                                <i class="icon-tech-graph"></i> <span>Search</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="add" role="button">
-                                <i class="icon-tech-graph"></i> <span>Add</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="watch" role="button">
-                                <i class="icon-tech-graph"></i> <span>Watch</span>
-                            </a>
-                        </div>
+                        <h3>Unemployment Choropleth</h3>
                     </div>
-                    <div class="col-md-12 display">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-6 display">
-                                <img src="images/suits.jpg">
-                            </div>
-                        </div>
-                        
+                </div>
+                <div class="row">
+                    <div class="col-md-12 choropleth display">
                         <div id="chart"></div>
                     </div>
                 </div>
@@ -66,9 +48,9 @@
         <script src="scripts/lib/jquery-1.10.2.min.js"></script>
         <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
         <script src="scripts/lib/d3.min.js"></script>
+        <script src="scripts/lib/topojson.js"></script>
         <script src="scripts/lib/queue.v1.min.js"></script>
-        <script src="scripts/lib/underscore-min.js"></script>
-        <script src="scripts/animated_line.js"></script>
-
+        <script src="scripts/base.js"></script>
+        <script src="scripts/choropleth_unemployment.js"></script>
     </body>
 </html>

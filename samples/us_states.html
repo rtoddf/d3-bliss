@@ -13,28 +13,6 @@
         <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <link href="less/base.less" rel="stylesheet/less" />
         <script src="scripts/lib/less-1.7.4.min.js"></script>
-
-        <style>
-        path {
-          stroke-linejoin: round;
-          stroke-linecap: round;
-        }
-
-        .land {
-          fill: #ddd;
-        }
-
-        .border {
-          fill: none;
-          stroke: #fff;
-        }
-
-        .graph {
-          fill: none;
-          stroke: #000;
-        }
-
-        </style>
     </head>
 
     <body>
@@ -55,7 +33,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Samples</h3>
+                        <h3>US States</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 state_view display">
                         <div id="chart"></div>
                     </div>
                 </div>
@@ -66,7 +48,7 @@
         <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
         <script src="scripts/lib/d3.min.js"></script>
         <script src="scripts/lib/topojson.js"></script>
-        <script src="scripts/lib/queue.v1.min.js"></script>
-        <script src="scripts/districts.js"></script>
+        <script src="scripts/base.js"></script>
+        <script src="scripts/us_states.js"></script>
     </body>
 </html>

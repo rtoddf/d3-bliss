@@ -75,34 +75,38 @@
     stroke-width: 2.5px;
 }
 
-.display {
-    position: relative;
-    padding: 10px 20px;
-    background: #222;
-    color: @white;
+.line_chart {
+    height: 350px;
 
-    .axis path,
-    .axis line {
-        stroke: @white;
-    }
+    &.display {
+        position: relative;
+        padding: 10px 20px;
+        background: #222;
+        color: @white;
 
-    .line {
-        stroke: @middlegray;
-    }
+        .axis path,
+        .axis line {
+            stroke: @white;
+        }
 
-    .tick {
-        fill: @white;
-    }
+        .line {
+            stroke: @middlegray;
+        }
 
-    #chart {
-        position: absolute;
-        top: 0;
-        background: rgba(0,0,0,.6);
-        font: 10px sans-serif;
-    }
+        .tick {
+            fill: @white;
+        }
 
-    img {
-        width: 100%;
+        #chart {
+            position: absolute;
+            top: 0;
+            background: rgba(0,0,0,.6);
+            font: 10px sans-serif;
+        }
+
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -117,25 +121,27 @@
     pointer-events: none;
 }
 
-.chloropleth {
-    .counties {
-      fill: none;
+.state_view,
+.district_view,
+.choropleth {
+    path {
+        stroke-linejoin: round;
+        stroke-linecap: round;
     }
 
     .states {
       fill: none;
-      stroke: @white;
-      stroke-linejoin: round;
     }
+}
 
-    .q0-9 { fill:rgb(247,251,255); }
-    .q1-9 { fill:rgb(222,235,247); }
-    .q2-9 { fill:rgb(198,219,239); }
-    .q3-9 { fill:rgb(158,202,225); }
-    .q4-9 { fill:rgb(107,174,214); }
-    .q5-9 { fill:rgb(66,146,198); }
-    .q6-9 { fill:rgb(33,113,181); }
-    .q7-9 { fill:rgb(8,81,156); }
-    .q8-9 { fill:rgb(8,48,107); }
-
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 {
+    fill: rgb(8,48,107);
 }
