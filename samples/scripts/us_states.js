@@ -2,7 +2,7 @@ var tooltip = d3.select('body').append('div')
     .attr('class', 'tooltip')
     .style('opacity', 1e-6)
 
-vis = d3.select('#chart').append('svg')
+vis = d3.select('#map').append('svg')
     .attr({
         'width': width + margins.left + margins.right,
         'height': height + margins.top + margins.bottom,

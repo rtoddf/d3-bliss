@@ -7,7 +7,7 @@ var quantize = d3.scale.quantize()
 		return 'q' + i + '-9'
 	}))
 
-vis = d3.select('#chart').append('svg')
+vis = d3.select('#map').append('svg')
     .attr({
         'width': width + margins.left + margins.right,
         'height': height + margins.top + margins.bottom,

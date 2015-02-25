@@ -1,4 +1,4 @@
-vis = d3.select('#chart').append('svg')
+vis = d3.select('#map').append('svg')
     .attr({
         'width': width + margins.left + margins.right,
         'height': height + margins.top + margins.bottom,
