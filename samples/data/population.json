@@ -1,0 +1,28 @@
+{
+	"datum": [
+		{
+			"race": "American Indian",
+			"percentage": "0.00590400"
+		},
+		{
+			"race": "Asian",
+			"percentage": "0.01121300"
+		},
+		{
+			"race": "African American",
+			"percentage": "0.26179500"
+		},
+		{
+			"race": "Native Hawaiian or other Pacific Islander",
+			"percentage": "0.00064000"
+		},
+		{
+			"race": "Two or More",
+			"percentage": "0.01490700"
+		},
+		{
+			"race": "Caucasian",
+			"percentage": "0.68526700"
+		}
+	]
+}

@@ -41,14 +41,10 @@ var projection = d3.geo.albersUsa()
 var path = d3.geo.path()
     .projection(projection);
 
-
-
 // tooltips
 var tooltip = d3.select('body').append('div')
     .attr({
-        'class': 'tooltip'
-    })
-    .style({
+        'class': 'tooltip',
         'opacity': 1e-6
     })
 
