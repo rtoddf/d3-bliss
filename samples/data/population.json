@@ -2,27 +2,27 @@
 	"datum": [
 		{
 			"race": "American Indian",
-			"percentage": "0.00590400"
+			"percentage": "0.00306100"
 		},
 		{
 			"race": "Asian",
-			"percentage": "0.01121300"
+			"percentage": "0.38600100"
 		},
 		{
 			"race": "African American",
-			"percentage": "0.26179500"
+			"percentage": "0.01574900"
 		},
 		{
 			"race": "Native Hawaiian or other Pacific Islander",
-			"percentage": "0.00064000"
+			"percentage": "0.09955300"
 		},
 		{
 			"race": "Two or More",
-			"percentage": "0.01490700"
+			"percentage": "0.23570400"
 		},
 		{
 			"race": "Caucasian",
-			"percentage": "0.68526700"
+			"percentage": "0.24744400"
 		}
 	]
 }

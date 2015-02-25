@@ -1,4 +1,4 @@
-var race
+var race, total
 
 var arc = d3.svg.arc()
 	.outerRadius(radius)
@@ -22,6 +22,7 @@ aspect = chart_container.width() / chart_container.height();
 (function () {
 	var pie = d3.layout.pie()
 		.sort(null)
+		.padAngle(.02)
 		.value(function(d){
 			return d.percentage
 		})
@@ -33,7 +34,7 @@ aspect = chart_container.width() / chart_container.height();
 			d.percentage = +d.percentage
 		})
 
-		var total = d3.sum(pie(datum), function(d){
+		total = d3.sum(pie(datum), function(d){
 			return d.value
 		})
 
@@ -55,68 +56,70 @@ aspect = chart_container.width() / chart_container.height();
 				'opacity': defaults.opacity.off
 			})
 
-		g.on('mouseover', function(d) {
-			d3.select(this)
-				.transition()
-				.duration(defaults.animation.duration)
-				.ease(defaults.animation.easeType)
-				.attr({
-					'transform': function(d) {
-						race = d.data.race
-						var c = arc.centroid(d),
-						x = c[0],
-						y = c[1],
-						// pythagorean theorem for hypotenuse
-						h = Math.sqrt(x*x + y*y)
-						return 'translate(' + (x/h * defaults.animation.diffFromCenter) +  ',' + (y/h * defaults.animation.diffFromCenter) +  ') scale(' + defaults.animation.scaleAmount + ')'
-					}
-				})
-				.style({
-					'opacity': .5,
-					'cursor': 'pointer'
-				})
-
-			// show the tooltip and set the text
-			d3.select('.tooltip')
-                .html(function(d){
-                	return '<span>' + race + '</span>'
-                })
-                .style({
-                    'left': (d3.event.pageX) + 'px',
-                    'top': (d3.event.pageY - 28) + 'px'
-                })
-                .transition()
-                    .duration(defaults.animation.duration)
-                    .style({
-                    	'opacity': defaults.opacity.over
-                    })
-
-            // append the percentage to the center of the chart
-			vis_group.append('text')
-				.attr({
-					'class': 'percentage',
-					'x': radius / 20,
-					'y': radius / 20 + 10,
-					'text-anchor': 'middle',
-					'font-size': radius / 3
-				})
-				.text(function(t){
-					return ((d.data.percentage/total) * 100).toFixed(0) + '%'
-				})
-				.style({
-					'opacity': defaults.opacity.out
-				})
-				.transition()
-					.duration(defaults.animation.duration)
-					.style({
-						'opacity': defaults.opacity.off
-					})
-		})
-
+		// hover and off states
+		g.on('mouseover', over)
 		g.on('mouseout', out)
-
 	})
 })()
+
+var over = function(d){
+	// animate the arc
+	d3.select(this)
+		.transition()
+			.duration(defaults.animation.duration)
+			.ease(defaults.animation.easeType)
+			.attr({
+				'transform': function(d) {
+					race = d.data.race
+					var c = arc.centroid(d),
+					x = c[0],
+					y = c[1],
+					// pythagorean theorem for hypotenuse
+					h = Math.sqrt(x*x + y*y)
+					return 'translate(' + (x/h * defaults.animation.diffFromCenter) +  ',' + (y/h * defaults.animation.diffFromCenter) +  ') scale(' + defaults.animation.scaleAmount + ')'
+				}
+			})
+			.style({
+				'opacity': .5,
+				'cursor': 'pointer'
+			})
+
+	// show the tooltip and set the text
+	d3.select('.tooltip')
+		.html(function(d){
+			return '<span>' + race + '</span>'
+		})
+		.style({
+			'left': (d3.event.pageX) + 'px',
+			'top': (d3.event.pageY - 28) + 'px'
+		})
+		.transition()
+			.duration(defaults.animation.duration)
+			.style({
+				'opacity': defaults.opacity.over
+			})
+
+	// append the percentage to the center of the chart
+	vis_group.append('text')
+		.attr({
+			'class': 'percentage',
+			'x': radius / 20,
+			'y': radius / 20 + 10,
+			'text-anchor': 'middle',
+			'font-size': radius / 3
+		})
+		.text(function(t){
+			return ((d.data.percentage/total) * 100).toFixed(0) + '%'
+		})
+		.style({
+			'opacity': defaults.opacity.out
+		})
+		.transition()
+			.duration(defaults.animation.duration)
+			.style({
+				'opacity': defaults.opacity.off
+			})
+}
 
 var out = function(){
 	tooltip
@@ -151,13 +154,3 @@ var out = function(){
 			'opacity': defaults.opacity.out
 		})
 }
-
-
-
-$(window).on('resize', function() {
-	var targetWidth = container_parent.width()
-	vis.attr({
-		'width': targetWidth,
-		'height': Math.round(targetWidth / aspect)
-	})
-})

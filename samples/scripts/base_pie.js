@@ -11,7 +11,7 @@ var defaults = {
         duration: 500,
         easeType: 'back',
         scale: 1,
-        scaleAmount: 1.3,
+        scaleAmount: 1.1,
         diffFromCenter: radius / 20
     },
     opacity: {
