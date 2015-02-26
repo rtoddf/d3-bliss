@@ -61,6 +61,8 @@ aspect = chart_container.width() / chart_container.height();
 })()
 
 var over = function(d){
+	console.log('d: ', d)
+
 	// animate the arc
 	d3.select(this)
 		.transition()

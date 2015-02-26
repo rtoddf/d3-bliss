@@ -72,6 +72,8 @@ d3.json('data/population.json', function(error, data){
 		return d.value
 	})
 
+	var test
+
 	vis_group.selectAll('path')
 		.data(pie(data))
 			.enter().append('path')
@@ -84,74 +86,141 @@ d3.json('data/population.json', function(error, data){
 			'stroke': defaults.colors.stroke_off,
 			'stroke-width': defaults.animation.strokeWidth_off
 		})
-		.on('mouseover', user_interaction('over'))
-		.on('mouseout', user_interaction('off'))
+		.each(function(d) {
+			d3.select(this).on('mouseover', user_interaction_over)
+			d3.select(this).on('mouseout', user_interaction_out)
+		})
 })
 
 
-function user_interaction(event){
+function user_interaction_over(d){
+	var event = 'over'
 	var rad = event == 'over' ? outerRadius + 20 : outerRadius
 	var fill_color = event == 'over' ? defaults.colors.fill_over : defaults.colors.fill_off
 	var delay = event == 'over' ? defaults.animation.delay_off : defaults.animation.delay_over
 	var tooltip_opacity = event == 'over' ? defaults.opacity.over : defaults.opacity.out
 	var text_opacity = event == 'over' ? defaults.opacity.over : defaults.opacity.out
 
-	return function(){
-		// animate the arc
-		d3.select(this)
-			.transition()
-				.delay(delay)
-				.attrTween('d', function(d) {
-					the_data = d.data
-					percentage = d.data.percentage
-					var i = d3.interpolate(d.outerRadius, rad)
-					return function(t) {
-						d.outerRadius = i(t)
-						return arc(d)
-					}
-				})
-				.style({
-					'cursor': 'pointer',
-					'fill': fill_color
-				})
-
-		// show the tooltip and set the text
-		d3.select('.tooltip')
-			.html(function(){
-				return '<span>' + the_data.race + '</span>'
+	// animate the arc
+	d3.select(this)
+		.transition()
+			.delay(delay)
+			.attrTween('d', function(d) {
+				percentage = d.data.percentage
+				var i = d3.interpolate(d.outerRadius, rad)
+				return function(t) {
+					d.outerRadius = i(t)
+					return arc(d)
+				}
 			})
 			.style({
-				'left': (d3.event.pageX) + 'px',
-				'top': (d3.event.pageY - 28) + 'px'
+				'cursor': 'pointer',
+				'fill': fill_color
 			})
-			.transition()
-				.duration(defaults.animation.duration)
-				.style({
-					'opacity': tooltip_opacity
-				})
 
-		// append the percentage to the center of the chart
-		d3.select('.percentage')
-			.remove()
-
-		vis_group.append('text')
-			.attr({
-				'class': 'percentage',
-				'x': radius / 20,
-				'y': radius / 20 + 10,
-				'text-anchor': 'middle',
-				'font-size': radius / 3
+	// show the tooltip and set the text
+	d3.select('.tooltip')
+		.html(function(){
+			return '<span>' + d.data.race + '</span>'
+		})
+		.style({
+			'left': (d3.event.pageX) + 'px',
+			'top': (d3.event.pageY - 28) + 'px'
+		})
+		.transition()
+			.duration(defaults.animation.duration)
+			.style({
+				'opacity': tooltip_opacity
 			})
-			.text(function(t){
-				return ((percentage/total) * 100).toFixed(0) + '%'
+
+	// append the percentage to the center of the chart
+	d3.select('.percentage')
+		.remove()
+
+	vis_group.append('text')
+		.attr({
+			'class': 'percentage',
+			'x': radius / 20,
+			'y': radius / 20 + 10,
+			'text-anchor': 'middle',
+			'font-size': radius / 3
+		})
+		.text(function(t){
+			return ((d.data.percentage/total) * 100).toFixed(0) + '%'
+		})
+		.style({
+			'opacity': defaults.opacity.out
+		})
+		.transition()
+			.duration(defaults.animation.duration)
+			.style({
+				'opacity': text_opacity
+			})
+
+}
+
+function user_interaction_out(d){
+	var event = 'out'
+	var rad = event == 'over' ? outerRadius + 20 : outerRadius
+	var fill_color = event == 'over' ? defaults.colors.fill_over : defaults.colors.fill_off
+	var delay = event == 'over' ? defaults.animation.delay_off : defaults.animation.delay_over
+	var tooltip_opacity = event == 'over' ? defaults.opacity.over : defaults.opacity.out
+	var text_opacity = event == 'over' ? defaults.opacity.over : defaults.opacity.out
+
+	// animate the arc
+	d3.select(this)
+		.transition()
+			.delay(delay)
+			.attrTween('d', function(d) {
+				percentage = d.data.percentage
+				var i = d3.interpolate(d.outerRadius, rad)
+				return function(t) {
+					d.outerRadius = i(t)
+					return arc(d)
+				}
 			})
 			.style({
-				'opacity': defaults.opacity.out
+				'cursor': 'pointer',
+				'fill': fill_color
 			})
-			.transition()
-				.duration(defaults.animation.duration)
-				.style({
-					'opacity': text_opacity
-				})
-	}
+
+	// show the tooltip and set the text
+	d3.select('.tooltip')
+		.html(function(){
+			return '<span>' + d.data.race + '</span>'
+		})
+		.style({
+			'left': (d3.event.pageX) + 'px',
+			'top': (d3.event.pageY - 28) + 'px'
+		})
+		.transition()
+			.duration(defaults.animation.duration)
+			.style({
+				'opacity': tooltip_opacity
+			})
+
+	// append the percentage to the center of the chart
+	d3.select('.percentage')
+		.remove()
+
+	vis_group.append('text')
+		.attr({
+			'class': 'percentage',
+			'x': radius / 20,
+			'y': radius / 20 + 10,
+			'text-anchor': 'middle',
+			'font-size': radius / 3
+		})
+		.text(function(t){
+			return ((d.data.percentage/total) * 100).toFixed(0) + '%'
+		})
+		.style({
+			'opacity': defaults.opacity.out
+		})
+		.transition()
+			.duration(defaults.animation.duration)
+			.style({
+				'opacity': text_opacity
+			})
+
 }
