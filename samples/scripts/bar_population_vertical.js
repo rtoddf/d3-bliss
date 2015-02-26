@@ -96,7 +96,6 @@ d3.json('data/us_census.json', function(error, data){
 
 			d3.select('.tooltip')
 				.html(function(){
-					console.log('d: ', d)
 					return '<span>' + d.placename + ': </span><span>' + format(d.pop) + '</span>'
 				})
 				.style({
@@ -115,6 +114,13 @@ d3.json('data/us_census.json', function(error, data){
 					.duration(200)
 					.attr({
 						'fill': rect_color
+					})
+
+			d3.select('.tooltip')
+				.transition()
+					.duration(200)
+					.style({
+						'opacity': 0
 					})
 		})
 
