@@ -66,13 +66,6 @@ d3.json('data/state_labor_stats.json', function(error, response){
 	$('.month').html(stats[0].stats.periodName)
 	$('.year').html(stats[0].stats.year)
 
-	// var yearSomething = stats.filter(function(d){
-	// 	console.log('d: ', d.stats.year)
-	// 	return 'woohoo'
-	// })
-
-	// console.log('yearSomething: ', yearSomething)
-
 	x.domain(stats.sort(function(a, b) {
 		return d3.ascending(a.shortName, b.shortName);
 	})
@@ -91,8 +84,6 @@ d3.json('data/state_labor_stats.json', function(error, response){
 	var min_percentage = d3.min(stats, function(d){
 		return d.stats.unemployment_percent
 	})
-
-	console.log('min_percentage: ', min_percentage)
 
 	vis_group.append('g')
 		.attr({
@@ -139,13 +130,6 @@ d3.json('data/state_labor_stats.json', function(error, response){
 			'class': 'bar',
 			'fill': function(d){
 				return 'rgb(126,126,126)'
-				// if(d.stats.unemployment_percent == max_percentage){
-				// 	return 'rgb(255,0,0)'
-				// } else if(d.stats.unemployment_percent == min_percentage){
-				// 	return 'rgb(0,255,0)'
-				// } else {
-				// 	return 'rgb(126,126,126)'
-				// }
 			},
 			'opacity': .6,
 			'x': function(d){
@@ -202,13 +186,6 @@ d3.json('data/state_labor_stats.json', function(error, response){
 				.attr({
 					'fill': function(d){
 						return 'rgb(126,126,126)'
-						// if(d.stats.unemployment_percent == max_percentage){
-						// 	return 'rgb(255,0,0)'
-						// } else if(d.stats.unemployment_percent == min_percentage){
-						// 	return 'rgb(0,255,0)'
-						// } else {
-						// 	return 'rgb(126,126,126)'
-						// }
 					},
 					'opacity': .6,
 				})

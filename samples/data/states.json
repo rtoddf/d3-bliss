@@ -1,0 +1,308 @@
+[
+    {
+        "value": "al",
+        "text": "Alabama",
+        "code": "01",
+        "party": "republican"
+    },
+    {
+        "value": "ak",
+        "text": "Alaska",
+        "code": "02",
+        "party": "republican"
+    },
+    {
+        "value": "az",
+        "text": "Arizona",
+        "code": "04",
+        "party": "republican"
+    },
+    {
+        "value": "ar",
+        "text": "Arkansas",
+        "code": "05",
+        "party": "republican"
+    },
+    {
+        "value": "ca",
+        "text": "California",
+        "code": "06",
+        "party": "democratic"
+    },
+    {
+        "value": "co",
+        "text": "Colorado",
+        "code": "08",
+        "party": "split"
+    },
+    {
+        "value": "ct",
+        "text": "Connecticutt",
+        "code": "09",
+        "party": "democratic"
+    },
+    {
+        "value": "de",
+        "text": "Delaware",
+        "code": "10",
+        "party": "democratic"
+    },
+    {
+        "value": "dc",
+        "text": "District of Columbia",
+        "code": "11",
+        "party": ""
+    },
+    {
+        "value": "fl",
+        "text": "Florida",
+        "code": "12",
+        "party": "split"
+    },
+    {
+        "value": "ga",
+        "text": "Georgia",
+        "code": "13",
+        "party": "republican"
+    },
+    {
+        "value": "hi",
+        "text": "Hawaii",
+        "code": "15",
+        "party": "democratic"
+    },
+    {
+        "value": "id",
+        "text": "Idaho",
+        "code": "16",
+        "party": "republican"
+    },
+    {
+        "value": "il",
+        "text": "Illinois",
+        "code": "17",
+        "party": "democratic"
+    },
+    {
+        "value": "in",
+        "text": "Indiana",
+        "code": "18",
+        "party": "republican"
+    },
+    {
+        "value": "ia",
+        "text": "Iowa",
+        "code": "19",
+        "party": "democratic"
+    },
+    {
+        "value": "ks",
+        "text": "Kansas",
+        "code": "20",
+        "party": "republican"
+    },
+    {
+        "value": "ky",
+        "text": "Kentucky",
+        "code": "21",
+        "party": "republican"
+    },
+    {
+        "value": "la",
+        "text": "Louisiana",
+        "code": "22",
+        "party": "republican"
+    },
+    {
+        "value": "me",
+        "text": "Maine",
+        "code": "23",
+        "party": "democratic"
+    },
+    {
+        "value": "md",
+        "text": "Maryland",
+        "code": "24",
+        "party": "democratic"
+    },
+    {
+        "value": "ma",
+        "text": "Massachusetts",
+        "code": "25",
+        "party": "democratic"
+    },
+    {
+        "value": "mi",
+        "text": "Michigan",
+        "code": "26",
+        "party": "democratic"
+    },
+    {
+        "value": "mn",
+        "text": "Minnesota",
+        "code": "27",
+        "party": "democratic"
+    },
+    {
+        "value": "ms",
+        "text": "Mississippi",
+        "code": "28",
+        "party": "republican"
+    },
+    {
+        "value": "mo",
+        "text": "Missouri",
+        "code": "29",
+        "party": "republican"
+    },
+    {
+        "value": "mt",
+        "text": "Montana",
+        "code": "30",
+        "party": "republican"
+    },
+    {
+        "value": "ne",
+        "text": "Nebraska",
+        "code": "31",
+        "party": "republican"
+    },
+    {
+        "value": "nv",
+        "text": "Nevada",
+        "code": "32",
+        "party": "democratic"
+    },
+    {
+        "value": "nh",
+        "text": "New Hampshire",
+        "code": "33",
+        "party": "democratic"
+    },
+    {
+        "value": "nj",
+        "text": "New Jersey",
+        "code": "34",
+        "party": "democratic"
+    },
+    {
+        "value": "nm",
+        "text": "New Mexico",
+        "code": "35",
+        "party": "democratic"
+    },
+    {
+        "value": "ny",
+        "text": "New York",
+        "code": "36",
+        "party": "democratic"
+    },
+    {
+        "value": "nc",
+        "text": "North Carolina",
+        "code": "37",
+        "party": "republican"
+    },
+    {
+        "value": "nd",
+        "text": "North Dakota",
+        "code": "38",
+        "party": "republican"
+    },
+    {
+        "value": "oh",
+        "text": "Ohio",
+        "code": "39",
+        "party": "democratic"
+    },
+    {
+        "value": "ok",
+        "text": "Oklahoma",
+        "code": "40",
+        "party": "republican"
+    },
+    {
+        "value": "or",
+        "text": "Oregon",
+        "code": "41",
+        "party": "democratic"
+    },
+    {
+        "value": "pa",
+        "text": "Pennsylvania",
+        "code": "42",
+        "party": "democratic"
+    },
+    {
+        "value": "ri",
+        "text": "Rhode Island",
+        "code": "44",
+        "party": "democratic"
+    },
+    {
+        "value": "sc",
+        "text": "South Carolina",
+        "code": "45",
+        "party": "republican"
+    },
+    {
+        "value": "sd",
+        "text": "South Dakota",
+        "code": "46",
+        "party": "republican"
+    },
+    {
+        "value": "tn",
+        "text": "Tennessee",
+        "code": "47",
+        "party": "republican"
+    },
+    {
+        "value": "tx",
+        "text": "Texas",
+        "code": "48",
+        "party": "republican"
+    },
+    {
+        "value": "ut",
+        "text": "Utah",
+        "code": "49",
+        "party": "republican"
+    },
+    {
+        "value": "vt",
+        "text": "Vermont",
+        "code": "50",
+        "party": "democratic"
+    },
+    {
+        "value": "va",
+        "text": "Virginia",
+        "code": "51",
+        "party": "democratic"
+    },
+    {
+        "value": "wa",
+        "text": "Washington",
+        "code": "53",
+        "party": "democratic"
+    },
+    {
+        "value": "wv",
+        "text": "West Virginia",
+        "code": "54",
+        "party": "republican"
+    },
+    {
+        "value": "wi",
+        "text": "Wisconsin",
+        "code": "55",
+        "party": "democratic"
+    },
+    {
+        "value": "wy",
+        "text": "Wyoming",
+        "code": "56",
+        "party": "republican"
+    }
+]
