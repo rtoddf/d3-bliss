@@ -28,18 +28,16 @@ aspect = chart_container.width() / chart_container.height();
 		})
 
 	d3.json('data/population.json', function(error, data){
-		var datum = data.datum
-
-		datum.forEach(function(d){
+		data.forEach(function(d){
 			d.percentage = +d.percentage
 		})
 
-		total = d3.sum(pie(datum), function(d){
+		total = d3.sum(pie(data), function(d){
 			return d.value
 		})
 
 		var g = vis_group.selectAll('.arc')
-			.data(pie(datum))
+			.data(pie(data))
 				.enter().append('g')
 			.attr({
 				'class': 'arc'
