@@ -247,9 +247,18 @@
     color: @lightgray;
     transition: color .2s ease;
 
+    span, i {
+        color: @lightgray;
+        text-shadow: none;
+    }
+
     &:hover {
         background-image: none;
         background: @darkgray;
         color: @white;
+
+        span, i {
+            color: @white;
+        }
     }
 }

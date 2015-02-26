@@ -2,67 +2,49 @@ var race, total
 
 var arc = d3.svg.arc()
 	.outerRadius(radius)
-	.innerRadius(radius - 125)
+	.innerRadius(radius - 125);
 
-var vis = d3.select('#chart').append('svg')
-	.attr({
-		'width': width + margins.left + margins.right,
-		'height': height + margins.top + margins.bottom,
-		'preserveAspectRatio': 'xMinYMid',
-		'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
+
+var pie = d3.layout.pie()
+	.sort(null)
+	.padAngle(.02)
+	.value(function(d){
+		return d.percentage
 	})
 
-vis_group = vis.append('g')
-	.attr({
-		'transform': 'translate(' + (width/2 + margins.left) + ', ' + (height/2 + margins.top) + ')'
+d3.json('data/population.json', function(error, data){
+	data.forEach(function(d){
+		d.percentage = +d.percentage
 	})
 
-aspect = chart_container.width() / chart_container.height();
-
-(function () {
-	var pie = d3.layout.pie()
-		.sort(null)
-		.padAngle(.02)
-		.value(function(d){
-			return d.percentage
-		})
-
-	d3.json('data/population.json', function(error, data){
-		data.forEach(function(d){
-			d.percentage = +d.percentage
-		})
-
-		total = d3.sum(pie(data), function(d){
-			return d.value
-		})
-
-		var g = vis_group.selectAll('.arc')
-			.data(pie(data))
-				.enter().append('g')
-			.attr({
-				'class': 'arc'
-			})
-
-		g.append('path')
-			.attr({
-				'd': arc,
-				'fill': function(d){
-					return color(d.data.race)
-				}
-			})
-			.style({
-				'opacity': defaults.opacity.off
-			})
-
-		// hover and off states
-		g.on('mouseover', over)
-		g.on('mouseout', out)
+	total = d3.sum(pie(data), function(d){
+		return d.value
 	})
-})()
+
+	var g = vis_group.selectAll('.arc')
+		.data(pie(data))
+			.enter().append('g')
+		.attr({
+			'class': 'arc'
+		})
+
+	g.append('path')
+		.attr({
+			'd': arc,
+			'fill': function(d){
+				return color(d.data.race)
+			}
+		})
+		.style({
+			'opacity': defaults.opacity.off
+		})
+
+	// hover and off states
+	g.on('mouseover', over)
+	g.on('mouseout', out)
+})
 
 var over = function(d){
-	console.log('d: ', d)
-
 	// animate the arc
 	d3.select(this)
 		.transition()
