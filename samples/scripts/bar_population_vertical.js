@@ -6,7 +6,7 @@ var container_parent = $('.display') ,
 	color = d3.scale.category20c(),
 	vis, vis_group, aspect
 
-var rect_color = '#fd8d3c'
+var rect_color = '#999'
 
 // The comma (",") option enables the use of a comma for a thousands separator.
 // The "0" option enables zero-padding.
@@ -89,9 +89,24 @@ d3.json('data/us_census.json', function(error, data){
 		.on('mouseover', function(d){
 			d3.select(this)
 				.transition()
-					.duration(500)
+					.duration(200)
 					.attr({
-						'fill': 'purple'
+						'fill': '#444'
+					})
+
+			d3.select('.tooltip')
+				.html(function(){
+					console.log('d: ', d)
+					return '<span>' + d.placename + ': </span><span>' + format(d.pop) + '</span>'
+				})
+				.style({
+					'left': (d3.event.pageX + 15) + 'px',
+					'top': (d3.event.pageY) + 'px'
+				})
+				.transition()
+					.duration(200)
+					.style({
+						'opacity': 1
 					})
 		})
 		.on('mouseout', function(d){
@@ -102,21 +117,22 @@ d3.json('data/us_census.json', function(error, data){
 						'fill': rect_color
 					})
 		})
-	bar.append('text')
-		.attr({
-			'class': 'value',
-			'x': function(d){
-				return x(d.pop)
-			},
-			'dx': -3,
-			'y': y.rangeBand() / 2,
-			'dy': '.35em',
-			'text-anchor': 'end',
-			'fill': '#fff'
-		})
-		.text(function(d){
-			return format(d.pop)
-		})
+
+	// bar.append('text')
+	// 	.attr({
+	// 		'class': 'value',
+	// 		'x': function(d){
+	// 			return x(d.pop)
+	// 		},
+	// 		'dx': -3,
+	// 		'y': y.rangeBand() / 2,
+	// 		'dy': '.35em',
+	// 		'text-anchor': 'end',
+	// 		'fill': '#fff'
+	// 	})
+	// 	.text(function(d){
+	// 		return format(d.pop)
+	// 	})
 
 	vis_group.append('g')
 		.attr({
@@ -130,6 +146,12 @@ d3.json('data/us_census.json', function(error, data){
 		})
 		.call(yAxis)
 })
+
+var tooltip = d3.select('body').append('div')
+	.attr({
+		'class': 'tooltip',
+		'opacity': 1e-6
+	})
 
 $(window).on('resize', function() {
 	var targetWidth = container_parent.width()
