@@ -31,9 +31,6 @@ d3.json('data/periodic_table.json', function(error, data){
 			'class': 'box',
 			'width': defaults.box.width,
 			'height': defaults.box.height,
-			// 'transform': function(d){
-			// 	return 'translate(' + defaults.box.width * d.position[0] + ', ' + defaults.box.height * d.position[1] + ')'
-			// },
 			'fill': function(d){
 				// console.log(d.classification)
 				var fill_color = 'url(#' + d.classification + ')'
@@ -49,12 +46,22 @@ d3.json('data/periodic_table.json', function(error, data){
 					.duration(200)
 					.attr({
 						'transform': 'translate(-5, -5)',
-						'width': 70,
-						'height': 70
+						'width': defaults.box.width + 10,
+						'height': defaults.box.height + 10
 					})
 				.style({
 					'cursor': 'pointer'
 				})
+
+			d3.select(this.nextElementSibling)
+				// .moveToFront()
+                .transition()
+                    .duration(200)
+                    .attr({
+                    	'font-size': '32px',
+                        'transform': 'translate(0, 10)',
+                        'fill': 'white'
+                    })
 		})
 		.on('mouseout', function(d){
 			d3.select(this)
@@ -62,22 +69,31 @@ d3.json('data/periodic_table.json', function(error, data){
 					.duration(200)
 					.attr({
 						'transform': 'translate(0, 0)',
-						'width': 60,
-						'height': 60
+						'width': defaults.box.width,
+						'height': defaults.box.height
 					})
+
+			d3.select(this.nextElementSibling)
+                .transition()
+                    .duration(200)
+                    .attr({
+                        'transform': 'translate(0, 0)',
+                        'fill': 'black',
+						'font-size': '14px'
+                    })
 		})
 			
 	var symbol = box.append('text')
 		.attr({
 			'class': 'symbol',
 			'x': function(d){
-				return 30
+				return defaults.box.width / 2
 			},
 			'y': function(d){
-				return 30
+				return defaults.box.height / 2
 			},
 			'text-anchor': defaults.symbol.anchor,
-			'fill': defaults.symbol.fill
+			'fill': 'black'
 		})
 		.text(function(d){
 			return d.symbol

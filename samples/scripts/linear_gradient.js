@@ -75,6 +75,34 @@ var defaults = {
             'color': '#6d54a3'
         }
     ],
+    'halogen': [
+        {
+            'stop': 0,
+            'color': '#dadff1'
+        },
+        {
+            'stop': .5,
+            'color': '#8887c1'
+        },
+        {
+            'stop': 1,
+            'color': '#8684c0'
+        }
+    ],
+    'semimetal': [
+        {
+            'stop': 0,
+            'color': '#c2e7e7'
+        },
+        {
+            'stop': .5,
+            'color': '#70c9c2'
+        },
+        {
+            'stop': 1,
+            'color': '#72cac2'
+        }
+    ],
 }
 
 var defs = vis_group.append('defs')
@@ -167,6 +195,56 @@ defs.append('linearGradient')
     })
     .selectAll('stop')
         .data(defaults.noble_gas)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'halogen',
+        'xlink:href': '#halogen',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.halogen)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'semimetal',
+        'xlink:href': '#semimetal',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.semimetal)
             .enter().append('stop')
         .attr({
             'offset': function(d){
