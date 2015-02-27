@@ -1,8 +1,8 @@
 var container_parent = $('.display'),
 	chart_container = $('#periodic_table'),
-	margins = {top: 20, right: 20, bottom: 20, left: 20},
+	margins = {top: 20, right: 40, bottom: 20, left: 40},
 	width = container_parent.width() - margins.left - margins.right,
-	height = width - margins.top - margins.bottom,
+	height = (width*.7) - margins.top - margins.bottom,
 	vis, vis_group, aspect
 
 vis = d3.select('#periodic_table').append('svg')
@@ -14,7 +14,9 @@ vis = d3.select('#periodic_table').append('svg')
 	})
 
 vis_group = vis.append('g')
-	.attr({})
+	.attr({
+        'transform': 'translate(' + margins.left + ', ' + margins.top + ')'
+    })
 
 var defaults = {
 	'non_metal': [
@@ -44,7 +46,35 @@ var defaults = {
 			'stop': 1,
 			'color': '#f04f3b'
 		}
-	]
+	],
+    'alkaline_earth': [
+        {
+            'stop': 0,
+            'color': '#ffdebf'
+        },
+        {
+            'stop': .5,
+            'color': '#f68822'
+        },
+        {
+            'stop': 1,
+            'color': '#f78f2c'
+        }
+    ],
+    'noble_gas': [
+        {
+            'stop': 0,
+            'color': '#d1bbda'
+        },
+        {
+            'stop': .5,
+            'color': '#6a53a3'
+        },
+        {
+            'stop': 1,
+            'color': '#6d54a3'
+        }
+    ],
 }
 
 var defs = vis_group.append('defs')
@@ -98,3 +128,53 @@ defs.append('linearGradient')
 				return d.color
 			}
 		})
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'alkaline_earth',
+        'xlink:href': '#alkaline_earth',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.alkaline_earth)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'noble_gas',
+        'xlink:href': '#noble_gas',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.noble_gas)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
