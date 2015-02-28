@@ -36,7 +36,10 @@ d3.json('data/periodic_table.json', function(error, data){
 				var fill_color = 'url(#' + d.classification + ')'
 				return fill_color
 			},
-			'stroke': defaults.box.stroke
+			'stroke': defaults.box.stroke,
+			// 'transform': function(d){
+			// 	return 'translate(' + defaults.box.width * d.position[0] + ', ' + defaults.box.height * d.position[1] + ')'
+			// }
 		})
 		.on('mouseover', function(d){
 			// console.log(getCentroid(d3.select(this)))
@@ -82,7 +85,7 @@ d3.json('data/periodic_table.json', function(error, data){
 						'font-size': '14px'
                     })
 		})
-			
+
 	var symbol = box.append('text')
 		.attr({
 			'class': 'symbol',
@@ -90,13 +93,47 @@ d3.json('data/periodic_table.json', function(error, data){
 				return defaults.box.width / 2
 			},
 			'y': function(d){
-				return defaults.box.height / 2
+				return defaults.box.height / 2 - 5
 			},
 			'text-anchor': defaults.symbol.anchor,
 			'fill': 'black'
 		})
 		.text(function(d){
 			return d.symbol
+		})
+
+	var number = box.append('text')
+		.attr({
+			'class': 'symbol',
+			'x': function(d){
+				return 8
+			},
+			'y': function(d){
+				return 10
+			},
+			'text-anchor': defaults.symbol.anchor,
+			'fill': 'black',
+			'font-size': '9px'
+		})
+		.text(function(d){
+			return d.atomic_number
+		})
+
+	var name = box.append('text')
+		.attr({
+			'class': 'symbol',
+			'x': function(d){
+				return defaults.box.width / 2
+			},
+			'y': function(d){
+				return defaults.box.height / 2 + 15
+			},
+			'text-anchor': defaults.symbol.anchor,
+			'fill': 'black',
+			'font-size': '10px'
+		})
+		.text(function(d){
+			return d.name
 		})
 
 })

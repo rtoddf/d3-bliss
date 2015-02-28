@@ -1,7 +1,7 @@
 {
 	"elements": [
 		{
-			"name": "hydrogen",
+			"name": "Hydrogen",
 			"symbol": "H",
 			"atomic_number": 1,
 			"atomic_weight": 1.00794,
@@ -10,7 +10,7 @@
 			"position": [ 0, 0 ]
 		},
 		{
-			"name": "helium",
+			"name": "Helium",
 			"symbol": "He",
 			"atomic_number": 2,
 			"atomic_weight": 4.002602,
@@ -19,7 +19,7 @@
 			"position": [ 17, 0 ]
 		},
 		{
-			"name": "lithium",
+			"name": "Lithium",
 			"symbol": "Li",
 			"atomic_number": 3,
 			"atomic_weight": 6.941,
@@ -28,7 +28,7 @@
 			"position": [ 0, 1 ]
 		},
 		{
-			"name": "beryllium",
+			"name": "Beryllium",
 			"symbol": "Be",
 			"atomic_number": 4,
 			"atomic_weight": 9.012182,
@@ -37,7 +37,7 @@
 			"position": [ 1, 1 ]
 		},
 		{
-			"name": "boron",
+			"name": "Boron",
 			"symbol": "B",
 			"atomic_number": 5,
 			"atomic_weight": 10.811,
@@ -46,7 +46,7 @@
 			"position": [ 12, 1 ]
 		},
 		{
-			"name": "carbon",
+			"name": "Carbon",
 			"symbol": "C",
 			"atomic_number": 6,
 			"atomic_weight": 12.0107,
@@ -55,7 +55,7 @@
 			"position": [ 13, 1 ]
 		},
 		{
-			"name": "nitrogen",
+			"name": "Nitrogen",
 			"symbol": "N",
 			"atomic_number": 7,
 			"atomic_weight": 14.0067,
@@ -64,7 +64,7 @@
 			"position": [ 14, 1 ]
 		},
 		{
-			"name": "oxygen",
+			"name": "Oxygen",
 			"symbol": "O",
 			"atomic_number": 8,
 			"atomic_weight": 15.9994,
@@ -73,7 +73,7 @@
 			"position": [ 15, 1 ]
 		},
 		{
-			"name": "fluorine",
+			"name": "Fluorine",
 			"symbol": "F",
 			"atomic_number": 9,
 			"atomic_weight": 18.9984032,
@@ -82,7 +82,7 @@
 			"position": [ 16, 1 ]
 		},
 		{
-			"name": "neon",
+			"name": "Neon",
 			"symbol": "N",
 			"atomic_number": 10,
 			"atomic_weight": 20.1797,
@@ -91,7 +91,7 @@
 			"position": [ 17, 1 ]
 		},
 		{
-			"name": "sodium",
+			"name": "Sodium",
 			"symbol": "Na",
 			"atomic_number": 11,
 			"atomic_weight": 22.98976928,
@@ -100,7 +100,7 @@
 			"position": [ 0, 2 ]
 		},
 		{
-			"name": "magnesium",
+			"name": "Magnesium",
 			"symbol": "Mg",
 			"atomic_number": 12,
 			"atomic_weight": 24.3050,
