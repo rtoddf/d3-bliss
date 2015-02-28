@@ -65,6 +65,14 @@ d3.json('data/periodic_table.json', function(error, data){
                         'transform': 'translate(0, 10)',
                         'fill': 'white'
                     })
+
+            d3.select(this.nextElementSibling.nextElementSibling)
+				// .moveToFront()
+                .transition()
+                    .duration(200)
+                    .attr({
+                    	'opacity': 0
+                    })
 		})
 		.on('mouseout', function(d){
 			d3.select(this)
@@ -84,6 +92,14 @@ d3.json('data/periodic_table.json', function(error, data){
                         'fill': 'black',
 						'font-size': '14px'
                     })
+
+            d3.select(this.nextElementSibling.nextElementSibling)
+				// .moveToFront()
+                .transition()
+                    .duration(200)
+                    .attr({
+                    	'opacity': 1
+                    })
 		})
 
 	var symbol = box.append('text')
@@ -93,7 +109,7 @@ d3.json('data/periodic_table.json', function(error, data){
 				return defaults.box.width / 2
 			},
 			'y': function(d){
-				return defaults.box.height / 2 - 5
+				return defaults.box.height / 2 - 10
 			},
 			'text-anchor': defaults.symbol.anchor,
 			'fill': 'black'
@@ -113,7 +129,10 @@ d3.json('data/periodic_table.json', function(error, data){
 			},
 			'text-anchor': defaults.symbol.anchor,
 			'fill': 'black',
-			'font-size': '9px'
+			'font-size': '9px',
+			'opacity': function(d){
+				console.log(d)
+			}
 		})
 		.text(function(d){
 			return d.atomic_number
@@ -126,7 +145,7 @@ d3.json('data/periodic_table.json', function(error, data){
 				return defaults.box.width / 2
 			},
 			'y': function(d){
-				return defaults.box.height / 2 + 15
+				return defaults.box.height / 2 + 5
 			},
 			'text-anchor': defaults.symbol.anchor,
 			'fill': 'black',
@@ -134,6 +153,23 @@ d3.json('data/periodic_table.json', function(error, data){
 		})
 		.text(function(d){
 			return d.name
+		})
+
+	var weight = box.append('text')
+		.attr({
+			'class': 'symbol',
+			'x': function(d){
+				return defaults.box.width / 2
+			},
+			'y': function(d){
+				return defaults.box.height / 2 + 20
+			},
+			'text-anchor': defaults.symbol.anchor,
+			'fill': 'black',
+			'font-size': '10px'
+		})
+		.text(function(d){
+			return d.atomic_weight
 		})
 
 })
