@@ -4,10 +4,10 @@ var defaults = {
 	box: {
 		width: 60,
 		height: 60,
-		stroke: 'rgba(0,0,0,1)'
+		stroke: '#fff'
 	},
 	symbol: {
-		fill: 'rgba(0,0,0,1)',
+		fill: '#000',
 		anchor: 'middle'
 	}
 }

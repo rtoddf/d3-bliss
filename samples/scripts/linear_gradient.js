@@ -103,6 +103,62 @@ var defaults = {
             'color': '#72cac2'
         }
     ],
+    'actinide': [
+        {
+            'stop': 0,
+            'color': '#9ccf77'
+        },
+        {
+            'stop': .5,
+            'color': '#49b848'
+        },
+        {
+            'stop': 1,
+            'color': '#4bb849'
+        }
+    ],
+    'transition_metal': [
+        {
+            'stop': 0,
+            'color': '#fcfad0'
+        },
+        {
+            'stop': .5,
+            'color': '#f9ea17'
+        },
+        {
+            'stop': 1,
+            'color': '#faed36'
+        }
+    ],
+    'basic_metal': [
+        {
+            'stop': 0,
+            'color': '#9ccf77'
+        },
+        {
+            'stop': .5,
+            'color': '#49b848'
+        },
+        {
+            'stop': 1,
+            'color': '#4bb849'
+        }
+    ],
+    'lanthanide': [
+        {
+            'stop': 0,
+            'color': '#e6f0c4'
+        },
+        {
+            'stop': .5,
+            'color': '#a2cd3a'
+        },
+        {
+            'stop': 1,
+            'color': '#b8d65f'
+        }
+    ]
 }
 
 var defs = vis_group.append('defs')
@@ -245,6 +301,106 @@ defs.append('linearGradient')
     })
     .selectAll('stop')
         .data(defaults.semimetal)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'actinide',
+        'xlink:href': '#actinide',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.actinide)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'transition_metal',
+        'xlink:href': '#transition_metal',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.transition_metal)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'basic_metal',
+        'xlink:href': '#basic_metal',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.basic_metal)
+            .enter().append('stop')
+        .attr({
+            'offset': function(d){
+                return d.stop
+            }
+        })
+        .style({
+            'stop-color': function(d){
+                return d.color
+            }
+        })
+
+defs.append('linearGradient')
+    .attr({
+        'id': 'lanthanide',
+        'xlink:href': '#lanthanide',
+        'x1': 0,
+        'y1': 0,
+        'x2': 1,
+        'y2': 1,
+        'x3': 2,
+        'y3': 2
+    })
+    .selectAll('stop')
+        .data(defaults.lanthanide)
             .enter().append('stop')
         .attr({
             'offset': function(d){
