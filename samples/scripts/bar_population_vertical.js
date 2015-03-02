@@ -49,32 +49,32 @@ d3.json('data/us_census.json', function(error, data){
 		d.pop = +d.pop
 	})
 
-	data.sort(function(a, b){
-		return b.pop - a.pop
-	})
+	// data.sort(function(a, b){
+	// 	return b.pop - a.pop
+	// })
 
 	// set the scale domain
 	x.domain([ 0, d3.max(data, function(d){
-		return d.pop
+		return parseInt(d.pop)
 	})])
 
-	// use map for ordinal domains
-	y.domain(data.map(function(d){
-		return d.placename
-	}))
+    // use map for ordinal domains
+    y.domain(data.sort(function(a, b) {
+        return d3.descending(a.pop, b.pop);
+    })
+    .map(function(d) {
+        return d.placename;
+    }))
 
-	var bar = vis_group.selectAll('g.bar')
+	var bar = vis_group.selectAll('rect')
 			.data(data)
-		.enter().append('g')
+		.enter().append('rect')
 		.attr({
-			'class': 'bar',
-			'transform': function(d){
-				return 'translate(0, ' + y(d.placename) + ')'
-			}
-		})
-
-	bar.append('rect')
-		.attr({
+            'class': 'bar',
+            'x': 0,
+            'y': function(d){
+                return y(d.placename)
+            },
 			'width': function(d){
 				return x(d.pop)
 			},
@@ -84,8 +84,8 @@ d3.json('data/us_census.json', function(error, data){
 			'fill': rect_color
 		})
 		.style({
-				'cursor': 'pointer'
-			})
+			'cursor': 'pointer'
+		})
 		.on('mouseover', function(d){
 			d3.select(this)
 				.transition()
@@ -124,22 +124,6 @@ d3.json('data/us_census.json', function(error, data){
 					})
 		})
 
-	// bar.append('text')
-	// 	.attr({
-	// 		'class': 'value',
-	// 		'x': function(d){
-	// 			return x(d.pop)
-	// 		},
-	// 		'dx': -3,
-	// 		'y': y.rangeBand() / 2,
-	// 		'dy': '.35em',
-	// 		'text-anchor': 'end',
-	// 		'fill': '#fff'
-	// 	})
-	// 	.text(function(d){
-	// 		return format(d.pop)
-	// 	})
-
 	vis_group.append('g')
 		.attr({
 			'class': 'x axis'
@@ -151,6 +135,69 @@ d3.json('data/us_census.json', function(error, data){
 			'class': 'y axis'
 		})
 		.call(yAxis)
+
+
+    $('button').on('click', function(){
+        var sort = $(this).data('sort')
+        d3.select(this)
+            .property('sort', sort)
+            .each(change)
+    })
+
+    function change() {
+        // Copy-on-write since tweens are evaluated after a delay.
+        if(this.sort == 'desc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.descending(a.pop, b.pop);
+            })
+            .map(function(d) {
+                return d.placename;
+            }))
+            .copy()
+        } else if(this.sort == 'asc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.ascending(a.pop, b.pop);
+            })
+            .map(function(d) {
+                return d.placename;
+            }))
+            .copy()
+        } else if(this.sort == 'alpha_asc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.ascending(a.placename, b.placename);
+            })
+            .map(function(d) {
+                return d.placename;
+            }))
+            .copy()
+        } else{
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.descending(a.placename, b.placename);
+            })
+            .map(function(d) {
+                return d.placename;
+            }))
+            .copy()
+        }
+
+        var transition = vis_group.transition().duration(750),
+            delay = function(d, i) {
+                return i * 30;
+            };
+
+        transition.selectAll('.bar')
+            .delay(delay)
+            .ease('cubic')
+            .attr('y', function(d) {
+                return y0(d.placename);
+            });
+
+        // this works
+        transition.select('.y.axis')
+            .call(yAxis)
+                .selectAll('g')
+                    .delay(delay);
+    }
 })
 
 var tooltip = d3.select('body').append('div')

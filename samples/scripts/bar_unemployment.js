@@ -30,8 +30,12 @@ var yAxis = d3.svg.axis()
 	.tickFormat(formatPercent)
 
 var tooltip = d3.select('body').append('div')
-	.attr('class', 'tool_tip')
-	.style('opacity', 1e-6)
+	.attr({
+        'class': 'tooltip'
+    })
+	.style({
+        'opacity': 1e-6
+    })
 
 vis = d3.select('#chart').append('svg')
 	.attr({
@@ -167,16 +171,19 @@ d3.json('data/state_labor_stats.json', function(error, response){
 					'opacity': 1,
 				})
 
-			tooltip.html(function() {
-				var tooltip_data = ''
-				tooltip_data += '<span>' + d.longName + ': ' + d.stats.unemployment_percent + '%</span>'
-				return tooltip_data
-			})
-			.style({
-				'left': (d3.event.pageX + 15) + 'px',
-				'top': (d3.event.pageY) + 'px',
-				'opacity': 1
-			})
+			d3.select('.tooltip')
+                .html(function(){
+                    return '<span>' + d.longName + ': ' + d.stats.unemployment_percent + '%</span>'
+                })
+    			.style({
+                    'left': (d3.event.pageX + 15) + 'px',
+                    'top': (d3.event.pageY) + 'px'
+                })
+                .transition()
+                    .duration(200)
+                    .style({
+                        'opacity': 1
+                    })
 		})
 
 		bars.on('mouseout', function(d) {
@@ -206,13 +213,7 @@ d3.json('data/state_labor_stats.json', function(error, response){
 			.each(change)
 	})
 
-	// var sortTimeout = setTimeout(function() {
-		
-	// }, 2000)
-
 	function change() {
-		// clearTimeout(sortTimeout);
-
 		// Copy-on-write since tweens are evaluated after a delay.
 		if(this.sort == 'desc'){
 			var x0 = x.domain(stats.sort(function(a, b) {
