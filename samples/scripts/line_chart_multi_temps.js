@@ -1,8 +1,8 @@
 var container_parent = $('.display'),
     chart_container = $('#chart'),
-    margins = {top: 20, right: 20, bottom: 40, left: 40},
+    margins = {top: 20, right: 80, bottom: 40, left: 50},
     width = container_parent.width() - margins.left - margins.right,
-    height = (width * 0.6) - margins.top - margins.bottom,
+    height = (width * 0.4) - margins.top - margins.bottom,
     vis, vis_group, aspect
 
 vis = d3.select('#chart').append('svg')
@@ -39,8 +39,17 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient('left');
 
+var area = d3.svg.area()
+    .x(function(d) {
+        return x(d.date)
+    })
+    .y0(height)
+    .y1(function(d) {
+        return y(d.temperature)
+    })
+
 var line = d3.svg.line()
-    .interpolate('basis')
+    // .interpolate('basis')
     .x(function(d) {
         return x(d.date)
     })
@@ -73,8 +82,6 @@ d3.tsv('data/multi-temps.tsv', function(error, data) {
         }
     })
 
-    console.log('cities: ', cities)
-
     x.domain(d3.extent(data, function(d) {
         return d.date
     }))
@@ -92,7 +99,6 @@ d3.tsv('data/multi-temps.tsv', function(error, data) {
         })
     ])
 
-
     vis_group.append('g')
         .attr({
             'class': 'x axis',
@@ -105,12 +111,61 @@ d3.tsv('data/multi-temps.tsv', function(error, data) {
             'class': 'y axis'
         })
         .call(yAxis)
-            // .append("text")
-            //     .attr("transform", "rotate(-90)")
-            //     .attr("y", 6)
-            //     .attr("dy", ".71em")
-            //     .style("text-anchor", "end")
-            //     .text("Temperature (ºF)");
+            .append('text')
+                .attr({
+                    'transform': 'rotate(-90)',
+                    'y': 6,
+                    'dy': '.71em',
+                    'text-anchor': 'end'
+                })
+                .text('Temperature (ºF)')
+
+    var city = vis_group.selectAll('.city')
+            .data(cities)
+        .enter().append('g')
+            .attr({
+                'class': 'city'
+            })
+
+    // city.append('path')
+    //     .attr({
+    //         'd': function(d) {
+    //             return area(d.values)
+    //         },
+    //         'fill': function(d) {
+    //             return color(d.name)
+    //         }
+    //     })
+
+    city.append('path')
+        .attr({
+            // 'class': 'line',
+            'd': function(d) {
+                return line(d.values)
+            },
+            'fill': 'none',
+            'stroke': function(d) {
+                return color(d.name)
+            }
+        })
+
+    city.append('text')
+        .datum(function(d) {
+            return {
+                name: d.name,
+                value: d.values[d.values.length - 1]
+            } 
+        })
+        .attr({
+            'transform': function(d) {
+                return 'translate(' + x(d.value.date) + ',' + y(d.value.temperature) + ')'
+            },
+            'x': 3,
+            'dy': '.35em'
+        })
+        .text(function(d) {
+            return d.name
+        })
 
 })
 

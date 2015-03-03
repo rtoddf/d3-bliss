@@ -23,40 +23,6 @@
     border-radius: 0;
 }
 
-/*-----------------------------------------------------------------------------------*\
-    #Button groups
-\*-----------------------------------------------------------------------------------*/
-.btn-group {
-    margin-bottom: 20px;
-}
-
-.btn {
-    border-radius: 0;
-    border-color: @lightgray;
-    background-image: linear-gradient(#5c5c5c, @darkgray);
-
-    &:hover {
-        background-image: none;
-        background: @darkgray;
-
-        span,i {
-            color: @white;
-        }
-    }
-
-    span {
-        color: @middlegray;
-        transition: color .2s ease;
-    }
-
-    i {
-        color: @middlegray;
-        font-size: 22px;
-        text-shadow: 2px 2px 1px @black;
-        transition: color .2s ease;
-    }
-}
-
 /* tiles */
 .tile {
     margin-bottom: 20px;
@@ -79,50 +45,93 @@
 }
 
 /*-----------------------------------------------------------------------------------*\
-    #Line Chart Animation
+    #Tooltip 
 \*-----------------------------------------------------------------------------------*/
+.tooltip {
+    position: absolute;
+    padding: 8px;
+    background: rgba(255, 2555, 255, 0.75);
+    color: @black;    
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    font: 12px sans-serif;
+    line-height: auto;
+    pointer-events: none;
+}
 
+/*-----------------------------------------------------------------------------------*\
+    #Charts
+\*-----------------------------------------------------------------------------------*/
+#chart {
+    font: 10px sans-serif;
+}
 
 .axis path,
 .axis line {
     fill: none;
-    stroke: @black;
+    stroke: #000;
     shape-rendering: crispEdges;
 }
 
-.line {
-    fill: none;
-    stroke: @middlegray;
-    stroke-width: 2.5px;
+.x.axis,
+.y.axis {
+    path {
+        display: none;
+    }
+}
+
+.unemployment {
+    .x.axis {
+        line {
+            stroke: @white;
+            stroke-opacity: .8;
+        }
+    }
+
+    .y.axis {
+        path {
+            stroke: @black;
+        }
+    }
 }
 
 .line_chart {
-    height: 350px;
+    &.temps {
+        .axis,
+        .axis {
+            path {
+                display: block;
+            }
+        }
+    }
 
-    &.display {
+    &.animated {
+        // find a better way
+        height: 350px;
         position: relative;
         padding: 10px 20px;
-        background: #222;
-        color: @white;
-
-        .axis path,
-        .axis line {
-            stroke: @white;
-        }
+        background: @black;
 
         .line {
-            stroke: @middlegray;
+            fill: none;
+            stroke: @white;
+            stroke-width: 1.5px;
+        }
+
+        .axis {
+            text,
+            line {
+                fill: @white;
+                opacity: .9;
+            }
+
+            line {
+                stroke: @white;
+            }
         }
 
         .tick {
             fill: @white;
-        }
-
-        #chart {
-            position: absolute;
-            top: 0;
-            background: rgba(0,0,0,.6);
-            font: 10px sans-serif;
+            opacity: .9;
         }
 
         img {
@@ -131,18 +140,13 @@
     }
 }
 
-.tooltip {
-    position: absolute;
-    padding: 8px;
-    background: rgba(255, 2555, 255, 0.75);
-    color: @black;
-    font-size: 14px;
-    line-height: auto;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+.symbol {
     pointer-events: none;
-    font: 12px sans-serif;
 }
 
+/*-----------------------------------------------------------------------------------*\
+    #Maps
+\*-----------------------------------------------------------------------------------*/
 .state_view,
 .district_view,
 .choropleth {
@@ -158,12 +162,6 @@
 
 .state_name {
     text-transform: uppercase;
-}
-
-.pie {
-    .arc path {
-        stroke: @black;
-    }
 }
 
 .q0-9 { fill:rgb(247,251,255); }
@@ -188,28 +186,28 @@
     }
 
     #states {
-        fill: #aaa;
-    }
+        fill: @middlegray;
 
-    #states .republican.active {
-        fill: rgba(233,29,14,.7);
-    }
+        .republican {
+            fill: rgba(233,29,14,.5);
 
-    #states .democratic.active {
-        fill: rgba(0,32,102,.7);
-    }
+            &.active {
+                fill: rgba(233,29,14,.7);
+            }
+        }
 
-    .republican {
-        fill: rgba(233,29,14,.5);
-    }
+        .democratic {
+            fill: rgba(0,32,102,.5);
 
-    .democratic {
-        fill: rgba(0,32,102,.5);
+            &.active {
+                fill: rgba(0,32,102,.7);
+            }
+        }
     }
 
     #state-borders {
         fill: none;
-        stroke: #fff;
+        stroke: @white;
         stroke-width: 1.5px;
         stroke-linejoin: round;
         stroke-linecap: round;
@@ -217,24 +215,17 @@
     }
 
     .state_name {
-        color: rgba(255,255,255,1);
+        color: @white;
     }
 
     .tooltip {
-        position: absolute;
         width: 250px;
-        padding: 8px;
         background: rgba(0, 0, 0, 0.75);
         color: white;
-        font-size: 14px;
-        line-height: auto;
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-        pointer-events: none;
-    }
 
-    .tooltip h5 {
-        border-bottom: 1px solid rgba(255,255,255,.75);
+        h5 {
+            border-bottom: 1px solid rgba(255,255,255,.75);
+        }
     }
 }
 
@@ -262,59 +253,6 @@
             color: @white;
         }
     }
-}
-
-/*-----------------------------------------------------------------------------------*\
-    #Charts
-\*-----------------------------------------------------------------------------------*/
-#chart {
-    font: 10px sans-serif;
-
-    .axis {
-        shape-rendering: crispEdges;
-    }
-
-    .axis path {
-        fill: none;
-    }
-}
-
-#chart {
-    .x.axis,
-    .y.axis {
-        path {
-            display: none;
-        }
-    }
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #ccc;
-    shape-rendering: crispEdges;
-}
-
-.axis text {
-    font-size: 9px;
-    fill: rgba(0,0,0,.75);
-}
-
-.unemployment {
-    #chart {
-        .x.axis line {
-            stroke: #fff;
-            stroke-opacity: .8;
-        }
-
-        .y.axis path {
-            stroke: black;
-        }
-    }
-}
-
-.symbol {
-    pointer-events: none;
 }
 
 /*-----------------------------------------------------------------------------------*\
