@@ -33,6 +33,8 @@ d3.json('data/us.json', function(error, topology){
     //         'stroke': defaults.land.stroke
     //     })
 
+    console.log(topology)
+
     // draws the state shapes
     vis_group.selectAll('path')
             .data(topojson.feature(topology, topology.objects.states).features)

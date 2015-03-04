@@ -61,6 +61,10 @@
     p {
         margin-bottom: 3px;
     }
+
+    td {
+        padding: 3px;
+    }
 }
 
 /*-----------------------------------------------------------------------------------*\
@@ -177,13 +181,18 @@
     }
 
     &.us_zoom {
-        .background {
-            fill: none;
-            pointer-events: all;
-        }
+        // .background {
+        //     fill: none;
+        //     pointer-events: all;
+        // }
 
-        .state_name {
-            color: @white;
+        .tooltip {
+            background: rgba(255, 2555, 255, 0.85);
+            border: 1px solid @black;
+
+            h5 {
+                margin-top: 0;
+            }
         }
     }
 }

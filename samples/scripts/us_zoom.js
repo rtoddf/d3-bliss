@@ -5,8 +5,6 @@ var container_parent = $('.display') ,
 	height = (width * .5),
 	vis, vis_group, aspect, centered, response
 
-var old_state
-
 var apiBase = 'http://api.usatoday.com/open/',
 	api = 'census/',
 	apiType = 'rac',
@@ -30,7 +28,7 @@ var over_tooltip = d3.select('body').append('div')
         'opacity': 1e-6
     })
 
-var tooltip = d3.select('body').append('div')
+var tooltip = d3.select('.us_map').append('div')
     .attr({
         'class': 'tooltip'
     })
@@ -55,17 +53,48 @@ vis.append('rect')
 		'class': 'background',
 		'width': width,
 		'height': height,
+        'fill': 'none',
 		'data-type': function(d){
 			return 'rect'
 		},
 	})
+    .style({
+        'pointer-events': 'all'
+    })
 	.on({
 		'click': clicked
 	})
 
 var g = vis.append('g')
 
-d3.json('data/us-named-parties.json', function(error, topology){
+var names = {}
+
+d3.tsv('data/us-state-names.tsv', function(tsv){
+    tsv.forEach(function(d, i){
+        names[d.id] = {
+            'name': d.name,
+            'code': d.code,
+            'party': d.party
+        }
+    })
+})
+
+d3.json('data/us.json', function(error, topology){
+    // console.log(names)
+
+    function state_party_fill(d){
+        var party = names[d.id].party
+        if(party == 'republican'){
+            return '#e91d0e'
+        } else if(party == 'democrat'){
+            return '#003264'
+        } else if(party == 'split'){
+            return 'purple'
+        } else {
+            return 'white'
+        }
+    }
+
 	g.append('g')
 		.selectAll('path')
 			.data(topojson.feature(topology, topology.objects.states).features)
@@ -76,17 +105,10 @@ d3.json('data/us-named-parties.json', function(error, topology){
 					return 'state'
 				},
 				'data-type-name': function(d){
-					return d.properties.code
+					return names[d.id].code
 				},
                 'fill': function(d){
-                    var party = d.properties.party
-                    if(party == 'republican'){
-                        return '#e91d0e'
-                    } else if(party == 'democratic'){
-                        return '#003264'
-                    } else {
-                        return 'white'
-                    }
+                    return state_party_fill(d)
                 },
                 'stroke': '#fff',
                 'stroke-width': .5
@@ -95,6 +117,7 @@ d3.json('data/us-named-parties.json', function(error, topology){
 				'click': clicked
 			})
             .on('mouseover', function(d){
+                // console.log(names[d.id])
                 d3.select(this)
                     .transition()
                         .duration(500)
@@ -106,9 +129,9 @@ d3.json('data/us-named-parties.json', function(error, topology){
                     .style('cursor', 'pointer')
 
                 over_tooltip.html(function() {
-                        var tooltip_template_raw = '<p><strong>' + d.properties.name + '</strong></p> \
-                        <p>' + d.properties.code + ' State ID: ' + d.id + '</p> \
-                        <p>Primary party: ' + _.capitalize(d.properties.party) + '</p>'
+                        var tooltip_template_raw = '<p><strong>' + names[d.id].name + '</strong></p> \
+                        <p>' + names[d.id].code + ' State ID: ' + d.id + '</p> \
+                        <p>Primary party: ' + _.capitalize(names[d.id].party) + '</p>'
 
                         var tooltip_data = _.template(tooltip_template_raw, {
                             // state_info: stateData
@@ -129,22 +152,15 @@ d3.json('data/us-named-parties.json', function(error, topology){
                         .duration(500)
                         .attr({
                             'fill': function(d){
-                                var party = d.properties.party
-                                if(party == 'republican'){
-                                    return '#e91d0e'
-                                } else if(party == 'democratic'){
-                                    return '#003264'
-                                } else {
-                                    return 'white'
-                                }
+                                return state_party_fill(d)
                             }
                         })
                 over_tooltip.transition()
                         .duration(200)
-                        .style('opacity', 0) 
+                        .style({
+                            'opacity': 0
+                        }) 
             })
-
-        
 
 	// g.append('path')
 	// 	.datum(topojson.mesh(topology, topology.objects.states, function(a, b){
@@ -165,8 +181,6 @@ function clicked(d){
 	var keypat = '?keypat=' + state
 	var searchString = apiBase + api + apiType + keypat + sumlevid + apiKey + callback
 
-	// a return that is true of false?
-	// this is a standard callback
 	$.getJSON(searchString, function(data){
 		drawIt(data.response[0])
 	})
@@ -181,7 +195,6 @@ function clicked(d){
 			y = centroid[1]
 			k = 4
 			centered = d
-
 		} else {
 			x = width / 2
 			y = height / 2
@@ -202,65 +215,76 @@ function clicked(d){
 				.attr({
 					'fill': 'rgba(255,255,255,1)',
 					'opacity': 0,
-					'transform': 'translate(' + x + ',' + y + ')'
+					'transform': 'translate(' + x + ',' + y + ')',
+                    'text-anchor': 'middle'
 				})
 				.text(state)
-				.style({
-					'text-anchor': 'middle'
-				})
 				.transition()
 					.duration(750)
 					.attr({
-						opacity: 100
+						opacity: 1
 					})
-		}
 
-		if(current_type == 'rect'){
-			tooltip.transition()
-				.duration(500)
-				.style({
+            tooltip
+                .transition()
+                    .duration(500)
+                    .style({
+                        'opacity': function(){
+                            return 1
+                        }
+                    })
+		} else {
+            tooltip.transition()
+                .duration(500)
+                .style({
                     'opacity': 0
                 })
-		}
+        }
 
 		var p = $('#map'),
             position = p.position()
 
 		var template_raw = '<h5>Race Info for ' + stateData.Placename + '</h5> \
-			<ul class="list-unstyled"> \
-			<li>Caucasian: ' + (stateData.PctWhite * 100).toFixed(2) + '%</li> \
-			<li>African American: ' + (stateData.PctBlack * 100).toFixed(2) + '%</li> \
-			<li>Asian American: ' + (stateData.PctAsian * 100).toFixed(2) + '%</li> \
-			<li>American Indian: ' + (stateData.PctAmInd * 100).toFixed(2) + '%</li> \
-			<li>Two or More: ' + (stateData.PctTwoOrMore * 100).toFixed(2) + '%</li> \
-			<li>Hawaiian or Pacific Islander: ' + (stateData.PctNatHawOth * 100).toFixed(2) + '%</li> \
-			</ul>'
+			<table> \
+                <tr> \
+                    <td>Caucasian</td> \
+                    <td>' + (stateData.PctWhite * 100).toFixed(2) + '%</td> \
+                </tr> \
+                <tr> \
+                    <td>African American</td> \
+                    <td>' + (stateData.PctBlack * 100).toFixed(2) + '%</td> \
+                </tr> \
+                <tr> \
+                    <td>Asian American</td> \
+                    <td>' + (stateData.PctAsian * 100).toFixed(2) + '%</td> \
+                </tr> \
+                <tr> \
+                    <td>American Indian</td> \
+                    <td>' + (stateData.PctAmInd * 100).toFixed(2) + '%</td> \
+                </tr> \
+                <tr> \
+                    <td>Two or More</td> \
+                    <td>' + (stateData.PctTwoOrMore * 100).toFixed(2) + '%</td> \
+                </tr> \
+                <tr> \
+                    <td>Hawaiian or Pacific Islander</td> \
+                    <td>' + (stateData.PctNatHawOth * 100).toFixed(2) + '%</td> \
+                </tr> \
+			</table>'
 
 		tooltip.html(function(d) {
-				var tooltip_data = _.template(template_raw, {
-					state_info: stateData
-				})
+				var tooltip_data = _.template(template_raw, {})
 				return tooltip_data
 			})
 			.style({
-                'left': (position.left + width - 275) + 'px',
-                'top': (position.top + 30) + 'px'
+                'right': (position.left + 120) + 'px',
+                'top': (position.top + 200) + 'px'
             })
-            .transition()
-                .duration(500)
-                .style({
-                    'opacity': 1
-                })
-
-		g.selectAll('path')
-			.classed('active', centered && function(d){
-				return d === centered
-			})
 
 		g.transition()
 			.duration(750)
 			.attr({
-				'transform': 'translate(' + width / 2 + ',' + height / 2 + ')scale(' + k + ')translate(' + -x + ',' + -y + ')',
+				'transform': 'translate(' + width / 2 + ',' + height / 2 + ') scale(' + k + ') translate(' + -x + ',' + -y + ')',
                 'stroke-width': 1.5 / k + 'px'
 			})
 	}
