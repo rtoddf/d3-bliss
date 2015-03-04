@@ -47,7 +47,8 @@
 /*-----------------------------------------------------------------------------------*\
     #Tooltip 
 \*-----------------------------------------------------------------------------------*/
-.tooltip {
+.tooltip,
+.over_tooltip {
     position: absolute;
     padding: 8px;
     background: rgba(255, 2555, 255, 0.75);
@@ -56,6 +57,10 @@
     font: 12px sans-serif;
     line-height: auto;
     pointer-events: none;
+
+    p {
+        margin-bottom: 3px;
+    }
 }
 
 /*-----------------------------------------------------------------------------------*\
@@ -177,47 +182,8 @@
             pointer-events: all;
         }
 
-        #states {
-            fill: @middlegray;
-
-            .republican {
-                fill: rgba(233,29,14,.5);
-
-                &.active {
-                    fill: rgba(233,29,14,.7);
-                }
-            }
-
-            .democratic {
-                fill: rgba(0,32,102,.5);
-
-                &.active {
-                    fill: rgba(0,32,102,.7);
-                }
-            }
-        }
-
-        #state-borders {
-            fill: none;
-            // stroke: @white;
-            // stroke-width: 1.5px;
-            stroke-linejoin: round;
-            stroke-linecap: round;
-            pointer-events: none;
-        }
-
         .state_name {
             color: @white;
-        }
-
-        .tooltip {
-            width: 250px;
-            background: rgba(0, 0, 0, 0.75);
-            color: white;
-
-            h5 {
-                border-bottom: 1px solid rgba(255,255,255,.75);
-            }
         }
     }
 }

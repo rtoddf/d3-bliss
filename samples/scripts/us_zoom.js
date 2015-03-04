@@ -21,9 +21,22 @@ var projection = d3.geo.albersUsa()
 var path = d3.geo.path()
 	.projection(projection)
 
+// do you have to have two?
+var over_tooltip = d3.select('body').append('div')
+	.attr({
+        'class': 'over_tooltip'
+    })
+	.style({
+        'opacity': 1e-6
+    })
+
 var tooltip = d3.select('body').append('div')
-	.attr('class', 'tooltip')
-	.style('opacity', 1e-6)
+    .attr({
+        'class': 'tooltip'
+    })
+    .style({
+        'opacity': 1e-6
+    })
 
 vis = d3.select('#map').append('svg')
 	.attr({
@@ -54,9 +67,6 @@ var g = vis.append('g')
 
 d3.json('data/us-named-parties.json', function(error, topology){
 	g.append('g')
-		.attr({
-			'id': 'states'
-		})
 		.selectAll('path')
 			.data(topojson.feature(topology, topology.objects.states).features)
 		.enter().append('path')
@@ -68,11 +78,7 @@ d3.json('data/us-named-parties.json', function(error, topology){
 				'data-type-name': function(d){
 					return d.properties.code
 				},
-				// 'class': function(d){
-				// 	return d.properties.party
-				// },
                 'fill': function(d){
-                    console.log('d: ', d)
                     var party = d.properties.party
                     if(party == 'republican'){
                         return '#e91d0e'
@@ -89,8 +95,6 @@ d3.json('data/us-named-parties.json', function(error, topology){
 				'click': clicked
 			})
             .on('mouseover', function(d){
-                console.log('over: ', d)
-
                 d3.select(this)
                     .transition()
                         .duration(500)
@@ -100,6 +104,24 @@ d3.json('data/us-named-parties.json', function(error, topology){
                             // 'strokeWidth': .5
                         })
                     .style('cursor', 'pointer')
+
+                over_tooltip.html(function() {
+                        var tooltip_template_raw = '<p><strong>' + d.properties.name + '</strong></p> \
+                        <p>' + d.properties.code + ' State ID: ' + d.id + '</p> \
+                        <p>Primary party: ' + _.capitalize(d.properties.party) + '</p>'
+
+                        var tooltip_data = _.template(tooltip_template_raw, {
+                            // state_info: stateData
+                        })
+                        return tooltip_data
+                    })
+                    .style({
+                        'left': (d3.event.pageX) + 'px',
+                        'top': (d3.event.pageY - 28) + 'px'
+                    })
+                    .transition()
+                        .duration(500)
+                        .style('opacity', 1) 
             })
             .on('mouseout', function(d){
                 d3.select(this)
@@ -117,8 +139,12 @@ d3.json('data/us-named-parties.json', function(error, topology){
                                 }
                             }
                         })
-                    .style('cursor', 'pointer')
+                over_tooltip.transition()
+                        .duration(200)
+                        .style('opacity', 0) 
             })
+
+        
 
 	// g.append('path')
 	// 	.datum(topojson.mesh(topology, topology.objects.states, function(a, b){
@@ -189,18 +215,16 @@ function clicked(d){
 					})
 		}
 
-		tooltip.transition()
-			.duration(500)
-			.style('opacity', 1)
-
 		if(current_type == 'rect'){
 			tooltip.transition()
 				.duration(500)
-				.style('opacity', 0)
+				.style({
+                    'opacity': 0
+                })
 		}
 
-		var p = $('#map')
-		var position = p.position()
+		var p = $('#map'),
+            position = p.position()
 
 		var template_raw = '<h5>Race Info for ' + stateData.Placename + '</h5> \
 			<ul class="list-unstyled"> \
@@ -218,8 +242,15 @@ function clicked(d){
 				})
 				return tooltip_data
 			})
-			.style('left', (position.left + width - 275) + 'px')
-			.style('top', (position.top + 30) + 'px')
+			.style({
+                'left': (position.left + width - 275) + 'px',
+                'top': (position.top + 30) + 'px'
+            })
+            .transition()
+                .duration(500)
+                .style({
+                    'opacity': 1
+                })
 
 		g.selectAll('path')
 			.classed('active', centered && function(d){
@@ -229,10 +260,8 @@ function clicked(d){
 		g.transition()
 			.duration(750)
 			.attr({
-				'transform': 'translate(' + width / 2 + ',' + height / 2 + ')scale(' + k + ')translate(' + -x + ',' + -y + ')'
-			})
-			.style({
-				'stroke-width': 1.5 / k + 'px'
+				'transform': 'translate(' + width / 2 + ',' + height / 2 + ')scale(' + k + ')translate(' + -x + ',' + -y + ')',
+                'stroke-width': 1.5 / k + 'px'
 			})
 	}
 }
