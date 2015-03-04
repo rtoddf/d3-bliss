@@ -36,6 +36,7 @@ vis = d3.select('#map').append('svg')
 vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 
+// draw the background rect for clicking (zoom out) purposes
 vis.append('rect')
 	.attr({
 		'class': 'background',
@@ -51,13 +52,13 @@ vis.append('rect')
 
 var g = vis.append('g')
 
-d3.json('data/us-named-parties.json', function(error, us){
+d3.json('data/us-named-parties.json', function(error, topology){
 	g.append('g')
 		.attr({
 			'id': 'states'
 		})
 		.selectAll('path')
-			.data(topojson.feature(us, us.objects.states).features)
+			.data(topojson.feature(topology, topology.objects.states).features)
 		.enter().append('path')
 			.attr({
 				'd': path,
@@ -67,22 +68,66 @@ d3.json('data/us-named-parties.json', function(error, us){
 				'data-type-name': function(d){
 					return d.properties.code
 				},
-				'class': function(d){
-					return d.properties.party
-				}
+				// 'class': function(d){
+				// 	return d.properties.party
+				// },
+                'fill': function(d){
+                    console.log('d: ', d)
+                    var party = d.properties.party
+                    if(party == 'republican'){
+                        return '#e91d0e'
+                    } else if(party == 'democratic'){
+                        return '#003264'
+                    } else {
+                        return 'white'
+                    }
+                },
+                'stroke': '#fff',
+                'stroke-width': .5
 			})
 			.on({
 				'click': clicked
 			})
+            .on('mouseover', function(d){
+                console.log('over: ', d)
 
-	g.append('path')
-		.datum(topojson.mesh(us, us.objects.states, function(a, b){
-			return a !== b
-		}))
-		.attr({
-			'id': 'state-borders',
-			'd': path
-		})
+                d3.select(this)
+                    .transition()
+                        .duration(500)
+                        .attr({
+                            'fill': '#fff',
+                            // 'stroke': '#000',
+                            // 'strokeWidth': .5
+                        })
+                    .style('cursor', 'pointer')
+            })
+            .on('mouseout', function(d){
+                d3.select(this)
+                    .transition()
+                        .duration(500)
+                        .attr({
+                            'fill': function(d){
+                                var party = d.properties.party
+                                if(party == 'republican'){
+                                    return '#e91d0e'
+                                } else if(party == 'democratic'){
+                                    return '#003264'
+                                } else {
+                                    return 'white'
+                                }
+                            }
+                        })
+                    .style('cursor', 'pointer')
+            })
+
+	// g.append('path')
+	// 	.datum(topojson.mesh(topology, topology.objects.states, function(a, b){
+	// 		return a !== b
+	// 	}))
+	// 	.attr({
+	// 		'id': 'state-borders',
+	// 		'd': path
+	// 	})
 })
 
 function clicked(d){
