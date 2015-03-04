@@ -1,61 +1,61 @@
-id	code	name	party
-1	AL	Alabama	republican
-2	AK	Alaska	republican
-4	AZ	Arizona	republican
-5	AR	Arkansas	republican
-6	CA	California	democrat
-8	CO	Colorado	split
-9	CT	Connecticut	democrat
-10	DE	Delaware	democrat
-11	DC	District of Columbia	none
-12	FL	Florida	split
-13	GA	Georgia	republican
-15	HI	Hawaii	democrat
-16	ID	Idaho	republican
-17	IL	Illinois	split
-18	IN	Indiana	split
-19	IA	Iowa	republican
-20	KS	Kansas	republican
-21	KY	Kentucky	republican
-22	LA	Louisiana	republican
-23	ME	Maine	split
-24	MD	Maryland	democrat
-25	MA	Massachusetts	democrat
-26	MI	Michigan	democrat
-27	MN	Minnesota	democrat
-28	MS	Mississippi	republican
-29	MO	Missouri	split
-30	MT	Montana	split
-31	NE	Nebraska	republican
-32	NV	Nevada	split
-33	NH	New Hampshire	split
-34	NJ	New Jersey	democrat
-35	NM	New Mexico	democrat
-36	NY	New York	democrat
-37	NC	North Carolina	republican
-38	ND	North Dakota	split
-39	OH	Ohio	split
-40	OK	Oklahoma	republican
-41	OR	Oregon	democrat
-42	PA	Pennsylvania	split
-44	RI	Rhode Island	democrat
-45	SC	South Carolina	republican
-46	SD	South Dakota	republican
-47	TN	Tennessee	republican
-48	TX	Texas	republican
-49	UT	Utah	split
-50	VT	Vermont	democrat
-51	VA	Virginia	democrat
-53	WA	Washington	democrat
-54	WV	West Virginia	split
-55	WI	Wisconsin	split
-56	WY	Wyoming	republican
-60	AS	America Samoa	none
-64	FM	Federated States of Micronesia	none
-66	GU	Guam	none
-68	MH	Marshall Islands	none
-69	MP	Northern Mariana Islands	none
-70	PW	Palau	noen
-72	PR	Puerto Rico	none
-74	UM	U.S. Minor Outlying Islands	none
-78	VI	Virgin Islands of the United States	none
+id	code	name	party	same_sex_marriage
+1	AL	Alabama	republican	true
+2	AK	Alaska	republican	true
+4	AZ	Arizona	republican	true
+5	AR	Arkansas	republican	false
+6	CA	California	democrat	true
+8	CO	Colorado	split	true
+9	CT	Connecticut	democrat	true
+10	DE	Delaware	democrat	true
+11	DC	District of Columbia	none	true
+12	FL	Florida	split	true
+13	GA	Georgia	republican	false
+15	HI	Hawaii	democrat	true
+16	ID	Idaho	republican	true
+17	IL	Illinois	split	true
+18	IN	Indiana	split	true
+19	IA	Iowa	republican	true
+20	KS	Kansas	republican	true
+21	KY	Kentucky	republican	true
+22	LA	Louisiana	republican	false
+23	ME	Maine	split	true
+24	MD	Maryland	democrat	true
+25	MA	Massachusetts	democrat	true
+26	MI	Michigan	democrat	false
+27	MN	Minnesota	democrat	true
+28	MS	Mississippi	republican	false
+29	MO	Missouri	split	false
+30	MT	Montana	split	true
+31	NE	Nebraska	republican	false
+32	NV	Nevada	split	true
+33	NH	New Hampshire	split	true
+34	NJ	New Jersey	democrat	true
+35	NM	New Mexico	democrat	true
+36	NY	New York	democrat	true
+37	NC	North Carolina	republican	false
+38	ND	North Dakota	split	true
+39	OH	Ohio	split	false
+40	OK	Oklahoma	republican	true
+41	OR	Oregon	democrat	true
+42	PA	Pennsylvania	split	true
+44	RI	Rhode Island	democrat	true
+45	SC	South Carolina	republican	true
+46	SD	South Dakota	republican	true
+47	TN	Tennessee	republican	false
+48	TX	Texas	republican	false
+49	UT	Utah	split	true
+50	VT	Vermont	democrat	true
+51	VA	Virginia	democrat	true
+53	WA	Washington	democrat	true
+54	WV	West Virginia	split	true
+55	WI	Wisconsin	split	true
+56	WY	Wyoming	republican	true
+60	AS	America Samoa	none	true
+64	FM	Federated States of Micronesia	none	true
+66	GU	Guam	none	true
+68	MH	Marshall Islands	none	true
+69	MP	Northern Mariana Islands	none	true
+70	PW	Palau	noen	true
+72	PR	Puerto Rico	none	true
+74	UM	U.S. Minor Outlying Islands	none	true
+78	VI	Virgin Islands of the United States	none	true

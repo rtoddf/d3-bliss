@@ -13,12 +13,16 @@ vis = d3.select('#map').append('svg')
 vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 var names = {}
+var data_set
+var party_map = true
 
 d3.tsv('data/us-state-names.tsv', function(tsv){
     tsv.forEach(function(d, i){
         names[d.id] = {
             'name': d.name,
-            'code': d.code
+            'code': d.code,
+            'party': d.party,
+            'same_sex_marriage': d.same_sex_marriage
         }
     })
 })
@@ -34,6 +38,31 @@ d3.json('data/us.json', function(error, topology){
     //     })
 
     console.log(topology)
+    console.log(names)
+
+    function state_party_fill(d){
+        var party = names[d.id].party
+        if(party == 'republican'){
+            return '#e91d0e'
+        } else if(party == 'democrat'){
+            return '#003264'
+        } else if(party == 'split'){
+            return 'purple'
+        } else {
+            return 'white'
+        }
+    }
+
+    function state_data_fill(d, data_set){
+        var data_set = names[d.id][data_set]
+        if(data_set == 'true'){
+            return 'pink'
+        } else if(data_set == 'false'){
+            return '#999'
+        } else {
+            return 'white'
+        }
+    }
 
     // draws the state shapes
     vis_group.selectAll('path')
@@ -41,13 +70,18 @@ d3.json('data/us.json', function(error, topology){
         .enter().append('path')
         .attr({
             'd': path,
-            'fill': defaults.states.fill,
-            'stroke': defaults.states.stroke,
-            'strokeWidth': defaults.states.strokeWidth,
+            'class': 'stats',
+            'fill': function(d){
+                return state_party_fill(d)
+            },
+            'stroke': '#fff',
+            'strokeWidth': 2,
         })
-        .style('cursor', 'pointer')
+        .style({
+            'cursor': 'pointer'
+        })
         .on('mouseover', function(d) {
-            d3.select(".tooltip")
+            d3.select('.tooltip')
                 .html( '<span>' + names[d.id]['code'] + ': ' + names[d.id]['name'] + '</span>' )
                 .style({
                     'left': (d3.event.pageX) + 'px',
@@ -55,19 +89,19 @@ d3.json('data/us.json', function(error, topology){
                 })
                 .transition()
                     .duration(500)
-                    .style('opacity', 1) 
+                    .style({
+                        'opacity': 1
+                    }) 
 
             d3.select(this)
                 .transition()
                     .duration(500)
                     .attr({
-                        'fill': '#61613b',
-                        'stroke': '#fff',
-                        'strokeWidth': 2
+                        'fill': '#fff'
                     })
         })
         .on('mouseout', function(d) {
-            d3.select(".tooltip")
+            d3.select('.tooltip')
                 .transition()
                     .duration(200)
                     .style('opacity', 0)
@@ -75,20 +109,49 @@ d3.json('data/us.json', function(error, topology){
                 .transition()
                     .duration(200)
                     .attr({
-                        'fill': defaults.states.fill,
-                        'stroke': defaults.states.stroke,
-                        'strokeWidth': defaults.states.strokeWidth
+                        'fill': function(d){
+                            if(party_map){
+                                return state_party_fill(d)
+                            } else {
+                                return state_data_fill(d, data_set)
+                            }
+                        }
                     })
         })
 
-    // draws just the state borders - doesn't double up
-    // vis_group.append('path')
-    //     .datum(topojson.mesh(topology, topology.objects.states, function(a, b){
-    //         return a !== b
-    //     }))
-    //     .attr({
-    //         'd': path,
-    //         'fill': 'none',
-    //         'stroke': defaults.states.stroke,
-    //     })
+    function animate(data_set){
+        
+        if(data_set !== 'party'){
+            party_map = false
+
+            d3.selectAll('.stats')
+                .transition()
+                    .duration(400)
+                    .ease('cubic')
+                    .attr({
+                        'fill': function(d){
+                            return state_data_fill(d, data_set)
+                        }
+                    })
+        } else {
+            party_map = true
+
+            d3.selectAll('.stats')
+                .transition()
+                    .duration(400)
+                    .ease('cubic')
+                    .attr({
+                        'fill': function(d){
+                            return state_party_fill(d)
+                        }
+                    })
+        }        
+    }
+
+    $('body').on('click', '[rel="program-share-modal"]', function( e ) {
+        e.preventDefault()
+        data_set = $(this).data('type')
+
+        animate(data_set)
+    })
 })
