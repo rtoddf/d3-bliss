@@ -1,6 +1,6 @@
 var container_parent = $('.display') ,
     chart_container = $('#map'),
-    margins = {top: 20, right: 20, bottom: 20, left: 20},
+    margins = {top: 0, right: 20, bottom: 20, left: 20},
     width = container_parent.width(),
     height = (width * .6),
     vis, vis_group, aspect

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>D3</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+        <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="less/base.less" rel="stylesheet/less" />
+        <script src="scripts/lib/less-1.7.4.min.js"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">D3 Samples</a>
+                </div>
+            </div>
+        </nav>
+        <div class="module">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Map Projections</h3>
+                        <p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
+                        <p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="tile">
+                            <div class="art">
+                                <a href="projections_albers_usa.html"><img src="images/projections_albers_usa.jpg" /></a>
+                            </div>
+                            <div class="cap">
+                                <a href="projections_albers_usa.html">Albers USA</a>
+                            </div>
+                            <div class="info">
+                                <p>The Albers USA projection is a composite projection of four Albers projections designed to display the 68 lower united States alongside Alaska and Hawaii. Although intended for choropleths, it scales the area of Alaska by a factor of 0.35x (a lie factor of 3); Hawaii is shown at the same scale as the lower 48.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="tile">
+                            <div class="art">
+                                <a href="projections_orthographic.html"><img src="images/placeholder.jpg" /></a>
+                            </div>
+                            <div class="cap">
+                                <a href="projections_orthographic.html">Orthographic</a>
+                            </div>
+                            <div class="info">
+                                <p>The orthographic projection is an azimuthal projection suitable for displaying a single hemisphere; the point of perspective is at infinity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="tile">
+                            <div class="art">
+                                <a href="projections_orthographic.html"><img src="images/placeholder.jpg" /></a>
+                            </div>
+                            <div class="cap">
+                                <a href="projections_orthographic.html">Orthographic</a>
+                            </div>
+                            <div class="info">
+                                <p>The orthographic projection is an azimuthal projection suitable for displaying a single hemisphere; the point of perspective is at infinity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/lib/jquery-1.10.2.min.js"></script>
+        <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
+    </body>
+</html>
