@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>D3</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+        <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="less/base.less" rel="stylesheet/less" />
+        <script src="scripts/lib/less-1.7.4.min.js"></script>
+
+        <style>
+@import url(../maps.css);
+
+#map {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#map h1 {
+  position: absolute;
+  width: 1000px;
+}
+
+.foreground {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+  pointer-events: all;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+}
+
+.foreground.zooming {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+}
+
+.graticule {
+  fill: none;
+  stroke: #636B62;
+  stroke-width: .5px;
+  stroke-dasharray: 2,2;
+}
+
+.land {
+  fill: #69D2E7;
+  stroke: none;
+}
+
+.mesh {
+  stroke: #50576A;
+  stroke-width: .5px;
+  fill: none;
+}
+
+.point {
+  fill: #f00;
+}
+
+</style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">D3 Samples</a>
+                </div>
+            </div>
+        </nav>
+        <div class="module">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Projection - Animation Test</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 animation display">
+                        <div id="map"></div>
+                        <div id="rotations"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/lib/jquery-1.10.2.min.js"></script>
+        <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="scripts/lib/d3.min.js"></script>
+        <script src="scripts/lib/d3.geo.projection.v0.min.js"></script>
+        <script src="scripts/lib/topojson.js"></script>
+        <script src="scripts/lib/d3.geo.zoom.js"></script>
+        <script src="scripts/projections_animation02.js"></script>
+    </body>
+</html>

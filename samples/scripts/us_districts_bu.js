@@ -39,70 +39,32 @@ function ready(error, topology, congress) {
         .datum(topojson.feature(topology, topology.objects.land))
         .attr({
             'd': path,
-            'fill': 'none',
+            'fill': defaults.land.fill,
             'stroke': defaults.land.stroke,
             'stroke-width': defaults.land.strokeWidth
         })
 
-    .selectAll('path')
-        .data(topojson.feature(topology, topology.objects.states).features)
-    .enter().append('path')
-
-    // draw the districts
-    var disctrict = vis_group.selectAll('path')
-        .data(topojson.feature(congress, congress.objects.districts).features)
-            .enter().append('path')
-        .attr({
-            'd': path,
-            'fill': defaults.land.fill,
-            'stroke': defaults.land.stroke,
-            'stroke-width': .25
-        })
-        .on('mouseover', function(d){
-            console.log('this: ', d)
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .attr({
-                    'fill': 'white'
-                })
-                .style({
-                    'cursor': 'pointer'
-                })
-        })
-        .on('mouseout', function(){
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .attr({
-                    'fill': defaults.land.fill
-                })
-        })
-
-    // disctrict
-    //     .on('mouseover', function(){
-    //         console.log('over')
-    //         d3.select(this)
-    //             .transition()
-    //             .duration(200)
-    //             .attr({
-    //                 'fill': 'red'
-    //             })
-    //             .style({
-    //                 'cursor': 'pointer'
-    //             })
+    // draws the state outlines
+    // vis_group.append('path')
+    //     .datum(topojson.mesh(topology, topology.objects.states, function(a, b){
+    //         return a !== b
+    //     }))
+    //     .attr({
+    //         'd': path,
+    //         'fill': 'none',
+    //         'stroke': defaults.states.stroke
     //     })
 
-    // draws the state outlines
+    // draw the district boundaries
     vis_group.append('path')
-        .datum(topojson.mesh(topology, topology.objects.states, function(a, b){
+        .datum(topojson.mesh(congress, geometryCollection, function(a, b) {
             return a !== b
         }))
         .attr({
             'd': path,
             'fill': 'none',
-            'stroke': '#fff',
-            'stroke-width': 1
+            'stroke': defaults.districts.stroke,
+            'stroke-width': defaults.districts.strokeWidth
         })
 }
 
