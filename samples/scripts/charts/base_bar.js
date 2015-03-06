@@ -7,8 +7,8 @@ var container_parent = $('.display'),
 
 var color = d3.scale.category10();
 
-var redcolor = d3.rgb('red')
-var bluecolor = d3.rgb('red')
+var maroon = d3.rgb('maroon')
+var steelblue = d3.rgb('steelblue')
 
 var fill = d3.scale.ordinal()
     .domain(d3.range(4))
@@ -19,10 +19,10 @@ var names = {}
 var formatPercent = d3.format('.0')
 
 var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1)
+    .rangeRoundBands([ 0, width ], .1)
 
 var y = d3.scale.linear()
-    .range([height, 0])
+    .range([ height, 0 ])
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -52,10 +52,11 @@ aspect = chart_container.width() / chart_container.height()
 
 var tooltip = d3.select('body').append('div')
     .attr({
-        'class': 'tooltip'
+        'class': 'tooltip',
+        'opacity': 1e-6
     })
     .style({
-        'opacity': 1e-6
+        
     })
 
 $(window).on('resize', function() {

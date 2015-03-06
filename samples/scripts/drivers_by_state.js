@@ -37,13 +37,20 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
     }))
 
     y.domain([0,
-        // d3.min(states, function(d) {
-        //     return parseInt(d.premium)
-        // }),
         d3.max(states, function(d) {
             return parseInt(d.premium)
         })
     ])
+
+    var yMax = d3.max(states, function(d){
+        return d.premium
+    })
+    var yMin = d3.min(states, function(d){
+        return d.premium
+    })
+    var colorScale = d3.scale.linear()
+        .domain([ 0, yMax ])
+        .range([ d3.rgb(maroon).brighter(), d3.rgb(maroon).darker() ])
 
     vis_group.append('g')
         .attr({
@@ -88,19 +95,7 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
                 return 0
             },
             'fill': function(d){
-                if(d.premium > 1200){
-                    return redcolor.darker()
-                    // return fill(0)
-                } else if (d.premium > 1000 && d.premium <= 1200){
-                    return redcolor.darker(2)
-                    // return fill(1)
-                } else if (d.premium > 800 && d.premium <= 1000){
-                    return redcolor.darker(3)
-                    // return fill(2)
-                } else {
-                    return redcolor.darker(4)
-                    // return fill(3)
-                }
+                return colorScale(d.premium)
             },
             'opacity': .8
         })

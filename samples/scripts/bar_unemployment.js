@@ -18,8 +18,11 @@ d3.json('data/state_labor_stats.json', function(error, response){
 		return (a['longName']).split(' ')
 	})
 
-	$('.month').html(stats[0].stats.periodName)
-	$('.year').html(stats[0].stats.year)
+	d3.select('.month')
+        .html(stats[0].stats.periodName)
+
+	d3.select('.year')
+        .html(stats[0].stats.year)
 
 	x.domain(stats.sort(function(a, b) {
 		return d3.ascending(a.shortName, b.shortName);
@@ -28,17 +31,19 @@ d3.json('data/state_labor_stats.json', function(error, response){
 		return d.shortName;
 	}))
 
-	y.domain([0, d3.max(stats, function(d) {
-		return parseInt(d.stats.unemployment_percent) + 1
-	})])
+    var min_percentage = d3.min(stats, function(d){
+        return d.stats.unemployment_percent
+    })
 
-	var max_percentage = d3.max(stats, function(d){
-		return d.stats.unemployment_percent
-	})
+    var max_percentage = d3.max(stats, function(d){
+        return d.stats.unemployment_percent
+    })
 
-	var min_percentage = d3.min(stats, function(d){
-		return d.stats.unemployment_percent
-	})
+	y.domain([ 0, max_percentage ])
+
+    var colorScale = d3.scale.linear()
+        .domain([ 0, max_percentage ])
+        .range([ d3.rgb(steelblue).brighter(), d3.rgb(steelblue).darker() ])
 
 	vis_group.append('g')
 		.attr({
@@ -83,7 +88,7 @@ d3.json('data/state_labor_stats.json', function(error, response){
                 return 0
             },
 			'fill': function(d){
-				return 'rgb(126,126,126)'
+				return colorScale(d.stats.unemployment_percent)
 			},
             'class': 'bar',
             'opacity': .6
@@ -108,7 +113,6 @@ d3.json('data/state_labor_stats.json', function(error, response){
 				.transition()
 				.duration(200)
 				.attr({
-					'fill': 'rgb(126,126,126)',
 					'opacity': 1,
 				})
                 .style({
@@ -125,7 +129,7 @@ d3.json('data/state_labor_stats.json', function(error, response){
                 })
                 .transition()
                     .duration(200)
-                    .attr({
+                    .style({
                         'opacity': 1
                     })
 		})
@@ -136,10 +140,17 @@ d3.json('data/state_labor_stats.json', function(error, response){
 				.duration(200)
 				.attr({
 					'fill': function(d){
-						return 'rgb(126,126,126)'
+						return colorScale(d.stats.unemployment_percent)
 					},
 					'opacity': .6,
 				})
+
+            d3.select('.tooltip')
+                .transition()
+                    .duration(100)
+                    .style({
+                        'opacity': 0
+                    })
 		})
 
 		vis_group
