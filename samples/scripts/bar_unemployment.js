@@ -1,57 +1,8 @@
-var container_parent = $('.display'),
-	chart_container = $('#chart'),
-	margins = {top: 20, right: 20, bottom: 40, left: 40},
-	width = container_parent.width() - margins.left - margins.right,
-	height = (width * 0.3) - margins.top - margins.bottom,
-	vis, vis_group, aspect
-
 var State = function(stats){
 	this.stats = isDefined(stats)
 	this.longName = isDefined(stats.state_name)
 	this.shortName = isDefined(stats.short_name)
 }
-
-var formatPercent = d3.format('.0')
-
-var x = d3.scale.ordinal()
-	.rangeRoundBands([0, width], .1)
-
-var y = d3.scale.linear()
-	.range([height, 0])
-
-var xAxis = d3.svg.axis()
-	.scale(x)
-	.orient('bottom')
-
-var yAxis = d3.svg.axis()
-	.scale(y)
-	.orient('left')
-	.tickSize(-width)
-	.tickFormat(formatPercent)
-
-var tooltip = d3.select('body').append('div')
-	.attr({
-        'class': 'tooltip'
-    })
-	.style({
-        'opacity': 1e-6
-    })
-
-vis = d3.select('#chart').append('svg')
-	.attr({
-		'width': width + margins.left + margins.right,
-		'height': height + margins.top + margins.bottom,
-		'class': 'chart',
-		'preserveAspectRatio': 'xMinYMid',
-		'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
-	})
-
-vis_group = vis.append('g')
-		.attr({
-			'transform': 'translate(' + margins.left + ', ' + margins.top + ')'
-		})
-
-aspect = chart_container.width() / chart_container.height()
 
 d3.json('data/state_labor_stats.json', function(error, response){
 	var stats = []
@@ -78,7 +29,7 @@ d3.json('data/state_labor_stats.json', function(error, response){
 	}))
 
 	y.domain([0, d3.max(stats, function(d) {
-		return parseInt(d.stats.unemployment_percent)
+		return parseInt(d.stats.unemployment_percent) + 1
 	})])
 
 	var max_percentage = d3.max(stats, function(d){
@@ -98,13 +49,8 @@ d3.json('data/state_labor_stats.json', function(error, response){
 			.append('text')
 			.attr({
 				'x': width/2,
-				'y': margins.bottom
-			})
-			.style({
-				'fill': 'rgba(0,0,0,.6)',
-				'text-anchor': 'middle',
-				'font-size': '12px',
-				'font-weight': 'bold'
+				'y': margins.bottom,
+                'class': 'chart-label'
 			})
 			.text('State')
 
@@ -115,37 +61,32 @@ d3.json('data/state_labor_stats.json', function(error, response){
 		.call(yAxis)
 			.append('text')
 			.attr({
+                'class': 'chart-label',
 				'transform': 'rotate(-90)',
 				'x': -40,
 				'y': -30
 			})
-			.style({
-				'fill': 'rgba(0,0,0,.6)',
-				'text-anchor': 'end',
-				'font-size': '12px',
-				'font-weight': 'bold'
-			})
-			.text('Unemployment Rate')
+			.text('Unemployment Rate %')
 
 	var bars = vis_group.selectAll('.bar')
 		.data(stats)
 			.enter().append('rect')
 		.attr({
-			'class': 'bar',
+            'x': function(d){
+                return x(d.shortName)
+            },
+            'y': function(d){
+                return height
+            },
+            'width': x.rangeBand(),
+            'height': function(d){
+                return 0
+            },
 			'fill': function(d){
 				return 'rgb(126,126,126)'
 			},
-			'opacity': .6,
-			'x': function(d){
-				return x(d.shortName)
-			},
-			'width': x.rangeBand(),
-			'y': function(d){
-				return height
-			},
-			'height': function(d){
-				return 0
-			}
+            'class': 'bar',
+            'opacity': .6
 		})
 
 		bars.transition()
@@ -170,6 +111,9 @@ d3.json('data/state_labor_stats.json', function(error, response){
 					'fill': 'rgb(126,126,126)',
 					'opacity': 1,
 				})
+                .style({
+                    'cursor': 'pointer'
+                })
 
 			d3.select('.tooltip')
                 .html(function(){
@@ -181,7 +125,7 @@ d3.json('data/state_labor_stats.json', function(error, response){
                 })
                 .transition()
                     .duration(200)
-                    .style({
+                    .attr({
                         'opacity': 1
                     })
 		})
@@ -201,7 +145,7 @@ d3.json('data/state_labor_stats.json', function(error, response){
 		vis_group
 			.on('mouseout', function(d){
 				tooltip
-					.style({
+					.attr({
 						'opacity': 0
 					})
 			})
@@ -267,11 +211,3 @@ d3.json('data/state_labor_stats.json', function(error, response){
 					.delay(delay);
 	}
 })
-
-// $(window).on('resize', function() {
-// 	var targetWidth = container_parent.width()
-// 	vis.attr({
-// 		'width': targetWidth,
-// 		'height': Math.round(targetWidth / aspect)
-// 	})
-// })

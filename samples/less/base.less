@@ -79,6 +79,12 @@
 /*-----------------------------------------------------------------------------------*\
     #Charts
 \*-----------------------------------------------------------------------------------*/
+.chart-label {
+    fill: @darkgray;
+    text-anchor: end;
+    font-size: 11px;
+}
+
 #chart {
     font: 10px sans-serif;
 }
@@ -117,8 +123,14 @@
     .line {
         path,
         line {
-            stroke: #000;
+            stroke: @middlegray;
             display: block;
+        }
+    }
+
+    .y.axis {
+        path {
+            stroke: none;
         }
     }
 

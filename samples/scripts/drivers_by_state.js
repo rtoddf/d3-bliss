@@ -1,51 +1,8 @@
-var container_parent = $('.display'),
-    chart_container = $('#chart'),
-    margins = {top: 20, right: 20, bottom: 40, left: 40},
-    width = container_parent.width() - margins.left - margins.right,
-    height = (width * 0.3) - margins.top - margins.bottom,
-    vis, vis_group, aspect
-
-var color = d3.scale.category10();
-
-var names = {}
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1)
-
-var y = d3.scale.linear()
-    .range([height, 0])
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient('bottom')
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient('left')
-    .tickSize(-width)
-    // .tickFormat(formatPercent)
-
-vis = d3.select('#chart').append('svg')
-    .attr({
-        'width': width + margins.left + margins.right,
-        'height': height + margins.top + margins.bottom,
-        'class': 'chart',
-        'preserveAspectRatio': 'xMinYMid',
-        'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
-    })
-
-vis_group = vis.append('g')
-        .attr({
-            'transform': 'translate(' + margins.left + ', ' + margins.top + ')'
-        })
-
-aspect = chart_container.width() / chart_container.height()
-
 d3.tsv('data/us-state-names.tsv', function(tsv){
     tsv.forEach(function(d, i){
-        names[d.id] = {
-            'name': d.name,
-            'code': d.code
+        names[d.name] = {
+            'code': d.code,
+            'id': d.id
         }
     })
 })
@@ -63,8 +20,7 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
             values: data.map(function(d) {
                 return {
                     state: d.State,
-                    code: d.Code,
-                    id: d.ID,
+                    code: names[d.State].code,
                     premium: d['Car Insurance Premiums ($)']
                 }
             })
@@ -73,13 +29,10 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
 
     states = states[0].values
 
-    console.log(states)
-
     x.domain(states.sort(function(a, b) {
         return d3.ascending(a.state, b.state);
     })
     .map(function(d) {
-        // console.log('d: ', names[d.state].code)
         return d.code;
     }))
 
@@ -100,14 +53,9 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
         .call(xAxis)
             .append('text')
             .attr({
+                'class': 'chart-label',
                 'x': width/2,
                 'y': margins.bottom
-            })
-            .style({
-                'fill': 'rgba(0,0,0,.6)',
-                'text-anchor': 'middle',
-                'font-size': '12px',
-                'font-weight': 'bold'
             })
             .text('State')
 
@@ -118,15 +66,10 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
         .call(yAxis)
             .append('text')
             .attr({
+                'class': 'chart-label',
                 'transform': 'rotate(-90)',
                 'x': -40,
-                'y': -30
-            })
-            .style({
-                'fill': 'rgba(0,0,0,.6)',
-                'text-anchor': 'end',
-                'font-size': '12px',
-                'font-weight': 'bold'
+                'y': -40
             })
             .text('Insurance Premium ($)')
 
@@ -134,30 +77,32 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
         .data(states)
             .enter().append('rect')
         .attr({
-            'class': 'bar',
-            'fill': function(d){
-                if(d.premium > 1200){
-                    return 'red'
-                } else if (d.premium > 1000 && d.premium <= 1200){
-                    return 'orange'
-                } else if (d.premium > 800 && d.premium <= 1000){
-                    return 'yellow'
-                } else {
-                    return 'green'
-                }
-                
-            },
-            'opacity': .6,
             'x': function(d){
                 return x(d.code)
             },
-            'width': x.rangeBand(),
             'y': function(d){
                 return height
             },
+            'width': x.rangeBand(),
             'height': function(d){
                 return 0
-            }
+            },
+            'fill': function(d){
+                if(d.premium > 1200){
+                    return redcolor.darker()
+                    // return fill(0)
+                } else if (d.premium > 1000 && d.premium <= 1200){
+                    return redcolor.darker(2)
+                    // return fill(1)
+                } else if (d.premium > 800 && d.premium <= 1000){
+                    return redcolor.darker(3)
+                    // return fill(2)
+                } else {
+                    return redcolor.darker(4)
+                    // return fill(3)
+                }
+            },
+            'opacity': .8
         })
 
     bars.transition()
