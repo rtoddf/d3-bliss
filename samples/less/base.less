@@ -86,7 +86,6 @@
 .axis path,
 .axis line {
     fill: none;
-    // stroke: #000;
     shape-rendering: crispEdges;
 }
 
@@ -112,20 +111,22 @@
     }
 }
 
-.line_chart {
-    &.temps {
-        .axis,
-        .axis {
-            path {
-                display: block;
-            }
-        }
-
-        .area {
-            fill: rgba(0,0,0,.3);
-            stroke-width: 0;
+.line_chart,
+.bar {
+    .axis,
+    .line {
+        path,
+        line {
+            stroke: #000;
+            display: block;
         }
     }
+
+    .area {
+        fill: rgba(0,0,0,.3);
+        stroke-width: 0;
+    }
+
 
     &.animated {
         // find a better way
