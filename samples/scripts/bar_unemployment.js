@@ -41,6 +41,7 @@ d3.json('data/state_labor_stats.json', function(error, response){
 
 	y.domain([ 0, max_percentage ])
 
+    // domain/range for colors
     var colorScale = d3.scale.linear()
         .domain([ 0, max_percentage ])
         .range([ d3.rgb(steelblue).brighter(), d3.rgb(steelblue).darker() ])

@@ -42,6 +42,7 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
         })
     ])
 
+    // domain/range for colors
     var yMax = d3.max(states, function(d){
         return d.premium
     })
