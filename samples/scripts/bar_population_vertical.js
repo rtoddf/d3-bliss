@@ -7,6 +7,7 @@ var container_parent = $('.display') ,
 	vis, vis_group, aspect
 
 var rect_color = '#999'
+var green = d3.rgb('teal')
 
 // The comma (",") option enables the use of a comma for a thousands separator.
 // The "0" option enables zero-padding.
@@ -49,10 +50,6 @@ d3.json('data/us_census.json', function(error, data){
 		d.pop = +d.pop
 	})
 
-	// data.sort(function(a, b){
-	// 	return b.pop - a.pop
-	// })
-
 	// set the scale domain
 	x.domain([ 0, d3.max(data, function(d){
 		return parseInt(d.pop)
@@ -65,6 +62,17 @@ d3.json('data/us_census.json', function(error, data){
     .map(function(d) {
         return d.placename;
     }))
+
+    // domain/range for colors
+    var yMax = d3.max(data, function(d){
+        return d.pop
+    })
+    var yMin = d3.min(data, function(d){
+        return d.pop
+    })
+    var colorScale = d3.scale.linear()
+        .domain([ 0, yMax ])
+        .range([ d3.rgb(green).brighter(), d3.rgb(green).darker() ])
 
 	var bar = vis_group.selectAll('rect')
 			.data(data)
@@ -81,7 +89,9 @@ d3.json('data/us_census.json', function(error, data){
 			'height': function(d){
 				return y.rangeBand()
 			},
-			'fill': rect_color
+			'fill': function(d){
+                return colorScale(d.pop)
+            }
 		})
 		.style({
 			'cursor': 'pointer'
@@ -113,7 +123,9 @@ d3.json('data/us_census.json', function(error, data){
 				.transition()
 					.duration(200)
 					.attr({
-						'fill': rect_color
+						'fill': function(d){
+			                return colorScale(d.pop)
+			            }
 					})
 
 			d3.select('.tooltip')
