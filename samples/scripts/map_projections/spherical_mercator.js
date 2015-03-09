@@ -58,7 +58,7 @@ vis_group.append('path')
         'stroke-opacity': defaults.colors.strokeOpacity
     })
 
-d3.json('data/world-50m.json', function(error, topology){
+d3.json('../data/world-50m.json', function(error, topology){
 	vis_group.append('path')
 		.datum(topojson.feature(topology, topology.objects.land))
 		.attr({

@@ -9,10 +9,10 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-        <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-        <link href="less/base.less" rel="stylesheet/less" />
-        <script src="scripts/lib/less-1.7.4.min.js"></script>
+        <link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../less/base.less" rel="stylesheet/less" />
+        <script src="../scripts/lib/less-1.7.4.min.js"></script>
     </head>
 
     <body>
@@ -33,25 +33,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>US Districts</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+                        <h3>Projection - Orthographic</h3>
+                        <p>The orthographic projection is an azimuthal projection suitable for displaying a single hemisphere; the point of perspective is at infinity.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 us_map district_view display">
+                    <div class="col-md-12 projection display">
                         <div id="map"></div>
-                        <p class="source">Source: <a href="javascript:void(0)" target="_blank">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script src="scripts/lib/jquery-1.10.2.min.js"></script>
-        <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
-        <script src="scripts/lib/d3.min.js"></script>
-        <script src="scripts/lib/topojson.js"></script>
-        <script src="scripts/lib/queue.v1.min.js"></script>
-        <script src="scripts/base.js"></script>
-        <script src="scripts/us_districts.js"></script>
+        <script src="../scripts/lib/jquery-1.10.2.min.js"></script>
+        <script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="../scripts/lib/d3.min.js"></script>
+        <script src="../scripts/lib/queue.v1.min.js"></script>
+        <script src="../scripts/lib/topojson.js"></script>
+        <script src="../scripts/map_projections/spherical_mercator.js"></script>
     </body>
 </html>

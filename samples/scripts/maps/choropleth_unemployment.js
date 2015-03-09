@@ -19,8 +19,8 @@ vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 
 queue()
-	.defer(d3.json, 'data/us.json')
-	.defer(d3.tsv, 'data/unemployment.tsv', function(d) {
+	.defer(d3.json, '../data/us.json')
+	.defer(d3.tsv, '../data/unemployment.tsv', function(d) {
 		rateById.set(d.id, +d.rate)
 	})
 	.await(ready)

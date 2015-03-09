@@ -67,7 +67,7 @@ vis_group.append('path')
         'stroke-opacity': defaults.colors.strokeOpacity
     })
 
-d3.json('data/world-50m.json', function(error, topology){
+d3.json('../data/world-50m.json', function(error, topology){
     var countries = topojson.feature(topology, topology.objects.countries).features,
         neighbors = topojson.neighbors(topology.objects.countries.geometries)
 

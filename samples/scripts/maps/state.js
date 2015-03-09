@@ -44,7 +44,7 @@ var States = new function(){
 				'class': 'vis_group'
 			})
 
-		d3.json('data/states/' + state + '-counties.json', function(error, topology){
+		d3.json('../data/states/' + state + '-counties.json', function(error, topology){
 			var counties = topojson.feature(topology, topology.objects.counties)
 
 			projection

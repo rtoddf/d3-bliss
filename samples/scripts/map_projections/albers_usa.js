@@ -9,7 +9,7 @@ vis = d3.select('#map').append('svg')
 vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 
-d3.json('data/us.json', function(error, topology){
+d3.json('../data/us.json', function(error, topology){
     // draw the US boundaries
     vis_group.append('path')
         .datum(topojson.feature(topology, topology.objects.land))

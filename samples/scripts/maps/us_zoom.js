@@ -69,7 +69,7 @@ var g = vis.append('g')
 
 var names = {}
 
-d3.tsv('data/us-state-names.tsv', function(tsv){
+d3.tsv('../data/us-state-names.tsv', function(tsv){
     tsv.forEach(function(d, i){
         names[d.id] = {
             'name': d.name,
@@ -79,7 +79,7 @@ d3.tsv('data/us-state-names.tsv', function(tsv){
     })
 })
 
-d3.json('data/us.json', function(error, topology){
+d3.json('../data/us.json', function(error, topology){
     // console.log(names)
 
     function state_party_fill(d){

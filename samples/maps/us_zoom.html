@@ -9,10 +9,10 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-        <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-        <link href="less/base.less" rel="stylesheet/less" />
-        <script src="scripts/lib/less-1.7.4.min.js"></script>
+        <link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../less/base.less" rel="stylesheet/less" />
+        <script src="../scripts/lib/less-1.7.4.min.js"></script>
     </head>
 
     <body>
@@ -34,13 +34,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>US with Zoom</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+                        <p>This map of the US is constructed in the same manner as the previous map, but adds a "click-to-zoom" feature. The race data is from the USA Today US Census API - 2010.</p>
                         <ul>
                             <li>Republican states are in red, Democratic states are in blue, and states that are both Republican and Democrat are in purple.</li>
                             <li>Hover over a state to get quick info.</li>
                             <li>Click on a state to zoom in and see race data for that state. You can also click from state to state to see new information.</li>
                             <li>Click in the white area to zoom back out.</li>
                         </ul>
+                        <p class="note">Needs a legend</p>
                     </div>
                 </div>
                 <div class="row">
@@ -52,13 +53,13 @@
             </div>
         </div>
 
-        <script src="scripts/lib/jquery-1.10.2.min.js"></script>
-        <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
-        <script src="scripts/lib/underscore-min.js"></script>
-        <script src="scripts/underscore_mixins.js"></script>
-        <script src="scripts/lib/d3.min.js"></script>
-        <script src="scripts/lib/topojson.js"></script>
-        <!--script src="scripts/base.js"></script-->
-        <script src="scripts/us_zoom.js"></script>
+        <script src="../scripts/lib/jquery-1.10.2.min.js"></script>
+        <script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="../scripts/lib/underscore-min.js"></script>
+        <script src="../scripts/underscore_mixins.js"></script>
+        <script src="../scripts/lib/d3.min.js"></script>
+        <script src="../scripts/lib/topojson.js"></script>
+        <!--script src="../scripts/base.js"></script-->
+        <script src="../scripts/maps/us_zoom.js"></script>
     </body>
 </html>

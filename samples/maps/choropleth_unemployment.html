@@ -9,10 +9,10 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-        <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-        <link href="less/base.less" rel="stylesheet/less" />
-        <script src="scripts/lib/less-1.7.4.min.js"></script>
+        <link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../less/base.less" rel="stylesheet/less" />
+        <script src="../scripts/lib/less-1.7.4.min.js"></script>
     </head>
 
     <body>
@@ -33,24 +33,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Projection - Orthographic</h3>
-                        <p>The orthographic projection is an azimuthal projection suitable for displaying a single hemisphere; the point of perspective is at infinity.</p>
+                        <h3>Unemployment Choropleth</h3>
+                        <p>A Cloropleth map is a map that uses differences in shading, coloring, or the placing of symbols within predefined areas to indicate the average values of a property or quantity in those areas.</p>
+                        <p>This map shows (past) unemployment data. I need to update it with more recent data from the Bureau of Labor Statistics.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 projection display">
+                    <div class="col-md-12 us_map choropleth display">
                         <div id="map"></div>
+                        <p class="source">Source: <a href="javascript:void(0)" target="_blank">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script src="scripts/lib/jquery-1.10.2.min.js"></script>
-        <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
-        <script src="scripts/lib/d3.min.js"></script>
-        <script src="scripts/lib/queue.v1.min.js"></script>
-        <script src="scripts/lib/topojson.js"></script>
-
-        <script src="scripts/map_projections/spherical_mercator.js"></script>
+        <script src="../scripts/lib/jquery-1.10.2.min.js"></script>
+        <script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="../scripts/lib/d3.min.js"></script>
+        <script src="../scripts/lib/topojson.js"></script>
+        <script src="../scripts/lib/queue.v1.min.js"></script>
+        <script src="../scripts/base.js"></script>
+        <script src="../scripts/maps/choropleth_unemployment.js"></script>
     </body>
 </html>

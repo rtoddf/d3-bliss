@@ -16,7 +16,7 @@ var names = {}
 var data_set
 var party_map = true
 
-d3.tsv('data/us-state-names.tsv', function(tsv){
+d3.tsv('../data/us-state-names.tsv', function(tsv){
     tsv.forEach(function(d, i){
         names[d.id] = {
             'name': d.name,
@@ -27,7 +27,7 @@ d3.tsv('data/us-state-names.tsv', function(tsv){
     })
 })
 
-d3.json('data/us.json', function(error, topology){
+d3.json('../data/us.json', function(error, topology){
     // draw the US boundaries
     // vis_group.append('path')
     //     .datum(topojson.feature(topology, topology.objects.land))
