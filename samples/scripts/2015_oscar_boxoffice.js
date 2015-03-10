@@ -1,5 +1,7 @@
 // http://bl.ocks.org/Matthew-Weber/5645518
 
+// axis styling: http://bl.ocks.org/mbostock/3371592
+
 var container_parent = $('.display'),
     chart_container = $('#chart'),
     margins = {top: 20, right: 20, bottom: 20, left: 40},
@@ -67,12 +69,13 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
         .orient('bottom')
         .ticks(initial_data_set.length)
         // .tickFormat(d3.time.format('%m/%d'))
-        .tickSize(-height, 0, 0)
+        .tickSize(-height, 0, -width)
 
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient('left')
         .ticks(20)
+        .tickSize(-width)
         .tickFormat(d3.format('.2s'))
 
     var xAxisGroup = vis_group.append('g')
