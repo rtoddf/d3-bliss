@@ -4,7 +4,7 @@ var container_parent = $('.display'),
     chart_container = $('#chart'),
     margins = {top: 20, right: 20, bottom: 20, left: 40},
     width = container_parent.width() - margins.left - margins.right,
-    height = (width * 0.3) - margins.top - margins.bottom,
+    height = (width * 0.4) - margins.top - margins.bottom,
     vis, vis_group, aspect, tooltip
 
 vis = d3.select('#chart').append('svg')
@@ -27,6 +27,8 @@ tooltip = d3.select('body').append('div')
     .style('opacity', 1e-6)
 
 var format = d3.format(',.0f')
+var parseDate = d3.time.format('%d-%b-%y').parse
+var dateFormat = d3.time.format('%m/%d/%y')
 
 d3.json('data/2015_oscar_boxoffice.json', function(error, data){
     console.log('data: ', data)
@@ -38,10 +40,7 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
     var the_imitation_game = data['The Imitation Game']
     var selma = data['Selma']
     var the_theory_of_everything = data['The Theory of Everything']
-    var whiplash = data['Whiplash']
-
-    // Parse the date / time
-    var parseDate = d3.time.format('%d-%b-%y').parse
+    var whiplash = data['Whiplash']  
 
     var initial_data_set = selma
 
@@ -73,6 +72,7 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient('left')
+        .ticks(20)
         .tickFormat(d3.format('.2s'))
 
     var xAxisGroup = vis_group.append('g')
@@ -133,7 +133,7 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
             .style('cursor', 'pointer')
             .on('mouseover', function(d) {
                 tooltip
-                    .html( '<span>$' + format(d.average) + '</span>' )
+                    .html( '<span>' + dateFormat(parseDate(d.date)) + ': $' + format(d.average) + '</span>' )
                     .style({
                         'left': (d3.event.pageX) + 'px',
                         'top': (d3.event.pageY - 28) + 'px'
