@@ -84,11 +84,11 @@ d3.json('../data/us.json', function(error, topology){
 
     function state_party_fill(d){
         var party = names[d.id].party
-        if(party == 'republican'){
+        if(party == 'Republican'){
             return '#e91d0e'
-        } else if(party == 'democrat'){
+        } else if(party == 'Democrat'){
             return '#003264'
-        } else if(party == 'split'){
+        } else if(party == 'Split'){
             return 'purple'
         } else {
             return 'white'
@@ -117,14 +117,11 @@ d3.json('../data/us.json', function(error, topology){
 				'click': clicked
 			})
             .on('mouseover', function(d){
-                // console.log(names[d.id])
                 d3.select(this)
                     .transition()
                         .duration(500)
                         .attr({
-                            'fill': '#fff',
-                            // 'stroke': '#000',
-                            // 'strokeWidth': .5
+                            'fill': '#666'
                         })
                     .style('cursor', 'pointer')
 
