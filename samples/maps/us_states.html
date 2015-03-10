@@ -26,7 +26,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">D3 Samples</a>
+                    <a class="navbar-brand" href="../index.html">D3 Samples</a>
                 </div>
             </div>
         </nav>
@@ -37,7 +37,6 @@
                         <h3>US States</h3>
                         <p>A standard map of the United States using the Albers USA projection. Each state has been given a tooltip withe name of the state, as well as its abbreviation. More data can be added to the tooltip if desired.</p>
                         <p>The four buttons at the top of the map change the colors of the states based on political data. Click on a button to change the information on the map.</p>
-                        <p class="note">Needs a legend</p>
                         <div class="btn-group btn-group-justified" role="group">
                             <a class="btn" rel="program-share-modal" data-type="party" role="button">
                                 <i class="icon-politics-politician"></i> <span>Political Parties</span>
@@ -45,17 +44,20 @@
                             <a class="btn" rel="program-share-modal" data-type="same_sex_marriage" role="button">
                                 <i class="icon-social-same-sex-1"></i> <span>Same Sex Marriage</span>
                             </a>
-                            <a class="btn" rel="program-share-modal" data-type="add" role="button">
-                                <i class="icon-tech-graph"></i> <span>Add</span>
+                            <a class="btn" rel="program-share-modal" data-type="age_of_consent" role="button">
+                                <i class="icon-tech-graph"></i> <span>Age of Consent</span>
                             </a>
+                            <!--
                             <a class="btn" rel="program-share-modal" data-type="watch" role="button">
                                 <i class="icon-tech-graph"></i> <span>Watch</span>
                             </a>
+                            -->
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 us_map state_view display">
+                        <div id="legend"></div>
                         <div id="map"></div>
                         <p class="source">Source: <a href="javascript:void(0)" target="_blank">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></p>
                     </div>

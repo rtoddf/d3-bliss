@@ -1,61 +1,61 @@
-id	code	name	party	same_sex_marriage
-1	AL	Alabama	republican	true
-2	AK	Alaska	republican	true
-4	AZ	Arizona	republican	true
-5	AR	Arkansas	republican	false
-6	CA	California	democrat	true
-8	CO	Colorado	split	true
-9	CT	Connecticut	democrat	true
-10	DE	Delaware	democrat	true
-11	DC	District of Columbia	none	true
-12	FL	Florida	split	true
-13	GA	Georgia	republican	false
-15	HI	Hawaii	democrat	true
-16	ID	Idaho	republican	true
-17	IL	Illinois	split	true
-18	IN	Indiana	split	true
-19	IA	Iowa	republican	true
-20	KS	Kansas	republican	true
-21	KY	Kentucky	republican	true
-22	LA	Louisiana	republican	false
-23	ME	Maine	split	true
-24	MD	Maryland	democrat	true
-25	MA	Massachusetts	democrat	true
-26	MI	Michigan	democrat	false
-27	MN	Minnesota	democrat	true
-28	MS	Mississippi	republican	false
-29	MO	Missouri	split	false
-30	MT	Montana	split	true
-31	NE	Nebraska	republican	false
-32	NV	Nevada	split	true
-33	NH	New Hampshire	split	true
-34	NJ	New Jersey	democrat	true
-35	NM	New Mexico	democrat	true
-36	NY	New York	democrat	true
-37	NC	North Carolina	republican	false
-38	ND	North Dakota	split	true
-39	OH	Ohio	split	false
-40	OK	Oklahoma	republican	true
-41	OR	Oregon	democrat	true
-42	PA	Pennsylvania	split	true
-44	RI	Rhode Island	democrat	true
-45	SC	South Carolina	republican	true
-46	SD	South Dakota	republican	true
-47	TN	Tennessee	republican	false
-48	TX	Texas	republican	false
-49	UT	Utah	split	true
-50	VT	Vermont	democrat	true
-51	VA	Virginia	democrat	true
-53	WA	Washington	democrat	true
-54	WV	West Virginia	split	true
-55	WI	Wisconsin	split	true
-56	WY	Wyoming	republican	true
-60	AS	America Samoa	none	true
-64	FM	Federated States of Micronesia	none	true
-66	GU	Guam	none	true
-68	MH	Marshall Islands	none	true
-69	MP	Northern Mariana Islands	none	true
-70	PW	Palau	noen	true
-72	PR	Puerto Rico	none	true
-74	UM	U.S. Minor Outlying Islands	none	true
-78	VI	Virgin Islands of the United States	none	true
+id	code	name	party	same_sex_marriage	age_of_consent
+1	AL	Alabama	Republican	Legal	16
+2	AK	Alaska	Republican	Legal	16
+4	AZ	Arizona	Republican	Legal	18
+5	AR	Arkansas	Republican	Illegal	16
+6	CA	California	Democrat	Legal	18
+8	CO	Colorado	Split	Legal	17
+9	CT	Connecticut	Democrat	Legal	16
+10	DE	Delaware	Democrat	Legal	18
+11	DC	District of Columbia	none	Legal	16
+12	FL	Florida	Split	Legal	18
+13	GA	Georgia	Republican	Illegal	16
+15	HI	Hawaii	Democrat	Legal	16
+16	ID	Idaho	Republican	Legal	18
+17	IL	Illinois	Split	Legal	17
+18	IN	Indiana	Split	Legal	16
+19	IA	Iowa	Republican	Legal	16
+20	KS	Kansas	Republican	Legal	16
+21	KY	Kentucky	Republican	Legal	16
+22	LA	Louisiana	Republican	Illegal	17
+23	ME	Maine	Split	Legal	16
+24	MD	Maryland	Democrat	Legal	16
+25	MA	Massachusetts	Democrat	Legal	16
+26	MI	Michigan	Democrat	Illegal	16
+27	MN	Minnesota	Democrat	Legal	16
+28	MS	Mississippi	Republican	Illegal	16
+29	MO	Missouri	Split	Illegal	17
+30	MT	Montana	Split	Legal	16
+31	NE	Nebraska	Republican	Illegal	16
+32	NV	Nevada	Split	Legal	16
+33	NH	New Hampshire	Split	Legal	16
+34	NJ	New Jersey	Democrat	Legal	16
+35	NM	New Mexico	Democrat	Legal	16
+36	NY	New York	Democrat	Legal	17
+37	NC	North Carolina	Republican	Illegal	16
+38	ND	North Dakota	Split	Legal	18
+39	OH	Ohio	Split	Illegal	16
+40	OK	Oklahoma	Republican	Legal	16
+41	OR	Oregon	Democrat	Legal	18
+42	PA	Pennsylvania	Split	Legal	16
+44	RI	Rhode Island	Democrat	Legal	16
+45	SC	South Carolina	Republican	Legal	16
+46	SD	South Dakota	Republican	Legal	16
+47	TN	Tennessee	Republican	Illegal	18
+48	TX	Texas	Republican	Illegal	17
+49	UT	Utah	Split	Legal	18
+50	VT	Vermont	Democrat	Legal	16
+51	VA	Virginia	Democrat	Legal	16
+53	WA	Washington	Democrat	Legal	16
+54	WV	West Virginia	Split	Legal	16
+55	WI	Wisconsin	Split	Legal	18
+56	WY	Wyoming	Republican	Legal	16
+60	AS	America Samoa	none	none	none
+64	FM	Federated States of Micronesia	none	none	none
+66	GU	Guam	none	none	none
+68	MH	Marshall Islands	none	none	none
+69	MP	Northern Mariana Islands	none	none	none
+70	PW	Palau	noen	none	none
+72	PR	Puerto Rico	none	none	none
+74	UM	U.S. Minor Outlying Islands	none	none	none
+78	VI	Virgin Islands of the United States	none	none	none

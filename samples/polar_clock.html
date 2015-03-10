@@ -12,7 +12,6 @@
         <link href="less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <link href="less/base.less" rel="stylesheet/less" />
-        <link href="less/rtodd/rtodd.css" rel="stylesheet">
         <script src="scripts/lib/less-1.7.4.min.js"></script>
     </head>
 
@@ -34,36 +33,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Animated Line Chart</h3>
+                        <h3>Polar Clock</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-                        <p>Click a button below to change the data in the chart.</p>
-                        <p class="source">Source: <a href="javascript:void(0)" target="_blank">None</a></p>
-                        <div class="btn-group btn-group-justified" role="group">
-                            <a class="btn" rel="program-share-modal" data-type="browse" role="button">
-                                <i class="icon-tech-graph"></i> <span>Browse</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="search" role="button">
-                                <i class="icon-tech-graph"></i> <span>Search</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="add" role="button">
-                                <i class="icon-tech-graph"></i> <span>Add</span>
-                            </a>
-                            <a class="btn" rel="program-share-modal" data-type="watch" role="button">
-                                <i class="icon-tech-graph"></i> <span>Watch</span>
-                            </a>
-                        </div>
                     </div>
-                    <div class="col-md-12 display">
-                        <!--<div class="row">
-                            <div class="col-md-6 col-md-offset-6 display">
-                                <img src="images/suits.jpg">
-                            </div>
-                        </div> -->
-                        <div class="row">
-                            <div class="col-md-12 line_chart animated display">
-                                <div id="chart"></div>
-                            </div>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 polar_clock display">
+                        <div id="polar_clock"></div>
                     </div>
                 </div>
             </div>
@@ -72,8 +48,7 @@
         <script src="scripts/lib/jquery-1.10.2.min.js"></script>
         <script src="scripts/lib/bootstrap/bootstrap.min.js"></script>
         <script src="scripts/lib/d3.min.js"></script>
-        <script src="scripts/lib/queue.v1.min.js"></script>
-        <script src="scripts/lib/underscore-min.js"></script>
-        <script src="scripts/animated_line_chart.js"></script>
+        <script src="scripts/lib/moment.min.js"></script>
+        <script src="scripts/polar_clock.js"></script>
     </body>
 </html>
