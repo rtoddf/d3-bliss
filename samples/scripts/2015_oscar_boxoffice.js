@@ -4,7 +4,7 @@
 
 var container_parent = $('.display'),
     chart_container = $('#chart'),
-    margins = {top: 20, right: 20, bottom: 20, left: 40},
+    margins = {top: 10, right: 40, bottom: 30, left: 40},
     width = container_parent.width() - margins.left - margins.right,
     height = (width * 0.4) - margins.top - margins.bottom,
     vis, vis_group, aspect, tooltip
@@ -28,26 +28,28 @@ tooltip = d3.select('body').append('div')
     .attr('class', 'tooltip')
     .style('opacity', 1e-6)
 
+var color = d3.scale.category10();
+
 var format = d3.format(',.0f')
 var parseDate = d3.time.format('%d-%b-%y').parse
 var dateFormat = d3.time.format('%m/%d/%y')
 
-d3.json('data/2015_oscar_boxoffice.json', function(error, data){
-    console.log('data: ', data)
-    
-    var american_sniper = data['American Sniper']
-    var birdman = data['Birdman']
-    var boyhood = data['Boyhood']
-    var the_grand_budapest_hotel = data['The Grand Budapest Hotel']
-    var the_imitation_game = data['The Imitation Game']
-    var selma = data['Selma']
-    var the_theory_of_everything = data['The Theory of Everything']
-    var whiplash = data['Whiplash']  
+d3.json('data/2015_oscar_boxoffice.json', function(error, data){   
+    // this is wrong - use map or nest
+    var american_sniper = data[1]
+    var birdman = data[2]
+    var boyhood = data[5]
+    var the_grand_budapest_hotel = data[6]
+    var the_imitation_game = data[0]
+    var selma = data[3]
+    var the_theory_of_everything = data[4]
+    var whiplash = data[7]  
 
     var initial_data_set = selma
+    $("[data-type='Selma']").addClass('selected')
 
     var xScale = d3.time.scale()
-        .domain(d3.extent(initial_data_set, function(d) {
+        .domain(d3.extent(initial_data_set.grosses, function(d) {
             return d.week;
         }))
         .range([0, width])
@@ -55,9 +57,9 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
     var yScale = d3.scale.linear()
         .domain([ 0, 
             d3.max([ 
-                d3.max(initial_data_set, function(d){
+                d3.max(initial_data_set.grosses, function(d){
                     return d.average
-                }), d3.max(initial_data_set, function(d){ 
+                }), d3.max(initial_data_set.grosses, function(d){ 
                     return d.average
                 })
             ])
@@ -67,8 +69,7 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient('bottom')
-        .ticks(initial_data_set.length)
-        // .tickFormat(d3.time.format('%m/%d'))
+        .ticks(initial_data_set.grosses.length)
         .tickSize(-height, 0, -width)
 
     var yAxis = d3.svg.axis()
@@ -78,12 +79,31 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
         .tickSize(-width)
         .tickFormat(d3.format('.2s'))
 
+    var area = d3.svg.area()
+        .x(function(d) {
+            return xScale(d.week)
+        })
+        .y0(height)
+        .y1(function(d) {
+            return yScale(d.average)
+        })
+
     var xAxisGroup = vis_group.append('g')
         .attr({
             'class': 'x axis',
             'transform': 'translate(0, ' + height + ')'
         })
         .call(xAxis)
+        .append('text')
+            .attr({
+                'x': width,
+                'y': '25',
+                'fill': '#ccc'
+            })
+            .style({
+                'text-anchor': 'end'
+            })
+            .text('Week after release')
 
     var yAxisGroup = vis_group.append('g')
         .attr({
@@ -94,7 +114,7 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
         .append('text')
             .attr({
                 'transform': 'rotate(-90)',
-                'y': 6,
+                'y': -40,
                 'dy': '.71em',
                 'fill': '#ccc'
             })
@@ -102,6 +122,18 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
                 'text-anchor': 'end'
             })
             .text('Average Box Office ($)')
+
+    vis_group.append('path')
+        .datum(initial_data_set)
+        .attr({
+            'class': 'area',
+            'd': function(d) {
+                return area(d.grosses)
+            },
+            'fill': '#fff',
+            'opacity': .4,
+            'stroke-width': 0
+        })
 
     var lineFunction = d3.svg.line()
         .x(function(d){ 
@@ -115,12 +147,12 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
     vis_group.append('path')
         .attr({
             'class': 'line',
-            'd': lineFunction(initial_data_set),
+            'd': lineFunction(initial_data_set.grosses),
         })
 
     // append the circles to the group
     vis_group.selectAll('circle')
-            .data(initial_data_set)
+            .data(initial_data_set.grosses)
         .enter().append("circle")
             .attr({
                 'class': 'dot',
@@ -158,12 +190,12 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
             .duration(duration)
             .attr({
                 'd': function(d){
-                    return lineFunction(type)
+                    return lineFunction(type.grosses)
                 }
             })
 
         vis_group.selectAll('.dot')
-            .data(type)
+            .data(type.grosses)
             .transition()
             .duration(duration)
             .attr({
@@ -174,11 +206,25 @@ d3.json('data/2015_oscar_boxoffice.json', function(error, data){
                     return yScale(d.average)
                 }
             })
+
+        vis_group.selectAll('.area')
+            .datum(type.grosses)
+            .transition()
+            .duration(duration)
+            .attr({
+                'd': function(d) {
+                    return area(d)
+                }
+            })
     }
 
     $('body').on('click', '[rel="program-share-modal"]', function( e ) {
         e.preventDefault()
         var dataType = $(this).data('type')
+
+        $('.btn').removeClass('selected')
+
+        $(this).addClass('selected')
 
         switch (dataType) {
             case 'American Sniper':

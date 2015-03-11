@@ -134,18 +134,16 @@
         }
     }
 
-    .area {
-        fill: rgba(0,0,0,.3);
-        stroke-width: 0;
-    }
-
-
     &.animated,
     &.oscars {
         // find a better way
         position: relative;
-        padding: 10px 20px;
-        background: @black;
+        
+
+        #chart {
+            background: @black;
+            padding: 10px 20px;
+        }
 
         .line {
             fill: none;
@@ -252,6 +250,15 @@
             color: @white;
         }
     }
+
+    &.selected {
+        background: @darkgray;
+        color: @white;
+    }
+}
+
+.choices {
+    margin-bottom: 20px;
 }
 
 /*-----------------------------------------------------------------------------------*\
