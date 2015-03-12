@@ -26,6 +26,7 @@ queue()
 	.await(ready)
 
 function ready(error, us) {
+    console.log('us: ', us)
 	vis_group.append('g')
 		.attr('class', 'counties')
 		.selectAll('path')
