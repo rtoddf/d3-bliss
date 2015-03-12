@@ -3,7 +3,7 @@ var url2 = 'http://api.chartbeat.com/live/toppages/?host=wsbradio.com&limit=10&a
 var url3 = 'http://api.chartbeat.com/live/toppages/?host=wokv.com&limit=10&apikey=cfa46a3950a4f0cda65b530b5cf05bf5'
 var url4 = 'http://api.chartbeat.com/live/toppages/?host=krmg.com&limit=10&apikey=cfa46a3950a4f0cda65b530b5cf05bf5'
 
-var url1 = 'http://api.chartbeat.com/live/toppages/?host=any&limit=10&apikey=cfa46a3950a4f0cda65b530b5cf05bf5'
+// var url1 = 'http://api.chartbeat.com/live/toppages/?host=any&limit=10&apikey=cfa46a3950a4f0cda65b530b5cf05bf5'
 
 var the_whole_thing = []
 

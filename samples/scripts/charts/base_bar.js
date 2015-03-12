@@ -1,5 +1,5 @@
 var container_parent = $('.display'),
-    chart_container = $('#chart'),
+    chart_container = $('#premiums_chart'),
     margins = {top: 20, right: 50, bottom: 40, left: 50},
     width = container_parent.width() - margins.left - margins.right,
     height = (width * 0.3) - margins.top - margins.bottom,
@@ -34,7 +34,7 @@ var yAxis = d3.svg.axis()
     .tickSize(-width)
     .tickFormat(formatPercent)
 
-vis = d3.select('#chart').append('svg')
+vis = d3.select('#premiums_chart').append('svg')
     .attr({
         'width': width + margins.left + margins.right,
         'height': height + margins.top + margins.bottom,
