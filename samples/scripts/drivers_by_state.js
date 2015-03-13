@@ -8,6 +8,8 @@ d3.tsv('data/us-state-names.tsv', function(tsv){
 })
 
 d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
+    console.log('data: ', data)
+
     color.domain(d3.keys(data[0])
         .filter(function(key) {
             return key == 'State'

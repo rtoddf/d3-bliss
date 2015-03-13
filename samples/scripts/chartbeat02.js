@@ -11,6 +11,9 @@ var krmg_url = prefix + '?host=krmg.com' + options + '&apikey=' + key
 
 var barHeight = 40
 
+var y = d3.scale.ordinal()
+    .rangeRoundBands([ 0, height], .1)
+
 // var url1 = http://api.chartbeat.com/live/toppages/v3/?host=ajc.com&limit=10&sortby=engaged_time&apikey=cfa46a3950a4f0cda65b530b5cf05bf5
 
 var the_whole_thing = []
@@ -67,30 +70,39 @@ function ready(error, news965, wsbradio, wokv, krmg) {
         the_whole_thing.push(d)
     })
 
-    the_whole_thing.sort(function(a, b) {
-        return d3.descending(a.stats.visits, b.stats.visits)
-    })
-
     chartit(the_whole_thing)
 }
 
 function chartit(data){
     console.log('data: ', data)
 
+    y.domain(data.sort(function(a, b) {
+        return d3.descending(a.stats.visits, b.stats.visits);
+    })
+    .map(function(d) {
+        return d.stats.visits;
+    }))
+
     var bar = vis_group.selectAll('g')
             .data(data)
         .enter().append('g')
             .attr({
+                // 'class': 'bar',
                 'transform': function(d, i) {
-                    return 'translate(0,' + i * barHeight + ')'
+                    console.log('d: ', d.stats.visits)
+                    return 'translate(0,' + y(d.stats.visits) + ')'
                 }
             })
 
     bar.append('rect')
         .attr({
             'class': function(d){
-                return d.site
+                return 'bar ' + d.site
             },
+            'x': 0,
+            // 'y': function(d){
+            //     return y(d.stats.visits)
+            // },
             'width': width,
             'height': barHeight
         })
@@ -130,4 +142,46 @@ function chartit(data){
         .text(function(d) {
             return d.stats.engaged_time.avg
         })
+
+    $('button').on('click', function(){
+        var sort = $(this).data('sort')
+        d3.select(this)
+            .property('sort', sort)
+            .each(change)
+    })
+
+    function change() {
+        if(this.sort == 'desc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                console.log('a.stats.visits: ', a.stats.visits)
+                return d3.descending(a.stats.visits, b.stats.visits);
+            })
+            .map(function(d) {
+                return d.stats.visits;
+            }))
+            .copy()
+        } else if(this.sort == 'asc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.ascending(a.stats.visits, b.stats.visits);
+            })
+            .map(function(d) {
+                return d.stats.visits;
+            }))
+            .copy()
+        }
+
+        var transition = vis_group.transition().duration(750),
+            delay = function(d, i) {
+                return i * 30;
+            };
+
+        transition.selectAll('.bar')
+            .delay(delay)
+            .ease('cubic')
+            .attr('y', function(d) {
+                console.log('y0(d.stats.visits): ', y0(d.stats.visits))
+                return y0(d.stats.visits);
+            });
+    }
+
 }
