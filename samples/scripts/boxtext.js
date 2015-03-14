@@ -101,6 +101,8 @@ d3.json('data/boxtext.json', function(error, data){
 			})
 			console.log('desc: ', data)
 
+			bar.data = data
+
 			var transition = vis_group
 				.transition()
 				.duration(750),
@@ -112,9 +114,8 @@ d3.json('data/boxtext.json', function(error, data){
 				.delay(delay)
 				.ease('cubic')
 				.attr({
-					'class': 'bar',
+					'width': 200,
 					'transform': function(d, i) {
-						console.log('i: ', i * barHeight)
 						return 'translate(0,' + i * barHeight + ')'
 					}
 				})
