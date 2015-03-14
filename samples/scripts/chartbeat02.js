@@ -89,8 +89,8 @@ function chartit(data){
             .attr({
                 // 'class': 'bar',
                 'transform': function(d, i) {
-                    console.log('d: ', d.stats.visits)
-                    return 'translate(0,' + y(d.stats.visits) + ')'
+                    console.log('d: ', d.stats)
+                    return 'translate(0,' +  i * 40 + ')'
                 }
             })
 
