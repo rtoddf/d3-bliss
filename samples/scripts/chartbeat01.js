@@ -74,7 +74,7 @@ function ready(error, news965, wsbradio, wokv, krmg) {
         return d3.descending(a.stats.visits, b.stats.visits);
     })
     .map(function(d, i) {
-        return d.site + d.title;
+        return d.site + d.path;
     }))
 
     chartIt(data)
@@ -87,7 +87,7 @@ function chartIt(data){
             .attr({
                 'class': 'bar',
                 'transform': function(d, i) {
-                    return 'translate(0,' + y(d.site + d.title) + ')';
+                    return 'translate(0,' + y(d.site + d.path) + ')';
                 }
             })
 
@@ -148,7 +148,7 @@ function chartIt(data){
                 return d3.descending(a.stats.visits, b.stats.visits);
             })
             .map(function(d) {
-                return d.site + d.title;
+                return d.site + d.path;
             }))
             .copy()
         } else if(this.sort == 'asc'){
@@ -156,7 +156,7 @@ function chartIt(data){
                 return d3.ascending(a.stats.visits, b.stats.visits);
             })
             .map(function(d) {
-                return d.site + d.title;
+                return d.site + d.path;
             }))
             .copy()
         }
@@ -173,7 +173,7 @@ function chartIt(data){
             .ease('cubic')
             .attr({
                 'transform': function(d, i) {
-                    return 'translate(0,' + y(d.site + d.title) + ')';
+                    return 'translate(0,' + y(d.site + d.path) + ')';
                 }
             })
     }
