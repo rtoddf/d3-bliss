@@ -8,8 +8,8 @@ var container_parent = $('.display') ,
 var defaults = {
     colors: {
         none: 'none',
-        land: '#baba71',
-        water: 'rgba(87,146,174,.5)',
+        land: '#a7cb7c',
+        water: '#a8e1f8',
         stroke: '#333',
         strokeWidth: .5,
         strokeOpacity: .5
