@@ -1,6 +1,6 @@
 var container_parent = $('.display') ,
 	chart_container = $('#map'),
-	margins = {top: 20, right: 20, bottom: 20, left: 20},
+	margins = {top: 0, right: 0, bottom: 0, left: 0},
 	width = container_parent.width() - margins.left - margins.right,
 	height = (width * .8) - margins.top - margins.bottom,
 	vis, vis_group, aspect
@@ -8,7 +8,7 @@ var container_parent = $('.display') ,
 var defaults = {
     colors: {
         none: 'none',
-        land: '#a7cb7c',
+        land: '#baba71',
         water: '#a8e1f8',
         stroke: '#333',
         strokeWidth: .5,

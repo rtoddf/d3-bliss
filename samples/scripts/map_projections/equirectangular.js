@@ -1,6 +1,6 @@
 var container_parent = $('.display') ,
     chart_container = $('#map'),
-    margins = {top: 20, right: 20, bottom: 20, left: 20},
+    margins = {top: 0, right: 0, bottom: 0, left: 0},
     width = container_parent.width() - margins.left - margins.right,
     height = (width * 0.5) - margins.top - margins.bottom,
     vis, vis_group, aspect
@@ -8,7 +8,7 @@ var container_parent = $('.display') ,
 var defaults = {
     colors: {
         none: 'none',
-        land: '#a7cb7c',
+        land: '#baba71',
         water: '#a8e1f8',
         stroke: '#333',
         strokeWidth: .5,
@@ -41,19 +41,16 @@ aspect = chart_container.width() / chart_container.height()
 d3.json('../data/world-50m.json', function(error, topology){
     vis_group.append('rect')
         .attr({
-            'width': width + margins.left + margins.right,
-            'height': height + margins.top + margins.bottom,
+            'width': width - margins.left - margins.right,
+            'height': height,
             'fill': defaults.colors.water
         })
 
     vis_group.append('path')
         .datum(topojson.feature(topology, topology.objects.land))
         .attr({
-            // 'class': 'land',
             'd': path,
-            'fill': '#baba71',
-            'stoke': 'white',
-            'stroke-width': 2,
+            'fill': defaults.colors.land
         })
 
     vis_group.append('path')
