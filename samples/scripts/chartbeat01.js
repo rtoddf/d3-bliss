@@ -1,3 +1,7 @@
+// http://chartbeat.pbworks.com/w/page/15588429/toppages
+// http://pages.chartbeat.com/support/implementation/api_docs.pdf
+
+
 var container_parent = $('.display') ,
     chart_container = $('#chart'),
     margins = {top: 0, right: 0, bottom: 0, left: 0},
