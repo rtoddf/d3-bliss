@@ -1,0 +1,68 @@
+[
+	{
+		"title": "Alice in Wonderland",
+		"author": "James Carroll",
+		"color": "rgb(0,50,100)",
+		"book": "alice"
+	},
+	{
+		"title": "The Great Gatsby",
+		"author": "F. Scott Fitzgerald",
+		"color": "rgb(236,153,23)",
+		"book": "great_gatsby"
+	},
+	{
+		"title": "Green Eggs and Ham",
+		"author": "Dr. Suess",
+		"color": "rgb(0,150,0)",
+		"book": "green_eggs"
+	},
+	{
+		"title": "To Kill A Mockingbird",
+		"author": "Harper Lee",
+		"color": "rgb(50,50,50)",
+		"book": "kill_mockingbird"
+	},
+	{
+		"title": "The Legend of Sleepy Hollow",
+		"author": "Washington Irving",
+		"color": "rgb(174,0,0)",
+		"book": "sleepy_hollow"
+	},
+	{
+		"title": "Peter Pan",
+		"author": "J. M. Barrie",
+		"color": "rgb(186,186,113)",
+		"book": "peter_pan"
+	},
+	{
+		"title": "The Time Machine",
+		"author": "H. G. Wells",
+		"color": "rgb(186,186,113)",
+		"book": "time_machine"
+	},
+	{
+		"title": "The Velveteen Rabbit",
+		"author": "Margery Williams",
+		"color": "rgb(186,186,113)",
+		"book": "velveteen_rabbit"
+	},
+	{
+		"title": "Where the Wild Things Are",
+		"author": "Maurice Sendak",
+		"color": "rgb(186,186,113)",
+		"book": "wild_things"
+	},
+	{
+		"title": "Whitefang",
+		"author": "Jack London",
+		"color": "rgb(186,186,113)",
+		"book": "whitefang"
+	},
+	{
+		"title": "A Wrinkle In Time",
+		"author": "Madeleine L'Engle",
+		"color": "rgb(186,186,113)",
+		"book": "wrinkle"
+	}
+]
