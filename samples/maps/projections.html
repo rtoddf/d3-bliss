@@ -1,103 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>D3</title>
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>D3</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-        <link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-        <link href="../less/base.less" rel="stylesheet/less" />
-        <script src="../scripts/lib/less-1.7.4.min.js"></script>
-    </head>
+		<link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../less/base.less" rel="stylesheet/less" />
+		<script src="../scripts/lib/less-1.7.4.min.js"></script>
+	</head>
 
-    <body>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../../index.html">D3 Samples</a>
-                </div>
-            </div>
-        </nav>
-        <div class="module">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3>Map Projections</h3>
-                        <p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
-                        <p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="projections_albers_usa.html"><img src="../images/projections_albers_usa.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="projections_albers_usa.html">Albers USA</a>
-                            </div>
-                            <div class="info">
-                                <p>The Albers USA projection is a composite projection of four Albers projections designed to display the 68 lower united States alongside Alaska and Hawaii. Although intended for choropleths, it scales the area of Alaska by a factor of 0.35x (a lie factor of 3); Hawaii is shown at the same scale as the lower 48.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="projections_orthographic.html"><img src="../images/projections_orthographic.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="projections_orthographic.html">Orthographic</a>
-                            </div>
-                            <div class="info">
-                                <p>The orthographic projection is an azimuthal projection suitable for displaying a single hemisphere; the point of perspective is at infinity.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="projections_spherical_mercator.html"><img src="../images/projections_spherical_mercator.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="projections_spherical_mercator.html">Spherical Mercator</a>
-                            </div>
-                            <div class="info">
-                                <p>The spherical mercator projection is commonly used by tile mapping libraries (such as OpenLayers and Leaflet). It is conformal; however, it introduces severe distortion at world scale and this is not recommended for choropleths.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="projections_equirectangular.html"><img src="../images/projections_equirectangular.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="projections_equirectangular.html">Equirectangular</a>
-                            </div>
-                            <div class="info">
-                                <p>The equirectangular, or plate carree projection, is the simplest possible geographic projection: the identity function. It is neither equal-area nor conformal, but is sometimes used for raster data.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-            </div>
-        </div>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../../index.html">D3 Samples</a>
+				</div>
+			</div>
+		</nav>
+		<div class="module">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Map Projections</h3>
+						<p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
+						<p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_albers_usa.html"><img src="../images/projections_albers_usa.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_albers_usa.html">Albers USA</a>
+							</div>
+							<div class="info">
+								<p>The Albers USA projection is a composite projection of four Albers projections designed to display the 68 lower united States alongside Alaska and Hawaii. Although intended for choropleths, it scales the area of Alaska by a factor of 0.35x (a lie factor of 3); Hawaii is shown at the same scale as the lower 48.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_orthographic.html"><img src="../images/projections_orthographic.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_orthographic.html">Orthographic</a>
+							</div>
+							<div class="info">
+								<p>The orthographic projection is an azimuthal projection suitable for displaying a single hemisphere; the point of perspective is at infinity.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_spherical_mercator.html"><img src="../images/projections_spherical_mercator.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_spherical_mercator.html">Spherical Mercator</a>
+							</div>
+							<div class="info">
+								<p>The spherical mercator projection is commonly used by tile mapping libraries (such as OpenLayers and Leaflet). It is conformal; however, it introduces severe distortion at world scale and this is not recommended for choropleths.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_equirectangular.html"><img src="../images/projections_equirectangular.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_equirectangular.html">Equirectangular</a>
+							</div>
+							<div class="info">
+								<p>The equirectangular, or plate carree projection, is the simplest possible geographic projection: the identity function. It is neither equal-area nor conformal, but is sometimes used for raster data.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_lambert_azimuthal.html"><img src="../images/projections_lambert_azimuthal.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_lambert_azimuthal.html">Lambert Azimuthal Equal-Area</a>
+							</div>
+							<div class="info">
+								<p>The azimuthal equal-area projection is also suitable for choropleths. A polar aspect of this projection is used for the United Nations logo.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_stereographic.html"><img src="../images/projections_stereographic.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_stereographic.html">Stereographic</a>
+							</div>
+							<div class="info">
+								<p>The stereographic projection is another perspective (azimuthal) projection. The point of perspective is on the surface of the sphere, looking in; is this this commonly used for celestial charts.</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <script src="../scripts/lib/jquery-1.10.2.min.js"></script>
-        <script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
-    </body>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_gnomonic.html"><img src="../images/projections_gnomonic.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_gnomonic.html">Gnomonic</a>
+							</div>
+							<div class="info">
+								<p>The stereographic projection is another perspective (azimuthal) projection. The point of perspective is on the surface of the sphere, looking in; is this this commonly used for celestial charts.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="projections_eckert_I.html"><img src="../images/projections_eckert_I.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="projections_eckert_I.html">Eckert I</a>
+							</div>
+							<div class="info">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h3>What is a projection?</h3>
+						<p>Globes are the best representation of the earth because all distance, areas, and shapes are proportionally correct. Unfortunately globes of any size are rather inconvenient to tote about and store, and detailed images of even a large country would require globes larger than a room. Using portions of a globe would work but they still don't lie down flat and would be like trying to store large potato chips (potato crisps) of all different sizes in book form.</p>
+						<p>To deal with this problem ancient peoples created maps. The earliest maps only showed very small portions of the earth and were very serviceable without worrying about spheres and such nonsense — indeed, they were not made as replacements for globes at all. But the Greeks had grander plans and by at latest 600 BC the idea arose of projecting the globe onto a developable surface. This launched cartography, the science of mapmaking. A developable surface is a surface that is capable of being unrolled onto a plane. Without allowing a surface having ripples, creases, or tears (all of which have critical drawbacks), a cylinder; a cone, and a plane (which was 2-dimensional to start with) are the only three objects that can be developed.</p>
+						<p>These three surfaces give rise to the three natural projection classes that have members — true projections — which can be displayed physically by projecting a light source through a transparent globe onto a developable surface used as a screen. The classes are called cylindrical, conic, and azimuthal (because all azimuths from the center are straight lines and their directions are true).</p>
+						<p>Within the natural projection classes are many projections that cannot be projected physically, but rather are derived mathematically. They still fit within the three classes because they have similar appearances and obey certain critical mathematical rules. Any representation of the globe or part of the globe on a flat surface, such as a sheet of paper, can be called a projection.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../scripts/lib/jquery-1.10.2.min.js"></script>
+		<script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
+	</body>
 </html>
