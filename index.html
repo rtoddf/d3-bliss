@@ -1,315 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>D3</title>
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="shortcut icon" href="samples/../../docs-assets/ico/favicon.png">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>D3</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="samples/../../docs-assets/ico/favicon.png">
 
-        <link href="samples/less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="samples/less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-        <link href="samples/less/base.less" rel="stylesheet/less" />
-        <script src="samples/scripts/lib/less-1.7.4.min.js"></script>
-    </head>
+		<link href="samples/less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="samples/less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="samples/less/base.less" rel="stylesheet/less" />
+		<script src="samples/scripts/lib/less-1.7.4.min.js"></script>
+	</head>
 
-    <body>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="samples/index.html">D3 Samples</a>
-                </div>
-            </div>
-        </nav>
-        <div class="module">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>D3js Visualisations</h2>
-                        <p>"D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG, and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation." - <a href="samples/http://d3js.org/" target="_blank">d3js.org</a></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3>Charts</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/2015_oscar_boxoffice.html"><img src="samples/images/2015_oscar_boxoffice.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/2015_oscar_boxoffice.html">2015 Oscar Box Office Grosses</a>
-                            </div>
-                            <div class="info">
-                                <p>The line chart below shows the weekly grosses of seven of the eight 2015 Oscar nominted best pictures. (American Sniper has been omitted because of extreme outliers.) Click on a movie's name to see its grosses for the first ten weeks after its release.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/bar_unemployment.html"><img src="samples/images/bar_unemployment.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/bar_unemployment.html">Bar Chart - US Unemployment Rates</a>
-                            </div>
-                            <div class="info">
-                                <p>This bar chart tracks the unemployment percentages for all fifty states based on data from the United States Department of Labor Bureau of Statistics. A user can hover over a bar to get that states exact percentage of unemployed, as well as sort the chart by clicking the buttons at the top of the chart.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/pie_population02.html"><img src="samples/images/pie_population02.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/pie_population02.html">Population Pie Chart</a>
-                            </div>
-                            <div class="info">
-                                <p>This donut chart shows the US Census 2010 data for Hawaii. The user can hover over each arc, which will animate, and see a tooltip with race. The percentage is also presented in the center of the chart. More data can be added to the tooltip and the center of the chart.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/bar_population_vertical.html"><img src="samples/images/bar_population_vertical.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/bar_population_vertical.html">Vertical Bar Chart - State Population</a>
-                            </div>
-                            <div class="info">
-                                <p>This bar chart is a variation of the horizontal bar chart. It shows state population in a vertical format. The user can hover over any bar to see the exact population total, as well as sort the chart with the buttons at the top. This chart is using old census data.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/multiple_pie02.html"><img src="samples/images/multiple_pie.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/multiple_pie02.html">Age of Population by State - Multiple Pie</a>
-                            </div>
-                            <div class="info">
-                                <p>This visualization shows all fifty states with the name of each state in the center of the chart. The user can hover over any arc to see the age range and the total poulation number for each age bracket. The data is currently fake for representational purposes.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/multiline_state_unemployment.html"><img src="samples/images/multiline_state_unemployment.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/multiline_state_unemployment.html">Multiline Chart - State Unemployment</a>
-                            </div>
-                            <div class="info">
-                                <p>This line chart is just to represent a multiline chart that shows data from more than one item. Real data, as well as hover states need to be added.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/drivers_by_state.html"><img src="samples/images/drivers_by_state.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/drivers_by_state.html">Bad Drivers</a>
-                            </div>
-                            <div class="info">
-                                <p>FiveThirtyEight.com makes its data available via its Github repo. This series of charts will represent bad driver and insurance statistics for the US states. This page is still under construction.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/word_count.html"><img src="samples/images/word_count.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/word_count.html">Literary Word Counts</a>
-                            </div>
-                            <div class="info">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed enim nibh. Ut in arcu congue, mattis enim et, placerat nisi. Nullam ligula dolor, aliquam condimentum mi vel, faucibus feugiat urna. Curabitur consectetur dui nec mauris pretium, sit amet imperdiet urna fermentum</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/planetary_scatterplot.html"><img src="samples/images/planetary_scatterplot.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/planetary_scatterplot.html">Planetary Scatterplot</a>
-                            </div>
-                            <div class="info">
-                                <p>This visualization shows the planets of our solar system as a scatterplot. The chart presents each planet's distance from the sun, density, and size in relation to the other planets. More data can be added to the tooltip or added as a animatable field on the chart.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/periodic_table.html"><img src="samples/images/periodic_table.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/periodic_table.html">Periodic Table</a>
-                            </div>
-                            <div class="info">
-                                <p>This visualization presents the elements in the periodic table. The user can hover over each element to see it animate. This visualization is still under construction. I want to fix the animations, as well as add more data about each element when the user clicks.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3>Maps</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/maps/projections.html"><img src="samples/images/projections.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/maps/projections.html">Map Projections</a>
-                            </div>
-                            <div class="info">
-                                <p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. These are my practice projections.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/maps/us_states.html"><img src="samples/images/us_states.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/maps/us_states.html">US States</a>
-                            </div>
-                            <div class="info">
-                                <p>A standard map of the United States using the Albers USA projection. Each state has been given a tooltip withe name of the state, as well as its abbreviation. More data can be added to the tooltip if desired.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/maps/us_zoom.html"><img src="samples/images/us_zoom.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/maps/us_zoom.html">US with Zoom</a>
-                            </div>
-                            <div class="info">
-                                <p>This map of the US is constructed in the same manner as the previous map, but adds a "click-to-zoom" feature. The race data is from the USA Today US Census API - 2010.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/maps/us_districts.html"><img src="samples/images/us_districts.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/maps/us_districts.html">US Districts</a>
-                            </div>
-                            <div class="info">
-                                <p>A standard map of the United States using the Albers USA projection. Map data is combined with the 114th congress data to present each states congrssional districts. I will be combining this map with congressional representative data to make the map more interactive.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/maps/us_counties.html"><img src="samples/images/us_counties.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/maps/us_counties.html">US Counties</a>
-                            </div>
-                            <div class="info">
-                                <p>A standard map of the United States using the Albers USA projection. Map data is combined with the county and state topojson data to present all US counties.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/maps/state.html"><img src="samples/images/us_state.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/maps/state.html">Individual States</a>
-                            </div>
-                            <div class="info">
-                                <p>Topojson provides state data for drawing each state. That data can be combined with county data to present all counties within a state. My plan is to add population, area, and other county-relevent data to the tooltips.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/maps/choropleth_unemployment.html"><img src="samples/images/choropleth_unemployment.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/maps/choropleth_unemployment.html">Unemployment Choropleth</a>
-                            </div>
-                            <div class="info">
-                                <p><p>A Cloropleth map is a map that uses differences in shading, coloring, or the placing of symbols within predefined areas to indicate the average values of a property or quantity in those areas.</p>
-                                <p>This map shows (past) unemployment data.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3>Backbone Trials</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tile">
-                            <div class="art">
-                                <a href="samples/backbone_itunes.html"><img src="samples/images/placeholder.jpg" /></a>
-                            </div>
-                            <div class="cap">
-                                <a href="samples/backbone_itunes.html">iTunes API with Backbone</a>
-                            </div>
-                            <div class="info">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                -->
-            </div>
-        </div>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="samples/index.html">D3 Samples</a>
+				</div>
+			</div>
+		</nav>
+		<div class="module">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>D3js Visualisations</h2>
+						<p>"D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG, and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation." - <a href="samples/http://d3js.org/" target="_blank">d3js.org</a></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Charts</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/2015_oscar_boxoffice.html"><img src="samples/images/2015_oscar_boxoffice.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/2015_oscar_boxoffice.html">2015 Oscar Box Office Grosses</a>
+							</div>
+							<div class="info">
+								<p>The line chart below shows the weekly grosses of seven of the eight 2015 Oscar nominted best pictures. (American Sniper has been omitted because of extreme outliers.) Click on a movie's name to see its grosses for the first ten weeks after its release.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/bar_unemployment.html"><img src="samples/images/bar_unemployment.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/bar_unemployment.html">Bar Chart - US Unemployment Rates</a>
+							</div>
+							<div class="info">
+								<p>This bar chart tracks the unemployment percentages for all fifty states based on data from the United States Department of Labor Bureau of Statistics. A user can hover over a bar to get that states exact percentage of unemployed, as well as sort the chart by clicking the buttons at the top of the chart.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/pie_population02.html"><img src="samples/images/pie_population02.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/pie_population02.html">Population Pie Chart</a>
+							</div>
+							<div class="info">
+								<p>This donut chart shows the US Census 2010 data for Hawaii. The user can hover over each arc, which will animate, and see a tooltip with race. The percentage is also presented in the center of the chart. More data can be added to the tooltip and the center of the chart.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/bar_population_vertical.html"><img src="samples/images/bar_population_vertical.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/bar_population_vertical.html">Vertical Bar Chart - State Population</a>
+							</div>
+							<div class="info">
+								<p>This bar chart is a variation of the horizontal bar chart. It shows state population in a vertical format. The user can hover over any bar to see the exact population total, as well as sort the chart with the buttons at the top. This chart is using old census data.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/multiple_pie02.html"><img src="samples/images/multiple_pie.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/multiple_pie02.html">Age of Population by State - Multiple Pie</a>
+							</div>
+							<div class="info">
+								<p>This visualization shows all fifty states with the name of each state in the center of the chart. The user can hover over any arc to see the age range and the total poulation number for each age bracket. The data is currently fake for representational purposes.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/multiline_state_unemployment.html"><img src="samples/images/multiline_state_unemployment.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/multiline_state_unemployment.html">Multiline Chart - State Unemployment</a>
+							</div>
+							<div class="info">
+								<p>This line chart is just to represent a multiline chart that shows data from more than one item. Real data, as well as hover states need to be added.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/drivers_by_state.html"><img src="samples/images/drivers_by_state.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/drivers_by_state.html">Bad Drivers</a>
+							</div>
+							<div class="info">
+								<p>FiveThirtyEight.com makes its data available via its Github repo. This series of charts will represent bad driver and insurance statistics for the US states. This page is still under construction.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/word_count.html"><img src="samples/images/word_count.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/word_count.html">Literary Word Counts</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed enim nibh. Ut in arcu congue, mattis enim et, placerat nisi. Nullam ligula dolor, aliquam condimentum mi vel, faucibus feugiat urna. Curabitur consectetur dui nec mauris pretium, sit amet imperdiet urna fermentum</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/planetary_scatterplot.html"><img src="samples/images/planetary_scatterplot.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/planetary_scatterplot.html">Planetary Scatterplot</a>
+							</div>
+							<div class="info">
+								<p>This visualization shows the planets of our solar system as a scatterplot. The chart presents each planet's distance from the sun, density, and size in relation to the other planets. More data can be added to the tooltip or added as a animatable field on the chart.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/periodic_table.html"><img src="samples/images/periodic_table.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/periodic_table.html">Periodic Table</a>
+							</div>
+							<div class="info">
+								<p>This visualization presents the elements in the periodic table. The user can hover over each element to see it animate. This visualization is still under construction. I want to fix the animations, as well as add more data about each element when the user clicks.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Maps</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/projections.html"><img src="samples/images/projections.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/projections.html">Map Projections</a>
+							</div>
+							<div class="info">
+								<p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. These are my practice projections.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/us_states.html"><img src="samples/images/us_states.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/us_states.html">US States</a>
+							</div>
+							<div class="info">
+								<p>A standard map of the United States using the Albers USA projection. Each state has been given a tooltip withe name of the state, as well as its abbreviation. More data can be added to the tooltip if desired.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/us_zoom.html"><img src="samples/images/us_zoom.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/us_zoom.html">US with Zoom</a>
+							</div>
+							<div class="info">
+								<p>This map of the US is constructed in the same manner as the previous map, but adds a "click-to-zoom" feature. The race data is from the USA Today US Census API - 2010.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/us_districts.html"><img src="samples/images/us_districts.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/us_districts.html">US Districts</a>
+							</div>
+							<div class="info">
+								<p>A standard map of the United States using the Albers USA projection. Map data is combined with the 114th congress data to present each states congrssional districts. I will be combining this map with congressional representative data to make the map more interactive.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/us_counties.html"><img src="samples/images/us_counties.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/us_counties.html">US Counties</a>
+							</div>
+							<div class="info">
+								<p>A standard map of the United States using the Albers USA projection. Map data is combined with the county and state topojson data to present all US counties.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/state.html"><img src="samples/images/us_state.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/state.html">Individual States</a>
+							</div>
+							<div class="info">
+								<p>Topojson provides state data for drawing each state. That data can be combined with county data to present all counties within a state. My plan is to add population, area, and other county-relevent data to the tooltips.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/choropleth_unemployment.html"><img src="samples/images/choropleth_unemployment.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/choropleth_unemployment.html">Unemployment Choropleth</a>
+							</div>
+							<div class="info">
+								<p>A Cloropleth map is a map that uses differences in shading, coloring, or the placing of symbols within predefined areas to indicate the average values of a property or quantity in those areas.</p>
+								<p>This map shows (past) unemployment data.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/uk.html"><img src="samples/images/uk.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/uk.html">United Kingdom</a>
+							</div>
+							<div class="info">
 
-        <script src="samples/scripts/lib/jquery-1.10.2.min.js"></script>
-        <script src="samples/scripts/lib/bootstrap/bootstrap.min.js"></script>
-    </body>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/puerto_rico.html"><img src="samples/images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/puerto_rico.html">Puerto Rico</a>
+							</div>
+							<div class="info">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/maps/world_map_cities.html"><img src="samples/images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/maps/world_map_cities.html">World Map with Cities</a>
+							</div>
+							<div class="info">
+								<p>A Cloropleth map is a map that uses differences in shading, coloring, or the placing of symbols within predefined areas to indicate the average values of a property or quantity in those areas.</p>
+								<p>This map shows (past) unemployment data.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Backbone Trials</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="tile">
+							<div class="art">
+								<a href="samples/backbone_itunes.html"><img src="samples/images/placeholder.jpg" /></a>
+							</div>
+							<div class="cap">
+								<a href="samples/backbone_itunes.html">iTunes API with Backbone</a>
+							</div>
+							<div class="info">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor auctor malesuada. Aliquam erat volutpat. Ut at lectus eget quam eleifend viverra. Nullam tristique facilisis ante, a tincidunt neque ullamcorper quis. Suspendisse tempor egestas placerat. Morbi nunc mi, condimentum eu scelerisque sed, iaculis at lacus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+
+		<script src="samples/scripts/lib/jquery-1.10.2.min.js"></script>
+		<script src="samples/scripts/lib/bootstrap/bootstrap.min.js"></script>
+	</body>
 </html>
