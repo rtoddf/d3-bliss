@@ -123,3 +123,14 @@ function fade(opacity){
 				.style('opacity', opacity)
 	}
 }
+
+aspect = chart_container.width() / chart_container.height()
+
+$(window).on('resize', function() {
+	var targetWidth = container_parent.width()
+	console.log('targetWidth: ', targetWidth)
+	vis.attr({
+		'width': targetWidth,
+		'height': Math.round(targetWidth / aspect)
+	})
+})
