@@ -7,7 +7,7 @@ var container_parent = $('.display') ,
 	radius = Math.min(width, height) / 2.5
 
 var color = d3.scale.ordinal()
-	.range(['#b024e4', '#6420c1', '#c78721', '#003264', '#8a0600', '#baba71', '#666666'])
+	.range(['#b024e4', '#6420c1', '#c78721', '#003264', '#8a0600', '#333333'])
 
 var duration = 300,
 	easeType = 'back'
@@ -49,6 +49,8 @@ aspect = chart_container.width() / chart_container.height();
 		})
 
 	d3.json('data/example05b.json', function(error, data){
+		console.log('data: ', data)
+
 		var datum = data.datum
 
 		console.log(datum)
