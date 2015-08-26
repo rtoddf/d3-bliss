@@ -2,224 +2,63 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>rtodd.net</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>D3</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<link rel="shortcut icon" href="samples/../../docs-assets/ico/favicon.png">
 
-		<link href="../../../css/bootstrap.css" rel="stylesheet">
-		<link href="../../../css/bootstrap-responsive.css" rel="stylesheet">
-		<link href="../../../css/docs.css" rel="stylesheet">
-		<link href="../../../css/overwrites.css" rel="stylesheet">
-
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
-		<!--link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"-->
+		<link href="../samples/less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../samples/less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../samples/less/base.less" rel="stylesheet/less" />
+		<script src="../samples/scripts/lib/less-1.7.4.min.js"></script>
 	</head>
 
 	<body>
-		<div class="container section_javascipt">
-
-			<div class="branding row">
-				<div class="span12"></div>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="samples/index.html">D3 Samples</a>
+				</div>
 			</div>
+		</nav>
+		<div class="module">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Standard Abstract Projection</h3>
+						<h4>projection.rotate([rotation])</h4>
+						<p>If rotation is specified, sets the projection’s three-axis rotation to the specified angles λ, φ and γ (<a href="http://en.wikipedia.org/wiki/Aircraft_principal_axes" target="_blank">yaw, pitch and roll</a>, or equivalently longitude, latitude and roll) in degrees and returns the projection. If rotation is not specified, returns the current rotation which defaults [0, 0, 0]. If the specified rotation has only two values, rather than three, the roll is assumed to be 0°.</p>
 
-			<div class="navbar navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
+						<h4>projection.center([location])</h4>
+						<p>If center is specified, sets the projection’s center to the specified location, a two-element array of longitude and latitude in degrees and returns the projection. If center is not specified, returns the current center which defaults to ⟨0°,0°⟩.</p>
 
-						<div class="nav-collapse collapse">
-							<ul class="nav">
-								<li><a href="../../../index.html">Home</a></li>
-								<li class="dropdown">
-									<a href="../../../projects/index.html" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../projects/index.html">Projects Home Page</a></li>
-										<li><a href="../../../projects/radio/index.html">Radio Web Apps</a></li>
-										<li><a href="../../../projects/data_viz/index.html">Data Visualizations</a></li>
-										<li><a href="../../../projects/geolocation/index.html">Geolocation</a></li>
-										<li><a href="../../../projects/apis/index.html">APIS</a></li>
-										<li><a href="../../../projects/svg/index.html">Drawing SVGs with D3</a></li>
-										<li><a href="../../../projects/drag_and_drop/index.html">Drag and Drop</a></li>
-										<li><a href="../../../projects/photography/index.html">Photography</a></li>
-										<li><a href="../../../projects/illustrations/index.html">Illustrations</a></li>
-									</ul>
-								</li>
-								<li class="dropdown active">
-									<a href="../../index.html" class="dropdown-toggle" data-toggle="dropdown">Javascript <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../index.html">Javascript Home Page</a></li>
-										<li class="divider"></li>
-										<li class="nav-header"><a href="../index.html">D3</a></li>
-										<li><a href="../d3_general/index.html">D3 General Concepts</a></li>
-										<li><a href="../projects/index.html">D3 Projects</a></li>
-										<li><a href="../d3_charts/index.html">D3 Charts</a></li>
-										<li><a href="../d3_transition/index.html">D3 Transitions</a></li>
-										<li><a href="index.html">D3 Geo</a></li>
-										<li class="divider"></li>
-										<li class="nav-header"><a href="../../libraries.html">Libraries</a></li>
-										<li><a href="../../angular/index.html">Angular</a></li>
-										<li><a href="../../underscore/index.html">Underscore</a></li>
-										<li><a href="../../three/index.html">Three</a></li>
-										<li class="divider"></li>
-										<li class="nav-header"><a href="javascript:void(0)">Misc</a></li>
-										<li><a href="../../reference/index.html">References</a></li>
-										<li><a href="../../grunt/index.html">Grunt</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="../../../html5/index.html" class="dropdown-toggle" data-toggle="dropdown">HTML5 <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../html5/index.html">HTML5 Home Page</a></li>
-										<li><a href="../../../html5/graphics/index.html">Graphics &amp; Typography</a></li>
-										<li><a href="../../../html5/platform/index.html">Platform Interaction</a></li>
-										<li><a href="../../../html5/css/index.html">CSS Features</a></li>
-										<li><a href="../../../html5/bonus_features/index.html">HTML Bonus Features</a></li>
-										<li><a href="../../../html5/media/index.html">Media</a></li>
-										<li><a href="../../../html5/storage_and_files/index.html">Storage &amp; Files</a></li>
-										<li><a href="../../../html5/performance/index.html">Performance Optimization</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="../../../apis/index.html" class="dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../apis/index.html">APIs Home Page</a></li>
-										<li><a href="../../../apis/itunes/index.html">iTunes</a></li>
-										<li><a href="../../../apis/usatoday/index.html">USA Today</a></li>
-										<li><a href="../../../apis/weather/index.html">Weather</a></li>
-										<li><a href="../../../apis/chartbeat/index.html">Chartbeat</a></li>
-										<li><a href="../../../apis/rotten/index.html">Rotten Tomatoes</a></li>
-										<li><a href="../../../apis/foursquare/index.html">Foursquare</a></li>
-										<li><a href="../../../apis/nytimes/index.html">NY Times</a></li>
-										<li><a href="../../../apis/facebook/index.html">Facebook</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="../../../geo/index.html" class="dropdown-toggle" data-toggle="dropdown">Geolocation <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="../../../geo/index.html">Geolocation Home Page</a></li>
-										<li><a href="../../../geo/projects/index.html">Geolocation Projects</a></li>
-										<li><a href="../../../geo/google/basics/index.html">Google Basics</a></li>
-										<li><a href="../../../geo/google/overlays/index.html">Google Overlays</a></li>
-										<li><a href="../../../geo/google/layers/index.html">Google Layers</a></li>
-										<li><a href="../../../geo/google/services/index.html">Google Services</a></li>
-										<li><a href="../../../geo/google/libraries/index.html">Google Libraries</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
+						<h4>projection.scale([scale])</h4>
+						<p>If scale is specified, sets the projection’s scale factor to the specified value and returns the projection. If scale is not specified, returns the current scale factor which defaults to 150. The scale factor corresponds linearly to the distance between projected points. However, scale factors are not consistent across projections.</p>
+
+						<h4>projection.translate([point])</h4>
+						<p>If point is specified, sets the projection’s translation offset to the specified two-element array [x, y] and returns the projection. If point is not specified, returns the current translation offset which defaults to [480, 250]. The translation offset determines the pixel coordinates of the projection’s center. The default translation offset places ⟨0°,0°⟩ at the center of a 960×500 area.</p>
+
+						<h4>projection.clipAngle(angle)</h4>
+						<p>If angle is specified, sets the projection’s clipping circle radius to the specified angle in degrees and returns the projection. If angle is null, switches to antimeridian cutting rather than small-circle clipping. If angle is not specified, returns the current clip angle which defaults to null. Small-circle clipping is independent of viewport clipping via clipExtent.</p>
+
+						<h4>projection.precision(precision)</h4>
+						<p>If precision is specified, sets the threshold for the projection’s adaptive resampling to the specified value in pixels and returns the projection. This value corresponds to the Douglas–Peucker distance. If precision is not specified, returns the projection’s current resampling precision which defaults to Math.SQRT1_2.</p>
+
+						<h4>path.bounds(feature)</h4>
+						<p>Computes the projected bounding box (in pixels) for the specified feature. This is handy for, say, zooming in to a particular feature. This method observes any clipping and resampling performed by the projection stream.</p>
 					</div>
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="span8">
-					<h3>Standard Abstract Projection</h3>
-					<h4>projection.rotate([rotation])</h4>
-					<p>If rotation is specified, sets the projection’s three-axis rotation to the specified angles λ, φ and γ (<a href="http://en.wikipedia.org/wiki/Aircraft_principal_axes" target="_blank">yaw, pitch and roll</a>, or equivalently longitude, latitude and roll) in degrees and returns the projection. If rotation is not specified, returns the current rotation which defaults [0, 0, 0]. If the specified rotation has only two values, rather than three, the roll is assumed to be 0°.</p>
-
-					<h4>projection.center([location])</h4>
-					<p>If center is specified, sets the projection’s center to the specified location, a two-element array of longitude and latitude in degrees and returns the projection. If center is not specified, returns the current center which defaults to ⟨0°,0°⟩.</p>
-
-					<h4>projection.scale([scale])</h4>
-					<p>If scale is specified, sets the projection’s scale factor to the specified value and returns the projection. If scale is not specified, returns the current scale factor which defaults to 150. The scale factor corresponds linearly to the distance between projected points. However, scale factors are not consistent across projections.</p>
-
-					<h4>projection.translate([point])</h4>
-					<p>If point is specified, sets the projection’s translation offset to the specified two-element array [x, y] and returns the projection. If point is not specified, returns the current translation offset which defaults to [480, 250]. The translation offset determines the pixel coordinates of the projection’s center. The default translation offset places ⟨0°,0°⟩ at the center of a 960×500 area.</p>
-
-					<h4>projection.clipAngle(angle)</h4>
-					<p>If angle is specified, sets the projection’s clipping circle radius to the specified angle in degrees and returns the projection. If angle is null, switches to antimeridian cutting rather than small-circle clipping. If angle is not specified, returns the current clip angle which defaults to null. Small-circle clipping is independent of viewport clipping via clipExtent.</p>
-
-					<h4>projection.precision(precision)</h4>
-					<p>If precision is specified, sets the threshold for the projection’s adaptive resampling to the specified value in pixels and returns the projection. This value corresponds to the Douglas–Peucker distance. If precision is not specified, returns the projection’s current resampling precision which defaults to Math.SQRT1_2.</p>
-
-					<h4>path.bounds(feature)</h4>
-					<p>Computes the projected bounding box (in pixels) for the specified feature. This is handy for, say, zooming in to a particular feature. This method observes any clipping and resampling performed by the projection stream.</p>
-
-					
-				</div>
-				<div class="span4">
-					<h4>Resources</h4>
-					<ul class="unstyled">
-						<li><a href="https://github.com/mbostock/topojson/wiki/API-Reference" target="_blank">Client API Wiki</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/Geo-Projections" target="_blank">Geo Projections Wiki</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/Geo-Paths" target="_blank">Geo Paths Wiki</a></li>
-						<li><a href="http://www.schneidy.com/Tutorials/MapsTutorial.html" target="_blank">Map Tutorial</a></li>
-						<li><a href="http://www.smartjava.org/content/election-site-part-1-basics-knockoutjs-bootstrap-and-d3js" target="_blank">Election site part 1: Basics with Knockout.js, Bootstrap and d3.js</a></li>
-						<li><a href="http://bl.ocks.org/mbostock" target="_blank">mbostock's blocks</a></li>
-					</ul>
-					<h4>Reference</h4>
-					<ul class="unstyled">
-						<li><a href="topojson.html">TopoJSON</a></li>
-						<li><a href="projections.html">Projections</a></li>
-						<li><a href="projections_abstract.html">Standard Abstract Projection</a></li>
-					</ul>
-					<h4>Projection Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example40a.html">Albers USA</a></li>
-						<li><a href="example41a.html">Lambert Azimuthal Equal-Area</a></li>
-						<!--
-						<li>Azimuthal Equidistant</li>
-						<li>Conic Conformal</li>
-						<li>Conic Equal Area</li>
-						-->
-						<li><a href="example43a.html">Equirectangular</a></li>
-						<li><a href="example42a.html">Spherical Mercator</a></li>
-						<li><a href="example44a.html">Orthographic</a></li>
-						<li><a href="example44b.html">Orthographic w/ Neighbors</a></li>
-						<li><a href="example45a.html">Stereographic</a></li>
-						<li><a href="example46a.html">Gnomonic</a></li>
-						<!--
-						<li>Conic Equidistant</li>
-						<li>Transverse Mercator</li>
-						-->
-					</ul>
-					<h4>Developed Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example02.html">Choloropleth</a></li>
-						<li><a href="example03.html">US Counties (Albers USA Projection)</a></li>
-						<li><a href="example04.html">UK</a></li>
-						<li><a href="example05.html">Puerto Rico</a></li>
-						<li><a href="example06.html">Merging States</a></li>
-						<li><a href="example07.html">Example Map Click-to-zoom Via Transform</a></li>
-						<li><a href="example08.html">World Map with Cities</a></li>
-						<li><a href="example20.html">Rotating Orthographic - Canvas</a></li>
-						<li><a href="example20a.html">World Tour - Canvas</a></li>
-					</ul>
-					<h4>Single Location Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example01a.html">New York State With Counties</a></li>
-						<li><a href="example01b.html">Texas State With Counties</a></li>
-						<li><a href="example01c.html">Minnesota State With Counties</a></li>
-						<li><a href="example01f.html">Rhode Island State With Counties</a></li>
-					</ul>
-					<h4>Misc Examples</h4>
-					<ul class="unstyled">
-						<li><a href="example10.html">United States</a></li>
-						<li><a href="example09.html">Airports</a></li>
-					</ul>
-				</div>
-			</div>
-
-			<hr />
-			<footer>
-				<p></p>
-			</footer>
-
 		</div>
-		<script src="../../../scripts/lib/jquery.min.js"></script>
-		<script src="../../../scripts/bootstrap.min.js"></script>
-		<script src="../../../scripts/bootstrap-collapse.js"></script>
+		<script src="../samples/scripts/lib/jquery-1.10.2.min.js"></script>
+		<script src="../samples/scripts/lib/bootstrap/bootstrap.min.js"></script>
 	</body>
 </html>

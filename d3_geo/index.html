@@ -4,118 +4,58 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>D3</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+		<link rel="shortcut icon" href="samples/../../docs-assets/ico/favicon.png">
 
-		<title>D3 Bliss</title>
-		<link href="../css/bootstrap.css" rel="stylesheet">
-		<link href="../css/overwrites.css" rel="stylesheet">
+		<link href="../samples/less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../samples/less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../samples/less/base.less" rel="stylesheet/less" />
+		<script src="../samples/scripts/lib/less-1.7.4.min.js"></script>
 	</head>
 
 	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="../index.html">D3 Bliss</a>
+					<a class="navbar-brand" href="samples/index.html">D3 Samples</a>
 				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="../projects/index.html">Projects</a></li>
-						<li><a href="../charts/index.html">Charts</a></li>
-						<li class="active"><a href="index.html">Maps</a></li>
-					</ul>
+			</div>
+		</nav>
+		<div class="module">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>D3 Geo</h3>
+						<p>D3 is a fantastic JavaScript-based data visualization library that allows you to bind data to the DOM, and then make transformations to the document. To learn more, refer to D3′s GitHub repository for a massive gallery of examples for visualizing various data sets.</p>
+
+						<h4><a href="topojson.html">TopoJSON</a></h4>
+						<p>TopoJSON is an extension of GeoJSON that encodes topology. Rather than representing geometries discretely, geometries in TopoJSON files are stitched together from shared line segments called arcs. TopoJSON eliminates redundancy, allowing related geometries to be stored efficiently in the same file.</p>
+
+						<h4><a href="projections.html">Projections</a></h4>
+						<p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
+						<p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
+
+						<h4><a href="projections_abstract.html">Standard Abstract Projection</a></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mattis turpis in nulla tristique, sed tristique mi ornare. Maecenas urna lacus, tincidunt in nibh sit amet, tincidunt convallis nisl. Nulla non placerat diam.</p>
+
+						<h4>Paths</h4>
+						<p>For cartographic visualizations, D3 supports a handful of components for displaying and manipulating geographic data. These components use the GeoJSON format—a standard way of representing geographic features in JavaScript.</p>
+
+						<h4>Streams</h4>
+						<p>For fast transformations of geometry without temporary copies of geometry objects, D3 uses geometry streams. The main d3.geo.stream method converts a GeoJSON input object to a stream: a series of method calls on a stream listener. In addition, D3 provides several stream transformations that wrap listeners and transform the geometry. For example, the projection.stream interface transforms spherical coordinates to Cartesian coordinates, and d3.geo.path serializes geometry to either SVG or Canvas. Internally, clipping and rotating are also implemented as stream transformations.</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<h3>D3 Geo</h3>
-					<p>D3 is a fantastic JavaScript-based data visualization library that allows you to bind data to the DOM, and then make transformations to the document. To learn more, refer to D3′s GitHub repository for a massive gallery of examples for visualizing various data sets.</p>
-
-					<h4><a href="topojson.html">TopoJSON</a></h4>
-					<p>TopoJSON is an extension of GeoJSON that encodes topology. Rather than representing geometries discretely, geometries in TopoJSON files are stitched together from shared line segments called arcs. TopoJSON eliminates redundancy, allowing related geometries to be stored efficiently in the same file.</p>
-
-					<h4><a href="projections.html">Projections</a></h4>
-					<p>Several common projections are included with default build of D3. Numerous less-common projections are available in the extended geographic projections plugin and the polyhedral projection plugin.</p>
-					<p>Most projections provided by D3 are created via d3.geo.projection and are configurable: you can rotate the globe, scale or transform the canvas, etc. Unless you’re implementing a new raw projection, you probably won’t use the d3.geo.projection constructor, but you are likely to use the configuration methods.</p>
-
-					<h4><a href="projections_abstract.html">Standard Abstract Projection</a></h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mattis turpis in nulla tristique, sed tristique mi ornare. Maecenas urna lacus, tincidunt in nibh sit amet, tincidunt convallis nisl. Nulla non placerat diam.</p>
-
-					<h4>Paths</h4>
-					<p>For cartographic visualizations, D3 supports a handful of components for displaying and manipulating geographic data. These components use the GeoJSON format—a standard way of representing geographic features in JavaScript.</p>
-
-					<h4>Streams</h4>
-					<p>For fast transformations of geometry without temporary copies of geometry objects, D3 uses geometry streams. The main d3.geo.stream method converts a GeoJSON input object to a stream: a series of method calls on a stream listener. In addition, D3 provides several stream transformations that wrap listeners and transform the geometry. For example, the projection.stream interface transforms spherical coordinates to Cartesian coordinates, and d3.geo.path serializes geometry to either SVG or Canvas. Internally, clipping and rotating are also implemented as stream transformations.</p>
-				</div>
-				<div class="col-md-4">
-					<h4>Resources</h4>
-					<ul class="list-unstyled">
-						<li><a href="https://github.com/mbostock/topojson/wiki/API-Reference" target="_blank">Client API Wiki</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/Geo-Projections" target="_blank">Geo Projections Wiki</a></li>
-						<li><a href="https://github.com/mbostock/d3/wiki/Geo-Paths" target="_blank">Geo Paths Wiki</a></li>
-						<li><a href="http://www.schneidy.com/Tutorials/MapsTutorial.html" target="_blank">Map Tutorial</a></li>
-						<li><a href="http://www.smartjava.org/content/election-site-part-1-basics-knockoutjs-bootstrap-and-d3js" target="_blank">Election site part 1: Basics with Knockout.js, Bootstrap and d3.js</a></li>
-						<li><a href="http://bl.ocks.org/mbostock" target="_blank">mbostock's blocks</a></li>
-					</ul>
-					<h4>Reference</h4>
-					<ul class="list-unstyled">
-						<li><a href="topojson.html">TopoJSON</a></li>
-						<li><a href="projections.html">Projections</a></li>
-						<li><a href="projections_abstract.html">Standard Abstract Projection</a></li>
-					</ul>
-					<h4>Projection Examples</h4>
-					<ul class="list-unstyled">
-						<li><a href="example40a.html">Albers USA</a></li>
-						<li><a href="example41a.html">Lambert Azimuthal Equal-Area</a></li>
-						<!--
-						<li>Azimuthal Equidistant</li>
-						<li>Conic Conformal</li>
-						<li>Conic Equal Area</li>
-						-->
-						<li><a href="example43a.html">Equirectangular</a></li>
-						<li><a href="example42a.html">Spherical Mercator</a></li>
-						<li><a href="example44a.html">Orthographic</a></li>
-						<li><a href="example44b.html">Orthographic w/ Neighbors</a></li>
-						<li><a href="example45a.html">Stereographic</a></li>
-						<li><a href="example46a.html">Gnomonic</a></li>
-						<!--
-						<li>Conic Equidistant</li>
-						<li>Transverse Mercator</li>
-						-->
-					</ul>
-					<h4>Developed Examples</h4>
-					<ul class="list-unstyled">
-						<li><a href="example03.html">US Counties (Albers USA Projection)</a></li>
-						<li><a href="example06.html">Merging States</a></li>
-						<li><a href="example07.html">Example Map Click-to-zoom Via Transform</a></li>
-						<li><a href="example20.html">Rotating Orthographic - Canvas</a></li>
-						<li><a href="example20a.html">World Tour - Canvas</a></li>
-					</ul>
-					<h4>Single Location Examples</h4>
-					<ul class="list-unstyled">
-						<li><a href="example01a.html">New York State With Counties</a></li>
-						<li><a href="example01b.html">Texas State With Counties</a></li>
-						<li><a href="example01c.html">Minnesota State With Counties</a></li>
-						<li><a href="example01f.html">Rhode Island State With Counties</a></li>
-					</ul>
-					<h4>Misc Examples</h4>
-					<ul class="list-unstyled">
-						<li><a href="example10.html">United States</a></li>
-						<li><a href="example09.html">Airports</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<script src="../scripts/lib/jquery.min.js"></script>
-		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
+		<script src="../samples/scripts/lib/jquery-1.10.2.min.js"></script>
+		<script src="../samples/scripts/lib/bootstrap/bootstrap.min.js"></script>
 	</body>
 </html>
