@@ -2,7 +2,7 @@ var container_parent = $('.display') ,
 	chart_container = $('#example'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
 	width = container_parent.width(),
-	height = (width * .6) - margins.top - margins.bottom,
+	height = (width * .5) - margins.top - margins.bottom,
 	vis, vis_group, aspect
 
 var projection = d3.geo.albersUsa()

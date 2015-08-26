@@ -4,7 +4,7 @@ var container_parent = $('.display') ,
 	chart_container = $('#example'),
 	margins = {top: 20, right: 20, bottom: 20, left: 20},
 	width = container_parent.width() - margins.left - margins.right,
-	height = (width * 0.6) - margins.top - margins.bottom	
+	height = (width * 0.8) - margins.top - margins.bottom	
 
 var vis, vis_group, aspect, focused, sens = 0.25
 

@@ -1,7 +1,8 @@
 var container_parent = $('.display') ,
 	chart_container = $('#example'),
-	width = container_parent.width(),
-	height = width,
+	margins = {top: 20, right: 20, bottom: 20, left: 20},
+	width = container_parent.width() - margins.left - margins.right,
+	height = width * .6,
 	vis, vis_group, aspect
 
 var rotate = [ 10, -10 ],
