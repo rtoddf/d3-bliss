@@ -67,7 +67,7 @@ vis_group.append('path')
 
 queue()
 	.defer(d3.json, '../data/world-110m.json')
-	.defer(d3.csv, '../data/cities03.csv')
+	.defer(d3.csv, '../../data/cities03.csv')
 	.await(ready)
 
 function ready(error, topology, cities){
