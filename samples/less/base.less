@@ -3,6 +3,21 @@
 /*-----------------------------------------------------------------------------------*\
     #Overwrites
 \*-----------------------------------------------------------------------------------*/
+p {
+    margin: 0;
+    padding: 0 0 10px;
+}
+
+a {
+    color: @branding;
+    transition: color .3s ease;
+
+    &:hover {
+        color: @grey3;
+        text-decoration: none;
+    }
+}
+
 .module {
     background: rgba(0,50,100,.3);
 }
@@ -71,162 +86,12 @@
 }
 
 /*-----------------------------------------------------------------------------------*\
-    #Charts
-\*-----------------------------------------------------------------------------------*/
-.chart-label {
-    fill: @darkgray;
-    text-anchor: end;
-    font-size: 11px;
-}
-
-#chart {
-    font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    shape-rendering: crispEdges;
-}
-
-.x.axis,
-.y.axis {
-    path {
-        display: none;
-    }
-}
-
-.unemployment {
-    .x.axis {
-        line {
-            stroke: @white;
-            stroke-opacity: .8;
-        }
-    }
-
-    .y.axis {
-        path {
-            stroke: @black;
-        }
-    }
-}
-
-.line_chart,
-.bar {
-    .axis,
-    .line {
-        path,
-        line {
-            stroke: @middlegray;
-            display: block;
-        }
-    }
-
-    .y.axis {
-        path {
-            stroke: none;
-        }
-    }
-
-    &.animated,
-    &.oscars {
-        // find a better way
-        position: relative;
-
-        #chart {
-            background: @black;
-            padding: 10px 20px;
-        }
-
-        .line {
-            fill: none;
-            stroke: @white;
-            stroke-width: 1.5px;
-        }
-
-        .axis {
-            text,
-            line {
-                fill: @white;
-                opacity: .9;
-            }
-
-            line {
-                stroke: @white;
-            }
-        }
-
-        .y.axis line {
-            stroke: @middlegray;
-            stroke-dasharray: 2,2;
-        }
-
-        .tick {
-            fill: @white;
-            opacity: .9;
-        }
-
-        img {
-            width: 100%;
-        }
-    }
-}
-
-.symbol {
-    pointer-events: none;
-}
-
-/*-----------------------------------------------------------------------------------*\
     #Dashboards
 \*-----------------------------------------------------------------------------------*/
 
 #premiums_chart {
     font: 10px sans-serif;
 }
-
-/*-----------------------------------------------------------------------------------*\
-    #Maps
-\*-----------------------------------------------------------------------------------*/
-.us_map {
-    path {
-        stroke-linejoin: round;
-        stroke-linecap: round;
-    }
-
-    .states {
-        fill: none;
-    }
-
-    &.choropleth {
-        .q0-9 { fill:rgb(247,251,255); }
-        .q1-9 { fill:rgb(222,235,247); }
-        .q2-9 { fill:rgb(198,219,239); }
-        .q3-9 { fill:rgb(158,202,225); }
-        .q4-9 { fill:rgb(107,174,214); }
-        .q5-9 { fill:rgb(66,146,198); }
-        .q6-9 { fill:rgb(33,113,181); }
-        .q7-9 { fill:rgb(8,81,156); }
-        .q8-9 {
-            fill: rgb(8,48,107);
-        }
-    }
-
-    &.us_zoom {
-        .tooltip {
-            background: rgba(255, 2555, 255, 0.85);
-            border: 1px solid @black;
-
-            h5 {
-                margin-top: 0;
-            }
-        }
-    }
-}
-
-.state_name {
-    text-transform: uppercase;
-}
-
 /*-----------------------------------------------------------------------------------*\
     #Buttons
 \*-----------------------------------------------------------------------------------*/
