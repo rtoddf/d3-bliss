@@ -56,7 +56,7 @@ var Cities = new function(){
 				cityData = 'atlanta.json'
 				cityCenter = [-84.387982, 33.748995]
 				locationCenter = [-84.356098, 33.846508]
-				scale = 50000
+				scale = 60000
 				address = '945 East Paces Ferry Road'
 				cityState = 'Atlanta, GA 30369'
 				email = 'helloatlanta@coxreps.com'
@@ -66,7 +66,7 @@ var Cities = new function(){
 				cityData = 'boston.json'
 				cityCenter = [-71.058880, 42.360082]
 				locationCenter = [-71.079229, 42.349885]
-				scale = 50000
+				scale = 60000
 				address = '699 Boylston Street'
 				cityState = 'Boston, MA 02116'
 				email = 'helloboston@coxreps.com'
@@ -126,7 +126,7 @@ var Cities = new function(){
 				cityData = 'new-york.json'
 				cityCenter = [-73.971249, 40.783060]
 				locationCenter = [-73.969971, 40.753519]
-				scale = 50000
+				scale = 60000
 				address = 'One Dag Hammarskjold Plaza'
 				cityState = 'New York, NY 10017'
 				email = 'hellonyc@coxreps.com'
@@ -157,7 +157,7 @@ var Cities = new function(){
 		}
 
 		city = city.replace('-', ' ')
-		$('.state_name').html(city)
+		$('.city_name').html(city)
 		$('.address').html(address)
 		$('.cityState').html(cityState)
 		$('.email a').html(email).attr('href', 'mailto:' + email)
