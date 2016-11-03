@@ -1,3 +1,4 @@
+console.log('whhope')
 // http://bl.ocks.org/mbostock/4060606
 var rateById = d3.map();
 
