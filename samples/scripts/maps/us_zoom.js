@@ -158,133 +158,151 @@ d3.json('../data/us.json', function(error, topology){
                             'opacity': 0
                         }) 
             })
-
-	// g.append('path')
-	// 	.datum(topojson.mesh(topology, topology.objects.states, function(a, b){
-	// 		return a !== b
-	// 	}))
-	// 	.attr({
-	// 		'id': 'state-borders',
-	// 		'd': path
-	// 	})
 })
 
 function clicked(d){
-	var current_type = $(this).context.dataset.type
+    console.log('this: ', $(this).context.attributes)
+	var current_type = $(this).context.attributes['data-type'].value
 	if(current_type == 'state'){
-		state = $(this).context.dataset.typeName
+		state = $(this).context.attributes['data-type-name'].value
 	}
+
+    var x, y, k;
+
+      if (d && centered !== d) {
+        var centroid = path.centroid(d);
+        x = centroid[0];
+        y = centroid[1];
+        k = 4;
+        centered = d;
+      } else {
+        x = width / 2;
+        y = height / 2;
+        k = 1;
+        centered = null;
+      }
+
+      g.selectAll("path")
+          .classed("active", centered && function(d) { return d === centered; });
+
+      g.transition()
+          .duration(750)
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+          .style("stroke-width", 1.5 / k + "px");
 	
-	var keypat = '?keypat=' + state
-	var searchString = apiBase + api + apiType + keypat + sumlevid + apiKey + callback
+	// var keypat = '?keypat=' + state
+	// var searchString = apiBase + api + apiType + keypat + sumlevid + apiKey + callback
 
-	$.getJSON(searchString, function(data){
-		drawIt(data.response[0])
-	})
+	// $.getJSON(searchString, function(data){
+ //        console.log('data')
+	// 	// drawIt(data.response[0])
+	// })
 
-	var x, y, k
+ //    drawIt('bob')
 
-	var drawIt = function(stateData){
+	// var x, y, k
 
-		if(d && centered !== d && current_type == 'state'){
-			var centroid = path.centroid(d)
-			x = centroid[0]
-			y = centroid[1]
-			k = 4
-			centered = d
-		} else {
-			x = width / 2
-			y = height / 2
-			k = 1
-			centered = null
-		}
+	// var drawIt = function(stateData){
 
-		g.selectAll('text')
-			.transition()
-				.duration(500)
-				.attr({
-					opacity: 0
-				})
-			.remove()
+	// 	if(d && centered !== d && current_type == 'state'){
+	// 		var centroid = path.centroid(d)
+	// 		x = centroid[0]
+	// 		y = centroid[1]
+	// 		k = 4
+	// 		centered = d
+	// 	} else {
+	// 		x = width / 2
+	// 		y = height / 2
+	// 		k = 1
+	// 		centered = null
+	// 	}
 
-		if(current_type == 'state'){
-			g.append('text')
-				.attr({
-					'fill': 'rgba(255,255,255,1)',
-					'opacity': 0,
-					'transform': 'translate(' + x + ',' + y + ')',
-                    'text-anchor': 'middle'
-				})
-				.text(state)
-				.transition()
-					.duration(750)
-					.attr({
-						opacity: 1
-					})
+	// 	g.selectAll('text')
+	// 		.transition()
+	// 			.duration(500)
+	// 			.attr({
+	// 				opacity: 0
+	// 			})
+	// 		.remove()
 
-            tooltip
-                .transition()
-                    .duration(500)
-                    .style({
-                        'opacity': function(){
-                            return 1
-                        }
-                    })
-		} else {
-            tooltip.transition()
-                .duration(500)
-                .style({
-                    'opacity': 0
-                })
-        }
+	// 	if(current_type == 'state'){
+	// 		g.append('text')
+	// 			.attr({
+	// 				'fill': 'rgba(255,255,255,1)',
+	// 				'opacity': 0,
+	// 				'transform': 'translate(' + x + ',' + y + ')',
+ //                    'text-anchor': 'middle'
+	// 			})
+	// 			.text(state)
+	// 			.transition()
+	// 				.duration(750)
+	// 				.attr({
+	// 					opacity: 1
+	// 				})
 
-		var p = $('#map'),
-            position = p.position()
+ //            tooltip
+ //                .transition()
+ //                    .duration(500)
+ //                    .style({
+ //                        'opacity': function(){
+ //                            return 1
+ //                        }
+ //                    })
+	// 	} else {
+ //            tooltip.transition()
+ //                .duration(500)
+ //                .style({
+ //                    'opacity': 0
+ //                })
+ //        }
 
-		var template_raw = '<h5>Race Info for ' + stateData.Placename + '</h5> \
-			<table> \
-                <tr> \
-                    <td>Caucasian</td> \
-                    <td>' + (stateData.PctWhite * 100).toFixed(2) + '%</td> \
-                </tr> \
-                <tr> \
-                    <td>African American</td> \
-                    <td>' + (stateData.PctBlack * 100).toFixed(2) + '%</td> \
-                </tr> \
-                <tr> \
-                    <td>Asian American</td> \
-                    <td>' + (stateData.PctAsian * 100).toFixed(2) + '%</td> \
-                </tr> \
-                <tr> \
-                    <td>American Indian</td> \
-                    <td>' + (stateData.PctAmInd * 100).toFixed(2) + '%</td> \
-                </tr> \
-                <tr> \
-                    <td>Two or More</td> \
-                    <td>' + (stateData.PctTwoOrMore * 100).toFixed(2) + '%</td> \
-                </tr> \
-                <tr> \
-                    <td>Hawaiian or Pacific Islander</td> \
-                    <td>' + (stateData.PctNatHawOth * 100).toFixed(2) + '%</td> \
-                </tr> \
-			</table>'
+	// 	var p = $('#map'),
+ //            position = p.position()
 
-		tooltip.html(function(d) {
-				var tooltip_data = _.template(template_raw, {})
-				return tooltip_data
-			})
-			.style({
-                'right': (position.left + 120) + 'px',
-                'top': (position.top + 200) + 'px'
-            })
+	// 	var template_raw = '<h5>Race Info for ' + stateData.Placename + '</h5> \
+	// 		<table> \
+ //                <tr> \
+ //                    <td>Caucasian</td> \
+ //                    <td>' + (stateData.PctWhite * 100).toFixed(2) + '%</td> \
+ //                </tr> \
+ //                <tr> \
+ //                    <td>African American</td> \
+ //                    <td>' + (stateData.PctBlack * 100).toFixed(2) + '%</td> \
+ //                </tr> \
+ //                <tr> \
+ //                    <td>Asian American</td> \
+ //                    <td>' + (stateData.PctAsian * 100).toFixed(2) + '%</td> \
+ //                </tr> \
+ //                <tr> \
+ //                    <td>American Indian</td> \
+ //                    <td>' + (stateData.PctAmInd * 100).toFixed(2) + '%</td> \
+ //                </tr> \
+ //                <tr> \
+ //                    <td>Two or More</td> \
+ //                    <td>' + (stateData.PctTwoOrMore * 100).toFixed(2) + '%</td> \
+ //                </tr> \
+ //                <tr> \
+ //                    <td>Hawaiian or Pacific Islander</td> \
+ //                    <td>' + (stateData.PctNatHawOth * 100).toFixed(2) + '%</td> \
+ //                </tr> \
+	// 		</table>'
 
-		g.transition()
-			.duration(750)
-			.attr({
-				'transform': 'translate(' + width / 2 + ',' + height / 2 + ') scale(' + k + ') translate(' + -x + ',' + -y + ')',
-                'stroke-width': 1.5 / k + 'px'
-			})
-	}
+	// 	tooltip.html(function(d) {
+	// 			var tooltip_data = _.template(template_raw, {})
+	// 			return tooltip_data
+	// 		})
+	// 		.style({
+ //                'right': (position.left + 120) + 'px',
+ //                'top': (position.top + 200) + 'px'
+ //            })
+
+	// 	g.transition()
+	// 		.duration(750)
+	// 		.attr({
+	// 			'transform': 'translate(' + width / 2 + ',' + height / 2 + ') scale(' + k + ') translate(' + -x + ',' + -y + ')',
+ //                'stroke-width': 1.5 / k + 'px'
+	// 		})
+	// }
 }
 
 $(window).on('resize', function() {
