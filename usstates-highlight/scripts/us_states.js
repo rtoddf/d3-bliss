@@ -10,6 +10,8 @@ vis = d3.select('#map').append('svg')
         'viewBox': '0 0 ' + (width + margins.left + margins.right) + ' ' + (height + margins.top + margins.bottom)
     })
 
+console.log('here')
+
 vis_group = vis.append('g')
 aspect = chart_container.width() / chart_container.height()
 var names = {}
@@ -56,7 +58,7 @@ function state_consent_fill(d, data_set){
     }
 }
 
-d3.tsv('../data/us-state-names.tsv', function(tsv){
+d3.tsv('data/us-state-names.tsv', function(tsv){
     tsv.forEach(function(d, i){
         names[d.id] = {
             'name': d.name,
@@ -68,7 +70,7 @@ d3.tsv('../data/us-state-names.tsv', function(tsv){
     })
 })
 
-d3.json('../data/us.json', function(error, topology){
+d3.json('data/us.json', function(error, topology){
     // draws the state shapes
     vis_group.selectAll('path')
             .data(topojson.feature(topology, topology.objects.states).features)

@@ -52,7 +52,7 @@ vis = d3.select('#map').append('svg')
 aspect = chart_container.width() / chart_container.height()
 vis_group = vis.append('g')
 
-d3.json('../data/markets.json', function(states){
+d3.json('data/markets.json', function(states){
     states.forEach(function(state){
         var properties = {}
 
