@@ -7,7 +7,7 @@ d3.tsv('data/us-state-names.tsv', function(tsv){
     })
 })
 
-d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
+d3.csv('data/bad-drivers.csv', function(error, data){
     console.log('data: ', data)
 
     color.domain(d3.keys(data[0])
@@ -98,6 +98,7 @@ d3.csv('data/bad-drivers/bad-drivers.csv', function(error, data){
                 return 0
             },
             'fill': function(d){
+                console.log('d: ', d)
                 return colorScale(d.premium)
             },
             'opacity': .8
