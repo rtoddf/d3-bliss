@@ -12,11 +12,15 @@
         <link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <link href="../less/base.less" rel="stylesheet/less" />
-        <link href="../less/maps.less" rel="stylesheet/less" />
+
+        <link href="../less/cmg/cmg.css" rel="stylesheet">
+        <link href="../less/locations.less" rel="stylesheet/less">
+
+
         <script src="../scripts/lib/less-1.7.4.min.js"></script>
     </head>
 
-    <body class="stereographic">
+    <body>
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -34,14 +38,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Projection - Stereographic</h3>
-                        <p>The stereographic projection is another perspective (azimuthal) projection. The point of perspective is on the surface of the sphere, looking in; is this this commonly used for celestial charts.</p>
-                        <div id="example"></div>
+                        <img id="property-image" src="">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 projection display">
-                        <div id="map"></div>
+
+                    <div class="col-md-12">
+                        <div class="subhead">
+                            <h2 id="property"></h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo tincidunt posuere. Duis sed leo eget neque posuere pellentesque non at risus. Fusce bibendum hendrerit enim vel viverra. Mauris commodo, orci id venenatis imperdiet, leo magna ultricies orci, eget vestibulum purus mi et augue.</p>
+                        </div>
+
+                        <div id="cities"></div>
                     </div>
                 </div>
             </div>
@@ -49,8 +55,7 @@
 
         <script src="../scripts/lib/jquery-1.10.2.min.js"></script>
         <script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
-        <script src="../scripts/lib/d3.min.js"></script>
-        <script src="../scripts/lib/topojson.js"></script>
-        <script src="../scripts/map_projections/stereographic.js"></script>
+        <script src="../scripts/lib/underscore-min.js"></script>
+        <script src="../scripts/maps/location.js"></script>
     </body>
 </html>

@@ -11,7 +11,7 @@ aspect = chart_container.width() / chart_container.height()
 
 queue()
     .defer(d3.json, '../data/us.json')
-    .defer(d3.json, '../data/us-congress-113.json')
+    .defer(d3.json, 'data/us-congress-113.json')
     .await(ready);
 
 function ready(error, topology, congress) {

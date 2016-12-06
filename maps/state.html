@@ -9,10 +9,11 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-        <link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/lib/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <link href="../less/base.less" rel="stylesheet/less" />
-        <script src="../scripts/lib/less-1.7.4.min.js"></script>
+
+        <script src="../scripts/less-1.7.4.min.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -33,22 +34,32 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3>Projection - Equirectangular</h3>
-                        <p>The equirectangular, or plate carree projection, is the simplest possible geographic projection: the identity function. It is neither equal-area nor conformal, but is sometimes used for raster data.</p>
+                        <h3>US States - <span class="state_name"></span></h3>
+                        <p>Topojson provides state data for drawing each state. That data can be combined with county data to present all counties within a state. My plan is to add population, area, and other county-relevent data to the tooltips.</p>
+                        <div class="row legend">
+                            <div class="col-md-4">
+                                <p>Choose a state, then hover over a county to get its name. </p>
+                                <div class="form-group state_choice">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 projection display">
+                    <div class="col-md-12 us_map single_state_view display">
                         <div id="map"></div>
+                        <p class="source">Source: <a href="javascript:void(0)" target="_blank">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
         <script src="../scripts/lib/jquery-1.10.2.min.js"></script>
-        <script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="../scripts/lib/bootstrap.min.js"></script>
         <script src="../scripts/lib/d3.min.js"></script>
         <script src="../scripts/lib/topojson.js"></script>
-        <script src="../scripts/map_projections/equirectangular.js"></script>
+        <script src="../scripts/base.js"></script>
+        <script src="../scripts/legend.js"></script>
+        <script src="scripts/state.js"></script>
     </body>
 </html>

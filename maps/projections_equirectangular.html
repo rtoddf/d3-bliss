@@ -9,14 +9,14 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-        <link href="../less/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="../less/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/lib/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <link href="../less/base.less" rel="stylesheet/less" />
-        <link href="../less/maps.less" rel="stylesheet/less" />
-        <script src="../scripts/lib/less-1.7.4.min.js"></script>
+
+        <script src="../scripts/less-1.7.4.min.js" type="text/javascript"></script>
     </head>
 
-    <body class="lambert">
+    <body>
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -33,10 +33,14 @@
         <div class="module">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 display">
-                        <h3>Projection - Lambert Azimuthal Equal-Area</h3>
-                        <p>The azimuthal equal-area projection is also suitable for choropleths. A polar aspect of this projection is used for the United Nations logo.</p>
-                        <div id="example"></div>
+                    <div class="col-md-12">
+                        <h3>Projection - Equirectangular</h3>
+                        <p>The equirectangular, or plate carree projection, is the simplest possible geographic projection: the identity function. It is neither equal-area nor conformal, but is sometimes used for raster data.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 projection display">
+                        <div id="map"></div>
                     </div>
                 </div>
             </div>
@@ -46,6 +50,6 @@
         <script src="../scripts/lib/bootstrap/bootstrap.min.js"></script>
         <script src="../scripts/lib/d3.min.js"></script>
         <script src="../scripts/lib/topojson.js"></script>
-        <script src="../scripts/map_projections/lambert_azimuthal.js"></script>
+        <script src="scripts/equirectangular.js"></script>
     </body>
 </html>
