@@ -5,6 +5,8 @@ var State = function(stats){
 }
 
 d3.json('data/state_labor_stats.json', function(error, response){
+	console.log('response: ', response)
+
 	var stats = []
 	var year = 2014
 
