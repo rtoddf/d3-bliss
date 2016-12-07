@@ -55,8 +55,8 @@ countryList = d3.select('#countries').append('select')
 	})
 
 queue()
-	.defer(d3.json, '../data/world-110m.json')
-	.defer(d3.tsv, '../data/world-110m-country-names.tsv')
+	.defer(d3.json, 'data/world-110m.json')
+	.defer(d3.tsv, 'data/world-110m-country-names.tsv')
 	.await(ready)
 
 function ready(error, world, countryData){
