@@ -3,7 +3,7 @@
 		chart_container = $('#example'),
 		margins = {top: 50, right: 20, bottom: 20, left: 20},
 		width = container_parent.width() - margins.left - margins.right,
-		height = (width * 0.8) - margins.top - margins.bottom,
+		height = (width * 0.3) - margins.top - margins.bottom,
 		vis, vis_group, aspect
 
 	var offSetX = width / 2,
