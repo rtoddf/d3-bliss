@@ -3,7 +3,7 @@
 		chart_container = $('#example'),
 		margins = {top: 20, right: 20, bottom: 20, left: 20},
 		width = container_parent.width() - margins.left - margins.right,
-		height = (width * 0.66) - margins.top - margins.bottom,
+		height = (width * 0.3) - margins.top - margins.bottom,
 		vis, vis_group, aspect
 
 	var x = d3.scale.ordinal()

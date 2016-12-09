@@ -1,7 +1,7 @@
 (function () {
 	var container_parent = $('.display') ,
 		chart_container = $('#example'),
-		margins = {top: 20, right: 20, bottom: 20, left: 20},
+		margins = {top: 50, right: 20, bottom: 20, left: 20},
 		width = container_parent.width() - margins.left - margins.right,
 		height = width - margins.top - margins.bottom,
 		π = 2 * Math.PI,
