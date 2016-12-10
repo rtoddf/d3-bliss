@@ -361,56 +361,6 @@
 		]
 	},
 	{
-		"name": "Changeling",
-		"real_name": "Kevin Sydney",
-		"photo": "placeholder.jpg",
-		"birth_place": "",
-		"lat": 0,
-		"lng": 0,
-		"status": "Deceased",
-		"bio": "Shapeshifter able to assume other humanoid forms; a latent telepath.",
-		"first_appearance": 1968,
-		"team_affiliations": [
-			"X-Men",
-			"Factor Three",
-			"X-Humed",
-			"Exiles"
-		],
-		"abilities": [
-			"Shapeshifting",
-			"Telepathy",
-			"Levitation",
-			"Skilled actor",
-			"Highly trained and efficient organizer",
-			"Good prankster",
-			"Expert computer engineer"
-		],
-		"power_grid": [
-			{
-				"intelligence": 4,
-				"strength": 3,
-				"speed": 3,
-				"durability": 3,
-				"energy_projection": 4,
-				"fighting_skills": 3
-			}
-		],
-		"colors": [
-			{
-				"rgba": "0,0,0,1",
-				"cmyk": "100,100,100,100",
-				"hsb": "0,0,76",
-				"hex": "#000000"
-			},
-			{
-				"rgba": "0,0,0,1",
-				"cmyk": "100,100,100,100",
-				"hsb": "0,0,76",
-				"hex": "#000000"
-			}
-		]
-	},
-	{
 		"name": "Polaris",
 		"real_name": "Lorna Dane",
 		"photo": "polaris.jpg",
@@ -618,54 +568,6 @@
 				"durability": 5,
 				"energy_projection": 5,
 				"fighting_skills": 5
-			}
-		],
-		"colors": [
-			{
-				"rgba": "0,0,0,1",
-				"cmyk": "100,100,100,100",
-				"hsb": "0,0,76",
-				"hex": "#000000"
-			},
-			{
-				"rgba": "0,0,0,1",
-				"cmyk": "100,100,100,100",
-				"hsb": "0,0,76",
-				"hex": "#000000"
-			}
-		]
-	},
-	{
-		"name": "Vulcan",
-		"real_name": "Gabriel Summers",
-		"photo": "vulcan.jpg",
-		"birth_place": "Shi'ar",
-		"lat": 0,
-		"lng": 0,
-		"status": "Deceased",
-		"bio": "Capable of manipulating different types of energy on a vast scale, including mutant energies. Can survive in the vacuum of space and can fly.",
-		"first_appearance": 2006,
-		"team_affiliations": [
-			"X-Men"
-		],
-		"abilities": [
-			"Vast energy absorption, manipulation, transformation and projection",
-			"Flight",
-			"Force field projection and manipulation",
-			"Life support and limited regeneration",
-			"Variable energy blasts",
-			"Limited super power replication and repression",
-			"Energy siphon and disruption",
-			"Psionic resistance"
-		],
-		"power_grid": [
-			{
-				"intelligence": 2,
-				"strength": 3,
-				"speed": 3,
-				"durability": 3,
-				"energy_projection": 7,
-				"fighting_skills": 3
 			}
 		],
 		"colors": [
