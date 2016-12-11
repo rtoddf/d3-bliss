@@ -40,29 +40,40 @@
 
 .simple01 {
 	.bar {
-		display: inline-block;
-		width: 20px;
-		height: 75px;
-		margin-right: 2px;
-		background-color: teal;
+		fill: steelblue;
+		cursor: pointer;
+		transition: fill .4s;
 	}
 
-	.axis path{
+	.bar:hover {
+		fill: #003264;
+	}
+
+	.axis path {
 		fill: none;
 		stroke: black;
 	}
+
 	.axis {
 		font-size: 10px;
 	}
+	.x.axis path,
+	.y.axis path {
+		display: block;
+	}
 
 	.tick {
-		fill: none;
-		stroke: black;
+		fill: black;
+		// stroke: black;
 	}
 
 	.bubble_text {
 		fill: #fff;
 		font-weight: bold;
+	}
+
+	.axis--x path {
+		display: none;
 	}
 }
 
