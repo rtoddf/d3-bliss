@@ -2,13 +2,15 @@ var container_parent = $('.display'),
 	chart_container = $('#example'),
 	margins = {top: 20, right: 20, bottom: 30, left: 40},
 	width = +container_parent.width() - margins.left - margins.right,
-	height = +(+container_parent.width() * 0.66) - margins.top - margins.bottom,
+	height = +(+container_parent.width() * 0.5) - margins.top - margins.bottom,
 	vis, vis_group, aspect
 
-vis = d3.select('svg')
-	.attr('width', width)
-	.attr('height', height)
+var svgWidth = +container_parent.width()
+var svgHeight = +(+container_parent.width() * 0.5)
 
+vis = d3.select('svg')
+	.attr('width', svgWidth)
+	.attr('height', svgHeight)
 
 // v3
 // var x = d3.scale.ordinal().rangeRoundBands([ 0, width ], .1)
@@ -20,23 +22,21 @@ var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
 var vis_group = vis.append('g')
 	.attr('transform', 'translate(' + margins.left + ',' + margins.top + ')');
 
-d3.tsv('data/barchart01.tsv', function(d) {
+aspect = chart_container.width() / chart_container.height()
+
+d3.tsv('data-v4/letter-frequency.tsv', function(d) {
 	// make all intergers and positive
 	d.frequency = +d.frequency;
 	return d;
 }, function(error, data) {
 	// callback
 	if (error) throw error;
-	
 
 	x.domain(data.map(function(d) {
-		console.log('d.letter: ', d.letter)
 		return d.letter;
 	}));
 
-
 	y.domain([0, d3.max(data, function(d) {
-		console.log('d.frequency: ', d.frequency)
 		return d.frequency;
 	})]);
 
@@ -63,7 +63,19 @@ d3.tsv('data/barchart01.tsv', function(d) {
 			.attr('y', function(d) { return y(d.frequency); })
 			.attr('width', x.bandwidth())
 			.attr('height', function(d) { return height - y(d.frequency); })
-			.attr('fill', 'lightblue');
+			.attr('fill', 'lightblue')
+			.attr({
+				'fill': 'lightblue'
+			})
 })
 
-// 
+$(window).on('resize', function() {
+	var targetWidth = container_parent.width()
+
+	console.log('targetWidth: ', targetWidth)
+
+	vis.attr({
+		'width': targetWidth,
+		'height': Math.round(targetWidth / aspect)
+	})
+})
