@@ -7,19 +7,33 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>D3 Bliss</title>
-		<link href="../css/bootstrap.css" rel="stylesheet">
-		<link href="../css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-		<link href="../css/overwrites.less" rel="stylesheet/less">
+		<title>D3</title>
+		<link href="../css/lib/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../less/base.less" rel="stylesheet/less" />
+
 		<script src="../scripts/less-1.7.4.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
+		<nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.html">D3</a>
+                </div>
+            </div>
+        </nav>
 		<div class="module">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h3>Formatting</h3>
+						<h3>Formatting (v3)</h3>
 						<p>Formatting numbers is one of those things you don't normally think about until an ugly "0.30000000000000004" appears on your axis labels. Also, maybe you want to group thousands to improve readability, and use fixed precision, such as "$1,240.10". Or, maybe you want to display only the significant digits of a particular number. D3 makes this easy using a standard number format. For example, to create a function that zero-fills to four digits, say:</p>
 						<pre>var zero = d3.format("04d")</pre>
 						<p>Now you can conveniently format numbers:</p>
@@ -69,6 +83,6 @@ zero(123); // "0123"</pre>
 			</div>
 		</div>
 		<script src="../scripts/lib/jquery.min.js"></script>
-		<script src="../scripts/bootstrap/bootstrap.min.js"></script>
+		<script src="../scripts/lib/bootstrap.min.js"></script>
 	</body>
 </html>
