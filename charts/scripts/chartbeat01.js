@@ -85,6 +85,8 @@ function ready(error, news965, wsbradio, wokv, krmg) {
 }
 
 function chartIt(data){
+    console.log('data: ', data)
+
     var bar = vis_group.selectAll('.bar')
             .data(data)
         .enter().append('g')
