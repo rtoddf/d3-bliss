@@ -18,6 +18,7 @@ var news965_url = prefix + '?host=news965.com' + options + '&apikey=' + key
 var wsbradio_url = prefix + '?host=wsbradio.com' + options + '&apikey=' + key
 var wokv_url = prefix + '?host=wokv.com' + options + '&apikey=' + key
 var krmg_url = prefix + '?host=krmg.com' + options + '&apikey=' + key
+var whio_url = prefix + '?host=whio.com' + options + '&apikey=' + key
 
 var data = []
 
@@ -50,10 +51,11 @@ function getData(){
         .defer(d3.json, wsbradio_url)
         .defer(d3.json, wokv_url)
         .defer(d3.json, krmg_url)
+        .defer(d3.json, whio_url)
         .await(ready);
 }
 
-function ready(error, news965, wsbradio, wokv, krmg) {
+function ready(error, news965, wsbradio, wokv, krmg, whio) {
     news965.pages.forEach(function(d){
         d.site = 'news965'
         data.push(d)
@@ -71,6 +73,11 @@ function ready(error, news965, wsbradio, wokv, krmg) {
 
     krmg.pages.forEach(function(d){
         d.site = 'krmg'
+        data.push(d)
+    })
+
+    whio.pages.forEach(function(d){
+        d.site = 'whio'
         data.push(d)
     })
 
