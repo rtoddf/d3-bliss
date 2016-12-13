@@ -24,7 +24,7 @@ var vis_group = vis.append('g')
 
 aspect = chart_container.width() / chart_container.height()
 
-d3.tsv('data-v4/letter-frequency.tsv', function(d) {
+d3.tsv('data/letter-frequency.tsv', function(d) {
 	// make all intergers and positive
 	d.frequency = +d.frequency;
 	return d;

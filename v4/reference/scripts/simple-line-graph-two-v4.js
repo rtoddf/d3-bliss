@@ -37,7 +37,7 @@ var valueline = d3.line()
     .y(function(d) { return y(d.close); })
     .curve(d3.curveLinear)
 
-d3.csv('data-v4/data.csv', function(error, data) {
+d3.csv('data/data.csv', function(error, data) {
 		if (error) throw error;
 
 		// format the data
@@ -84,78 +84,7 @@ d3.csv('data-v4/data.csv', function(error, data) {
 	vis_group.append('g')
 		.call(d3.axisLeft(y));
 
-	})
-
-
-// var lineFunction = d3.svg.line()
-// 	.x(function(d){
-// 		return xScale(d.x)
-// 	})
-// 	.y(function(d){
-// 		return yScale(d.y)
-// 	})
-// 	.interpolate('linear')
-
-// var xScale = d3.scale.linear()
-// 	.domain([ 
-// 		d3.min(lineData, function(d){
-// 			return d.x
-// 		}), 
-// 		d3.max(lineData, function(d){
-// 			return d.x
-// 		}) ])
-// 	.range([ 0, width ])
-
-// var yScale = d3.scale.linear()
-// 	.domain([ d3.min(lineData, function(d){
-// 		return d.y
-// 	}), d3.max(lineData, function(d){
-// 		return d.y
-// 	}) ])
-// 	.range([ height, 0 ])
-
-// var circles = vis_group.selectAll('circle')
-// 	.data(lineData)
-// 		.enter().append('circle')
-// 	.attr({
-// 		'cx': function(d){
-// 			return xScale(d.x)
-// 		},
-// 		'cy': function(d){
-// 			return yScale(d.y)
-// 		},
-// 		'r': circle_radius,
-// 		'fill': line_color
-// 	})
-
-// var line = vis_group.append('path')
-// 	.attr({
-// 		'd': lineFunction(lineData),
-// 		'stroke': line_color,
-// 		'stroke-width': line_width,
-// 		'fill': 'none'
-// 	})
-
-// var xAxis = d3.svg.axis()
-// 	.scale(xScale)
-
-// var yAxis = d3.svg.axis()
-// 	.scale(yScale)
-// 	.orient('left')
-
-// var xAxisGroup = vis_group.append('g')
-// 	.attr({
-// 		'class': 'x axis',
-// 		'transform': 'translate(0,' +  height + ')'
-// 	})
-// 	.call(xAxis)
-
-// var yAxisGroup = vis_group.append('g')
-// 	.attr({
-// 		'class': 'y axis',
-// 		'transform': 'translate(0, 0)'
-// 	})
-// 	.call(yAxis)
+})
 
 $(window).on('resize', function() {
 	var targetWidth = container_parent.width()

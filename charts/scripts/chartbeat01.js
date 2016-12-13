@@ -91,6 +91,28 @@ function ready(error, news965, wsbradio, wokv, krmg, whio) {
     chartIt(data)
 }
 
+function checkDomain(d){
+    // console.log('d: ', d.indexOf('wsbradio') >= 0)
+
+    var sites = ['news965', 'wsbradio', 'krmg', 'wokv', 'whio']
+
+    var found = $.inArray(d, sites) > -1;
+
+    // console.log('found: ', found)
+
+    $.each(sites, function( i, site ) {
+
+        console.log('is there: ', d.indexOf(site) >= 0)
+
+        // if (domain.indexOf(site) >= 0){
+        //     return true
+        // } else {
+        //     return false
+        // }
+
+    });
+}
+
 function chartIt(data){
     console.log('data: ', data)
 
@@ -111,6 +133,11 @@ function chartIt(data){
             },
             'height': y.rangeBand(),
             'width': width
+            // 'fill': function(d, i){
+            //     console.log('color: ', color(i))
+            //     return 'red'
+            //     // return color(d.data.name)
+            // }
         })
 
     bar.append('text')
@@ -124,16 +151,31 @@ function chartIt(data){
             return d.stats.visits
         })
 
-    bar.append('text')
-        .attr({
-            'x': 50,
-            'y': y.rangeBand() / 2,
-            'dy': '.35em',
-            'fill': 'white'
+    bar.append('a')
+        .attr("xlink:href", function(d){
+
+            var isDomainPresent = checkDomain(d.path)
+            console.log('isDomainPresent: ', isDomainPresent)
+            console.log('link: ', 'http://' + d.site + '.com' + d.path)
+
+            if(isDomainPresent){
+                return 'http://www.' + d.path
+            } else {
+                return 'http://' + d.site + '.com' + d.path
+            }
+
+            
         })
-        .text(function(d){
-            return d.title
-        })
+        .append('text')
+            .attr({
+                'x': 50,
+                'y': y.rangeBand() / 2,
+                'dy': '.35em',
+                'fill': 'white'
+            })
+            .text(function(d){
+                return d.title
+            })
 
     bar.append('text')
         .attr({
