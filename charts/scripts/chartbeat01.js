@@ -116,15 +116,10 @@ function checkDomain(d){
 }
 
 function chartIt(data){
-    // console.log('data: ', data)
-
-    var header = vis_group.selectAll('.legend')
-            .data(data)
-        .enter().append('g')
-            .attr({
-                'class': 'legend',
-                'transform': 'translate(0,0)'
-            })
+    var header = vis_group.append('g')
+        .attr({
+            'class': 'legend'
+        })
 
     header.append('rect')
         .attr({
@@ -197,7 +192,7 @@ function chartIt(data){
         })
 
     bar.append('a')
-        .attr("xlink:href", function(d){
+        .attr('xlink:href', function(d){
 
             var isDomainPresent = checkDomain(d.path)
             // console.log('isDomainPresent: ', isDomainPresent)
@@ -312,6 +307,11 @@ function chartIt(data){
 
 }
 
-// var inter = setInterval(function() {
-//                 updateData();
-//         }, 5000); 
+$(window).on('resize', function() {
+    console.log('change')
+    var targetWidth = container_parent.width()
+    vis.attr({
+        'width': targetWidth,
+        'height': Math.round(targetWidth / aspect)
+    })
+})
