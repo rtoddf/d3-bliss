@@ -56,6 +56,8 @@ function getData(){
 }
 
 function ready(error, news965, wsbradio, wokv, krmg, whio) {
+    console.log('whio: ', whio)
+
     news965.pages.forEach(function(d){
         d.site = 'news965'
         data.push(d)
@@ -102,7 +104,7 @@ function checkDomain(d){
 
     $.each(sites, function( i, site ) {
 
-        console.log('is there: ', d.indexOf(site) >= 0)
+        // console.log('is there: ', d.indexOf(site) >= 0)
 
         // if (domain.indexOf(site) >= 0){
         //     return true
@@ -114,7 +116,50 @@ function checkDomain(d){
 }
 
 function chartIt(data){
-    console.log('data: ', data)
+    // console.log('data: ', data)
+
+    var header = vis_group.selectAll('.legend')
+            .data(data)
+        .enter().append('g')
+            .attr({
+                'class': 'legend',
+                'transform': 'translate(0,0)'
+            })
+
+    header.append('rect')
+        .attr({
+            'class': 'header',
+            'height': 20,
+            'width': width
+        })
+
+    header.append('text')
+        .attr({
+            'x': 10,
+            'y': y.rangeBand() / 2,
+            'dy': '.35em',
+            'fill': 'white'
+        })
+        .text('Visits')
+
+    header.append('text')
+        .attr({
+            'text-anchor': 'end',
+            'x': width - 30,
+            'y': y.rangeBand() / 2,
+            'dy': '.35em',
+            'fill': 'white'
+        })
+        .text('Avg Engaged Time (s)')
+
+    header.append('text')
+        .attr({
+            'x': 50,
+            'y': y.rangeBand() / 2,
+            'dy': '.35em',
+            'fill': 'white'
+        })
+        .text('Page')
 
     var bar = vis_group.selectAll('.bar')
             .data(data)
@@ -155,8 +200,8 @@ function chartIt(data){
         .attr("xlink:href", function(d){
 
             var isDomainPresent = checkDomain(d.path)
-            console.log('isDomainPresent: ', isDomainPresent)
-            console.log('link: ', 'http://' + d.site + '.com' + d.path)
+            // console.log('isDomainPresent: ', isDomainPresent)
+            // console.log('link: ', 'http://' + d.site + '.com' + d.path)
 
             if(isDomainPresent){
                 return 'http://www.' + d.path
@@ -209,6 +254,38 @@ function chartIt(data){
         } else if(this.sort == 'asc'){
             var y0 = y.domain(data.sort(function(a, b) {
                 return d3.ascending(a.stats.visits, b.stats.visits);
+            })
+            .map(function(d) {
+                return d.site + d.path;
+            }))
+            .copy()
+        } else if(this.sort == 'alpha_asc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.ascending(a.site, b.site);
+            })
+            .map(function(d) {
+                return d.site + d.path;
+            }))
+            .copy()
+        } else if(this.sort == 'alpha_desc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.descending(a.site, b.site);
+            })
+            .map(function(d) {
+                return d.site + d.path;
+            }))
+            .copy()
+        } else if(this.sort == 'time_asc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.ascending(a.stats.engaged_time.avg, b.stats.engaged_time.avg);
+            })
+            .map(function(d) {
+                return d.site + d.path;
+            }))
+            .copy()
+        } else if(this.sort == 'time_desc'){
+            var y0 = y.domain(data.sort(function(a, b) {
+                return d3.descending(a.stats.engaged_time.avg, b.stats.engaged_time.avg);
             })
             .map(function(d) {
                 return d.site + d.path;
