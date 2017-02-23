@@ -3,6 +3,42 @@
 //     height: 500px;
 // }
 
+.card {
+    width: 235px;
+    min-height: 450px;
+    background: linear-gradient(#33a8d3, #0574ac);
+    color: #fff;
+}
+
+.card .cap {
+    padding: 3px 5px;
+    background: #1a7ca9;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.card table {
+    width: 85%;
+    margin: 10px auto;
+}
+
+.card td {
+    width: 70%;
+    vertical-align: top;
+}
+.card td.value {
+    width: 30%;
+    text-align: right;
+}
+
+.card .count-table {
+    border-top: 1px solid #33a8d3;
+    border-bottom: 1px solid #33a8d3;
+}
+
 svg {
 	width: 100%;
 	height: 100%;

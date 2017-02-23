@@ -17,7 +17,7 @@ var pie = d3.layout.pie()
 
 var arc = d3.svg.arc()
 	.outerRadius(radius * 0.8)
-	.innerRadius(radius * 0.6);
+	.innerRadius(radius * 0.4);
 
 var outerArc = d3.svg.arc()
 	.innerRadius(radius * 0.9)
@@ -70,7 +70,7 @@ vis_group.attr({
 	'transform': 'translate(' + width / 2 + ',' + height / 2 + ')'
 });
 
-var colorRange = ['#a2d86c', '#b9fc74', '#fafc5c', '#fac457', '#fa625c', '#444', '#fff'];
+var colorRange = ['#a2d86c', '#b9fc74', '#fafc5c', '#fac457', '#fa625c', '#444'];
 // var colorRange = d3.scale.category20();
 var color = d3.scale.ordinal()
 	.range(colorRange);
@@ -95,13 +95,13 @@ var color = d3.scale.ordinal()
 // 	{label: 'Remainder', value: remainder()}
 // ];
 
-var totalPossible = 100
+var totalPossible = 12
 
 var remainder = function(m){
 	var startCount = 0;
 
 	$.each(m, function(i, j){
-		if(i < m.length){
+		if(i < m.length-1){
 		  startCount += j.value
 		}
 	})
@@ -110,30 +110,36 @@ var remainder = function(m){
 }
 
 datasetTotal = [
-	{label: 'Low (0-2.4)', value: 70}
+	{label: 'Low (0-2.4)', value: 7}
+    // {label: 'Low-Medium (2.5-4.8)', value: 2}, 
+    // {label: 'Medium (4.9-7.2)', value: 3},
+    // {label: 'Medium-High (7.3-9.6)', value: 4},
+    // {label: 'High (9.7-12)', value: 5}
 ];
 
 datasetTotal.push({
 	label: 'Remainder', value: remainder(datasetTotal)
 })
 
-// datasetOption1 = [
-// 	{label: 'Low (0-2.4)', value: 22}, 
-// 	{label: 'Low-Medium (2.5-4.8)', value: 33}, 
-// 	{label: 'Medium (4.9-7.2)', value: 4},
-// 	{label: 'Medium-High (7.3-9.6)', value: 15},
-// 	{label: 'High (9.7-12)', value: 36},
-// 	{label: 'Remainder', value: 0}
-// ]; 
+console.log(datasetTotal)
 
-// datasetOption2 = [
-// 	{label: 'Low (0-2.4)', value: 10}, 
-// 	{label: 'Low-Medium (2.5-4.8)', value: 20}, 
-// 	{label: 'Medium (4.9-7.2)', value: 30},
-// 	{label: 'Medium-High (7.3-9.6)', value: 5},
-// 	{label: 'High (9.7-12)', value: 12},
-// 	{label: 'Remainder', value: 23}
-// ];
+datasetOption1 = [
+	{label: 'Low (0-2.4)', value: 22}, 
+	{label: 'Low-Medium (2.5-4.8)', value: 33}, 
+	{label: 'Medium (4.9-7.2)', value: 4},
+	{label: 'Medium-High (7.3-9.6)', value: 15},
+	{label: 'High (9.7-12)', value: 36},
+	{label: 'Remainder', value: 0}
+]; 
+
+datasetOption2 = [
+	{label: 'Low (0-2.4)', value: 10}, 
+	{label: 'Low-Medium (2.5-4.8)', value: 20}, 
+	{label: 'Medium (4.9-7.2)', value: 30},
+	{label: 'Medium-High (7.3-9.6)', value: 5},
+	{label: 'High (9.7-12)', value: 12},
+	{label: 'Remainder', value: 23}
+];
 
 change(datasetTotal);
 
@@ -154,11 +160,6 @@ function selectDataset() {
 	}
 }
 
-function getColor(value){
-	console.log('value: ', value)
-	// return "#999"
-}
-
 function change(data) {
 	/* ------- PIE SLICES -------*/
 	var slice = vis_group.select(".slices").selectAll("path.slice")
@@ -170,7 +171,6 @@ function change(data) {
 		.insert('path')
 		.style({
 			'fill': function(d) {
-				getColor(d.data)
 				return color(d.data.label)
 			}
 		})

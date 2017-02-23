@@ -23,8 +23,8 @@
         <div class="module">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 display">
-                        <form>
+                    <div class="col-md-4">
+<!--                         <form>
                             <label>
                                 <input type="radio" name="dataset" id="dataset" value="even" checked> Even</label>
                             <label>
@@ -33,9 +33,43 @@
                                 <input type="radio" name="dataset" id="dataset" value="option2"> Option 2</label>
                             <label>
                                 <input type="radio" name="dataset" id="dataset" value="total" checked> Total</label>
-                        </form>
-
-                        <div id="example"></div>
+                        </form> -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card display">
+                            <div class="cap">
+                                pollen count
+                            </div>
+                            <div id="example"></div>
+                            <div class="count-table">
+                                <table>
+                                    <tr class="tree-index">
+                                        <td>Tree Pollen Index</td>
+                                        <td class="value">Low</td>
+                                    </tr>
+                                    <tr class="tree-index">
+                                        <td>Mold Count Index</td>
+                                        <td class="value">Low</td>
+                                    </tr>
+                                    <tr class="grass-index">
+                                        <td>Grass Pollen Index</td>
+                                        <td class="value">None</td>
+                                    </tr>
+                                    <tr class="weed-index">
+                                        <td>Weed Pollen Index</td>
+                                        <td class="value">None</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tree-table">
+                                <table>
+                                    <tr class="tree-species">
+                                        <td>Active Tree Species</td>
+                                        <td class="value">Cedar, Maple</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
