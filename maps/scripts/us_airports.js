@@ -29,7 +29,7 @@ aspect = chart_container.width() / chart_container.height()
 
 queue()
 	.defer(d3.json, '../data/us.json')
-	.defer(d3.json, '../../data/airports.json')
+	.defer(d3.json, '../data/airports.json')
 	.await(ready)
 
 function ready(error, us, airports){

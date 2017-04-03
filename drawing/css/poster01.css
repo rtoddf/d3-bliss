@@ -2,6 +2,17 @@
 	text-align: center;
 }
 
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('bebas/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    src: url('bebas/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('bebas/BebasNeue-webfont.woff') format('woff'),
+         url('bebas/BebasNeue-webfont.ttf') format('truetype'),
+         url('bebas/BebasNeue-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .quote {
 	font-family:'BebasNeueRegular',Arial,sans-serif;
 	letter-spacing: 5px;
