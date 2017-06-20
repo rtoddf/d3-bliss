@@ -7,129 +7,45 @@
 		<title>D3</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
-
-		<link href="css/lib/bootstrap.min.css" rel="stylesheet">
-		<link href="css/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-
-		<link href="less/base.less" rel="stylesheet/less" />
-		<script src="scripts/less-1.7.4.min.js"></script>
+		<link href="css/base.css" rel="stylesheet" />
 	</head>
 
 	<body>
-		<div class="module">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="tile">
-							<div class="art">
-								<a href="charts/word_count.html"><img src="images/word_count.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="charts/word_count.html">Literary Word Counts</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="tile">
-							<div class="art">
-								<a href="comic_universe/dc.html"><img src="maps/images/dc-universe.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="comic_universe/dc.html">DC Universe</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="tile">
-							<div class="art">
-								<a href="comic_universe/marvel.html"><img src="maps/images/marvel-universe.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="comic_universe/marvel.html">Marvel Universe</a>
-							</div>
-						</div>
-					</div>
-				</div>
+		<div class="flex-container">
+            <div class="flex-row">
+                <div class="flex-item">
+					<ul>
+						<li><a href="charts/word_count.html">Literary Word Counts</a></li>
+						<li><a href="comic_universe/dc.html">DC Universe</a></li>
+						<li><a href="comic_universe/marvel.html">Marvel Universe</a></li>
+					</ul>
 
-				<div class="row">
-					<div class="col-md-2">
-						<div class="tile">
-							<div class="art">
-								<a href="drawing/poster01.html"><img src="drawing/images/poster1.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="drawing/poster01.html">Poster One</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="tile">
-							<div class="art">
-								<a href="drawing/poster02.html"><img src="drawing/images/poster2.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="drawing/poster02.html">Poster Two</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="tile">
-							<div class="art">
-								<a href="drawing/cityscape.html"><img src="drawing/images/cityscape.jpg" /></a>
-							</div>
-							<div class="cap">
-								<a href="drawing/cityscape.html">Animated Cityscape</a>
-							</div>
-						</div>
-					</div>
-				</div>
+					<h3><a href="v4/index.html">V4</a></h3>
+					<ul>
+						<li><a href="v4/index.html">V4 Notes</a></li>
+						<li><a href="v4/geojson-3d.html">GeoJSON 3D</a></li>
+					</ul>
 
-				<div class="row">
-					<div class="col-md-4">
-						<div class="tile">
-							<div class="cap">
-								<a href="v4/index.html">V4</a>
-							</div>
-							<div class="info">
-								<ul class="list-unstyled">
-									<li><a href="v4/index.html">V4 Notes</a></li>
-									<li><a href="v4/geojson-3d.html">GeoJSON 3D</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-4">
-						<div class="tile">
-							<div class="cap">
-								links
-							</div>
-							<div class="info">
-								<ul class="list-unstyled">
-									<li><a href="https://github.com/mbostock/d3" target="_blank">D3 on GitHub</a></li>
-									<li><a href="https://github.com/mbostock/d3/wiki/API-Reference" target="_blank">API Reference</a></li>
-									<li><a href="https://github.com/mbostock/d3/wiki/Gallery" target="_blank">D3 Gallery</a></li>
-									<li><a href="https://github.com/mbostock/d3/wiki/Tutorials" target="_blank">D3 Tutorials</a></li>
-									<li><a href="http://alignedleft.com/tutorials/d3/" target="_blank">Scot Murray Tutorials</a></li>
-									<li><a href="http://www.recursion.org/d3-for-mere-mortals/" target="_blank">D3 for Mere Mortals</a></li>
-									<li><a href="http://drawingbynumbers.org/" target="_blank">Drawing by Numbers</a></li>
-									<li><a href="https://github.com/mbostock/d3/wiki/Time-Formatting" target="_blank">D3 Time Formatting Docs</a></li>
-									<li><a href="https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_interpolate" target="_blank">D3 Interpolate Docs</a></li>
-									<li><a href="http://bost.ocks.org/mike/transition/" target="_blank">Working with Transitions - Mike Bostock</a></li>
-									<li><a href="http://bost.ocks.org/mike/constancy/" target="_blank">Object Constancy - Mike Bostock</a></li>
-									<li><a href="http://vis.berkeley.edu/papers/animated_transitions/" target="_blank">Animated Transitions in Statistical Data Graphics</a></li>
-									<li><a href="https://github.com/mbostock/topojson/wiki/API-Reference" target="_blank">Client API Wiki</a></li>
-									<li><a href="https://github.com/mbostock/d3/wiki/Geo-Projections" target="_blank">Geo Projections Wiki</a></li>
-									<li><a href="https://github.com/mbostock/d3/wiki/Geo-Paths" target="_blank">Geo Paths Wiki</a></li>
-									<li><a href="http://www.smartjava.org/content/election-site-part-1-basics-knockoutjs-bootstrap-and-d3js" target="_blank">Election site part 1: Basics with Knockout.js, Bootstrap and d3.js</a></li>
-									<li><a href="http://bl.ocks.org/mbostock" target="_blank">mbostock's blocks</a></li>
-
-								</ul>
-							</div>
-						</div>
-					</div>
+					<h3>links</h3>
+					<ul>
+						<li><a href="https://github.com/mbostock/d3" target="_blank">D3 on GitHub</a></li>
+						<li><a href="https://github.com/mbostock/d3/wiki/API-Reference" target="_blank">API Reference</a></li>
+						<li><a href="https://github.com/mbostock/d3/wiki/Gallery" target="_blank">D3 Gallery</a></li>
+						<li><a href="https://github.com/mbostock/d3/wiki/Tutorials" target="_blank">D3 Tutorials</a></li>
+						<li><a href="http://alignedleft.com/tutorials/d3/" target="_blank">Scot Murray Tutorials</a></li>
+						<li><a href="http://www.recursion.org/d3-for-mere-mortals/" target="_blank">D3 for Mere Mortals</a></li>
+						<li><a href="http://drawingbynumbers.org/" target="_blank">Drawing by Numbers</a></li>
+						<li><a href="https://github.com/mbostock/d3/wiki/Time-Formatting" target="_blank">D3 Time Formatting Docs</a></li>
+						<li><a href="https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_interpolate" target="_blank">D3 Interpolate Docs</a></li>
+						<li><a href="http://bost.ocks.org/mike/transition/" target="_blank">Working with Transitions - Mike Bostock</a></li>
+						<li><a href="http://bost.ocks.org/mike/constancy/" target="_blank">Object Constancy - Mike Bostock</a></li>
+						<li><a href="http://vis.berkeley.edu/papers/animated_transitions/" target="_blank">Animated Transitions in Statistical Data Graphics</a></li>
+						<li><a href="https://github.com/mbostock/topojson/wiki/API-Reference" target="_blank">Client API Wiki</a></li>
+						<li><a href="https://github.com/mbostock/d3/wiki/Geo-Projections" target="_blank">Geo Projections Wiki</a></li>
+						<li><a href="https://github.com/mbostock/d3/wiki/Geo-Paths" target="_blank">Geo Paths Wiki</a></li>
+						<li><a href="http://www.smartjava.org/content/election-site-part-1-basics-knockoutjs-bootstrap-and-d3js" target="_blank">Election site part 1: Basics with Knockout.js, Bootstrap and d3.js</a></li>
+						<li><a href="http://bl.ocks.org/mbostock" target="_blank">mbostock's blocks</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
