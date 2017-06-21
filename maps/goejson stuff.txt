@@ -1,0 +1,55 @@
+http://www2.census.gov/geo/tiger/GENZ2014/shp/cb_2014_06_tract_500k.zip
+
+zip files:
+https://www2.census.gov/geo/tiger/GENZ2014/shp/
+
+https://www2.census.gov/geo/tiger/GENZ2014/shp/cb_2014_06_tract_500k.zip
+
+download:
+curl 'https://www2.census.gov/geo/tiger/GENZ2014/shp/cb_2014_06_tract_500k.zip' -o cb_2014_06_tract_500k.zip
+
+unzip:
+unzip -o cb_2014_06_tract_500k.zip
+
+you can now view: mapshaper.org
+
+one time npm install: npm install -g shapefile
+
+convert to geojson:
+shp2json cb_2014_06_tract_500k.shp -o ca.json
+
+one time npm install: npm install -g d3-geo-projection
+
+use geoproject:
+geoproject 'd3.geoConicEqualArea().parallels([34, 40.5]).rotate([120, 0]).fitSize([960, 960], d)' < ca.json > ca-albers.json
+
+
+
+To preview the projected geometry, use d3-geo-projection’s geo2svg:
+geo2svg -w 960 -h 960 < ca-albers.json > ca-albers.svg
+
+
+unzip -o tl_2016_us_cd115.zip
+unzip -o cb_2016_13_sldu_500k.zip
+unzip -o cb_2016_13_sldl_500k.zip
+
+
+geoproject 'd3.geoConicEqualArea().parallels([34, 40.5]).rotate([120, 0]).fitSize([960, 960], d)' < shape.geojson > ga-albers.json
+
+geo2svg -w 960 -h 960 < ga-albers.json > ga-albers.svg
+
+state by state: https://www.census.gov/geo/maps-data/data/cbf/cbf_sld.html
+https://github.com/unitedstates/districts/tree/gh-pages/states
+https://www.census.gov/geo/maps-data/data/tiger-line.html
+https://www.census.gov/geo/maps-data/data/cbf/cbf_cds.html
+
+https://stackoverflow.com/questions/14565963/topojson-for-congressional-districts
+
+
+
+cb_2016_ga_cd115_500k.zip
+
+
+
+curl 'https://www2.census.gov/geo/tiger/GENZ2016/shp/cb_2016_ga_cd115_500k.zip' -o cb_2016_ga_cd115_500k.zip
+unzip -o cb_2016_ga_cd115_500k.zip
